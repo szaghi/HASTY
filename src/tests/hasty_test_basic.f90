@@ -8,11 +8,11 @@ use hasty
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
-class(*), allocatable :: a_key             !< A key.
-class(*), pointer     :: a_content         !< A content.
-class(*), pointer     :: another_content   !< Another content.
-type(list)            :: a_list            !< A list.
-logical               :: test_passed(4)    !< List of passed tests.
+class(*), allocatable :: a_key           !< A key.
+class(*), pointer     :: a_content       !< A content.
+class(*), pointer     :: another_content !< Another content.
+type(list)            :: a_list          !< A list.
+logical               :: test_passed(8)  !< List of passed tests.
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -60,6 +60,20 @@ print "(A,L1)", 'a_list(3) = 10, is correct? ', test_passed(3)
 
 test_passed(4) = len(a_list)==2
 print "(A,L1)", 'len(a_list) = 2, is correct? ', test_passed(4)
+
+test_passed(5) = a_list%has_key(3_int32)
+print "(A,L1)", 'a_list has key "3", is correct? ', test_passed(5)
+
+test_passed(6) = .not.a_list%has_key(4_int32)
+print "(A,L1)", 'a_list has not key "4", is correct? ', test_passed(6)
+
+call a_list%remove(key=3_int32)
+test_passed(7) = .not.a_list%has_key(3_int32)
+print "(A,L1)", 'a_list has not key "3", is correct? ', test_passed(7)
+
+call a_list%destroy
+test_passed(8) = len(a_list)==0
+print "(A,L1)", 'a_list destroyed, is correct? ', test_passed(8)
 
 print "(A,L1)", new_line('a')//'Are all tests passed? ', all(test_passed)
 stop

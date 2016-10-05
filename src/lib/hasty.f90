@@ -13,8 +13,8 @@ use hasty_list_node
 implicit none
 private
 public :: content_adt
-public :: key_adt
-public :: len, list
+public :: key_adt, are_keys_equal, is_key_allowed, str_key
+public :: list, key_iterator_interface, len
 public :: list_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 endmodule hasty

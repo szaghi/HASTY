@@ -284,14 +284,14 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Remove a node from the list, given the key.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list),    intent(inout) :: self !< The list.
-  class(key_adt), intent(in)    :: key  !< The key ID, can be any [[key_adt]] concrete extensions.
-  type(list_node), pointer      :: p    !< Pointer to scan the list.
+  class(list), intent(inout) :: self !< The list.
+  class(*),    intent(in)    :: key  !< The key ID, can be any [[key_adt]] concrete extensions.
+  type(list_node), pointer   :: p    !< Pointer to scan the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   p => self%node(key=key)
-  call self%remove_by_pointer(p=p)
+  if (associated(p)) call self%remove_by_pointer(p=p)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove
 
