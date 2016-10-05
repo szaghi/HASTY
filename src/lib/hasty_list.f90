@@ -3,7 +3,6 @@ module hasty_list
 !-----------------------------------------------------------------------------------------------------------------------------------
 !< HASTY class of linked list.
 !-----------------------------------------------------------------------------------------------------------------------------------
-! use hasty_container_adt
 use hasty_key_adt
 use hasty_list_node
 use penf
@@ -12,30 +11,54 @@ use penf
 !-----------------------------------------------------------------------------------------------------------------------------------
 implicit none
 private
+public :: key_iterator_interface
 public :: len
 public :: list
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
 type :: list
-  !< **List** class to storage any contents by means abstract container nodes.
+  !< **List** class to storage any contents by means of abstract container nodes.
   integer(I4P)             :: nodes_number=0 !< Number of nodes in the list.
   type(list_node), pointer :: head=>null()   !< The first node in the list.
   type(list_node), pointer :: tail=>null()   !< The last node in the list.
   contains
     ! public methods
-    procedure, pass(self) :: add       !< Add a node to the list.
-    procedure, pass(self) :: add_clone !< Add a clone of the node to the list (non pointer add).
-    procedure, pass(self) :: destroy   !< Destroy the list.
-    procedure, pass(self) :: get       !< Return a pointer to a node's container in the list.
-    procedure, pass(self) :: has_key   !< Check if the key is present in the list.
-    procedure, pass(self) :: node      !< Return a pointer to a node in the list.
-    procedure, pass(self) :: remove    !< Remove a node from the list, given the key.
+    procedure, pass(self) :: add_pointer !< Add a node pointer to the list.
+    procedure, pass(self) :: add_clone   !< Add a node to the list cloning contents (non pointer add).
+    procedure, pass(self) :: destroy     !< Destroy the list.
+    procedure, pass(self) :: get         !< Return a pointer to a node's container in the list.
+    procedure, pass(self) :: has_key     !< Check if the key is present in the list.
+    procedure, pass(self) :: node        !< Return a pointer to a node in the list.
+    procedure, pass(self) :: print_keys  !< Print the list of keys.
+    procedure, pass(self) :: remove      !< Remove a node from the list, given the key.
+    procedure, pass(self) :: traverse    !< Traverse list from head to tail calling the iterator procedure.
     ! private methods
     procedure, pass(self), private :: remove_by_pointer !< Remove node from list, given pointer to it.
-    final                          :: finalize          !< Finalize the list.
+    procedure, pass(self), private :: traverse_iterator !< Traverse list from head to tail calling the iterator procedure.
+    ! finalizer
+    final :: finalize !< Finalize the list.
 endtype list
 
+! public interfaces
+abstract interface
+  !< Iterator procedure for traversing all nodes in a list by keys.
+  subroutine key_iterator_interface(key, done, content)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Iterator procedure for traversing all nodes in a list by keys.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(*),          intent(in)            :: key     !< The node key.
+  logical,           intent(out)           :: done    !< Flag to set to true to stop traversing.
+  class(*), pointer, intent(out), optional :: content !< The generic  content.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  end subroutine key_iterator_interface
+endinterface
+
+interface len
+  module procedure list_len
+endinterface
+
+! private interfaces
 abstract interface
   !< Iterator procedure for traversing all nodes in a list.
   subroutine iterator_interface(node, done)
@@ -47,20 +70,6 @@ abstract interface
   logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine iterator_interface
-endinterface
-
-abstract interface
-  !< Iterator procedure for traversing all nodes in a list by keys.
-  subroutine key_iterator(key, done)
-  !< Iterator procedure for traversing all nodes in a list by keys.
-  import :: key_adt
-  class(key_adt), intent(in)  :: key  !< The node key.
-  logical,        intent(out) :: done !< Flag to set to true to stop traversing.
-  end subroutine key_iterator
-endinterface
-
-interface len
-  module procedure list_len
 endinterface
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
@@ -79,46 +88,24 @@ contains
   endfunction list_len
 
   ! public methods
-  subroutine add(self, key, container, content)
+  subroutine add_pointer(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Add a node to the list.
+  !< Add a node pointer to the list.
   !<
   !< @note If a node with the same key is already in the list, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(inout)                 :: self      !< The list.
-  class(*),    intent(in)                    :: key       !< The key ID.
-  class(*),    intent(in), pointer           :: container !< The container.
-  class(*),    intent(in), pointer, optional :: content   !< The content.
-  type(list_node), pointer                   :: p         !< Pointer to scan the list.
+  class(list), intent(inout)       :: self    !< The list.
+  class(*),    intent(in)          :: key     !< The key ID.
+  class(*),    intent(in), pointer :: content !< The content.
+  type(list_node), pointer         :: p       !< Pointer to scan the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  ! check key type
-  select type (key)
-  type is(integer(I1P))
-    ! allowed
-  type is(integer(I2P))
-    ! allowed
-  type is(integer(I4P))
-    ! allowed
-  type is(integer(I8P))
-    ! allowed
-  type is(character(len=*))
-    if (len_trim(key)<1) error stop 'error: key-string must be nonblank'
-  class is (key_adt)
-    ! allowed
-  class default
-      error stop 'error: key must be a concrete extension of key_adt abstract class'
-  endselect
+  if (.not.is_key_allowed(key)) error stop 'error: key type not supported'
 
   ! if the node is already there, then remove it
-  ! associate p to the pointer allocated
-  p => self%node(key=key)
-  if (associated(p)) then
-    call self%remove_by_pointer(p)
-  else ! a new node is inserted, the count must be updated
-    self%nodes_number = self%nodes_number + 1
-  endif
+  p => self%node(key=key) ! associate p to the pointer allocated
+  if (associated(p)) call self%remove_by_pointer(p)
 
   ! update next/previous pointers
   if (associated(self%tail)) then ! insert new node at the end
@@ -132,50 +119,30 @@ contains
   self%tail => p
 
   ! fill the new node with provided contents
-  call p%set(key=key, container=container, content=content)
-  !---------------------------------------------------------------------------------------------------------------------------------
-  endsubroutine add
+  call p%set_pointer(key=key, content=content)
 
-  subroutine add_clone(self, key, container, content)
+  self%nodes_number = self%nodes_number + 1
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Add a clone of the node to the list (non pointer add).
+  endsubroutine add_pointer
+
+  subroutine add_clone(self, key, content)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Add a node to the list cloning content (non pointer add).
   !<
   !< @note If a node with the same key is already in the list, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(inout)        :: self      !< The list.
-  class(*),    intent(in)           :: key       !< The key ID.
-  class(*),    intent(in)           :: container !< The container.
-  class(*),    intent(in), optional :: content   !< The content.
-  type(list_node), pointer          :: p         !< Pointer to scan the list.
+  class(list), intent(inout) :: self    !< The list.
+  class(*),    intent(in)    :: key     !< The key ID.
+  class(*),    intent(in)    :: content !< The content.
+  type(list_node), pointer   :: p       !< Pointer to scan the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  ! check key type
-  select type (key)
-  type is(integer(I1P))
-    ! allowed
-  type is(integer(I2P))
-    ! allowed
-  type is(integer(I4P))
-    ! allowed
-  type is(integer(I8P))
-    ! allowed
-  type is(character(len=*))
-    if (len_trim(key)<1) error stop 'error: key-string must be nonblank'
-  class is (key_adt)
-    ! allowed
-  class default
-      error stop 'error: key must be a concrete extension of key_adt abstract class'
-  endselect
+  if (.not.is_key_allowed(key)) error stop 'error: key type not supported'
 
   ! if the node is already there, then remove it
-  ! associate p to the pointer allocated
-  p => self%node(key=key)
-  if (associated(p)) then
-    call self%remove_by_pointer(p)
-  else ! a new node is inserted, the count must be updated
-    self%nodes_number = self%nodes_number + 1
-  endif
+  p => self%node(key=key) ! associate p to the pointer allocated
+  if (associated(p)) call self%remove_by_pointer(p)
 
   ! update next/previous pointers
   if (associated(self%tail)) then ! insert new node at the end
@@ -189,7 +156,9 @@ contains
   self%tail => p
 
   ! fill the new node with provided contents
-  call p%set_clone(key=key, container=container, content=content)
+  call p%set_clone(key=key, content=content)
+
+  self%nodes_number = self%nodes_number + 1
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine add_clone
 
@@ -208,19 +177,20 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy
 
-  function get(self, key) result(container)
+  function get(self, key) result(content)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Return a pointer to a node's container in the list.
+  !< Return a pointer to a node's content in the list.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(in)  :: self      !< The list.
-  class(*),    intent(in)  :: key       !< The key ID.
-  class(*), pointer        :: container !< Container pointer of the queried node.
-  type(list_node), pointer :: p         !< Pointer to scan the list.
+  class(list), intent(in)  :: self    !< The list.
+  class(*),    intent(in)  :: key     !< The key ID.
+  class(*), pointer        :: content !< content pointer of the queried node.
+  type(list_node), pointer :: p       !< Pointer to scan the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
+  content => null()
   p => self%node(key=key)
-  if (associated(p)) container => p%container
+  if (associated(p)) content => p%content
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction get
 
@@ -231,26 +201,26 @@ contains
   class(list), intent(in)  :: self    !< The list.
   class(*),    intent(in)  :: key     !< The key ID.
   logical                  :: has_key !< Check result.
-  type(list_node), pointer :: p       !< Pointer to scan the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   has_key = .false.
-  p => self%head
-  do
-    if (associated(p)) then
-      if (allocated(p%key)) then
-        if (are_keys_equal(lhs=p%key, rhs=key)) then
-          has_key = .true.
-          exit
-        endif
-      endif
-      p => p%next
-    else
-      exit
-    endif
-  enddo
+  call self%traverse_iterator(iterator=key_iterator_search)
   !---------------------------------------------------------------------------------------------------------------------------------
+  contains
+    subroutine key_iterator_search(node, done)
+    !-------------------------------------------------------------------------------------------------------------------------------
+    !< Iterator procedure for searching a key.
+    !-------------------------------------------------------------------------------------------------------------------------------
+    type(list_node), intent(in), pointer :: node !< Actual node pointer in the list.
+    logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
+    !-------------------------------------------------------------------------------------------------------------------------------
+
+    !-------------------------------------------------------------------------------------------------------------------------------
+    has_key = are_keys_equal(lhs=node%key, rhs=key)
+    done = has_key
+    !-------------------------------------------------------------------------------------------------------------------------------
+    endsubroutine key_iterator_search
   endfunction has_key
 
   function node(self, key) result(p)
@@ -260,27 +230,55 @@ contains
   class(list), intent(in)  :: self !< The list.
   class(*),    intent(in)  :: key  !< The key ID.
   type(list_node), pointer :: p    !< Pointer to node queried.
-  type(list_node), pointer :: pp   !< Pointer to scan the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   p => null()
-  pp => self%head
-  do
-    if (associated(pp)) then
-      if (allocated(pp%key)) then
-        if (are_keys_equal(lhs=pp%key, rhs=key)) then
-          p => pp
-          return
-        endif
-      endif
-      pp => pp%next
-    else
-      return ! not found
-    endif
-  enddo
+  call self%traverse_iterator(iterator=key_iterator_search)
   !---------------------------------------------------------------------------------------------------------------------------------
+  contains
+    subroutine key_iterator_search(node, done)
+    !-------------------------------------------------------------------------------------------------------------------------------
+    !< Iterator procedure for searching a key.
+    !-------------------------------------------------------------------------------------------------------------------------------
+    type(list_node), intent(in), pointer :: node !< Actual node pointer in the list.
+    logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
+    !-------------------------------------------------------------------------------------------------------------------------------
+
+    !-------------------------------------------------------------------------------------------------------------------------------
+    done = are_keys_equal(lhs=node%key, rhs=key)
+    if (done) then
+      p => node
+    endif
+    !-------------------------------------------------------------------------------------------------------------------------------
+    endsubroutine key_iterator_search
   endfunction node
+
+  subroutine print_keys(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Print the list of keys.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(list), intent(in) :: self !< The list.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  call self%traverse_iterator(iterator=key_iterator_print)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  contains
+    subroutine key_iterator_print(node, done)
+    !-------------------------------------------------------------------------------------------------------------------------------
+    !< Iterator procedure for printing a key.
+    !-------------------------------------------------------------------------------------------------------------------------------
+    type(list_node), intent(in), pointer :: node    !< Actual node pointer in the list.
+    logical,         intent(out)         :: done    !< Flag to set to true to stop traversing.
+    !-------------------------------------------------------------------------------------------------------------------------------
+
+    !-------------------------------------------------------------------------------------------------------------------------------
+    if (allocated(node%key)) print '(A)', str_key(node%key)
+    done = .false. ! never stop until the tail
+    !-------------------------------------------------------------------------------------------------------------------------------
+    endsubroutine key_iterator_print
+  endsubroutine print_keys
 
   subroutine remove(self, key)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -296,6 +294,32 @@ contains
   call self%remove_by_pointer(p=p)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove
+
+  subroutine traverse(self, iterator)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Traverse list from head to tail calling the iterator procedure.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(list), intent(in)           :: self     !< The list.
+  procedure(key_iterator_interface) :: iterator !< The (key) iterator procedure to call for each node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  call self%traverse_iterator(key_iterator_wrapper)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  contains
+    subroutine key_iterator_wrapper(node, done)
+    !-------------------------------------------------------------------------------------------------------------------------------
+    !< Wrapper for calling the user-specified key_iterator procedure.
+    !-------------------------------------------------------------------------------------------------------------------------------
+    type(list_node), intent(in), pointer :: node !< The list node.
+    logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
+    !-------------------------------------------------------------------------------------------------------------------------------
+
+    !-------------------------------------------------------------------------------------------------------------------------------
+    call iterator(key=node%key, done=done)
+    !-------------------------------------------------------------------------------------------------------------------------------
+    endsubroutine key_iterator_wrapper
+  endsubroutine traverse
 
   ! private methods
   subroutine remove_by_pointer(self, p)
@@ -332,6 +356,32 @@ contains
   endif
   endsubroutine remove_by_pointer
 
+  subroutine traverse_iterator(self, iterator)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Traverse list from head to tail calling the iterator procedure.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(list), intent(in)       :: self      !< The list.
+  procedure(iterator_interface) :: iterator  !< The iterator procedure to call for each node.
+  type(list_node), pointer      :: p         !< Pointer to scan the list.
+  logical                       :: done      !< Flag to set to true to stop traversing.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  done = .false.
+  p => self%head
+  do
+    if (associated(p)) then
+      call iterator(node=p, done=done)
+      if (done) exit
+      p => p%next
+    else
+      exit
+    endif
+  enddo
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine traverse_iterator
+
+  ! finalizer
   subroutine finalize(self)
   !< Finalize the list.
   !<

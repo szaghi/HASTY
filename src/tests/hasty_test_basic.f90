@@ -21,9 +21,10 @@ test_passed = .false.
 allocate(a_key, source=3_int32)
 allocate(a_content, source=12_int32)
 
-! the content has not an actual container, put content directly into container
-call a_list%add(key=a_key, container=a_content)
-call a_list%add_clone(key=5_int32, container=13_int32)
+call a_list%add_pointer(key=a_key, content=a_content)
+call a_list%add_clone(key=5_int32, content=13_int32)
+print '(A)', 'Keys in list:'
+call a_list%print_keys
 
 a_content => a_list%get(key=3_int32)
 if (associated(a_content)) then
@@ -64,4 +65,3 @@ print "(A,L1)", new_line('a')//'Are all tests passed? ', all(test_passed)
 stop
 !-----------------------------------------------------------------------------------------------------------------------------------
 endprogram hasty_test_basic
-

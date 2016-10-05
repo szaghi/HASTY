@@ -3,9 +3,7 @@ module hasty_list_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 !< HASTY class of linked list node.
 !-----------------------------------------------------------------------------------------------------------------------------------
-use penf
-use hasty_container_adt
-! use hasty_key_adt
+use hasty_content_adt
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -18,19 +16,19 @@ public :: list_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 type :: list_node
   !< **List node** class to storage any contents as a node of a linked list.
-  class(*), allocatable    :: key              !< The key ID.
-  class(*),        pointer :: container        !< The container for generic contents.
-  type(list_node), pointer :: next=>null()     !< The next node in the list.
-  type(list_node), pointer :: previous=>null() !< The previous node in the list.
+  class(*),        allocatable :: key              !< The key ID.
+  class(*),        pointer     :: content          !< The generic  content.
+  type(list_node), pointer     :: next=>null()     !< The next node in the list.
+  type(list_node), pointer     :: previous=>null() !< The previous node in the list.
   contains
     ! public methods
-    procedure, pass(self) :: destroy_contents !< Destroy the node contents (key & container).
+    procedure, pass(self) :: destroy_contents !< Destroy the node contents (key & content).
     procedure, pass(self) :: is_filled        !< Return storage status.
-    procedure, pass(self) :: set              !< Set the node.
-    procedure, pass(self) :: set_clone        !< Set the node cloning contents.
+    procedure, pass(self) :: set_pointer      !< Set the node pointer-associating content.
+    procedure, pass(self) :: set_clone        !< Set the node cloning content.
     ! private methods
-    procedure, pass(self) :: destroy_key       !< Destroy the node key.
-    procedure, pass(self) :: destroy_container !< Destroy the node container.
+    procedure, pass(self), private :: destroy_key     !< Destroy the node key.
+    procedure, pass(self), private :: destroy_content !< Destroy the node content.
 endtype list_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
@@ -56,14 +54,14 @@ contains
   ! public methods
   subroutine destroy_contents(self)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Destroy the node contents (key & container).
+  !< Destroy the node contents (key & content).
   !---------------------------------------------------------------------------------------------------------------------------------
   class(list_node), intent(inout) :: self !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
-  call self%destroy_container
+  call self%destroy_content
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy_contents
 
@@ -77,12 +75,12 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   is_filled = .false.
   if (allocated(self%key)) then
-    if (associated(self%container)) then
+    if (associated(self%content)) then
       is_filled = .true.
-      associate(container=>self%container)
-        select type(container)
-        class is(container_adt)
-          is_filled = container%is_filled()
+      associate(content=>self%content)
+        select type(content)
+        class is(content_adt)
+          is_filled = content%is_filled()
         endselect
       endassociate
     endif
@@ -90,37 +88,23 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction is_filled
 
-  subroutine set(self, key, container, content, next, previous)
+  subroutine set_pointer(self, key, content, next, previous)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Set the node.
+  !< Set the node pointer-associating content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(inout)                 :: self      !< The node.
-  class(*),         intent(in),          optional :: key       !< The key ID.
-  class(*),         intent(in), pointer, optional :: container !< The container.
-  class(*),         intent(in), pointer, optional :: content   !< The content.
-  type(list_node),  intent(in), pointer, optional :: next      !< The next node in the list.
-  type(list_node),  intent(in), pointer, optional :: previous  !< The previous node in the list.
+  class(list_node), intent(inout)                 :: self     !< The node.
+  class(*),         intent(in)                    :: key      !< The key ID.
+  class(*),         intent(in), pointer           :: content  !< The content.
+  type(list_node),  intent(in), pointer, optional :: next     !< The next node in the list.
+  type(list_node),  intent(in), pointer, optional :: previous !< The previous node in the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (present(key)) then
-    call self%destroy_key
-    allocate(self%key, source=key)
-  endif
+  call self%destroy_key
+  allocate(self%key, source=key)
 
-  if (present(container)) then
-    call self%destroy_container
-    self%container => container
-  endif
-
-  if (present(content).and.associated(self%container)) then
-    associate(container=>self%container)
-      select type(container)
-      class is(container_adt)
-        call container%set(content=content)
-      endselect
-    endassociate
-  endif
+  call self%destroy_content
+  self%content => content
 
   if (present(next)) then
     ! TODO implement update pointers
@@ -130,39 +114,25 @@ contains
     ! TODO implement update pointers
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
-  endsubroutine set
+  endsubroutine set_pointer
 
-  subroutine set_clone(self, key, container, content, next, previous)
+  subroutine set_clone(self, key, content, next, previous)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Set the node.
+  !< Set the node cloning content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(inout)                 :: self      !< The node.
-  class(*),         intent(in),          optional :: key       !< The key ID.
-  class(*),         intent(in),          optional :: container !< The container.
-  class(*),         intent(in),          optional :: content   !< The content.
-  type(list_node),  intent(in), pointer, optional :: next      !< The next node in the list.
-  type(list_node),  intent(in), pointer, optional :: previous  !< The previous node in the list.
+  class(list_node), intent(inout)                 :: self     !< The node.
+  class(*),         intent(in)                    :: key      !< The key ID.
+  class(*),         intent(in)                    :: content  !< The content.
+  type(list_node),  intent(in), pointer, optional :: next     !< The next node in the list.
+  type(list_node),  intent(in), pointer, optional :: previous !< The previous node in the list.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (present(key)) then
-    call self%destroy_key
-    allocate(self%key, source=key)
-  endif
+  call self%destroy_key
+  allocate(self%key, source=key)
 
-  if (present(container)) then
-    call self%destroy_container
-    allocate(self%container, source=container)
-  endif
-
-  if (present(content).and.associated(self%container)) then
-    associate(container=>self%container)
-      select type(container)
-      class is(container_adt)
-        call container%set(content=content)
-      endselect
-    endassociate
-  endif
+  call self%destroy_content
+  allocate(self%content, source=content)
 
   if (present(next)) then
     ! TODO implement update pointers
@@ -187,23 +157,23 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy_key
 
-  subroutine destroy_container(self)
+  subroutine destroy_content(self)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Destroy the node container.
+  !< Destroy the node content.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(list_node), intent(inout) :: self !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (associated(self%container)) then
-    associate(container=>self%container)
-      select type(container)
-      class is(container_adt)
-        call container%destroy
+  if (associated(self%content)) then
+    associate(content=>self%content)
+      select type(content)
+      class is(content_adt)
+        call content%destroy
       endselect
     endassociate
-    deallocate(self%container)
+    deallocate(self%content)
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
-  endsubroutine destroy_container
+  endsubroutine destroy_content
 endmodule hasty_list_node
