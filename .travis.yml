@@ -58,12 +58,14 @@ before_deploy:
   - $MAKETAR
   - mv HASTY.tar.gz HASTY-$TRAVIS_TAG.tar.gz
 
-# deploy:
-#   provider: releases
-#   api_key:
-#     secure: MqRf9dWvZak0yEzTUcrf/tlfWztVLJe1OImUZBHfJLWE3GjtM8VLv50otNOyb+JNUYfV8e86F5Tzouxxp5xD54RhDhSKnG3f2RSpVJ3BwTewIXsJEYlV14Ec1xlKCLkg6EEZg1Fn/eZDLonjicm1whTP9GJb3GCWL9X1y6mPCt0=
-#   file: HASTY-$TRAVIS_TAG.tar.gz
-#   skip_cleanup: true
-#   overwrite: true
-#   on:
-#     tags: true
+deploy:
+  provider: releases
+  api_key:
+    secure: VKq3Na+aS3RlGyATNZ5V+Ena7k7XqM75+N2gmAhAWKUAcZNNDCTy+3YKAf8cWwJWrhEjVQStoBk2q8IT7H4gYQYCOvGxN17wcYmmxf0hKUcVZ2/GX4xx6CkgzWkDr2MrceZitsXGnSsWIxJxYVV48ah3FiDN+1Nu79s0i3OLFY1qR++dUus/5SVJ1OF7FvVDhXHDbuUrBOrJUVpB2Z14KyAGTVa6T+NSEVoQtdyZxaTjfshaPQLDQrR0WaQhU9S0bItoQDATmwekE3LBbnWu+t9KA1Ii3urJWt7PXUm8Z2X0hBhTOVRi6SFPDrOqZ49j5XCe9c1WLDDvmBsBbDsS6IdJRxScJ9UFD2ClPkAU5AJyiEaaKveAmCZmm+iUdi9fixWpOzcM3++y+a0c3xx92IErAnDl1wQxRIs7md/78RuMqfdFtR/5/j7am2hIqPyU95T0CDyCpLDRHGZGsVqkdunOhV/J1AuXCjRUNGsqN0gmeMgbEUs8+hrtDLtieDwVsMYUkNqu0uSpRQVxgZI4DYCAyMEM79La6T5XM2M7Fwm/4d6aWdqZXpN6jwKT1At6aocZ1zO4DRirGqmc98h2Ig1XEntFPdYh6scJwSS5tHs1tBDpi62uKf5+yELgG6ydRvPycE8az0207XjOA1ROckG1eA++L7/l/V/eCyv/beQ=
+  file: 
+    - HASTY-$TRAVIS_TAG.tar.gz
+    - ./scripts/install.sh
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true

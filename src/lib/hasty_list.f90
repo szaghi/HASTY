@@ -37,7 +37,7 @@ type :: list
     procedure, pass(self), private :: remove_by_pointer !< Remove node from list, given pointer to it.
     procedure, pass(self), private :: traverse_iterator !< Traverse list from head to tail calling the iterator procedure.
     ! finalizer
-    final :: finalize !< Finalize the list.
+    ! final :: finalize !< Finalize the list.
 endtype list
 
 ! public interfaces
@@ -383,6 +383,7 @@ contains
 
   ! finalizer
   subroutine finalize(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
   !< Finalize the list.
   !<
   !< A wrapper for [[list:destroy]]

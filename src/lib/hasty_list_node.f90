@@ -4,6 +4,7 @@ module hasty_list_node
 !< HASTY class of linked list node.
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_content_adt
+use hasty_key_adt
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -17,7 +18,7 @@ public :: list_node
 type :: list_node
   !< **List node** class to storage any contents as a node of a linked list.
   class(*),        allocatable :: key              !< The key ID.
-  class(*),        pointer     :: content          !< The generic  content.
+  class(*),        pointer     :: content=>null()  !< The generic  content.
   type(list_node), pointer     :: next=>null()     !< The next node in the list.
   type(list_node), pointer     :: previous=>null() !< The previous node in the list.
   contains
@@ -29,6 +30,8 @@ type :: list_node
     ! private methods
     procedure, pass(self), private :: destroy_key     !< Destroy the node key.
     procedure, pass(self), private :: destroy_content !< Destroy the node content.
+    ! finalizer
+    ! final :: finalize !< Finalize the node.
 endtype list_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
@@ -37,7 +40,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Destroy the node and its subsequent ones in the list.
   !---------------------------------------------------------------------------------------------------------------------------------
-  type(list_node), intent(inout), pointer :: node !< The node.
+  type(list_node), pointer, intent(inout) :: node !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -173,7 +176,21 @@ contains
       endselect
     endassociate
     deallocate(self%content)
+    self%content => null()
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy_content
+
+  ! finalizer
+  subroutine finalize(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Finalize the list node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  type(list_node), intent(inout) :: self !< The node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  call self%destroy_contents
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine finalize
 endmodule hasty_list_node
