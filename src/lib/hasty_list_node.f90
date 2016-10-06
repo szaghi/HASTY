@@ -31,7 +31,7 @@ type :: list_node
     procedure, pass(self), private :: destroy_key     !< Destroy the node key.
     procedure, pass(self), private :: destroy_content !< Destroy the node content.
     ! finalizer
-    ! final :: finalize !< Finalize the node.
+    final :: finalize !< Finalize the node.
 endtype list_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
