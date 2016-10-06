@@ -6,6 +6,7 @@ module hasty_key_adt
 !< @note This module provides also helper procedures for:
 !<
 !<+ comparing two Unlimited Polymorphic Classes for the keys comparison necessities;
+!<+ hasing a key;
 !<+ typeguard for allowed types of keys;
 !<+ key stringify;
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -17,6 +18,7 @@ implicit none
 private
 ! helper procedures
 public :: are_keys_equal
+public :: hash_key
 public :: is_key_allowed
 public :: str_key
 ! abstract **key** class
@@ -118,6 +120,32 @@ contains
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction are_keys_equal
+
+  elemental function hash_key(key, buckets_number) result(bucket)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Hash the key.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(*),     intent(in) :: key            !< Key to hash.
+  integer(I4P), intent(in) :: buckets_number !< Buckets number.
+  integer(I4P)             :: bucket         !< Bucket index corresponding to the key.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  bucket = 0
+  select type(key)
+  type is(integer(I1P))
+    bucket = mod(int(key, I4P), buckets_number)
+  type is(integer(I2P))
+    bucket = mod(int(key, I4P), buckets_number)
+  type is(integer(I4P))
+    bucket = mod(int(key, I4P), buckets_number)
+  type is(integer(I8P))
+    bucket = mod(int(key, I4P), buckets_number)
+  type is(character(len=*))
+    ! TODO implement
+  endselect
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction hash_key
 
   elemental function is_key_allowed(key)
   !---------------------------------------------------------------------------------------------------------------------------------
