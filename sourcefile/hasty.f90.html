@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="HASh Table fortran container exploiting coarraY">
+    
+    <meta name="author" content="Stefano Zaghi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>hasty.f90 &ndash; HASTY</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">HASTY </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>hasty.f90
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 0.8% of total for source files.">12 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/hasty.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li class="active">hasty.f90</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
+  <div id="mods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty.html">hasty</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/hasty.f90.html#src">hasty.f90</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-0">All Source Files</a></h3></div>
+  <div id="allfiles-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/compact_real.f90.html">compact_real.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty.f90.html">hasty.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_content_adt.f90.html">hasty_content_adt.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_key_adt.f90.html">hasty_key_adt.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_list.f90.html">hasty_list.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_list_node.f90.html">hasty_list_node.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_test_list.f90.html">hasty_test_list.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf.f90.html">penf.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf_b_size.f90.html">penf_b_size.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf_global_parameters_variables.f90.html">penf_global_parameters_variables.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf_stringify.f90.html">penf_stringify.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_all.f90.html">test_all.F90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    <div class="col-md-9" id='text'>
+    <p>HASTY, HASh Table fortran container exploiting coarraY.</p>
+    
+    <h3>This File Depends On</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: sourcefile~~hasty.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefilehastyf90EfferentGraph" width="641pt" height="94pt"
+ viewBox="0.00 0.00 641.00 94.49" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~hasty.f90~~EfferentGraph" class="graph" transform="scale(0.603578 0.603578) rotate(0) translate(4 152.547)">
+<title>sourcefile~~hasty.f90~~EfferentGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-152.547 1059,-152.547 1059,5 -4,5"/>
+<!-- sourcefile~hasty.f90 -->
+<g id="node1" class="node"><title>sourcefile~hasty.f90</title>
+<polygon fill="none" stroke="black" points="1054,-116.971 998,-116.971 998,-90.9707 1054,-90.9707 1054,-116.971"/>
+<text text-anchor="middle" x="1026" y="-101.521" font-family="Helvetica,sans-Serif" font-size="10.50">hasty.f90</text>
+</g>
+<!-- sourcefile~hasty_content_adt.f90 -->
+<g id="node2" class="node"><title>sourcefile~hasty_content_adt.f90</title>
+<a xlink:href="../sourcefile/hasty_content_adt.f90.html" xlink:title="hasty_content_adt.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="708,-139.971 590,-139.971 590,-113.971 708,-113.971 708,-139.971"/>
+<text text-anchor="middle" x="649" y="-124.521" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_content_adt.f90</text>
+</a>
+</g>
+<!-- sourcefile~hasty_content_adt.f90&#45;&gt;sourcefile~hasty.f90 -->
+<g id="edge26" class="edge"><title>sourcefile~hasty_content_adt.f90&#45;&gt;sourcefile~hasty.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M708.146,-136.852C763.93,-144.75 849.821,-153.244 924,-144.971"/>
+</g>
+<!-- sourcefile~hasty_list_node.f90 -->
+<g id="node4" class="node"><title>sourcefile~hasty_list_node.f90</title>
+<a xlink:href="../sourcefile/hasty_list_node.f90.html" xlink:title="hasty_list_node.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="849,-116.971 745,-116.971 745,-90.9707 849,-90.9707 849,-116.971"/>
+<text text-anchor="middle" x="797" y="-101.521" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_list_node.f90</text>
+</a>
+</g>
+<!-- sourcefile~hasty_content_adt.f90&#45;&gt;sourcefile~hasty_list_node.f90 -->
+<g id="edge16" class="edge"><title>sourcefile~hasty_content_adt.f90&#45;&gt;sourcefile~hasty_list_node.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M708.344,-117.748C716.899,-116.419 725.726,-115.047 734.343,-113.708"/>
+<polygon fill="#000000" stroke="#000000" points="734.988,-117.15 744.332,-112.156 733.913,-110.233 734.988,-117.15"/>
+</g>
+<!-- sourcefile~hasty_key_adt.f90 -->
+<g id="node3" class="node"><title>sourcefile~hasty_key_adt.f90</title>
+<a xlink:href="../sourcefile/hasty_key_adt.f90.html" xlink:title="hasty_key_adt.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="699,-78.9707 599,-78.9707 599,-52.9707 699,-52.9707 699,-78.9707"/>
+<text text-anchor="middle" x="649" y="-63.5207" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_adt.f90</text>
+</a>
+</g>
+<!-- sourcefile~hasty_key_adt.f90&#45;&gt;sourcefile~hasty.f90 -->
+<g id="edge28" class="edge"><title>sourcefile~hasty_key_adt.f90&#45;&gt;sourcefile~hasty.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M699.065,-62.717C727.763,-61.4121 764.441,-60.6916 797,-62.9707"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M797,-62.9707C870.638,-68.1252 890.008,-65.6547 962,-81.9707 970.565,-83.9119 979.585,-86.5952 988.064,-89.4217"/>
+<polygon fill="#000000" stroke="#000000" points="987.114,-92.7968 997.709,-92.7696 989.41,-86.1839 987.114,-92.7968"/>
+</g>
+<!-- sourcefile~hasty_key_adt.f90&#45;&gt;sourcefile~hasty_list_node.f90 -->
+<g id="edge18" class="edge"><title>sourcefile~hasty_key_adt.f90&#45;&gt;sourcefile~hasty_list_node.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M699.106,-78.8358C711.083,-81.9109 723.995,-85.2262 736.389,-88.4084"/>
+<polygon fill="#000000" stroke="#000000" points="735.633,-91.8279 746.19,-90.9248 737.374,-85.0478 735.633,-91.8279"/>
+</g>
+<!-- sourcefile~hasty_list.f90 -->
+<g id="node5" class="node"><title>sourcefile~hasty_list.f90</title>
+<a xlink:href="../sourcefile/hasty_list.f90.html" xlink:title="hasty_list.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="961,-116.971 887,-116.971 887,-90.9707 961,-90.9707 961,-116.971"/>
+<text text-anchor="middle" x="924" y="-101.521" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_list.f90</text>
+</a>
+</g>
+<!-- sourcefile~hasty_key_adt.f90&#45;&gt;sourcefile~hasty_list.f90 -->
+<g id="edge22" class="edge"><title>sourcefile~hasty_key_adt.f90&#45;&gt;sourcefile~hasty_list.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M797,-62.9707C828.422,-65.1702 862.288,-76.5969 887.14,-86.8299"/>
+<polygon fill="#000000" stroke="#000000" points="885.961,-90.1316 896.533,-90.8175 888.696,-83.6881 885.961,-90.1316"/>
+</g>
+<!-- sourcefile~hasty_list_node.f90&#45;&gt;sourcefile~hasty.f90 -->
+<g id="edge30" class="edge"><title>sourcefile~hasty_list_node.f90&#45;&gt;sourcefile~hasty.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M827.387,-116.983C858.593,-129.764 905.176,-147.07 924,-144.971"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M924,-144.971C948.777,-142.207 974.825,-131.589 994.397,-121.852"/>
+<polygon fill="#000000" stroke="#000000" points="996.168,-124.876 1003.45,-117.18 992.959,-118.655 996.168,-124.876"/>
+</g>
+<!-- sourcefile~hasty_list_node.f90&#45;&gt;sourcefile~hasty_list.f90 -->
+<g id="edge24" class="edge"><title>sourcefile~hasty_list_node.f90&#45;&gt;sourcefile~hasty_list.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M849.756,-103.971C858.477,-103.971 867.477,-103.971 876.071,-103.971"/>
+<polygon fill="#000000" stroke="#000000" points="876.307,-107.471 886.307,-103.971 876.307,-100.471 876.307,-107.471"/>
+</g>
+<!-- sourcefile~hasty_list.f90&#45;&gt;sourcefile~hasty.f90 -->
+<g id="edge32" class="edge"><title>sourcefile~hasty_list.f90&#45;&gt;sourcefile~hasty.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M961.691,-103.971C970.164,-103.971 979.163,-103.971 987.662,-103.971"/>
+<polygon fill="#000000" stroke="#000000" points="987.711,-107.471 997.711,-103.971 987.711,-100.471 987.711,-107.471"/>
+</g>
+<!-- sourcefile~penf.f90 -->
+<g id="node6" class="node"><title>sourcefile~penf.f90</title>
+<a xlink:href="../sourcefile/penf.f90.html" xlink:title="penf.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="553,-57.9707 499,-57.9707 499,-31.9707 553,-31.9707 553,-57.9707"/>
+<text text-anchor="middle" x="526" y="-42.5207" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf.F90</text>
+</a>
+</g>
+<!-- sourcefile~penf.f90&#45;&gt;sourcefile~hasty_key_adt.f90 -->
+<g id="edge14" class="edge"><title>sourcefile~penf.f90&#45;&gt;sourcefile~hasty_key_adt.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M553.604,-49.6835C564.007,-51.4596 576.291,-53.557 588.522,-55.6452"/>
+<polygon fill="#000000" stroke="#000000" points="588.295,-59.1569 598.741,-57.3899 589.473,-52.2568 588.295,-59.1569"/>
+</g>
+<!-- sourcefile~penf.f90&#45;&gt;sourcefile~hasty_list.f90 -->
+<g id="edge20" class="edge"><title>sourcefile~penf.f90&#45;&gt;sourcefile~hasty_list.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M553.904,-39.5158C611.304,-29.5276 745.95,-12.4943 850,-48.9707 870.583,-56.1863 890.219,-71.3022 904.085,-83.8642"/>
+<polygon fill="#000000" stroke="#000000" points="901.865,-86.5814 911.546,-90.8864 906.663,-81.484 901.865,-86.5814"/>
+</g>
+<!-- sourcefile~penf_global_parameters_variables.f90 -->
+<g id="node7" class="node"><title>sourcefile~penf_global_parameters_variables.f90</title>
+<a xlink:href="../sourcefile/penf_global_parameters_variables.f90.html" xlink:title="penf_global_parameters_variables.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="199,-37.9707 1,-37.9707 1,-11.9707 199,-11.9707 199,-37.9707"/>
+<text text-anchor="middle" x="100" y="-22.5207" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_global_parameters_variables.F90</text>
+</a>
+</g>
+<!-- sourcefile~penf_global_parameters_variables.f90&#45;&gt;sourcefile~penf.f90 -->
+<g id="edge8" class="edge"><title>sourcefile~penf_global_parameters_variables.f90&#45;&gt;sourcefile~penf.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.704,-38.0068C222.465,-50.4817 324.226,-67.2365 413,-65.9707"/>
+</g>
+<!-- sourcefile~penf_b_size.f90 -->
+<g id="node8" class="node"><title>sourcefile~penf_b_size.f90</title>
+<a xlink:href="../sourcefile/penf_b_size.f90.html" xlink:title="penf_b_size.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="328,-37.9707 236,-37.9707 236,-11.9707 328,-11.9707 328,-37.9707"/>
+<text text-anchor="middle" x="282" y="-22.5207" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_b_size.F90</text>
+</a>
+</g>
+<!-- sourcefile~penf_global_parameters_variables.f90&#45;&gt;sourcefile~penf_b_size.f90 -->
+<g id="edge2" class="edge"><title>sourcefile~penf_global_parameters_variables.f90&#45;&gt;sourcefile~penf_b_size.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M199.52,-24.9707C208.389,-24.9707 217.15,-24.9707 225.46,-24.9707"/>
+<polygon fill="#000000" stroke="#000000" points="225.721,-28.4708 235.721,-24.9707 225.721,-21.4708 225.721,-28.4708"/>
+</g>
+<!-- sourcefile~penf_stringify.f90 -->
+<g id="node9" class="node"><title>sourcefile~penf_stringify.f90</title>
+<a xlink:href="../sourcefile/penf_stringify.f90.html" xlink:title="penf_stringify.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="462,-37.9707 364,-37.9707 364,-11.9707 462,-11.9707 462,-37.9707"/>
+<text text-anchor="middle" x="413" y="-22.5207" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_stringify.F90</text>
+</a>
+</g>
+<!-- sourcefile~penf_global_parameters_variables.f90&#45;&gt;sourcefile~penf_stringify.f90 -->
+<g id="edge4" class="edge"><title>sourcefile~penf_global_parameters_variables.f90&#45;&gt;sourcefile~penf_stringify.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.638,-11.9557C205.702,-3.65823 270.997,4.28664 328,-2.9707 338.883,-4.3562 350.364,-6.70142 361.248,-9.35725"/>
+<polygon fill="#000000" stroke="#000000" points="360.485,-12.7748 371.041,-11.865 362.221,-5.99357 360.485,-12.7748"/>
+</g>
+<!-- sourcefile~penf_b_size.f90&#45;&gt;sourcefile~penf.f90 -->
+<g id="edge10" class="edge"><title>sourcefile~penf_b_size.f90&#45;&gt;sourcefile~penf.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M307.365,-38.1727C333.234,-50.3628 374.874,-66.5143 413,-65.9707"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M413,-65.9707C438.492,-65.6072 466.685,-60.3758 488.534,-55.2259"/>
+<polygon fill="#000000" stroke="#000000" points="489.523,-58.5871 498.401,-52.805 487.855,-51.7887 489.523,-58.5871"/>
+</g>
+<!-- sourcefile~penf_b_size.f90&#45;&gt;sourcefile~penf_stringify.f90 -->
+<g id="edge6" class="edge"><title>sourcefile~penf_b_size.f90&#45;&gt;sourcefile~penf_stringify.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M328.186,-24.9707C336.355,-24.9707 344.965,-24.9707 353.442,-24.9707"/>
+<polygon fill="#000000" stroke="#000000" points="353.676,-28.4708 363.676,-24.9707 353.676,-21.4708 353.676,-28.4708"/>
+</g>
+<!-- sourcefile~penf_stringify.f90&#45;&gt;sourcefile~penf.f90 -->
+<g id="edge12" class="edge"><title>sourcefile~penf_stringify.f90&#45;&gt;sourcefile~penf.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M462.235,-33.6848C471.03,-35.2414 480.063,-36.8403 488.464,-38.3272"/>
+<polygon fill="#000000" stroke="#000000" points="487.882,-41.7785 498.339,-40.075 489.102,-34.8856 487.882,-41.7785"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var pansourcefilehastyf90EfferentGraph = svgPanZoom('#sourcefilehastyf90EfferentGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="188pt" height="34pt"
+ viewBox="0.00 0.00 188.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 185,-30 185,5 -4,5"/>
+<!-- Source File -->
+<g id="node1" class="node"><title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="66,-26 2.84217e-14,-26 0,-1.24345e-14 66,-3.55271e-15 66,-26"/>
+<text text-anchor="middle" x="33" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="180,-26 84,-26 84,-1.24345e-14 180,-3.55271e-15 180,-26"/>
+<text text-anchor="middle" x="132" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+      
+      <h3>Files Dependent On This One</h3>
+      
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: sourcefile~~hasty.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefilehastyf90AfferentGraph" width="198pt" height="34pt"
+ viewBox="0.00 0.00 198.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~hasty.f90~~AfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>sourcefile~~hasty.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 195,-30 195,5 -4,5"/>
+<!-- sourcefile~hasty.f90 -->
+<g id="node1" class="node"><title>sourcefile~hasty.f90</title>
+<polygon fill="none" stroke="black" points="56,-26 2.84217e-14,-26 3.55271e-15,-1.24345e-14 56,-3.55271e-15 56,-26"/>
+<text text-anchor="middle" x="28" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty.f90</text>
+</g>
+<!-- sourcefile~hasty_test_list.f90 -->
+<g id="node2" class="node"><title>sourcefile~hasty_test_list.f90</title>
+<a xlink:href="../sourcefile/hasty_test_list.f90.html" xlink:title="hasty_test_list.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="190,-26 92,-26 92,-1.24345e-14 190,-3.55271e-15 190,-26"/>
+<text text-anchor="middle" x="141" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_list.f90</text>
+</a>
+</g>
+<!-- sourcefile~hasty.f90&#45;&gt;sourcefile~hasty_test_list.f90 -->
+<g id="edge2" class="edge"><title>sourcefile~hasty.f90&#45;&gt;sourcefile~hasty_test_list.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M56.2232,-13C63.9288,-13 72.5798,-13 81.3325,-13"/>
+<polygon fill="#000000" stroke="#000000" points="81.6035,-16.5001 91.6035,-13 81.6035,-9.5001 81.6035,-16.5001"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="188pt" height="34pt"
+ viewBox="0.00 0.00 188.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 185,-30 185,5 -4,5"/>
+<!-- Source File -->
+<g id="node1" class="node"><title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="66,-26 2.84217e-14,-26 0,-1.24345e-14 66,-3.55271e-15 66,-26"/>
+<text text-anchor="middle" x="33" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="180,-26 84,-26 84,-1.24345e-14 180,-3.55271e-15 180,-26"/>
+<text text-anchor="middle" x="132" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
+  <div id="mods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty.html">hasty</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/hasty.f90.html#src">hasty.f90</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">!&lt; HASTY, HASh Table fortran container exploiting coarraY.</span>
+<a name="ln-2"></a><span class="k">module </span><span class="n">hasty</span>
+<a name="ln-3"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-4"></a><span class="c">!&lt; HASTY, HASh Table fortran container exploiting coarraY.</span>
+<a name="ln-5"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-6"></a><span class="k">use </span><span class="n">hasty_content_adt</span>
+<a name="ln-7"></a><span class="k">use </span><span class="n">hasty_key_adt</span>
+<a name="ln-8"></a><span class="k">use </span><span class="n">hasty_list</span>
+<a name="ln-9"></a><span class="k">use </span><span class="n">hasty_list_node</span>
+<a name="ln-10"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-11"></a>
+<a name="ln-12"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-13"></a><span class="k">implicit none</span>
+<a name="ln-14"></a><span class="k">private</span>
+<a name="ln-15"></a><span class="k">public</span> <span class="kd">::</span> <span class="n">content_adt</span>
+<a name="ln-16"></a><span class="k">public</span> <span class="kd">::</span> <span class="n">key_adt</span><span class="p">,</span> <span class="n">are_keys_equal</span><span class="p">,</span> <span class="n">is_key_allowed</span><span class="p">,</span> <span class="n">str_key</span>
+<a name="ln-17"></a><span class="k">public</span> <span class="kd">::</span> <span class="n">list</span><span class="p">,</span> <span class="n">key_iterator_interface</span><span class="p">,</span> <span class="nb">len</span>
+<a name="ln-18"></a><span class="k">public</span> <span class="kd">::</span> <span class="n">list_node</span>
+<a name="ln-19"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-20"></a><span class="n">endmodule</span> <span class="n">hasty</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-1">All Source Files</a></h3></div>
+  <div id="allfiles-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/compact_real.f90.html">compact_real.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty.f90.html">hasty.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_content_adt.f90.html">hasty_content_adt.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_key_adt.f90.html">hasty_key_adt.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_list.f90.html">hasty_list.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_list_node.f90.html">hasty_list_node.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/hasty_test_list.f90.html">hasty_test_list.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf.f90.html">penf.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf_b_size.f90.html">penf_b_size.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf_global_parameters_variables.f90.html">penf_global_parameters_variables.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/penf_stringify.f90.html">penf_stringify.F90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_all.f90.html">test_all.F90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2016 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> HASTY was developed by Stefano Zaghi</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

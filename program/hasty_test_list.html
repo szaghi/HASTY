@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="HASh Table fortran container exploiting coarraY">
+    
+    <meta name="author" content="Stefano Zaghi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>hasty_test_list &ndash; HASTY</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">HASTY </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>hasty_test_list
+    <small>Program</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title="65.7% of total for programs.">65 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/hasty_test_list.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/hasty_test_list.f90.html'>hasty_test_list.f90</a></li>
+  
+     <li class="active">hasty_test_list</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-a_key">a_key</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-a_content">a_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-another_content">another_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-a_list">a_list</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-test_passed">test_passed</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#proc-list_finalize">list_finalize</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../program/hasty_test_list.html#src">hasty_test_list</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprogs-0">All Programs</a></h3></div>
+  <div id="allprogs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/compact_real.html">compact_real</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html">hasty_test_list</a>
+      
+      <a class="list-group-item" href="../program/test_all.html">test_all</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html">iso_fortran_env</a></li>
+      
+      <li><a href='../module/hasty.html'>hasty</a></li>
+      
+    </ul>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: program~~hasty_test_list~~UsesGraph Pages: 1 -->
+<svg id="programhasty_test_listUsesGraph" width="641pt" height="101pt"
+ viewBox="0.00 0.00 641.00 100.69" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~hasty_test_list~~UsesGraph" class="graph" transform="scale(0.597948 0.597948) rotate(0) translate(4 164.4)">
+<title>program~~hasty_test_list~~UsesGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-164.4 1069,-164.4 1069,5 -4,5"/>
+<!-- program~hasty_test_list -->
+<g id="node1" class="node"><title>program~hasty_test_list</title>
+<polygon fill="none" stroke="black" points="1064,-120.4 984,-120.4 984,-94.4003 1064,-94.4003 1064,-120.4"/>
+<text text-anchor="middle" x="1024" y="-104.95" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_test_list</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="node2" class="node"><title>iso_fortran_env</title>
+<a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="301,-160.4 215,-160.4 215,-134.4 301,-134.4 301,-160.4"/>
+<text text-anchor="middle" x="258" y="-144.95" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+<!-- iso_fortran_env&#45;&gt;program~hasty_test_list -->
+<g id="edge36" class="edge"><title>iso_fortran_env&#45;&gt;program~hasty_test_list</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M301.629,-147.4C345.828,-147.4 416.167,-147.4 477,-147.4 477,-147.4 477,-147.4 829,-147.4 879.124,-147.4 935.045,-134.561 974.104,-123.43"/>
+<polygon fill="#000000" stroke="#000000" points="975.536,-126.659 984.155,-120.498 973.575,-119.939 975.536,-126.659"/>
+</g>
+<!-- module~penf_stringify -->
+<g id="node9" class="node"><title>module~penf_stringify</title>
+<a xlink:href="../module/penf_stringify.html" xlink:title="penf_stringify">
+<polygon fill="#337ab7" stroke="#337ab7" points="414,-99.4003 338,-99.4003 338,-73.4003 414,-73.4003 414,-99.4003"/>
+<text text-anchor="middle" x="376" y="-83.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_stringify</text>
+</a>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~penf_stringify -->
+<g id="edge2" class="edge"><title>iso_fortran_env&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.314,-134.314C300.346,-125.51 323.01,-113.793 341.663,-104.15"/>
+<polygon fill="#000000" stroke="#000000" points="343.452,-107.166 350.728,-99.4646 340.237,-100.948 343.452,-107.166"/>
+</g>
+<!-- module~hasty -->
+<g id="node3" class="node"><title>module~hasty</title>
+<a xlink:href="../module/hasty.html" xlink:title="hasty">
+<polygon fill="#337ab7" stroke="#337ab7" points="948,-81.4003 894,-81.4003 894,-55.4003 948,-55.4003 948,-81.4003"/>
+<text text-anchor="middle" x="921" y="-65.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_list -->
+<g id="edge38" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_list</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M948.062,-78.647C957.835,-82.3476 969.137,-86.6268 979.986,-90.7347"/>
+<polygon fill="#000000" stroke="#000000" points="978.762,-94.0137 989.353,-94.2816 981.241,-87.4672 978.762,-94.0137"/>
+</g>
+<!-- module~hasty_content_adt -->
+<g id="node4" class="node"><title>module~hasty_content_adt</title>
+<a xlink:href="../module/hasty_content_adt.html" xlink:title="hasty_content_adt">
+<polygon fill="#337ab7" stroke="#337ab7" points="640,-103.4 540,-103.4 540,-77.4003 640,-77.4003 640,-103.4"/>
+<text text-anchor="middle" x="590" y="-87.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_content_adt</text>
+</a>
+</g>
+<!-- module~hasty_content_adt&#45;&gt;module~hasty -->
+<g id="edge28" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M640.228,-94.6959C675.174,-96.6396 722.717,-97.1972 764,-90.4003 794.094,-85.4455 798.501,-68.4003 829,-68.4003"/>
+</g>
+<!-- module~hasty_list_node -->
+<g id="node6" class="node"><title>module~hasty_list_node</title>
+<a xlink:href="../module/hasty_list_node.html" xlink:title="hasty_list_node">
+<polygon fill="#337ab7" stroke="#337ab7" points="763,-81.4003 677,-81.4003 677,-55.4003 763,-55.4003 763,-81.4003"/>
+<text text-anchor="middle" x="720" y="-65.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_list_node</text>
+</a>
+</g>
+<!-- module~hasty_content_adt&#45;&gt;module~hasty_list_node -->
+<g id="edge22" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty_list_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M640.261,-81.8945C648.786,-80.4518 657.668,-78.9488 666.277,-77.4918"/>
+<polygon fill="#000000" stroke="#000000" points="666.946,-80.9285 676.222,-75.8089 665.778,-74.0267 666.946,-80.9285"/>
+</g>
+<!-- module~hasty_list -->
+<g id="node5" class="node"><title>module~hasty_list</title>
+<a xlink:href="../module/hasty_list.html" xlink:title="hasty_list">
+<polygon fill="#337ab7" stroke="#337ab7" points="857,-40.4003 801,-40.4003 801,-14.4003 857,-14.4003 857,-40.4003"/>
+<text text-anchor="middle" x="829" y="-24.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_list</text>
+</a>
+</g>
+<!-- module~hasty_list&#45;&gt;module~hasty -->
+<g id="edge30" class="edge"><title>module~hasty_list&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M857.605,-40.1482C866.218,-43.9864 875.785,-48.2499 884.821,-52.277"/>
+<polygon fill="#000000" stroke="#000000" points="883.425,-55.4866 893.984,-56.3604 886.274,-49.0928 883.425,-55.4866"/>
+</g>
+<!-- module~hasty_list_node&#45;&gt;module~hasty -->
+<g id="edge32" class="edge"><title>module~hasty_list_node&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M763.756,-68.4003C783.663,-68.4003 807.522,-68.4003 829,-68.4003"/>
+</g>
+<!-- module~hasty_list_node&#45;&gt;module~hasty_list -->
+<g id="edge18" class="edge"><title>module~hasty_list_node&#45;&gt;module~hasty_list</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M754.788,-55.3149C766.275,-50.994 779.113,-46.1651 790.839,-41.7545"/>
+<polygon fill="#000000" stroke="#000000" points="792.245,-44.965 800.373,-38.1683 789.781,-38.4131 792.245,-44.965"/>
+</g>
+<!-- module~hasty_key_adt -->
+<g id="node7" class="node"><title>module~hasty_key_adt</title>
+<a xlink:href="../module/hasty_key_adt.html" xlink:title="hasty_key_adt">
+<polygon fill="#337ab7" stroke="#337ab7" points="631,-43.4003 549,-43.4003 549,-17.4003 631,-17.4003 631,-43.4003"/>
+<text text-anchor="middle" x="590" y="-27.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_adt</text>
+</a>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty -->
+<g id="edge34" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720,-27.4003C771.587,-31.6095 777.259,-67.0562 829,-68.4003"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M829,-68.4003C846.813,-68.863 866.573,-68.9224 883.199,-68.8421"/>
+<polygon fill="#000000" stroke="#000000" points="883.645,-72.3393 893.621,-68.7721 883.598,-65.3395 883.645,-72.3393"/>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty_list -->
+<g id="edge16" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_list</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M631.049,-27.2648C656.664,-25.8502 690.299,-24.9768 720,-27.4003"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720,-27.4003C743.234,-29.2961 769.347,-29.3673 790.189,-28.931"/>
+<polygon fill="#000000" stroke="#000000" points="790.354,-32.428 800.261,-28.6728 790.175,-25.4303 790.354,-32.428"/>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty_list_node -->
+<g id="edge24" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_list_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M631.133,-42.4237C642.407,-45.7192 654.794,-49.34 666.646,-52.8046"/>
+<polygon fill="#000000" stroke="#000000" points="665.86,-56.2212 676.441,-55.6675 667.824,-49.5024 665.86,-56.2212"/>
+</g>
+<!-- module~penf -->
+<g id="node8" class="node"><title>module~penf</title>
+<a xlink:href="../module/penf.html" xlink:title="penf">
+<polygon fill="#337ab7" stroke="#337ab7" points="504,-40.4003 450,-40.4003 450,-14.4003 504,-14.4003 504,-40.4003"/>
+<text text-anchor="middle" x="477" y="-24.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf</text>
+</a>
+</g>
+<!-- module~penf&#45;&gt;module~hasty_list -->
+<g id="edge20" class="edge"><title>module~penf&#45;&gt;module~hasty_list</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.202,-17.2953C515.16,-13.7287 528.02,-10.1674 540,-8.40026 638.514,6.13182 665.212,-0.864348 764,-13.4003 772.642,-14.497 781.838,-16.1637 790.51,-17.9692"/>
+<polygon fill="#000000" stroke="#000000" points="789.868,-21.4114 800.385,-20.1264 791.362,-14.5727 789.868,-21.4114"/>
+</g>
+<!-- module~penf&#45;&gt;module~hasty_key_adt -->
+<g id="edge26" class="edge"><title>module~penf&#45;&gt;module~hasty_key_adt</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.066,-28.1188C514.368,-28.3923 526.482,-28.7139 538.312,-29.028"/>
+<polygon fill="#000000" stroke="#000000" points="538.493,-32.5339 548.582,-29.3007 538.679,-25.5364 538.493,-32.5339"/>
+</g>
+<!-- module~penf_stringify&#45;&gt;module~penf -->
+<g id="edge10" class="edge"><title>module~penf_stringify&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M398.415,-73.3062C412.407,-65.133 430.615,-54.4962 445.982,-45.5198"/>
+<polygon fill="#000000" stroke="#000000" points="447.778,-48.5239 454.647,-40.4577 444.247,-42.4796 447.778,-48.5239"/>
+</g>
+<!-- module~penf_global_parameters_variables -->
+<g id="node10" class="node"><title>module~penf_global_parameters_variables</title>
+<a xlink:href="../module/penf_global_parameters_variables.html" xlink:title="penf_global_parameters_variables">
+<polygon fill="#337ab7" stroke="#337ab7" points="178,-78.4003 8.52651e-14,-78.4003 0,-52.4003 178,-52.4003 178,-78.4003"/>
+<text text-anchor="middle" x="89" y="-62.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_global_parameters_variables</text>
+</a>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf -->
+<g id="edge12" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M158.964,-52.3562C176.872,-49.2182 196.122,-46.0197 214,-43.4003 285.728,-32.8908 303.69,-29.5545 376,-24.4003"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M376,-24.4003C397.069,-22.3797 420.714,-22.9302 439.826,-24.077"/>
+<polygon fill="#000000" stroke="#000000" points="439.718,-27.5777 449.932,-24.7629 440.192,-20.5937 439.718,-27.5777"/>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_stringify -->
+<g id="edge6" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M150.709,-78.4571C170.794,-82.1168 193.256,-85.5887 214,-87.4003 252.963,-90.8028 262.89,-87.6645 302,-87.4003 310.312,-87.3441 319.149,-87.2525 327.715,-87.1469"/>
+<polygon fill="#000000" stroke="#000000" points="328.022,-90.6432 337.975,-87.0126 327.93,-83.6438 328.022,-90.6432"/>
+</g>
+<!-- module~penf_b_size -->
+<g id="node11" class="node"><title>module~penf_b_size</title>
+<a xlink:href="../module/penf_b_size.html" xlink:title="penf_b_size">
+<polygon fill="#337ab7" stroke="#337ab7" points="293,-78.4003 223,-78.4003 223,-52.4003 293,-52.4003 293,-78.4003"/>
+<text text-anchor="middle" x="258" y="-62.9503" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_b_size</text>
+</a>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_b_size -->
+<g id="edge8" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_b_size</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178.449,-65.4003C190.206,-65.4003 201.835,-65.4003 212.422,-65.4003"/>
+<polygon fill="#000000" stroke="#000000" points="212.627,-68.9004 222.627,-65.4003 212.627,-61.9004 212.627,-68.9004"/>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf -->
+<g id="edge14" class="edge"><title>module~penf_b_size&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.405,-52.1914C306.751,-41.1295 342.686,-26.7749 376,-24.4003"/>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf_stringify -->
+<g id="edge4" class="edge"><title>module~penf_b_size&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.084,-71.6441C304.014,-73.5891 316.261,-75.7687 327.919,-77.8434"/>
+<polygon fill="#000000" stroke="#000000" points="327.505,-81.3247 337.964,-79.6311 328.732,-74.433 327.505,-81.3247"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panprogramhasty_test_listUsesGraph = svgPanZoom('#programhasty_test_listUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="486pt" height="34pt"
+ viewBox="0.00 0.00 486.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 483,-30 483,5 -4,5"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-26 2.13163e-14,-26 0,-1.24345e-14 54,-3.55271e-15 54,-26"/>
+<text text-anchor="middle" x="27" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="138,-26 72,-26 72,-1.24345e-14 138,-3.55271e-15 138,-26"/>
+<text text-anchor="middle" x="105" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="220,-26 156,-26 156,-1.24345e-14 220,-3.55271e-15 220,-26"/>
+<text text-anchor="middle" x="188" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="292,-26 238,-26 238,-1.24345e-14 292,-3.55271e-15 292,-26"/>
+<text text-anchor="middle" x="265" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="364,-26 310,-26 310,-1.24345e-14 364,-3.55271e-15 364,-26"/>
+<text text-anchor="middle" x="337" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="478,-26 382,-26 382,-1.24345e-14 478,-3.55271e-15 478,-26"/>
+<text text-anchor="middle" x="430" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+
+    <br><br>
+    <p>HASTY test list.</p>
+    
+     <h3>Calls</h3>
+     
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: program~~hasty_test_list~~CallsGraph Pages: 1 -->
+<svg id="programhasty_test_listCallsGraph" width="188pt" height="34pt"
+ viewBox="0.00 0.00 188.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~hasty_test_list~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>program~~hasty_test_list~~CallsGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 185,-30 185,5 -4,5"/>
+<!-- program~hasty_test_list -->
+<g id="node1" class="node"><title>program~hasty_test_list</title>
+<polygon fill="none" stroke="black" points="80,-26 3.55271e-14,-26 0,-1.24345e-14 80,-3.55271e-15 80,-26"/>
+<text text-anchor="middle" x="40" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_test_list</text>
+</g>
+<!-- proc~list_finalize -->
+<g id="node2" class="node"><title>proc~list_finalize</title>
+<a xlink:href="../proc/list_finalize.html" xlink:title="list_finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="180,-26 116,-26 116,-1.24345e-14 180,-3.55271e-15 180,-26"/>
+<text text-anchor="middle" x="148" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">list_finalize</text>
+</a>
+</g>
+<!-- program~hasty_test_list&#45;&gt;proc~list_finalize -->
+<g id="edge2" class="edge"><title>program~hasty_test_list&#45;&gt;proc~list_finalize</title>
+<path fill="none" stroke="#000000" d="M80.2152,-13C88.572,-13 97.4008,-13 105.826,-13"/>
+<polygon fill="#000000" stroke="#000000" points="105.843,-16.5001 115.843,-13 105.843,-9.5001 105.843,-16.5001"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="556pt" height="34pt"
+ viewBox="0.00 0.00 556.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 553,-30 553,5 -4,5"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-26 3.19744e-14,-26 0,-1.24345e-14 64,-3.55271e-15 64,-26"/>
+<text text-anchor="middle" x="32" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-26 82,-26 82,-1.24345e-14 136,-3.55271e-15 136,-26"/>
+<text text-anchor="middle" x="109" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="208,-26 154,-26 154,-1.24345e-14 208,-3.55271e-15 208,-26"/>
+<text text-anchor="middle" x="181" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="362,-26 226,-26 226,-1.24345e-14 362,-3.55271e-15 362,-26"/>
+<text text-anchor="middle" x="294" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="434,-26 380,-26 380,-1.24345e-14 434,-3.55271e-15 434,-26"/>
+<text text-anchor="middle" x="407" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="548,-26 452,-26 452,-1.24345e-14 548,-3.55271e-15 548,-26"/>
+<text text-anchor="middle" x="500" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+     
+    <br>
+
+     <section class="visible-xs visible-sm hidden-md">
+       
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-a_key">a_key</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-a_content">a_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-another_content">another_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-a_list">a_list</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#variable-test_passed">test_passed</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html#proc-list_finalize">list_finalize</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../program/hasty_test_list.html#src">hasty_test_list</a>
+  </div>
+</div>
+
+
+     </section>
+     <br class="visible-xs visible-sm hidden-md">
+
+     
+
+    
+    <section>
+    <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a_key"></span>class(*),</td>
+  
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>a_key</strong></td><td></td><td></td><td><p>A key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a_content"></span>class(*),</td>
+  
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>a_content</strong></td><td></td><td></td><td><p>A content.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-another_content"></span>class(*),</td>
+  
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>another_content</strong></td><td></td><td></td><td><p>Another content.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a_list"></span>type(<a href='../type/list.html'>list</a>)</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>a_list</strong></td><td></td><td></td><td><p>A list.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-test_passed"></span>logical</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>test_passed</strong>(8)</td><td></td><td></td><td><p>List of passed tests.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-list_finalize"></span><h3>
+subroutine <a href='../proc/list_finalize.html'>list_finalize</a>()
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Test <a href="../type/list.html">list</a>.</p>
+    
+    <h4>Arguments</h4>
+    
+      <em>None</em>
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    
+    
+    
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">program </span><span class="n">hasty_test_list</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="c">!&lt; HASTY test list.</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">int32</span>
+<span class="k">use </span><span class="n">hasty</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">a_key</span>           <span class="c">!&lt; A key.</span>
+<span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">a_content</span>       <span class="c">!&lt; A content.</span>
+<span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">another_content</span> <span class="c">!&lt; Another content.</span>
+<span class="k">type</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>            <span class="kd">::</span> <span class="n">a_list</span>          <span class="c">!&lt; A list.</span>
+<span class="kt">logical</span>               <span class="kd">::</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>  <span class="c">!&lt; List of passed tests.</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="n">test_passed</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+
+<span class="k">call </span><span class="n">list_finalize</span>
+
+<span class="k">allocate</span><span class="p">(</span><span class="n">a_key</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">a_content</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">12_int32</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">a_list</span><span class="p">%</span><span class="n">add_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">a_key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">a_content</span><span class="p">)</span>
+<span class="k">call </span><span class="n">a_list</span><span class="p">%</span><span class="n">add_clone</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">5_int32</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="mi">13_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;(A)&#39;</span><span class="p">,</span> <span class="s1">&#39;Keys in list:&#39;</span>
+<span class="k">call </span><span class="n">a_list</span><span class="p">%</span><span class="n">print_keys</span>
+
+<span class="n">a_content</span> <span class="o">=&gt;</span> <span class="n">a_list</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">  select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">test_passed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">a_content</span><span class="o">==</span><span class="mi">12_int32</span>
+  <span class="n">endselect</span>
+<span class="n">endif</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_list(3) = 12, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">a_content</span> <span class="o">=&gt;</span> <span class="n">a_list</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">5_int32</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">  select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">test_passed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">a_content</span><span class="o">==</span><span class="mi">13_int32</span>
+  <span class="n">endselect</span>
+<span class="n">endif</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_list(5) = 13, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">a_content</span> <span class="o">=&gt;</span> <span class="n">a_list</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="n">another_content</span> <span class="o">=&gt;</span> <span class="n">a_list</span><span class="p">%</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">).</span><span class="nb">and</span><span class="p">.</span><span class="nb">associated</span><span class="p">(</span><span class="n">another_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">  select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">a_content</span> <span class="o">=</span> <span class="mi">10_int32</span>
+  <span class="n">endselect</span>
+  <span class="k">select type</span><span class="p">(</span><span class="n">another_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">test_passed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">another_content</span><span class="o">==</span><span class="mi">10_int32</span>
+  <span class="n">endselect</span>
+<span class="n">endif</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_list(3) = 10, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;len(a_list) = 2, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">a_list</span><span class="p">%</span><span class="n">has_key</span><span class="p">(</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_list has key &quot;3&quot;, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">=</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">a_list</span><span class="p">%</span><span class="n">has_key</span><span class="p">(</span><span class="mi">4_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_list has not key &quot;4&quot;, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">a_list</span><span class="p">%</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">a_list</span><span class="p">%</span><span class="n">has_key</span><span class="p">(</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_list has not key &quot;3&quot;, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">a_list</span><span class="p">%</span><span class="n">destroy</span>
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_list destroyed, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;Are all tests passed? &#39;</span><span class="p">,</span> <span class="k">all</span><span class="p">(</span><span class="n">test_passed</span><span class="p">)</span>
+<span class="k">stop</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">contains</span>
+<span class="k">  subroutine </span><span class="n">list_finalize</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c">!&lt; Test [[list:finalize]].</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="kd">::</span> <span class="n">local_list</span> <span class="c">!&lt; A list.</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="k">call </span><span class="n">local_list</span><span class="p">%</span><span class="n">add_clone</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">5_int32</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="mi">13_int32</span><span class="p">)</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="n">endsubroutine</span> <span class="n">list_finalize</span>
+<span class="n">endprogram</span> <span class="n">hasty_test_list</span>
+</pre></div>
+
+    </section>
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprogs-1">All Programs</a></h3></div>
+  <div id="allprogs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/compact_real.html">compact_real</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_list.html">hasty_test_list</a>
+      
+      <a class="list-group-item" href="../program/test_all.html">test_all</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2016 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> HASTY was developed by Stefano Zaghi</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
