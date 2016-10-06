@@ -2,7 +2,7 @@
 #
 # File:        intstall.sh
 #
-# Description: A utility script that builds FLAP project
+# Description: A utility script that builds HASTY project
 #
 # License:     GPL3+
 #
