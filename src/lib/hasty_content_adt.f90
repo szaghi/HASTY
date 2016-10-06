@@ -4,7 +4,6 @@ module hasty_content_adt
 !< HASTY abstract **content** class.
 !<
 !< A very base class that is intended to be the parent of all contents.
-!< It should be used to encapsulate user's derived type, whereas built-in types should be directly stored without any container.
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -18,7 +17,6 @@ type, abstract :: content_adt
   !< Abstract **content** class to storage any contents.
   !<
   !< A very base class that is intended to be the parent of all contents.
-  !< It should be used to encapsulate user's derived type, whereas built-in types should be directly stored without any container.
   contains
     ! public/private deferred methods
     procedure(destroy_interface),   pass(self),         deferred :: destroy   !< Destroy the content.

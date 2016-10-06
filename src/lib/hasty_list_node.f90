@@ -4,6 +4,7 @@ module hasty_list_node
 !< HASTY class of linked list node.
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_content_adt
+use hasty_key_adt
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -17,7 +18,7 @@ public :: list_node
 type :: list_node
   !< **List node** class to storage any contents as a node of a linked list.
   class(*),        allocatable :: key              !< The key ID.
-  class(*),        pointer     :: content          !< The generic  content.
+  class(*),        pointer     :: content=>null()  !< The generic  content.
   type(list_node), pointer     :: next=>null()     !< The next node in the list.
   type(list_node), pointer     :: previous=>null() !< The previous node in the list.
   contains
