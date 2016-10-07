@@ -32,6 +32,7 @@ type, abstract :: key_adt
   !< It can be extended to use any data as a key.
   contains
     ! public deferred methods
+    procedure(destroy_interface),   pass(self), deferred :: destroy   !< Destroy the key.
     procedure(stringify_interface), pass(self), deferred :: stringify !< Return a string representation of the key.
     ! private deferred methods
     procedure(is_equal_interface), pass(lhs), private, deferred :: is_equal !< Implement `==` operator.
@@ -39,7 +40,19 @@ type, abstract :: key_adt
     generic, public :: operator(==) => is_equal !< Overloading `==` operator.
 endtype key_adt
 
-! private interfaces
+! public interfaces
+abstract interface
+  !< Destroy the key.
+  elemental subroutine destroy_interface(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Destroy the key.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  import :: key_adt
+  class(key_adt), intent(inout) :: self !< The key.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine destroy_interface
+endinterface
+
 abstract interface
   !< Return a string representation of the key.
   pure function stringify_interface(self) result(str_key)
@@ -53,6 +66,7 @@ abstract interface
   endfunction stringify_interface
 endinterface
 
+! private interfaces
 abstract interface
   !< Implement `==` operator.
   elemental logical function is_equal_interface(lhs, rhs)
