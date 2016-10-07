@@ -1,7 +1,7 @@
-!< HASTY class of linked list node.
-module hasty_list_node
+!< HASTY dictionary node class.
+module hasty_dictionary_node
 !-----------------------------------------------------------------------------------------------------------------------------------
-!< HASTY class of linked list node.
+!< HASTY dictionary node class.
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_content_adt
 use hasty_key_adt
@@ -10,69 +10,71 @@ use hasty_key_adt
 !-----------------------------------------------------------------------------------------------------------------------------------
 implicit none
 private
-public :: destroy_list_node
-public :: list_node
+public :: destroy_dictionary_node
+public :: dictionary_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
-type :: list_node
-  !< **List node** class to storage any contents as a node of a linked list.
-  class(*),        allocatable :: key              !< The key ID.
-  class(*),        pointer     :: content=>null()  !< The generic  content.
-  type(list_node), pointer     :: next=>null()     !< The next node in the list.
-  type(list_node), pointer     :: previous=>null() !< The previous node in the list.
+type :: dictionary_node
+  !< **Dictionary node** class to storage any contents by means of generic key/content pairs.
+  !<
+  !< @note The members of this class are public because they can be safely handled by the [[dictionary]] class.
+  class(*),              allocatable :: key              !< The key.
+  class(*),              pointer     :: content=>null()  !< The generic  content.
+  type(dictionary_node), pointer     :: next=>null()     !< The next node in the dictionary.
+  type(dictionary_node), pointer     :: previous=>null() !< The previous node in the dictionary.
   contains
     ! public methods
-    procedure, pass(self) :: destroy_contents !< Destroy the node contents (key & content).
-    procedure, pass(self) :: is_filled        !< Return storage status.
-    procedure, pass(self) :: set_pointer      !< Set the node pointer-associating content.
-    procedure, pass(self) :: set_clone        !< Set the node cloning content.
+    procedure, pass(self) :: destroy     !< Destroy the node (key & content).
+    procedure, pass(self) :: is_filled   !< Return storage status.
+    procedure, pass(self) :: set_pointer !< Set the node pointer-associating content.
+    procedure, pass(self) :: set_clone   !< Set the node cloning content.
     ! private methods
     procedure, pass(self), private :: destroy_key     !< Destroy the node key.
     procedure, pass(self), private :: destroy_content !< Destroy the node content.
     ! finalizer
     final :: finalize !< Finalize the node.
-endtype list_node
+endtype dictionary_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
   ! public non TBP
-  recursive subroutine destroy_list_node(node)
+  recursive subroutine destroy_dictionary_node(node)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Destroy the node and its subsequent ones in the list.
+  !< Destroy the node and its subsequent ones.
   !---------------------------------------------------------------------------------------------------------------------------------
-  type(list_node), pointer, intent(inout) :: node !< The node.
+  type(dictionary_node), pointer, intent(inout) :: node !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   if (associated(node)) then
-    call node%destroy_contents
-    call destroy_list_node(node=node%next)
+    call node%destroy
+    call destroy_dictionary_node(node=node%next)
     node%previous => null()
     deallocate(node)
     node => null()
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
-  endsubroutine destroy_list_node
+  endsubroutine destroy_dictionary_node
 
   ! public methods
-  subroutine destroy_contents(self)
+  subroutine destroy(self)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Destroy the node contents (key & content).
+  !< Destroy the node (key & content).
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(inout) :: self !< The node.
+  class(dictionary_node), intent(inout) :: self !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
   call self%destroy_content
   !---------------------------------------------------------------------------------------------------------------------------------
-  endsubroutine destroy_contents
+  endsubroutine destroy
 
   elemental logical function is_filled(self)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return storage status.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(in) :: self !< The node.
+  class(dictionary_node), intent(in) :: self !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -91,59 +93,37 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction is_filled
 
-  subroutine set_pointer(self, key, content, next, previous)
+  subroutine set_pointer(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Set the node pointer-associating content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(inout)                 :: self     !< The node.
-  class(*),         intent(in)                    :: key      !< The key ID.
-  class(*),         intent(in), pointer           :: content  !< The content.
-  type(list_node),  intent(in), pointer, optional :: next     !< The next node in the list.
-  type(list_node),  intent(in), pointer, optional :: previous !< The previous node in the list.
+  class(dictionary_node), intent(inout) :: self    !< The node.
+  class(*),               intent(in)    :: key     !< The key.
+  class(*), pointer,      intent(in)    :: content !< The content.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
   allocate(self%key, source=key)
-
   call self%destroy_content
   self%content => content
-
-  if (present(next)) then
-    ! TODO implement update pointers
-  endif
-
-  if (present(previous)) then
-    ! TODO implement update pointers
-  endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine set_pointer
 
-  subroutine set_clone(self, key, content, next, previous)
+  subroutine set_clone(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Set the node cloning content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(inout)                 :: self     !< The node.
-  class(*),         intent(in)                    :: key      !< The key ID.
-  class(*),         intent(in)                    :: content  !< The content.
-  type(list_node),  intent(in), pointer, optional :: next     !< The next node in the list.
-  type(list_node),  intent(in), pointer, optional :: previous !< The previous node in the list.
+  class(dictionary_node), intent(inout) :: self    !< The node.
+  class(*),               intent(in)    :: key     !< The key.
+  class(*),               intent(in)    :: content !< The content.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
   allocate(self%key, source=key)
-
   call self%destroy_content
   allocate(self%content, source=content)
-
-  if (present(next)) then
-    ! TODO implement update pointers
-  endif
-
-  if (present(previous)) then
-    ! TODO implement update pointers
-  endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine set_clone
 
@@ -152,11 +132,19 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Destroy the node key.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(inout) :: self !< The node.
+  class(dictionary_node), intent(inout) :: self !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (allocated(self%key)) deallocate(self%key)
+  if (allocated(self%key)) then
+    associate(key=>self%key)
+      select type(key)
+      class is(key_adt)
+        call key%destroy
+      endselect
+    endassociate
+    deallocate(self%key)
+  endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy_key
 
@@ -164,7 +152,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Destroy the node content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list_node), intent(inout) :: self !< The node.
+  class(dictionary_node), intent(inout) :: self !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -184,13 +172,15 @@ contains
   ! finalizer
   subroutine finalize(self)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Finalize the list node.
+  !< Finalize the dictionary node.
+  !<
+  !< Wrapper for [[dictionary_node:destroy]]
   !---------------------------------------------------------------------------------------------------------------------------------
-  type(list_node), intent(inout) :: self !< The node.
+  type(dictionary_node), intent(inout) :: self !< The node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  call self%destroy_contents
+  call self%destroy
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine finalize
-endmodule hasty_list_node
+endmodule hasty_dictionary_node

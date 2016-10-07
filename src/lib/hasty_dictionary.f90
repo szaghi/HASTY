@@ -1,10 +1,10 @@
-!< HASTY class of linked list.
-module hasty_list
+!< HASTY dictionary class.
+module hasty_dictionary
 !-----------------------------------------------------------------------------------------------------------------------------------
-!< HASTY class of linked list.
+!< HASTY dictionary class.
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_key_adt
-use hasty_list_node
+use hasty_dictionary_node
 use penf
 !-----------------------------------------------------------------------------------------------------------------------------------
 
@@ -13,91 +13,93 @@ implicit none
 private
 public :: key_iterator_interface
 public :: len
-public :: list
+public :: dictionary
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
-type :: list
-  !< **List** class to storage any contents by means of abstract container nodes.
-  integer(I4P)             :: nodes_number=0 !< Number of nodes in the list.
-  type(list_node), pointer :: head=>null()   !< The first node in the list.
-  type(list_node), pointer :: tail=>null()   !< The last node in the list.
+type :: dictionary
+  !< **Dictionary** class to storage any contents by means of generic key/content pairs nodes.
+  private
+  type(dictionary_node), pointer :: head=>null()   !< The first node in the dictionary.
+  type(dictionary_node), pointer :: tail=>null()   !< The last node in the dictionary.
+  integer(I4P)                   :: nodes_number=0 !< Number of nodes in the dictionary.
   contains
     ! public methods
-    procedure, pass(self) :: add_pointer !< Add a node pointer to the list.
-    procedure, pass(self) :: add_clone   !< Add a node to the list cloning contents (non pointer add).
-    procedure, pass(self) :: destroy     !< Destroy the list.
-    procedure, pass(self) :: get         !< Return a pointer to a node's container in the list.
-    procedure, pass(self) :: has_key     !< Check if the key is present in the list.
-    procedure, pass(self) :: node        !< Return a pointer to a node in the list.
-    procedure, pass(self) :: print_keys  !< Print the list of keys.
-    procedure, pass(self) :: remove      !< Remove a node from the list, given the key.
-    procedure, pass(self) :: traverse    !< Traverse list from head to tail calling the iterator procedure.
+    procedure, pass(self) :: add_pointer !< Add a node pointer to the dictionary.
+    procedure, pass(self) :: add_clone   !< Add a node to the dictionary cloning contents (non pointer add).
+    procedure, pass(self) :: destroy     !< Destroy the dictionary.
+    procedure, pass(self) :: get         !< Return a pointer to a node's container in the dictionary.
+    procedure, pass(self) :: has_key     !< Check if the key is present in the dictionary.
+    procedure, pass(self) :: node        !< Return a pointer to a node in the dictionary.
+    procedure, pass(self) :: print_keys  !< Print the dictionary keys.
+    procedure, pass(self) :: remove      !< Remove a node from the dictionary, given the key.
+    procedure, pass(self) :: traverse    !< Traverse dictionary from head to tail calling the iterator procedure.
     ! private methods
-    procedure, pass(self), private :: remove_by_pointer !< Remove node from list, given pointer to it.
-    procedure, pass(self), private :: traverse_iterator !< Traverse list from head to tail calling the iterator procedure.
+    procedure, pass(self), private :: remove_by_pointer !< Remove node from dictionary, given pointer to it.
+    procedure, pass(self), private :: traverse_iterator !< Traverse dictionary from head to tail calling the iterator procedure.
     ! finalizer
-    final :: finalize !< Finalize the list.
-endtype list
+    final :: finalize !< Finalize the dictionary.
+endtype dictionary
 
 ! public interfaces
 abstract interface
-  !< Iterator procedure for traversing all nodes in a list by keys.
-  subroutine key_iterator_interface(key, done, content)
+  !< Iterator procedure for traversing all nodes in a dictionary by keys.
+  subroutine key_iterator_interface(key, content, done)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Iterator procedure for traversing all nodes in a list by keys.
+  !< Iterator procedure for traversing all nodes in a dictionary by keys.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(*),          intent(in)            :: key     !< The node key.
-  logical,           intent(out)           :: done    !< Flag to set to true to stop traversing.
-  class(*), pointer, intent(out), optional :: content !< The generic  content.
+  class(*),          intent(in)  :: key     !< The node key.
+  class(*), pointer, intent(in)  :: content !< The generic content.
+  logical,           intent(out) :: done    !< Flag to set to true to stop traversing.
   !---------------------------------------------------------------------------------------------------------------------------------
   end subroutine key_iterator_interface
 endinterface
 
 interface len
-  module procedure list_len
+  !< Overload `len` builtin for accepting a [[dictionary]].
+  module procedure dictionary_len
 endinterface
 
 ! private interfaces
 abstract interface
-  !< Iterator procedure for traversing all nodes in a list.
+  !< Iterator procedure for traversing all nodes in a dictionary.
   subroutine iterator_interface(node, done)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Iterator procedure for traversing all nodes in a list.
+  !< Iterator procedure for traversing all nodes in a dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
-  import :: list_node
-  type(list_node), intent(in), pointer :: node !< Actual node pointer in the list.
-  logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
+  import :: dictionary_node
+  type(dictionary_node), pointer, intent(in)  :: node !< Actual node pointer in the dictionary.
+  logical,                        intent(out) :: done !< Flag to set to true to stop traversing.
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine iterator_interface
 endinterface
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
   ! public non TBP
-  elemental function list_len(self) result(length)
+  elemental function dictionary_len(self) result(length)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Return the number of nodes of the list, namely the list length.
+  !< Return the number of nodes of the dictionary, namely the dictionary length.
   !---------------------------------------------------------------------------------------------------------------------------------
-  type(list), intent(in) :: self   !< The list.
-  integer(I4P)           :: length !< The list length.
+  type(dictionary), intent(in) :: self   !< The dictionary.
+  integer(I4P)                 :: length !< The dictionary length.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   length = self%nodes_number
   !---------------------------------------------------------------------------------------------------------------------------------
-  endfunction list_len
+  endfunction dictionary_len
 
   ! public methods
   subroutine add_pointer(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Add a node pointer to the list.
+  !< Add a node pointer to the dictionary.
   !<
-  !< @note If a node with the same key is already in the list, it is removed and the new one will replace it.
+  !< @note If a node with the same key is already in the dictionary, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(inout)       :: self    !< The list.
-  class(*),    intent(in)          :: key     !< The key ID.
-  class(*),    intent(in), pointer :: content !< The content.
-  type(list_node), pointer         :: p       !< Pointer to scan the list.
+  class(dictionary), intent(inout) :: self    !< The dictionary.
+  class(*),          intent(in)    :: key     !< The key.
+  class(*), pointer, intent(in)    :: content !< The content.
+  type(dictionary_node), pointer   :: p       !< Pointer to scan the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -118,8 +120,7 @@ contains
   end if
   self%tail => p
 
-  ! fill the new node with provided contents
-  call p%set_pointer(key=key, content=content)
+  call p%set_pointer(key=key, content=content) ! fill the new node with provided contents
 
   self%nodes_number = self%nodes_number + 1
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -127,14 +128,14 @@ contains
 
   subroutine add_clone(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Add a node to the list cloning content (non pointer add).
+  !< Add a node to the dictionary cloning content (non pointer add).
   !<
-  !< @note If a node with the same key is already in the list, it is removed and the new one will replace it.
+  !< @note If a node with the same key is already in the dictionary, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(inout) :: self    !< The list.
-  class(*),    intent(in)    :: key     !< The key ID.
-  class(*),    intent(in)    :: content !< The content.
-  type(list_node), pointer   :: p       !< Pointer to scan the list.
+  class(dictionary), intent(inout) :: self    !< The dictionary.
+  class(*),          intent(in)    :: key     !< The key.
+  class(*),          intent(in)    :: content !< The content.
+  type(dictionary_node), pointer   :: p       !< Pointer to scan the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -155,8 +156,7 @@ contains
   end if
   self%tail => p
 
-  ! fill the new node with provided contents
-  call p%set_clone(key=key, content=content)
+  call p%set_clone(key=key, content=content) ! fill the new node with provided contents
 
   self%nodes_number = self%nodes_number + 1
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -164,13 +164,13 @@ contains
 
   subroutine destroy(self)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Destroy the list.
+  !< Destroy the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(inout) :: self !< The list.
+  class(dictionary), intent(inout) :: self !< The dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (associated(self%head)) call destroy_list_node(node=self%head)
+  if (associated(self%head)) call destroy_dictionary_node(node=self%head)
   self%head => null()
   self%tail => null()
   self%nodes_number = 0
@@ -179,12 +179,12 @@ contains
 
   function get(self, key) result(content)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Return a pointer to a node's content in the list.
+  !< Return a pointer to a node's content in the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(in)  :: self    !< The list.
-  class(*),    intent(in)  :: key     !< The key ID.
-  class(*), pointer        :: content !< content pointer of the queried node.
-  type(list_node), pointer :: p       !< Pointer to scan the list.
+  class(dictionary), intent(in)  :: self    !< The dictionary.
+  class(*),          intent(in)  :: key     !< The key.
+  class(*), pointer              :: content !< Content pointer of the queried node.
+  type(dictionary_node), pointer :: p       !< Pointer to scan the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -196,11 +196,11 @@ contains
 
   function has_key(self, key)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Check if the key is present in the list.
+  !< Check if the key is present in the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(in)  :: self    !< The list.
-  class(*),    intent(in)  :: key     !< The key ID.
-  logical                  :: has_key !< Check result.
+  class(dictionary), intent(in)  :: self    !< The dictionary.
+  class(*),          intent(in)  :: key     !< The key.
+  logical                        :: has_key !< Check result.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -212,8 +212,8 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
     !< Iterator procedure for searching a key.
     !-------------------------------------------------------------------------------------------------------------------------------
-    type(list_node), intent(in), pointer :: node !< Actual node pointer in the list.
-    logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
+    type(dictionary_node), pointer, intent(in)  :: node !< Actual node pointer in the dictionary.
+    logical,                        intent(out) :: done !< Flag to set to true to stop traversing.
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
@@ -225,11 +225,11 @@ contains
 
   function node(self, key) result(p)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Return a pointer to a node in the list.
+  !< Return a pointer to a node in the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(in)  :: self !< The list.
-  class(*),    intent(in)  :: key  !< The key ID.
-  type(list_node), pointer :: p    !< Pointer to node queried.
+  class(dictionary), intent(in)  :: self !< The dictionary.
+  class(*),          intent(in)  :: key  !< The key.
+  type(dictionary_node), pointer :: p    !< Pointer to node queried.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -241,8 +241,8 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
     !< Iterator procedure for searching a key.
     !-------------------------------------------------------------------------------------------------------------------------------
-    type(list_node), intent(in), pointer :: node !< Actual node pointer in the list.
-    logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
+    type(dictionary_node), pointer, intent(in)  :: node !< Actual node pointer in the dictionary.
+    logical,                        intent(out) :: done !< Flag to set to true to stop traversing.
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
@@ -256,9 +256,9 @@ contains
 
   subroutine print_keys(self)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Print the list of keys.
+  !< Print the dictionary keys.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(in) :: self !< The list.
+  class(dictionary), intent(in) :: self !< The dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -269,8 +269,8 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
     !< Iterator procedure for printing a key.
     !-------------------------------------------------------------------------------------------------------------------------------
-    type(list_node), intent(in), pointer :: node    !< Actual node pointer in the list.
-    logical,         intent(out)         :: done    !< Flag to set to true to stop traversing.
+    type(dictionary_node), pointer, intent(in)  :: node !< Actual node pointer in the dictionary.
+    logical,                        intent(out) :: done !< Flag to set to true to stop traversing.
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
@@ -282,11 +282,11 @@ contains
 
   subroutine remove(self, key)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Remove a node from the list, given the key.
+  !< Remove a node from the dictionary, given the key.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(inout) :: self !< The list.
-  class(*),    intent(in)    :: key  !< The key ID, can be any [[key_adt]] concrete extensions.
-  type(list_node), pointer   :: p    !< Pointer to scan the list.
+  class(dictionary), intent(inout) :: self !< The dictionary.
+  class(*),          intent(in)    :: key  !< The key.
+  type(dictionary_node), pointer   :: p    !< Pointer to scan the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -297,9 +297,9 @@ contains
 
   subroutine traverse(self, iterator)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Traverse list from head to tail calling the iterator procedure.
+  !< Traverse dictionary from head to tail calling the iterator procedure.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(in)           :: self     !< The list.
+  class(dictionary), intent(in)     :: self     !< The dictionary.
   procedure(key_iterator_interface) :: iterator !< The (key) iterator procedure to call for each node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
@@ -311,12 +311,12 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
     !< Wrapper for calling the user-specified key_iterator procedure.
     !-------------------------------------------------------------------------------------------------------------------------------
-    type(list_node), intent(in), pointer :: node !< The list node.
-    logical,         intent(out)         :: done !< Flag to set to true to stop traversing.
+    type(dictionary_node), pointer, intent(in)  :: node !< The dictionary node.
+    logical,                        intent(out) :: done !< Flag to set to true to stop traversing.
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
-    call iterator(key=node%key, done=done)
+    call iterator(key=node%key, content=node%content, done=done)
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_wrapper
   endsubroutine traverse
@@ -324,46 +324,47 @@ contains
   ! private methods
   subroutine remove_by_pointer(self, p)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Remove node from list, given pointer to it.
+  !< Remove node from dictionary, given pointer to it.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list),     intent(inout)          :: self         !< The list.
-  type(list_node), intent(inout), pointer :: p            !< Pointer to the node to remove.
-  logical                                 :: has_next     !< Check if list node has a next item.
-  logical                                 :: has_previous !< Check if list node has a previous item.
+  class(dictionary),              intent(inout) :: self         !< The dictionary.
+  type(dictionary_node), pointer, intent(inout) :: p            !< Pointer to the node to remove.
+  logical                                       :: has_next     !< Check if dictionary node has a next item.
+  logical                                       :: has_previous !< Check if dictionary node has a previous item.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   if (associated(p)) then
-    call p%destroy_contents ! destroy the node contents
+    call p%destroy ! destroy the node contents
     has_next     = associated(p%next)
     has_previous = associated(p%previous)
-    if (has_next.and.has_previous) then ! neither first nor last in a list
+    if (has_next.and.has_previous) then ! neither first nor last in dictionary
       p%previous%next => p%next
       p%next%previous => p%previous
-    elseif (has_next.and.(.not.has_previous)) then ! first one in a list
+    elseif (has_next.and.(.not.has_previous)) then ! first one in dictionary
       self%head          => p%next
       self%head%previous => null()
-    elseif (has_previous.and.(.not.has_next)) then ! last one in a list
-        self%tail      => p%previous
-        self%tail%next => null()
-    elseif ((.not.has_previous).and.(.not.has_next)) then  ! only one in the list
-        self%head => null()
-        self%tail => null()
+    elseif (has_previous.and.(.not.has_next)) then ! last one in dictionary
+      self%tail      => p%previous
+      self%tail%next => null()
+    elseif ((.not.has_previous).and.(.not.has_next)) then ! only one in the dictionary
+      self%head => null()
+      self%tail => null()
     endif
     deallocate(p)
     p => null()
     self%nodes_number = self%nodes_number - 1
   endif
+  !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove_by_pointer
 
   subroutine traverse_iterator(self, iterator)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Traverse list from head to tail calling the iterator procedure.
+  !< Traverse dictionary from head to tail calling the iterator procedure.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(list), intent(in)       :: self      !< The list.
-  procedure(iterator_interface) :: iterator  !< The iterator procedure to call for each node.
-  type(list_node), pointer      :: p         !< Pointer to scan the list.
-  logical                       :: done      !< Flag to set to true to stop traversing.
+  class(dictionary), intent(in)  :: self     !< The dictionary.
+  procedure(iterator_interface)  :: iterator !< The iterator procedure to call for each node.
+  type(dictionary_node), pointer :: p        !< Pointer to scan the dictionary.
+  logical                        :: done     !< Flag to set to true to stop traversing.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -384,15 +385,15 @@ contains
   ! finalizer
   subroutine finalize(self)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Finalize the list.
+  !< Finalize the dictionary.
   !<
-  !< A wrapper for [[list:destroy]]
+  !< Wrapper for [[dictionary:destroy]]
   !---------------------------------------------------------------------------------------------------------------------------------
-  type(list),  intent(inout) :: self !< The list.
+  type(dictionary),  intent(inout) :: self !< The dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine finalize
-endmodule hasty_list
+endmodule hasty_dictionary
