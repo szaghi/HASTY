@@ -71,7 +71,7 @@ contains
   !< @note If a node with the same key is already in the hash table, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(hash_table), intent(inout) :: self          !< The hash table.
-  class(*),          intent(in)    :: key           !< The key ID.
+  class(*),          intent(in)    :: key           !< The key.
   class(*), pointer, intent(in)    :: content       !< The content.
   integer(I4P)                     :: b             !< Bucket index, namely hashed key.
   integer(I4P)                     :: bucket_length !< Length (nodes number) of the bucket where the node is placed.
@@ -94,7 +94,7 @@ contains
   !< @note If a node with the same key is already in the hash table, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(hash_table), intent(inout) :: self          !< The hash table.
-  class(*),          intent(in)    :: key           !< The key ID.
+  class(*),          intent(in)    :: key           !< The key.
   class(*),          intent(in)    :: content       !< The content.
   integer(I4P)                     :: b             !< Bucket index, namely hashed key.
   integer(I4P)                     :: bucket_length !< Length (nodes number) of the bucket where the node is placed.
@@ -136,7 +136,7 @@ contains
   !< Return a node's content in the hash table by cloning.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(hash_table),     intent(in)  :: self      !< The hash table.
-  class(*),              intent(in)  :: key       !< The key ID.
+  class(*),              intent(in)  :: key       !< The key.
   class(*), allocatable, intent(out) :: content   !< Content of the queried node.
   class(*), pointer                  :: content_p !< Content pointer of the queried node.
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -152,13 +152,13 @@ contains
   !< Return a pointer to a node's content in the hash table.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(hash_table), intent(in) :: self    !< The hash table.
-  class(*),          intent(in) :: key     !< The key ID.
+  class(*),          intent(in) :: key     !< The key.
   class(*), pointer             :: content !< Content pointer of the queried node.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   content => null()
-  if (self%is_initialized) content => self%bucket(self%hash(key=key))%get(key=key)
+  if (self%is_initialized) content => self%bucket(self%hash(key=key))%get_pointer(key=key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction get_pointer
 

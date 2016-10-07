@@ -25,15 +25,19 @@ type :: dictionary
   integer(I4P)                   :: nodes_number=0 !< Number of nodes in the dictionary.
   contains
     ! public methods
-    procedure, pass(self) :: add_pointer !< Add a node pointer to the dictionary.
-    procedure, pass(self) :: add_clone   !< Add a node to the dictionary cloning contents (non pointer add).
-    procedure, pass(self) :: destroy     !< Destroy the dictionary.
-    procedure, pass(self) :: get         !< Return a pointer to a node's container in the dictionary.
-    procedure, pass(self) :: has_key     !< Check if the key is present in the dictionary.
-    procedure, pass(self) :: node        !< Return a pointer to a node in the dictionary.
-    procedure, pass(self) :: print_keys  !< Print the dictionary keys.
-    procedure, pass(self) :: remove      !< Remove a node from the dictionary, given the key.
-    procedure, pass(self) :: traverse    !< Traverse dictionary from head to tail calling the iterator procedure.
+    procedure, pass(self) :: add_pointer  !< Add a node pointer to the dictionary.
+    procedure, pass(self) :: add_clone    !< Add a node to the dictionary cloning contents (non pointer add).
+    procedure, pass(self) :: destroy      !< Destroy the dictionary.
+    procedure, pass(self) :: get_clone    !< Return a node's content in the dictionary by cloning.
+    procedure, pass(self) :: get_pointer  !< Return a pointer to a node's container in the dictionary.
+    procedure, pass(self) :: has_key      !< Check if the key is present in the dictionary.
+    procedure, pass(self) :: loop         !< Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).
+    procedure, pass(self) :: loop_key     !< Sentinel while-loop on nodes returning the key (for key looping).
+    procedure, pass(self) :: loop_content !< Sentinel while-loop on nodes returning the content (for content looping).
+    procedure, pass(self) :: node         !< Return a pointer to a node in the dictionary.
+    procedure, pass(self) :: print_keys   !< Print the dictionary keys.
+    procedure, pass(self) :: remove       !< Remove a node from the dictionary, given the key.
+    procedure, pass(self) :: traverse     !< Traverse dictionary from head to tail calling the iterator procedure.
     ! private methods
     procedure, pass(self), private :: remove_by_pointer !< Remove node from dictionary, given pointer to it.
     procedure, pass(self), private :: traverse_iterator !< Traverse dictionary from head to tail calling the iterator procedure.
@@ -177,7 +181,23 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy
 
-  function get(self, key) result(content)
+  subroutine get_clone(self, key, content)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Return a node's content in the dictionary by cloning.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary),     intent(in)  :: self      !< The dictionary.
+  class(*),              intent(in)  :: key       !< The key.
+  class(*), allocatable, intent(out) :: content   !< Content of the queried node.
+  class(*), pointer                  :: content_p !< Content pointer of the queried node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  content_p => self%get_pointer(key=key)
+  if (associated(content_p)) allocate(content, source=content_p)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine get_clone
+
+  function get_pointer(self, key) result(content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return a pointer to a node's content in the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -192,7 +212,7 @@ contains
   p => self%node(key=key)
   if (associated(p)) content => p%content
   !---------------------------------------------------------------------------------------------------------------------------------
-  endfunction get
+  endfunction get_pointer
 
   function has_key(self, key)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -222,6 +242,98 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_search
   endfunction has_key
+
+  function loop(self, key, content) result(again)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary),     intent(in)            :: self      !< The dictionary.
+  class(*), allocatable, intent(out), optional :: key       !< The key.
+  class(*), pointer,     intent(out), optional :: content   !< The content.
+  logical                                      :: again     !< Sentinel flag to contine the loop.
+  type(dictionary_node), pointer, save         :: p=>null() !< Pointer to current node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  again = .false.
+  if (present(content)) content => null()
+  if (self%nodes_number>0) then
+    if (.not.associated(p)) then
+      p => self%head
+      if (present(key).and.allocated(p%key)) allocate(key, source=p%key)
+      if (present(content)) content => p%content
+      again = .true.
+    elseif (associated(p%next)) then
+      p => p%next
+      if (present(key).and.allocated(p%key)) allocate(key, source=p%key)
+      if (present(content)) content => p%content
+      again = .true.
+    else
+      p => null()
+      again = .false.
+    endif
+  endif
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction loop
+
+  function loop_key(self, key) result(again)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Sentinel while-loop on nodes returning the key (for key looping).
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary),     intent(in)    :: self      !< The dictionary.
+  class(*), allocatable, intent(out)   :: key       !< The key.
+  logical                              :: again     !< Sentinel flag to contine the loop.
+  type(dictionary_node), pointer, save :: p=>null() !< Pointer to current node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  again = .false.
+  if (self%nodes_number>0) then
+    if (.not.associated(p)) then
+      p => self%head
+      if (allocated(p%key)) allocate(key, source=p%key)
+      again = .true.
+    elseif (associated(p%next)) then
+      p => p%next
+      if (allocated(p%key)) allocate(key, source=p%key)
+      again = .true.
+    else
+      p => null()
+      again = .false.
+    endif
+  endif
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction loop_key
+
+  function loop_content(self, content) result(again)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Sentinel while-loop on nodes returning the content pointer (for content looping).
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary), intent(in)        :: self      !< The dictionary.
+  class(*), pointer, intent(out)       :: content   !< The content.
+  logical                              :: again     !< Sentinel flag to contine the loop.
+  type(dictionary_node), pointer, save :: p=>null() !< Pointer to current node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  again = .false.
+  content => null()
+  if (self%nodes_number>0) then
+    if (.not.associated(p)) then
+      p => self%head
+      content => p%content
+      again = .true.
+    elseif (associated(p%next)) then
+      p => p%next
+      content => p%content
+      again = .true.
+    else
+      p => null()
+      again = .false.
+    endif
+  endif
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction loop_content
 
   function node(self, key) result(p)
   !---------------------------------------------------------------------------------------------------------------------------------
