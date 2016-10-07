@@ -10,7 +10,7 @@
     <meta name="author" content="Stefano Zaghi" >
     <link rel="icon" href="../favicon.png">
 
-    <title>list_node &ndash; HASTY </title>
+    <title>dictionary_node &ndash; HASTY </title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -102,7 +102,7 @@
     
   
   <div class="row">
-    <h1>list_node
+    <h1>dictionary_node
     <small>Derived Type</small>
     
     </h1>
@@ -120,20 +120,20 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>23.0% of total for derived types.</p>Including implementation: 85 statements, 24.1% of total for derived types.">14 statements</a>
+	  title="<p>19.2% of total for derived types.</p>Including implementation: 81 statements, 16.7% of total for derived types.">14 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_list_node.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary_node.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_list_node.f90.html'>hasty_list_node.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary_node.f90.html'>hasty_dictionary_node.f90</a></li>
   
-     <li><a href='../module/hasty_list_node.html'>hasty_list_node</a></li>
+     <li><a href='../module/hasty_dictionary_node.html'>hasty_dictionary_node</a></li>
   
-     <li class="active">list_node</li>
+     <li class="active">dictionary_node</li>
   </ol>
 </div>
 </div>
@@ -158,13 +158,13 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list_node.html#variable-key">key</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-key">key</a>
       
-      <a class="list-group-item" href="../type/list_node.html#variable-content">content</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-content">content</a>
       
-      <a class="list-group-item" href="../type/list_node.html#variable-next">next</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-next">next</a>
       
-      <a class="list-group-item" href="../type/list_node.html#variable-previous">previous</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-previous">previous</a>
       
     </div>
   </div>
@@ -190,7 +190,7 @@
   <div id="fins-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list_node.html#finalproc-finalize%7E3">finalize</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#finalproc-finalize%7E3">finalize</a>
       
     </div>
   </div>
@@ -202,17 +202,17 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-destroy_contents">destroy_contents</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy%7E2">destroy</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-is_filled%7E2">is_filled</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-is_filled%7E2">is_filled</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-set_pointer">set_pointer</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-set_pointer">set_pointer</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-set_clone">set_clone</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-set_clone">set_clone</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-destroy_key">destroy_key</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy_key">destroy_key</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-destroy_content">destroy_content</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy_content">destroy_content</a>
       
     </div>
   </div>
@@ -223,7 +223,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../type/list_node.html#src">list_node</a>
+    <a class="list-group-item" href="../type/dictionary_node.html#src">dictionary_node</a>
   </div>
 </div>
 
@@ -238,13 +238,13 @@
       
       <a class="list-group-item" href="../type/content_adt.html">content_adt</a>
       
+      <a class="list-group-item" href="../type/dictionary.html">dictionary</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html">dictionary_node</a>
+      
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
-      
-      <a class="list-group-item" href="../type/list.html">list</a>
-      
-      <a class="list-group-item" href="../type/list_node.html">list_node</a>
       
     </div>
   </div>
@@ -256,9 +256,10 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>type, public :: list_node</h2>
+      <h2>type, public :: dictionary_node</h2>
     
-    <p><strong>List node</strong> class to storage any contents as a node of a linked list.</p>
+    <p><strong>Dictionary node</strong> class to storage any contents by means of generic key/content pairs.</p>
+<p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>The members of this class are public because they can be safely handled by the <a href="../type/dictionary.html">dictionary</a> class.</p></div>
     
     
     <h3>Inherited By</h3>
@@ -268,48 +269,48 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.26.3 (20100126.1600)
  -->
-<!-- Title: type~~list_node~~InheritedByGraph Pages: 1 -->
-<svg id="typelist_nodeInheritedByGraph" width="326pt" height="65pt"
- viewBox="0.00 0.00 326.00 65.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="type~~list_node~~InheritedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 61)">
-<title>type~~list_node~~InheritedByGraph</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-61 323,-61 323,5 -4,5"/>
-<!-- type~list_node -->
-<g id="node1" class="node"><title>type~list_node</title>
-<polygon fill="none" stroke="black" points="57,-26 3,-26 3,-1.24345e-14 57,-3.55271e-15 57,-26"/>
-<text text-anchor="middle" x="30" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">list_node</text>
+<!-- Title: type~~dictionary_node~~InheritedByGraph Pages: 1 -->
+<svg id="typedictionary_nodeInheritedByGraph" width="360pt" height="65pt"
+ viewBox="0.00 0.00 360.00 65.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~dictionary_node~~InheritedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 61)">
+<title>type~~dictionary_node~~InheritedByGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-61 357,-61 357,5 -4,5"/>
+<!-- type~dictionary_node -->
+<g id="node1" class="node"><title>type~dictionary_node</title>
+<polygon fill="none" stroke="black" points="88,-26 4.26326e-14,-26 0,-1.24345e-14 88,-3.55271e-15 88,-26"/>
+<text text-anchor="middle" x="44" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">dictionary_node</text>
 </g>
-<!-- type~list_node&#45;&gt;type~list_node -->
-<g id="edge4" class="edge"><title>type~list_node&#45;&gt;type~list_node</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M18.8335,-26.0602C15.4497,-35.0996 19.1719,-44 30,-44 36.5984,-44 40.5581,-40.6949 41.879,-36.0674"/>
-<polygon fill="#000000" stroke="#000000" points="45.368,-35.7863 41.1665,-26.0602 38.3856,-36.2835 45.368,-35.7863"/>
-<text text-anchor="middle" x="30" y="-48.45" font-family="Helvetica,sans-Serif" font-size="9.50">next, previous</text>
+<!-- type~dictionary_node&#45;&gt;type~dictionary_node -->
+<g id="edge4" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M30.1265,-26.0602C25.9224,-35.0996 30.5469,-44 44,-44 52.198,-44 57.1176,-40.6949 58.7588,-36.0674"/>
+<polygon fill="#000000" stroke="#000000" points="62.2412,-35.7128 57.8735,-26.0602 55.2684,-36.3297 62.2412,-35.7128"/>
+<text text-anchor="middle" x="44" y="-48.45" font-family="Helvetica,sans-Serif" font-size="9.50">next, previous</text>
 </g>
-<!-- type~list -->
-<g id="node2" class="node"><title>type~list</title>
-<a xlink:href="../type/list.html" xlink:title="list">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="188,-26 134,-26 134,-1.24345e-14 188,-3.55271e-15 188,-26"/>
-<text text-anchor="middle" x="161" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">list</text>
+<!-- type~dictionary -->
+<g id="node2" class="node"><title>type~dictionary</title>
+<a xlink:href="../type/dictionary.html" xlink:title="dictionary">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="222,-26 164,-26 164,-1.24345e-14 222,-3.55271e-15 222,-26"/>
+<text text-anchor="middle" x="193" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dictionary</text>
 </a>
 </g>
-<!-- type~list_node&#45;&gt;type~list -->
-<g id="edge6" class="edge"><title>type~list_node&#45;&gt;type~list</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M57.7817,-13C76.9283,-13 102.598,-13 123.547,-13"/>
-<polygon fill="#000000" stroke="#000000" points="123.708,-16.5001 133.708,-13 123.707,-9.5001 123.708,-16.5001"/>
-<text text-anchor="middle" x="96" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">head, tail</text>
+<!-- type~dictionary_node&#45;&gt;type~dictionary -->
+<g id="edge6" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M88.3015,-13C109.048,-13 133.555,-13 153.641,-13"/>
+<polygon fill="#000000" stroke="#000000" points="153.699,-16.5001 163.699,-13 153.699,-9.5001 153.699,-16.5001"/>
+<text text-anchor="middle" x="126" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">head, tail</text>
 </g>
 <!-- type~hash_table -->
 <g id="node3" class="node"><title>type~hash_table</title>
 <a xlink:href="../type/hash_table.html" xlink:title="hash_table">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="317,-26 253,-26 253,-1.24345e-14 317,-3.55271e-15 317,-26"/>
-<text text-anchor="middle" x="285" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hash_table</text>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="351,-26 287,-26 287,-1.24345e-14 351,-3.55271e-15 351,-26"/>
+<text text-anchor="middle" x="319" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hash_table</text>
 </a>
 </g>
-<!-- type~list&#45;&gt;type~hash_table -->
-<g id="edge2" class="edge"><title>type~list&#45;&gt;type~hash_table</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.212,-13C203.946,-13 224.098,-13 241.936,-13"/>
-<polygon fill="#000000" stroke="#000000" points="242.121,-16.5001 252.121,-13 242.121,-9.5001 242.121,-16.5001"/>
-<text text-anchor="middle" x="220" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">bucket</text>
+<!-- type~dictionary&#45;&gt;type~hash_table -->
+<g id="edge2" class="edge"><title>type~dictionary&#45;&gt;type~hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.224,-13C238.267,-13 258.46,-13 276.245,-13"/>
+<polygon fill="#000000" stroke="#000000" points="276.388,-16.5001 286.388,-13 276.388,-9.5001 276.388,-16.5001"/>
+<text text-anchor="middle" x="254" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">bucket</text>
 </g>
 </g>
 </svg>
@@ -372,13 +373,13 @@
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list_node.html#variable-key">key</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-key">key</a>
       
-      <a class="list-group-item" href="../type/list_node.html#variable-content">content</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-content">content</a>
       
-      <a class="list-group-item" href="../type/list_node.html#variable-next">next</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-next">next</a>
       
-      <a class="list-group-item" href="../type/list_node.html#variable-previous">previous</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-previous">previous</a>
       
     </div>
   </div>
@@ -404,7 +405,7 @@
   <div id="fins-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list_node.html#finalproc-finalize%7E3">finalize</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#finalproc-finalize%7E3">finalize</a>
       
     </div>
   </div>
@@ -416,17 +417,17 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-destroy_contents">destroy_contents</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy%7E2">destroy</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-is_filled%7E2">is_filled</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-is_filled%7E2">is_filled</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-set_pointer">set_pointer</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-set_pointer">set_pointer</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-set_clone">set_clone</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-set_clone">set_clone</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-destroy_key">destroy_key</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy_key">destroy_key</a>
       
-      <a class="list-group-item" href="../type/list_node.html#boundprocedure-destroy_content">destroy_content</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy_content">destroy_content</a>
       
     </div>
   </div>
@@ -437,7 +438,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../type/list_node.html#src">list_node</a>
+    <a class="list-group-item" href="../type/dictionary_node.html#src">dictionary_node</a>
   </div>
 </div>
 
@@ -468,7 +469,7 @@
   
   <td>public,</td>
   <td>allocatable</td><td>::</td>
-  <td><strong>key</strong></td><td></td><td></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td></td><td></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -492,11 +493,11 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-next"></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" id="variable-next"></span>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   
   <td>public,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>next</strong></td><td>=> </td><td>null()</td><td><p>The next node in the list.</p></td>
+  <td><strong>next</strong></td><td>=> </td><td>null()</td><td><p>The next node in the dictionary.</p></td>
   
 </tr>
 
@@ -506,11 +507,11 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-previous"></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" id="variable-previous"></span>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   
   <td>public,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>previous</strong></td><td>=> </td><td>null()</td><td><p>The previous node in the list.</p></td>
+  <td><strong>previous</strong></td><td>=> </td><td>null()</td><td><p>The previous node in the dictionary.</p></td>
   
 </tr>
 
@@ -542,7 +543,7 @@
        
     
     <h3>
-private subroutine <a href='../proc/finalize%7E3.html'>finalize</a>(self)
+private subroutine <a href='../proc/finalize%7E2.html'>finalize</a>(self)
     
     
 	 
@@ -555,7 +556,7 @@ private subroutine <a href='../proc/finalize%7E3.html'>finalize</a>(self)
 
 
 
-<p>Finalize the list node.</p>
+<p>Finalize the dictionary node.</p>
     
     <h4>Arguments</h4>
     
@@ -576,7 +577,7 @@ private subroutine <a href='../proc/finalize%7E3.html'>finalize</a>(self)
   
 <tr>
   
-  <td><span class="anchor" ></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -607,7 +608,7 @@ private subroutine <a href='../proc/finalize%7E3.html'>finalize</a>(self)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy_contents"></span><h3>procedure, public, pass(self) :: <strong>destroy_contents</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy%7E2"></span><h3>procedure, public, pass(self) :: <strong>destroy</strong>  
     
   </h3></div>
   
@@ -615,7 +616,7 @@ private subroutine <a href='../proc/finalize%7E3.html'>finalize</a>(self)
     
 
 
-    <p>Destroy the node contents (key &amp; content).</p>
+    <p>Destroy the node (key &amp; content).</p>
   </div>
   
   <ul class="list-group">
@@ -625,7 +626,7 @@ private subroutine <a href='../proc/finalize%7E3.html'>finalize</a>(self)
          
     
     <h3>
-private subroutine <a href='../proc/destroy_contents.html'>destroy_contents</a>(self)
+private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
     
     
 	 
@@ -638,7 +639,7 @@ private subroutine <a href='../proc/destroy_contents.html'>destroy_contents</a>(
 
 
 
-<p>Destroy the node contents (key &amp; content).</p>
+<p>Destroy the node (key &amp; content).</p>
     
     <h4>Arguments</h4>
     
@@ -659,7 +660,7 @@ private subroutine <a href='../proc/destroy_contents.html'>destroy_contents</a>(
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -736,7 +737,7 @@ private elemental function <a href='../proc/is_filled.html'>is_filled</a>(self)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -788,7 +789,7 @@ private elemental function <a href='../proc/is_filled.html'>is_filled</a>(self)
          
     
     <h3>
-private subroutine <a href='../proc/set_pointer.html'>set_pointer</a>(self, key, content, next, previous)
+private subroutine <a href='../proc/set_pointer.html'>set_pointer</a>(self, key, content)
     
     
 	 
@@ -822,7 +823,7 @@ private subroutine <a href='../proc/set_pointer.html'>set_pointer</a>(self, key,
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -842,7 +843,7 @@ private subroutine <a href='../proc/set_pointer.html'>set_pointer</a>(self, key,
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -858,36 +859,6 @@ private subroutine <a href='../proc/set_pointer.html'>set_pointer</a>(self, key,
   
   <td>pointer</td><td>::</td>
   <td><strong>content</strong></td><td><p>The content.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td>pointer</td><td>::</td>
-  <td><strong>next</strong></td><td><p>The next node in the list.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td>pointer</td><td>::</td>
-  <td><strong>previous</strong></td><td><p>The previous node in the list.</p></td>
   
 </tr>
 
@@ -925,7 +896,7 @@ private subroutine <a href='../proc/set_pointer.html'>set_pointer</a>(self, key,
          
     
     <h3>
-private subroutine <a href='../proc/set_clone.html'>set_clone</a>(self, key, content, next, previous)
+private subroutine <a href='../proc/set_clone.html'>set_clone</a>(self, key, content)
     
     
 	 
@@ -959,7 +930,7 @@ private subroutine <a href='../proc/set_clone.html'>set_clone</a>(self, key, con
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -979,7 +950,7 @@ private subroutine <a href='../proc/set_clone.html'>set_clone</a>(self, key, con
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -995,36 +966,6 @@ private subroutine <a href='../proc/set_clone.html'>set_clone</a>(self, key, con
   
   <td></td><td>::</td>
   <td><strong>content</strong></td><td><p>The content.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td>pointer</td><td>::</td>
-  <td><strong>next</strong></td><td><p>The next node in the list.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td>pointer</td><td>::</td>
-  <td><strong>previous</strong></td><td><p>The previous node in the list.</p></td>
   
 </tr>
 
@@ -1096,7 +1037,7 @@ private subroutine <a href='../proc/destroy_key.html'>destroy_key</a>(self)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -1173,7 +1114,7 @@ private subroutine <a href='../proc/destroy_content.html'>destroy_content</a>(se
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -1202,24 +1143,26 @@ private subroutine <a href='../proc/destroy_content.html'>destroy_content</a>(se
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span><span class="k">type</span> <span class="kd">::</span> <span class="n">list_node</span>
-  <span class="c">!&lt; **List node** class to storage any contents as a node of a linked list.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>        <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">key</span>              <span class="c">!&lt; The key ID.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>        <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">content</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>  <span class="c">!&lt; The generic  content.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">list_node</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">next</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>     <span class="c">!&lt; The next node in the list.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">list_node</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">previous</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; The previous node in the list.</span>
+    <div class="highlight"><pre><span></span><span class="k">type</span> <span class="kd">::</span> <span class="n">dictionary_node</span>
+  <span class="c">!&lt; **Dictionary node** class to storage any contents by means of generic key/content pairs.</span>
+  <span class="c">!&lt;</span>
+  <span class="c">!&lt; @note The members of this class are public because they can be safely handled by the [[dictionary]] class.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>              <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">key</span>              <span class="c">!&lt; The key.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>              <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">content</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>  <span class="c">!&lt; The generic  content.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">next</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>     <span class="c">!&lt; The next node in the dictionary.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">previous</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; The previous node in the dictionary.</span>
   <span class="k">contains</span>
     <span class="c">! public methods</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy_contents</span> <span class="c">!&lt; Destroy the node contents (key &amp; content).</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">is_filled</span>        <span class="c">!&lt; Return storage status.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">set_pointer</span>      <span class="c">!&lt; Set the node pointer-associating content.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">set_clone</span>        <span class="c">!&lt; Set the node cloning content.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy</span>     <span class="c">!&lt; Destroy the node (key &amp; content).</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">is_filled</span>   <span class="c">!&lt; Return storage status.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">set_pointer</span> <span class="c">!&lt; Set the node pointer-associating content.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">set_clone</span>   <span class="c">!&lt; Set the node cloning content.</span>
     <span class="c">! private methods</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">destroy_key</span>     <span class="c">!&lt; Destroy the node key.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">destroy_content</span> <span class="c">!&lt; Destroy the node content.</span>
     <span class="c">! finalizer</span>
     <span class="k">final</span> <span class="kd">::</span> <span class="n">finalize</span> <span class="c">!&lt; Finalize the node.</span>
-<span class="n">endtype</span> <span class="n">list_node</span>
+<span class="n">endtype</span> <span class="n">dictionary_node</span>
 </pre></div>
 
     </section>
@@ -1239,13 +1182,13 @@ private subroutine <a href='../proc/destroy_content.html'>destroy_content</a>(se
       
       <a class="list-group-item" href="../type/content_adt.html">content_adt</a>
       
+      <a class="list-group-item" href="../type/dictionary.html">dictionary</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html">dictionary_node</a>
+      
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
-      
-      <a class="list-group-item" href="../type/list.html">list</a>
-      
-      <a class="list-group-item" href="../type/list_node.html">list_node</a>
       
     </div>
   </div>

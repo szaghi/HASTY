@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="HASh Table fortran container exploiting coarraY">
+    
+    <meta name="author" content="Stefano Zaghi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>hasty_test_dictionary &ndash; HASTY</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">HASTY </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>hasty_test_dictionary
+    <small>Program</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title="61.2% of total for programs.">156 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/hasty_test_dictionary.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/hasty_test_dictionary.f90.html'>hasty_test_dictionary.f90</a></li>
+  
+     <li class="active">hasty_test_dictionary</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-a_key">a_key</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-a_content">a_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-another_content">another_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-a_dictionary">a_dictionary</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-max_content">max_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-test_passed">test_passed</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#proc-dictionary_finalize">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#proc-iterator_max">iterator_max</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../program/hasty_test_dictionary.html#src">hasty_test_dictionary</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprogs-0">All Programs</a></h3></div>
+  <div id="allprogs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/compact_real.html">compact_real</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html">hasty_test_dictionary</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_hash_table.html">hasty_test_hash_table</a>
+      
+      <a class="list-group-item" href="../program/test_all.html">test_all</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html">iso_fortran_env</a></li>
+      
+      <li><a href='../module/hasty.html'>hasty</a></li>
+      
+    </ul>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: program~~hasty_test_dictionary~~UsesGraph Pages: 1 -->
+<svg id="programhasty_test_dictionaryUsesGraph" width="641pt" height="89pt"
+ viewBox="0.00 0.00 641.00 89.09" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~hasty_test_dictionary~~UsesGraph" class="graph" transform="scale(0.491564 0.491564) rotate(0) translate(4 177.238)">
+<title>program~~hasty_test_dictionary~~UsesGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-177.238 1301,-177.238 1301,5 -4,5"/>
+<!-- program~hasty_test_dictionary -->
+<g id="node1" class="node"><title>program~hasty_test_dictionary</title>
+<polygon fill="none" stroke="black" points="1295,-135.238 1183,-135.238 1183,-109.238 1295,-109.238 1295,-135.238"/>
+<text text-anchor="middle" x="1239" y="-119.788" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_test_dictionary</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="node2" class="node"><title>iso_fortran_env</title>
+<a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="301,-173.238 215,-173.238 215,-147.238 301,-147.238 301,-173.238"/>
+<text text-anchor="middle" x="258" y="-157.788" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+<!-- iso_fortran_env&#45;&gt;program~hasty_test_dictionary -->
+<g id="edge44" class="edge"><title>iso_fortran_env&#45;&gt;program~hasty_test_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M301.629,-160.238C345.828,-160.238 416.167,-160.238 477,-160.238 477,-160.238 477,-160.238 1007,-160.238 1065.94,-160.238 1132.2,-148.147 1178.78,-137.606"/>
+<polygon fill="#000000" stroke="#000000" points="1179.74,-140.975 1188.7,-135.316 1178.17,-134.154 1179.74,-140.975"/>
+</g>
+<!-- module~penf_stringify -->
+<g id="node12" class="node"><title>module~penf_stringify</title>
+<a xlink:href="../module/penf_stringify.html" xlink:title="penf_stringify">
+<polygon fill="#337ab7" stroke="#337ab7" points="414,-111.238 338,-111.238 338,-85.2384 414,-85.2384 414,-111.238"/>
+<text text-anchor="middle" x="376" y="-95.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_stringify</text>
+</a>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~penf_stringify -->
+<g id="edge4" class="edge"><title>iso_fortran_env&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.025,-147.09C300.234,-138.048 323.293,-125.932 342.141,-116.029"/>
+<polygon fill="#000000" stroke="#000000" points="343.787,-119.118 351.011,-111.368 340.531,-112.921 343.787,-119.118"/>
+</g>
+<!-- module~hasty -->
+<g id="node3" class="node"><title>module~hasty</title>
+<a xlink:href="../module/hasty.html" xlink:title="hasty">
+<polygon fill="#337ab7" stroke="#337ab7" points="1146,-97.2384 1092,-97.2384 1092,-71.2384 1146,-71.2384 1146,-97.2384"/>
+<text text-anchor="middle" x="1119" y="-81.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_dictionary -->
+<g id="edge46" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1146.23,-92.8612C1158.59,-96.7754 1173.63,-101.537 1187.97,-106.078"/>
+<polygon fill="#000000" stroke="#000000" points="1187.15,-109.49 1197.74,-109.173 1189.26,-102.817 1187.15,-109.49"/>
+</g>
+<!-- module~hasty_hash_table -->
+<g id="node4" class="node"><title>module~hasty_hash_table</title>
+<a xlink:href="../module/hasty_hash_table.html" xlink:title="hasty_hash_table">
+<polygon fill="#337ab7" stroke="#337ab7" points="1055,-56.2384 959,-56.2384 959,-30.2384 1055,-30.2384 1055,-56.2384"/>
+<text text-anchor="middle" x="1007" y="-40.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_hash_table</text>
+</a>
+</g>
+<!-- module~hasty_hash_table&#45;&gt;module~hasty -->
+<g id="edge34" class="edge"><title>module~hasty_hash_table&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1042.75,-56.3237C1055.27,-60.9098 1069.36,-66.0679 1081.99,-70.691"/>
+<polygon fill="#000000" stroke="#000000" points="1081.16,-74.1117 1091.75,-74.2627 1083.56,-67.5383 1081.16,-74.1117"/>
+</g>
+<!-- module~hasty_dictionary -->
+<g id="node5" class="node"><title>module~hasty_dictionary</title>
+<a xlink:href="../module/hasty_dictionary.html" xlink:title="hasty_dictionary">
+<polygon fill="#337ab7" stroke="#337ab7" points="922,-56.2384 832,-56.2384 832,-30.2384 922,-30.2384 922,-56.2384"/>
+<text text-anchor="middle" x="877" y="-40.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary</text>
+</a>
+</g>
+<!-- module~hasty_dictionary&#45;&gt;module~hasty -->
+<g id="edge36" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M905.416,-56.3286C931.26,-67.225 970.785,-81.4005 1007,-84.2384"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1007,-84.2384C1031.82,-86.1835 1059.83,-86.1827 1081.63,-85.6961"/>
+<polygon fill="#000000" stroke="#000000" points="1081.89,-89.1905 1091.8,-85.4246 1081.71,-82.193 1081.89,-89.1905"/>
+</g>
+<!-- module~hasty_dictionary&#45;&gt;module~hasty_hash_table -->
+<g id="edge20" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty_hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M922.103,-43.2384C930.536,-43.2384 939.464,-43.2384 948.239,-43.2384"/>
+<polygon fill="#000000" stroke="#000000" points="948.431,-46.7385 958.431,-43.2384 948.431,-39.7385 948.431,-46.7385"/>
+</g>
+<!-- module~hasty_dictionary_node -->
+<g id="node6" class="node"><title>module~hasty_dictionary_node</title>
+<a xlink:href="../module/hasty_dictionary_node.html" xlink:title="hasty_dictionary_node">
+<polygon fill="#337ab7" stroke="#337ab7" points="796,-94.2384 676,-94.2384 676,-68.2384 796,-68.2384 796,-94.2384"/>
+<text text-anchor="middle" x="736" y="-78.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary_node</text>
+</a>
+</g>
+<!-- module~hasty_dictionary_node&#45;&gt;module~hasty -->
+<g id="edge38" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M796.03,-82.7971C821.061,-83.3739 850.436,-83.9558 877,-84.2384"/>
+</g>
+<!-- module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary -->
+<g id="edge22" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M784.524,-68.1609C796.593,-64.9084 809.616,-61.3986 821.972,-58.0685"/>
+<polygon fill="#000000" stroke="#000000" points="822.963,-61.4265 831.708,-55.4448 821.141,-54.6676 822.963,-61.4265"/>
+</g>
+<!-- module~hasty_content_adt -->
+<g id="node7" class="node"><title>module~hasty_content_adt</title>
+<a xlink:href="../module/hasty_content_adt.html" xlink:title="hasty_content_adt">
+<polygon fill="#337ab7" stroke="#337ab7" points="640,-116.238 540,-116.238 540,-90.2384 640,-90.2384 640,-116.238"/>
+<text text-anchor="middle" x="590" y="-100.788" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_content_adt</text>
+</a>
+</g>
+<!-- module~hasty_content_adt&#45;&gt;module~hasty -->
+<g id="edge40" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M640.137,-106.449C681.965,-108.359 743.065,-109.364 796,-103.238 832.732,-98.988 840.025,-83.8451 877,-84.2384"/>
+</g>
+<!-- module~hasty_content_adt&#45;&gt;module~hasty_dictionary_node -->
+<g id="edge28" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty_dictionary_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M640.245,-95.6672C648.486,-94.4254 657.156,-93.1189 665.775,-91.8201"/>
+<polygon fill="#000000" stroke="#000000" points="666.474,-95.2545 675.841,-90.3034 665.431,-88.3326 666.474,-95.2545"/>
+</g>
+<!-- module~hasty_key_adt -->
+<g id="node8" class="node"><title>module~hasty_key_adt</title>
+<a xlink:href="../module/hasty_key_adt.html" xlink:title="hasty_key_adt">
+<polygon fill="#337ab7" stroke="#337ab7" points="631,-56.2384 549,-56.2384 549,-30.2384 631,-30.2384 631,-56.2384"/>
+<text text-anchor="middle" x="590" y="-40.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_adt</text>
+</a>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty -->
+<g id="edge42" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M736,-40.2384C801.647,-40.2623 811.384,-82.2237 877,-84.2384"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M877,-84.2384C934.751,-86.0115 949.399,-79.7246 1007,-84.2384"/>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty_hash_table -->
+<g id="edge18" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M631.216,-41.932C660.457,-41.1175 700.633,-40.2255 736,-40.2384"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M736,-40.2384C800.903,-40.262 812.336,3.32234 877,-2.23836"/>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty_dictionary -->
+<g id="edge24" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M736,-40.2384C764.316,-40.2487 795.824,-40.8619 821.861,-41.5312"/>
+<polygon fill="#000000" stroke="#000000" points="821.83,-45.0316 831.92,-41.7994 822.017,-38.034 821.83,-45.0316"/>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty_dictionary_node -->
+<g id="edge30" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_dictionary_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M631.058,-53.9246C645.033,-57.5621 660.955,-61.7061 676.099,-65.6476"/>
+<polygon fill="#000000" stroke="#000000" points="675.351,-69.0695 685.91,-68.2012 677.114,-62.2952 675.351,-69.0695"/>
+</g>
+<!-- module~penf -->
+<g id="node9" class="node"><title>module~penf</title>
+<a xlink:href="../module/penf.html" xlink:title="penf">
+<polygon fill="#337ab7" stroke="#337ab7" points="504,-53.2384 450,-53.2384 450,-27.2384 504,-27.2384 504,-53.2384"/>
+<text text-anchor="middle" x="477" y="-37.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf</text>
+</a>
+</g>
+<!-- module~penf&#45;&gt;module~hasty_hash_table -->
+<g id="edge16" class="edge"><title>module~penf&#45;&gt;module~hasty_hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.305,-30.7272C515.276,-27.2424 528.119,-23.5821 540,-21.2384 625.865,-4.29938 648.708,4.07411 736,-2.23836"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M736,-2.23836C798.621,-4.61888 814.564,3.13077 877,-2.23836"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M877,-2.23836C908.988,-4.98915 943.582,-16.3392 969.037,-26.4016"/>
+<polygon fill="#000000" stroke="#000000" points="967.738,-29.6519 978.32,-30.1744 970.374,-23.1669 967.738,-29.6519"/>
+</g>
+<!-- module~penf&#45;&gt;module~hasty_dictionary -->
+<g id="edge26" class="edge"><title>module~penf&#45;&gt;module~hasty_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M736,-2.23836C770.913,-4.76313 808.939,-16.3749 836.693,-26.5993"/>
+<polygon fill="#000000" stroke="#000000" points="835.468,-29.8779 846.06,-30.1407 837.944,-23.3303 835.468,-29.8779"/>
+</g>
+<!-- module~penf&#45;&gt;module~hasty_key_adt -->
+<g id="edge32" class="edge"><title>module~penf&#45;&gt;module~hasty_key_adt</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.066,-40.9569C514.368,-41.2304 526.482,-41.552 538.312,-41.8661"/>
+<polygon fill="#000000" stroke="#000000" points="538.493,-45.3721 548.582,-42.1388 538.679,-38.3745 538.493,-45.3721"/>
+</g>
+<!-- module~penf_global_parameters_variables -->
+<g id="node10" class="node"><title>module~penf_global_parameters_variables</title>
+<a xlink:href="../module/penf_global_parameters_variables.html" xlink:title="penf_global_parameters_variables">
+<polygon fill="#337ab7" stroke="#337ab7" points="178,-91.2384 8.52651e-14,-91.2384 0,-65.2384 178,-65.2384 178,-91.2384"/>
+<text text-anchor="middle" x="89" y="-75.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_global_parameters_variables</text>
+</a>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf -->
+<g id="edge10" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M158.964,-65.1943C176.872,-62.0563 196.122,-58.8578 214,-56.2384 285.728,-45.7289 303.69,-42.3926 376,-37.2384"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M376,-37.2384C397.065,-35.1753 420.71,-35.7234 439.823,-36.8795"/>
+<polygon fill="#000000" stroke="#000000" points="439.714,-40.3802 449.93,-37.5716 440.192,-33.3965 439.714,-40.3802"/>
+</g>
+<!-- module~penf_b_size -->
+<g id="node11" class="node"><title>module~penf_b_size</title>
+<a xlink:href="../module/penf_b_size.html" xlink:title="penf_b_size">
+<polygon fill="#337ab7" stroke="#337ab7" points="293,-91.2384 223,-91.2384 223,-65.2384 293,-65.2384 293,-91.2384"/>
+<text text-anchor="middle" x="258" y="-75.7884" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_b_size</text>
+</a>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_b_size -->
+<g id="edge2" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_b_size</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178.449,-78.2384C190.206,-78.2384 201.835,-78.2384 212.422,-78.2384"/>
+<polygon fill="#000000" stroke="#000000" points="212.627,-81.7385 222.627,-78.2384 212.627,-74.7385 212.627,-81.7385"/>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_stringify -->
+<g id="edge8" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M150.709,-91.2952C170.794,-94.9549 193.256,-98.4268 214,-100.238 252.963,-103.641 262.892,-100.767 302,-100.238 310.314,-100.126 319.152,-99.9428 327.718,-99.7315"/>
+<polygon fill="#000000" stroke="#000000" points="328.073,-103.224 337.978,-99.463 327.89,-96.2259 328.073,-103.224"/>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf -->
+<g id="edge12" class="edge"><title>module~penf_b_size&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.405,-65.0295C306.751,-53.9676 342.686,-39.613 376,-37.2384"/>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf_stringify -->
+<g id="edge6" class="edge"><title>module~penf_b_size&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.084,-84.1849C304.014,-86.0373 316.261,-88.1131 327.919,-90.089"/>
+<polygon fill="#000000" stroke="#000000" points="327.519,-93.5712 337.964,-91.7915 328.689,-86.6696 327.519,-93.5712"/>
+</g>
+<!-- module~penf_stringify&#45;&gt;module~penf -->
+<g id="edge14" class="edge"><title>module~penf_stringify&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M398.666,-85.222C412.345,-77.367 429.986,-67.2367 445.062,-58.5789"/>
+<polygon fill="#000000" stroke="#000000" points="447.131,-61.427 454.06,-53.4119 443.645,-55.3567 447.131,-61.427"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panprogramhasty_test_dictionaryUsesGraph = svgPanZoom('#programhasty_test_dictionaryUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="486pt" height="34pt"
+ viewBox="0.00 0.00 486.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 483,-30 483,5 -4,5"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-26 2.13163e-14,-26 0,-1.24345e-14 54,-3.55271e-15 54,-26"/>
+<text text-anchor="middle" x="27" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="138,-26 72,-26 72,-1.24345e-14 138,-3.55271e-15 138,-26"/>
+<text text-anchor="middle" x="105" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="220,-26 156,-26 156,-1.24345e-14 220,-3.55271e-15 220,-26"/>
+<text text-anchor="middle" x="188" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="292,-26 238,-26 238,-1.24345e-14 292,-3.55271e-15 292,-26"/>
+<text text-anchor="middle" x="265" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="364,-26 310,-26 310,-1.24345e-14 364,-3.55271e-15 364,-26"/>
+<text text-anchor="middle" x="337" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="478,-26 382,-26 382,-1.24345e-14 478,-3.55271e-15 478,-26"/>
+<text text-anchor="middle" x="430" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+
+    <br><br>
+    <p>HASTY test dictionary.</p>
+    
+     <h3>Calls</h3>
+     
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: program~~hasty_test_dictionary~~CallsGraph Pages: 1 -->
+<svg id="programhasty_test_dictionaryCallsGraph" width="256pt" height="34pt"
+ viewBox="0.00 0.00 256.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~hasty_test_dictionary~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>program~~hasty_test_dictionary~~CallsGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 253,-30 253,5 -4,5"/>
+<!-- program~hasty_test_dictionary -->
+<g id="node1" class="node"><title>program~hasty_test_dictionary</title>
+<polygon fill="none" stroke="black" points="113,-26 1,-26 1,-1.24345e-14 113,-3.55271e-15 113,-26"/>
+<text text-anchor="middle" x="57" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_test_dictionary</text>
+</g>
+<!-- proc~dictionary_finalize -->
+<g id="node2" class="node"><title>proc~dictionary_finalize</title>
+<a xlink:href="../proc/dictionary_finalize.html" xlink:title="dictionary_finalize">
+<polygon fill="#d9534f" stroke="#d9534f" points="247,-26 151,-26 151,-1.24345e-14 247,-3.55271e-15 247,-26"/>
+<text text-anchor="middle" x="199" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dictionary_finalize</text>
+</a>
+</g>
+<!-- program~hasty_test_dictionary&#45;&gt;proc~dictionary_finalize -->
+<g id="edge2" class="edge"><title>program~hasty_test_dictionary&#45;&gt;proc~dictionary_finalize</title>
+<path fill="none" stroke="#000000" d="M113.53,-13C122.313,-13 131.405,-13 140.236,-13"/>
+<polygon fill="#000000" stroke="#000000" points="140.45,-16.5001 150.45,-13 140.45,-9.5001 140.45,-16.5001"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="556pt" height="34pt"
+ viewBox="0.00 0.00 556.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 553,-30 553,5 -4,5"/>
+<!-- Subroutine -->
+<g id="node1" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="64,-26 3.19744e-14,-26 0,-1.24345e-14 64,-3.55271e-15 64,-26"/>
+<text text-anchor="middle" x="32" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="136,-26 82,-26 82,-1.24345e-14 136,-3.55271e-15 136,-26"/>
+<text text-anchor="middle" x="109" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node"><title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="208,-26 154,-26 154,-1.24345e-14 208,-3.55271e-15 208,-26"/>
+<text text-anchor="middle" x="181" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node"><title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="362,-26 226,-26 226,-1.24345e-14 362,-3.55271e-15 362,-26"/>
+<text text-anchor="middle" x="294" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="434,-26 380,-26 380,-1.24345e-14 434,-3.55271e-15 434,-26"/>
+<text text-anchor="middle" x="407" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="548,-26 452,-26 452,-1.24345e-14 548,-3.55271e-15 548,-26"/>
+<text text-anchor="middle" x="500" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+     
+    <br>
+
+     <section class="visible-xs visible-sm hidden-md">
+       
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-a_key">a_key</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-a_content">a_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-another_content">another_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-a_dictionary">a_dictionary</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-max_content">max_content</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#variable-test_passed">test_passed</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#proc-dictionary_finalize">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html#proc-iterator_max">iterator_max</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../program/hasty_test_dictionary.html#src">hasty_test_dictionary</a>
+  </div>
+</div>
+
+
+     </section>
+     <br class="visible-xs visible-sm hidden-md">
+
+     
+
+    
+    <section>
+    <h2>Variables</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a_key"></span>class(*),</td>
+  
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>a_key</strong></td><td></td><td></td><td><p>A key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a_content"></span>class(*),</td>
+  
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>a_content</strong></td><td></td><td></td><td><p>A content.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-another_content"></span>class(*),</td>
+  
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>another_content</strong></td><td></td><td></td><td><p>Another content.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-a_dictionary"></span>type(<a href='../type/dictionary.html'>dictionary</a>)</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>a_dictionary</strong></td><td></td><td></td><td><p>A dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-max_content"></span>integer(kind=int32)</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>max_content</strong></td><td></td><td></td><td><p>Maximum content value.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-test_passed"></span>logical</td>
+  
+  
+  <td></td><td>::</td>
+  <td><strong>test_passed</strong>(10)</td><td></td><td></td><td><p>List of passed tests.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-dictionary_finalize"></span><h3>
+subroutine <a href='../proc/dictionary_finalize.html'>dictionary_finalize</a>()
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Test <a href="../type/dictionary.html#finalproc-finalize">finalize</a>.</p>
+    
+    <h4>Arguments</h4>
+    
+      <em>None</em>
+    
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-iterator_max"></span><h3>
+subroutine <a href='../proc/iterator_max.html'>iterator_max</a>(key, content, done)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Iterator that computes the max of contents.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>key</strong></td><td><p>The node key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>content</strong></td><td><p>The generic content.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>done</strong></td><td><p>Flag to set to true to stop traversing.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    
+    
+    
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">program </span><span class="n">hasty_test_dictionary</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="c">!&lt; HASTY test dictionary.</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">int32</span>
+<span class="k">use </span><span class="n">hasty</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">a_key</span>           <span class="c">!&lt; A key.</span>
+<span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">a_content</span>       <span class="c">!&lt; A content.</span>
+<span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">another_content</span> <span class="c">!&lt; Another content.</span>
+<span class="k">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>      <span class="kd">::</span> <span class="n">a_dictionary</span>    <span class="c">!&lt; A dictionary.</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">max_content</span>     <span class="c">!&lt; Maximum content value.</span>
+<span class="kt">logical</span>               <span class="kd">::</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c">!&lt; List of passed tests.</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="n">test_passed</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+
+<span class="k">call </span><span class="n">dictionary_finalize</span>
+
+<span class="k">allocate</span><span class="p">(</span><span class="n">a_key</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">a_content</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">12_int32</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">add_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">a_key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">a_content</span><span class="p">)</span>
+<span class="k">call </span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">add_clone</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">5_int32</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="mi">13_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;(A)&#39;</span><span class="p">,</span> <span class="s1">&#39;Keys in dictionary:&#39;</span>
+<span class="k">call </span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">print_keys</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A)&quot;</span><span class="p">,</span> <span class="s1">&#39;Explicit loop over all nodes (keys)&#39;</span>
+<span class="k">do while</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">loop_key</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">a_key</span><span class="p">))</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">a_key</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_key</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;key &#39;</span><span class="p">,</span> <span class="n">a_key</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+<span class="n">enddo</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A)&quot;</span><span class="p">,</span> <span class="s1">&#39;Repeating the loop to check saved values (keys)&#39;</span>
+<span class="k">do while</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">loop_key</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">a_key</span><span class="p">))</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">a_key</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_key</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;key &#39;</span><span class="p">,</span> <span class="n">a_key</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+<span class="n">enddo</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A)&quot;</span><span class="p">,</span> <span class="s1">&#39;Explicit loop over all nodes (contents)&#39;</span>
+<span class="k">do while</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">loop_content</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">a_content</span><span class="p">))</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;content &#39;</span><span class="p">,</span> <span class="n">a_content</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+<span class="n">enddo</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A)&quot;</span><span class="p">,</span> <span class="s1">&#39;Repeating the loop to check saved values (contents)&#39;</span>
+<span class="k">do while</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">loop_content</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">a_content</span><span class="p">))</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;content &#39;</span><span class="p">,</span> <span class="n">a_content</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+<span class="n">enddo</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A)&quot;</span><span class="p">,</span> <span class="s1">&#39;Explicit loop over all nodes (key &amp; contents)&#39;</span>
+<span class="k">do while</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">loop</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">a_key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">a_content</span><span class="p">))</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">a_key</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_key</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;key &#39;</span><span class="p">,</span> <span class="n">a_key</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;content &#39;</span><span class="p">,</span> <span class="n">a_content</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+<span class="n">enddo</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A)&quot;</span><span class="p">,</span> <span class="s1">&#39;Repeating the loop to check saved values (key &amp; contents)&#39;</span>
+<span class="k">do while</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">loop</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">a_key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">a_content</span><span class="p">))</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">a_key</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_key</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;key &#39;</span><span class="p">,</span> <span class="n">a_key</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="k">print</span> <span class="s2">&quot;(A,I3)&quot;</span><span class="p">,</span> <span class="s1">&#39;content &#39;</span><span class="p">,</span> <span class="n">a_content</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+<span class="n">enddo</span>
+
+<span class="n">a_content</span> <span class="o">=&gt;</span> <span class="n">a_dictionary</span><span class="p">%</span><span class="n">get_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">  select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">test_passed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">a_content</span><span class="o">==</span><span class="mi">12_int32</span>
+  <span class="n">endselect</span>
+<span class="n">endif</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary(3) = 12, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">a_content</span> <span class="o">=&gt;</span> <span class="n">a_dictionary</span><span class="p">%</span><span class="n">get_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">5_int32</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">  select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">test_passed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">a_content</span><span class="o">==</span><span class="mi">13_int32</span>
+  <span class="n">endselect</span>
+<span class="n">endif</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary(5) = 13, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">a_content</span> <span class="o">=&gt;</span> <span class="n">a_dictionary</span><span class="p">%</span><span class="n">get_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="n">another_content</span> <span class="o">=&gt;</span> <span class="n">a_dictionary</span><span class="p">%</span><span class="n">get_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">a_content</span><span class="p">).</span><span class="nb">and</span><span class="p">.</span><span class="nb">associated</span><span class="p">(</span><span class="n">another_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">  select type</span><span class="p">(</span><span class="n">a_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">a_content</span> <span class="o">=</span> <span class="mi">10_int32</span>
+  <span class="n">endselect</span>
+  <span class="k">select type</span><span class="p">(</span><span class="n">another_content</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">test_passed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">another_content</span><span class="o">==</span><span class="mi">10_int32</span>
+  <span class="n">endselect</span>
+<span class="n">endif</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary(3) = 10, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;len(a_dictionary) = 2, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">a_dictionary</span><span class="p">%</span><span class="n">has_key</span><span class="p">(</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary has key &quot;3&quot;, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">=</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">has_key</span><span class="p">(</span><span class="mi">4_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary has not key &quot;4&quot;, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">has_key</span><span class="p">(</span><span class="mi">3_int32</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary has not key &quot;3&quot;, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">max_content</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">call </span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">traverse</span><span class="p">(</span><span class="n">iterator</span><span class="o">=</span><span class="n">iterator_max</span><span class="p">)</span>
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">=</span> <span class="n">max_content</span><span class="o">==</span><span class="mi">13</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;max(a_dictionary) = 13, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">get_clone</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">5_int32</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">a_key</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">a_key</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">  select type</span><span class="p">(</span><span class="n">a_key</span><span class="p">)</span>
+  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+    <span class="n">test_passed</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">=</span> <span class="n">a_key</span><span class="o">==</span><span class="mi">13_int32</span>
+  <span class="n">endselect</span>
+<span class="n">endif</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary(5) = 13, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">a_dictionary</span><span class="p">%</span><span class="n">destroy</span>
+<span class="n">test_passed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_dictionary</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span>
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="s1">&#39;a_dictionary destroyed, is correct? &#39;</span><span class="p">,</span> <span class="n">test_passed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s2">&quot;(A,L1)&quot;</span><span class="p">,</span> <span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;Are all tests passed? &#39;</span><span class="p">,</span> <span class="k">all</span><span class="p">(</span><span class="n">test_passed</span><span class="p">)</span>
+<span class="k">stop</span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">contains</span>
+<span class="k">  subroutine </span><span class="n">dictionary_finalize</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c">!&lt; Test [[dictionary:finalize]].</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span> <span class="kd">::</span> <span class="n">local_dictionary</span> <span class="c">!&lt; A dictionary.</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="k">call </span><span class="n">local_dictionary</span><span class="p">%</span><span class="n">add_clone</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="mi">5_int32</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="mi">13_int32</span><span class="p">)</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="n">endsubroutine</span> <span class="n">dictionary_finalize</span>
+
+  <span class="k">subroutine </span><span class="n">iterator_max</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">done</span><span class="p">)</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="c">!&lt; Iterator that computes the max of contents.</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">key</span>     <span class="c">!&lt; The node key.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">content</span> <span class="c">!&lt; The generic content.</span>
+  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">done</span>    <span class="c">!&lt; Flag to set to true to stop traversing.</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">    select type</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+      <span class="n">max_content</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_content</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+    <span class="n">endselect</span>
+  <span class="n">endif</span>
+  <span class="n">done</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+  <span class="n">endsubroutine</span> <span class="n">iterator_max</span>
+<span class="n">endprogram</span> <span class="n">hasty_test_dictionary</span>
+</pre></div>
+
+    </section>
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprogs-1">All Programs</a></h3></div>
+  <div id="allprogs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/compact_real.html">compact_real</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_dictionary.html">hasty_test_dictionary</a>
+      
+      <a class="list-group-item" href="../program/hasty_test_hash_table.html">hasty_test_hash_table</a>
+      
+      <a class="list-group-item" href="../program/test_all.html">test_all</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2016 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> HASTY was developed by Stefano Zaghi</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

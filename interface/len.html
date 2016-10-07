@@ -120,18 +120,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.2% of total for procedures.</p>Including implementation: 8 statements,  0.7% of total for procedures.">3 statements</a>
+	  title="<p> 0.2% of total for procedures.</p>Including implementation: 8 statements,  0.6% of total for procedures.">3 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_list.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_list.f90.html'>hasty_list.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary.f90.html'>hasty_dictionary.f90</a></li>
   
-     <li><a href='../module/hasty_list.html'>hasty_list</a></li>
+     <li><a href='../module/hasty_dictionary.html'>hasty_dictionary</a></li>
   
      <li class="active">len</li>
   </ol>
@@ -175,7 +175,7 @@
   <div id="modprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/len.html#moduleprocedure-list_len">list_len</a>
+      <a class="list-group-item" href="../interface/len.html#moduleprocedure-dictionary_len">dictionary_len</a>
       
     </div>
   </div>
@@ -287,13 +287,17 @@
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -311,15 +315,25 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -327,11 +341,19 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -341,7 +363,11 @@
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -409,6 +435,8 @@
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
       
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
+      
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       
     </div>
@@ -422,7 +450,7 @@
     
     <div class="col-md-9" id='text'>
       <h2>public interface len</h2>
-	 
+	 <p>Overload <code>len</code> builtin for accepting a <a href="../type/dictionary.html">dictionary</a>.</p>
      
      <h3>Calls</h3>
      
@@ -432,27 +460,27 @@
 <!-- Generated by graphviz version 2.26.3 (20100126.1600)
  -->
 <!-- Title: interface~~len~~CallsGraph Pages: 1 -->
-<svg id="interfacelenCallsGraph" width="152pt" height="34pt"
- viewBox="0.00 0.00 152.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="interfacelenCallsGraph" width="178pt" height="34pt"
+ viewBox="0.00 0.00 178.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="interface~~len~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
 <title>interface~~len~~CallsGraph</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-30 149,-30 149,5 -4,5"/>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 175,-30 175,5 -4,5"/>
 <!-- interface~len -->
 <g id="node1" class="node"><title>interface~len</title>
 <polygon fill="none" stroke="black" points="54,-26 2.13163e-14,-26 0,-1.24345e-14 54,-3.55271e-15 54,-26"/>
 <text text-anchor="middle" x="27" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">len</text>
 </g>
-<!-- proc~list_len -->
-<g id="node2" class="node"><title>proc~list_len</title>
-<a xlink:href="../proc/list_len.html" xlink:title="list_len">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-26 90,-26 90,-1.24345e-14 144,-3.55271e-15 144,-26"/>
-<text text-anchor="middle" x="117" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">list_len</text>
+<!-- proc~dictionary_len -->
+<g id="node2" class="node"><title>proc~dictionary_len</title>
+<a xlink:href="../proc/dictionary_len.html" xlink:title="dictionary_len">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="169,-26 91,-26 91,-1.24345e-14 169,-3.55271e-15 169,-26"/>
+<text text-anchor="middle" x="130" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dictionary_len</text>
 </a>
 </g>
-<!-- interface~len&#45;&gt;proc~list_len -->
-<g id="edge2" class="edge"><title>interface~len&#45;&gt;proc~list_len</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.003,-13C62.0277,-13 70.9665,-13 79.5309,-13"/>
-<polygon fill="#000000" stroke="#000000" points="79.7051,-16.5001 89.705,-13 79.705,-9.5001 79.7051,-16.5001"/>
+<!-- interface~len&#45;&gt;proc~dictionary_len -->
+<g id="edge2" class="edge"><title>interface~len&#45;&gt;proc~dictionary_len</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.062,-13C62.1169,-13 71.2101,-13 80.2323,-13"/>
+<polygon fill="#000000" stroke="#000000" points="80.3295,-16.5001 90.3294,-13 80.3294,-9.5001 80.3295,-16.5001"/>
 </g>
 </g>
 </svg>
@@ -554,7 +582,7 @@
   <div id="modprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/len.html#moduleprocedure-list_len">list_len</a>
+      <a class="list-group-item" href="../interface/len.html#moduleprocedure-dictionary_len">dictionary_len</a>
       
     </div>
   </div>
@@ -574,8 +602,8 @@
 	 
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-list_len"></span><h3>
-private elemental function <a href='../proc/list_len.html'>list_len</a>(self) result(length)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-dictionary_len"></span><h3>
+private elemental function <a href='../proc/dictionary_len.html'>dictionary_len</a>(self) result(length)
     
     
 	 
@@ -590,7 +618,7 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
 
 
 
-<p>Return the number of nodes of the list, namely the list length.</p>
+<p>Return the number of nodes of the dictionary, namely the dictionary length.</p>
     
     <h4>Arguments</h4>
     
@@ -611,12 +639,12 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
   
 <tr>
   
-  <td><span class="anchor" ></span>type(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>type(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -633,7 +661,7 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
   
      <h4>Return Value <small>integer(kind=I4P)
   </small></h4>
-  <p>The list length.</p>
+  <p>The dictionary length.</p>
     
 
   </div>
@@ -750,13 +778,17 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -774,15 +806,25 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -790,11 +832,19 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -804,7 +854,11 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -871,6 +925,8 @@ private elemental function <a href='../proc/list_len.html'>list_len</a>(self) re
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
+      
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       

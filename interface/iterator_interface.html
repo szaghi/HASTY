@@ -122,18 +122,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="11.5% of total for abstract interfaces.">7 statements</a>
+	  title="10.4% of total for abstract interfaces.">7 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_list.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_list.f90.html'>hasty_list.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary.f90.html'>hasty_dictionary.f90</a></li>
   
-     <li><a href='../module/hasty_list.html'>hasty_list</a></li>
+     <li><a href='../module/hasty_dictionary.html'>hasty_dictionary</a></li>
   
      <li class="active">iterator_interface</li>
   </ol>
@@ -185,6 +185,8 @@
       
       <a class="list-group-item" href="../interface/destroy_interface.html">destroy_interface</a>
       
+      <a class="list-group-item" href="../interface/destroy_interface%7E2.html">destroy_interface</a>
+      
       <a class="list-group-item" href="../interface/is_equal_interface.html">is_equal_interface</a>
       
       <a class="list-group-item" href="../interface/is_equal_interface%7E2.html">is_equal_interface</a>
@@ -214,7 +216,7 @@
 	
     
     <h2>abstract interface</h2>
-    <p>Iterator procedure for traversing all nodes in a list.</p>
+    <p>Iterator procedure for traversing all nodes in a dictionary.</p>
     
     
     <h2>
@@ -247,12 +249,12 @@ private subroutine iterator_interface(node, done)
   
 <tr>
   
-  <td><span class="anchor" id="variable-node%7E2"></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" id="variable-node%7E2"></span>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(in),</td>
   <td></td>
   
   <td>pointer</td><td>::</td>
-  <td><strong>node</strong></td><td><p>Actual node pointer in the list.</p></td>
+  <td><strong>node</strong></td><td><p>Actual node pointer in the dictionary.</p></td>
   
 </tr>
 
@@ -278,7 +280,7 @@ private subroutine iterator_interface(node, done)
     
     
     <h3>Description</h3>
-    <p>Iterator procedure for traversing all nodes in a list.</p>
+    <p>Iterator procedure for traversing all nodes in a dictionary.</p>
     
     <br>
 
@@ -295,6 +297,8 @@ private subroutine iterator_interface(node, done)
     <div class="list-group">
       
       <a class="list-group-item" href="../interface/destroy_interface.html">destroy_interface</a>
+      
+      <a class="list-group-item" href="../interface/destroy_interface%7E2.html">destroy_interface</a>
       
       <a class="list-group-item" href="../interface/is_equal_interface.html">is_equal_interface</a>
       

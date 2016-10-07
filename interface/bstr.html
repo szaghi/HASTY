@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.2% of total for procedures.</p>Including implementation: 39 statements,  3.2% of total for procedures.">3 statements</a>
+	  title="<p> 0.2% of total for procedures.</p>Including implementation: 39 statements,  2.8% of total for procedures.">3 statements</a>
      </li> 
      
      
@@ -297,13 +297,17 @@
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -321,15 +325,25 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -337,11 +351,19 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -351,7 +373,11 @@
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -418,6 +444,8 @@
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
+      
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       
@@ -488,39 +516,39 @@
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.1054,-129.482C62.8245,-131.567 72.6397,-133.914 81.9467,-136.139"/>
 <polygon fill="#000000" stroke="#000000" points="81.2306,-139.567 91.7704,-138.489 82.8586,-132.759 81.2306,-139.567"/>
 </g>
-<!-- proc~bstr_i4p -->
-<g id="node5" class="node"><title>proc~bstr_i4p</title>
-<a xlink:href="../proc/bstr_i4p.html" xlink:title="bstr_I4P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-114 92,-114 92,-88 146,-88 146,-114"/>
-<text text-anchor="middle" x="119" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bstr_I4P</text>
-</a>
-</g>
-<!-- interface~bstr&#45;&gt;proc~bstr_i4p -->
-<g id="edge8" class="edge"><title>interface~bstr&#45;&gt;proc~bstr_i4p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.1054,-116.518C62.8245,-114.433 72.6397,-112.086 81.9467,-109.861"/>
-<polygon fill="#000000" stroke="#000000" points="82.8586,-113.241 91.7704,-107.511 81.2306,-106.433 82.8586,-113.241"/>
-</g>
-<!-- proc~bstr_i2p -->
-<g id="node6" class="node"><title>proc~bstr_i2p</title>
-<a xlink:href="../proc/bstr_i2p.html" xlink:title="bstr_I2P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-70 92,-70 92,-44 146,-44 146,-70"/>
-<text text-anchor="middle" x="119" y="-54.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bstr_I2P</text>
-</a>
-</g>
-<!-- interface~bstr&#45;&gt;proc~bstr_i2p -->
-<g id="edge10" class="edge"><title>interface~bstr&#45;&gt;proc~bstr_i2p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M45.1762,-109.961C58.659,-100.288 77.2499,-86.9511 92.4021,-76.0811"/>
-<polygon fill="#000000" stroke="#000000" points="94.7763,-78.6854 100.862,-70.0124 90.6959,-72.9976 94.7763,-78.6854"/>
-</g>
 <!-- proc~bstr_r8p -->
-<g id="node7" class="node"><title>proc~bstr_r8p</title>
+<g id="node5" class="node"><title>proc~bstr_r8p</title>
 <a xlink:href="../proc/bstr_r8p.html" xlink:title="bstr_R8P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="147,-26 91,-26 91,-1.24345e-14 147,-3.55271e-15 147,-26"/>
-<text text-anchor="middle" x="119" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bstr_R8P</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="147,-114 91,-114 91,-88 147,-88 147,-114"/>
+<text text-anchor="middle" x="119" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bstr_R8P</text>
 </a>
 </g>
 <!-- interface~bstr&#45;&gt;proc~bstr_r8p -->
-<g id="edge12" class="edge"><title>interface~bstr&#45;&gt;proc~bstr_r8p</title>
+<g id="edge8" class="edge"><title>interface~bstr&#45;&gt;proc~bstr_r8p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.1054,-116.518C62.4237,-114.529 71.7396,-112.301 80.66,-110.168"/>
+<polygon fill="#000000" stroke="#000000" points="81.5775,-113.548 90.4893,-107.818 79.9494,-106.74 81.5775,-113.548"/>
+</g>
+<!-- proc~bstr_i4p -->
+<g id="node6" class="node"><title>proc~bstr_i4p</title>
+<a xlink:href="../proc/bstr_i4p.html" xlink:title="bstr_I4P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-70 92,-70 92,-44 146,-44 146,-70"/>
+<text text-anchor="middle" x="119" y="-54.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bstr_I4P</text>
+</a>
+</g>
+<!-- interface~bstr&#45;&gt;proc~bstr_i4p -->
+<g id="edge10" class="edge"><title>interface~bstr&#45;&gt;proc~bstr_i4p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M45.1762,-109.961C58.659,-100.288 77.2499,-86.9511 92.4021,-76.0811"/>
+<polygon fill="#000000" stroke="#000000" points="94.7763,-78.6854 100.862,-70.0124 90.6959,-72.9976 94.7763,-78.6854"/>
+</g>
+<!-- proc~bstr_i2p -->
+<g id="node7" class="node"><title>proc~bstr_i2p</title>
+<a xlink:href="../proc/bstr_i2p.html" xlink:title="bstr_I2P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-26 92,-26 92,-1.24345e-14 146,-3.55271e-15 146,-26"/>
+<text text-anchor="middle" x="119" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">bstr_I2P</text>
+</a>
+</g>
+<!-- interface~bstr&#45;&gt;proc~bstr_i2p -->
+<g id="edge12" class="edge"><title>interface~bstr&#45;&gt;proc~bstr_i2p</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M34.6709,-109.842C45.5715,-91.7812 66.8113,-58.8395 90,-35 90.6554,-34.3262 91.3326,-33.6564 92.0268,-32.9924"/>
 <polygon fill="#000000" stroke="#000000" points="94.6249,-35.3728 99.8992,-26.1841 90.0459,-30.0782 94.6249,-35.3728"/>
 </g>
@@ -1271,13 +1299,17 @@ private elemental function <a href='../proc/bstr_i1p.html'>bstr_I1P</a>(n) resul
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -1295,15 +1327,25 @@ private elemental function <a href='../proc/bstr_i1p.html'>bstr_I1P</a>(n) resul
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -1311,11 +1353,19 @@ private elemental function <a href='../proc/bstr_i1p.html'>bstr_I1P</a>(n) resul
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -1325,7 +1375,11 @@ private elemental function <a href='../proc/bstr_i1p.html'>bstr_I1P</a>(n) resul
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -1392,6 +1446,8 @@ private elemental function <a href='../proc/bstr_i1p.html'>bstr_I1P</a>(n) resul
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
+      
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       

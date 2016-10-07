@@ -10,7 +10,7 @@
     <meta name="author" content="Stefano Zaghi" >
     <link rel="icon" href="../favicon.png">
 
-    <title>list &ndash; HASTY </title>
+    <title>dictionary &ndash; HASTY </title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -102,7 +102,7 @@
     
   
   <div class="row">
-    <h1>list
+    <h1>dictionary
     <small>Derived Type</small>
     
     </h1>
@@ -120,20 +120,20 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>29.5% of total for derived types.</p>Including implementation: 181 statements, 51.4% of total for derived types.">18 statements</a>
+	  title="<p>31.5% of total for derived types.</p>Including implementation: 262 statements, 54.1% of total for derived types.">23 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_list.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_list.f90.html'>hasty_list.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary.f90.html'>hasty_dictionary.f90</a></li>
   
-     <li><a href='../module/hasty_list.html'>hasty_list</a></li>
+     <li><a href='../module/hasty_dictionary.html'>hasty_dictionary</a></li>
   
-     <li class="active">list</li>
+     <li class="active">dictionary</li>
   </ol>
 </div>
 </div>
@@ -158,11 +158,11 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list.html#variable-nodes_number">nodes_number</a>
+      <a class="list-group-item" href="../type/dictionary.html#variable-head">head</a>
       
-      <a class="list-group-item" href="../type/list.html#variable-head">head</a>
+      <a class="list-group-item" href="../type/dictionary.html#variable-tail">tail</a>
       
-      <a class="list-group-item" href="../type/list.html#variable-tail">tail</a>
+      <a class="list-group-item" href="../type/dictionary.html#variable-nodes_number">nodes_number</a>
       
     </div>
   </div>
@@ -188,7 +188,7 @@
   <div id="fins-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list.html#finalproc-finalize">finalize</a>
+      <a class="list-group-item" href="../type/dictionary.html#finalproc-finalize">finalize</a>
       
     </div>
   </div>
@@ -200,27 +200,35 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-add_pointer%7E2">add_pointer</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-add_pointer">add_pointer</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-add_clone%7E2">add_clone</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-add_clone">add_clone</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-destroy%7E2">destroy</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-destroy">destroy</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-get%7E2">get</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-get_clone">get_clone</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-has_key">has_key</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-get_pointer">get_pointer</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-node">node</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-has_key">has_key</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-print_keys">print_keys</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop">loop</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-remove">remove</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_key">loop_key</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-traverse">traverse</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_content">loop_content</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-remove_by_pointer">remove_by_pointer</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-node">node</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-traverse_iterator">traverse_iterator</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-print_keys">print_keys</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-remove">remove</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-traverse">traverse</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-remove_by_pointer">remove_by_pointer</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-traverse_iterator">traverse_iterator</a>
       
     </div>
   </div>
@@ -231,7 +239,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../type/list.html#src">list</a>
+    <a class="list-group-item" href="../type/dictionary.html#src">dictionary</a>
   </div>
 </div>
 
@@ -246,13 +254,13 @@
       
       <a class="list-group-item" href="../type/content_adt.html">content_adt</a>
       
+      <a class="list-group-item" href="../type/dictionary.html">dictionary</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html">dictionary_node</a>
+      
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
-      
-      <a class="list-group-item" href="../type/list.html">list</a>
-      
-      <a class="list-group-item" href="../type/list_node.html">list_node</a>
       
     </div>
   </div>
@@ -264,7 +272,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>type, public :: list</h2>
+      <h2>type, public :: dictionary</h2>
     
     
                 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -272,35 +280,35 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.26.3 (20100126.1600)
  -->
-<!-- Title: type~~list~~InheritsGraph Pages: 1 -->
-<svg id="typelistInheritsGraph" width="196pt" height="65pt"
- viewBox="0.00 0.00 196.00 65.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="type~~list~~InheritsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 61)">
-<title>type~~list~~InheritsGraph</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-61 193,-61 193,5 -4,5"/>
-<!-- type~list -->
-<g id="node1" class="node"><title>type~list</title>
-<polygon fill="none" stroke="black" points="188,-26 134,-26 134,-1.24345e-14 188,-3.55271e-15 188,-26"/>
-<text text-anchor="middle" x="161" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">list</text>
+<!-- Title: type~~dictionary~~InheritsGraph Pages: 1 -->
+<svg id="typedictionaryInheritsGraph" width="230pt" height="65pt"
+ viewBox="0.00 0.00 230.00 65.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~dictionary~~InheritsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 61)">
+<title>type~~dictionary~~InheritsGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-61 227,-61 227,5 -4,5"/>
+<!-- type~dictionary -->
+<g id="node1" class="node"><title>type~dictionary</title>
+<polygon fill="none" stroke="black" points="222,-26 164,-26 164,-1.24345e-14 222,-3.55271e-15 222,-26"/>
+<text text-anchor="middle" x="193" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">dictionary</text>
 </g>
-<!-- type~list_node -->
-<g id="node2" class="node"><title>type~list_node</title>
-<a xlink:href="../type/list_node.html" xlink:title="list_node">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="57,-26 3,-26 3,-1.24345e-14 57,-3.55271e-15 57,-26"/>
-<text text-anchor="middle" x="30" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">list_node</text>
+<!-- type~dictionary_node -->
+<g id="node2" class="node"><title>type~dictionary_node</title>
+<a xlink:href="../type/dictionary_node.html" xlink:title="dictionary_node">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="88,-26 4.26326e-14,-26 0,-1.24345e-14 88,-3.55271e-15 88,-26"/>
+<text text-anchor="middle" x="44" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dictionary_node</text>
 </a>
 </g>
-<!-- type~list_node&#45;&gt;type~list -->
-<g id="edge4" class="edge"><title>type~list_node&#45;&gt;type~list</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M57.7817,-13C76.9283,-13 102.598,-13 123.547,-13"/>
-<polygon fill="#000000" stroke="#000000" points="123.708,-16.5001 133.708,-13 123.707,-9.5001 123.708,-16.5001"/>
-<text text-anchor="middle" x="96" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">head, tail</text>
+<!-- type~dictionary_node&#45;&gt;type~dictionary -->
+<g id="edge4" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M88.3015,-13C109.048,-13 133.555,-13 153.641,-13"/>
+<polygon fill="#000000" stroke="#000000" points="153.699,-16.5001 163.699,-13 153.699,-9.5001 153.699,-16.5001"/>
+<text text-anchor="middle" x="126" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">head, tail</text>
 </g>
-<!-- type~list_node&#45;&gt;type~list_node -->
-<g id="edge2" class="edge"><title>type~list_node&#45;&gt;type~list_node</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M18.8335,-26.0602C15.4497,-35.0996 19.1719,-44 30,-44 36.5984,-44 40.5581,-40.6949 41.879,-36.0674"/>
-<polygon fill="#000000" stroke="#000000" points="45.368,-35.7863 41.1665,-26.0602 38.3856,-36.2835 45.368,-35.7863"/>
-<text text-anchor="middle" x="30" y="-48.45" font-family="Helvetica,sans-Serif" font-size="9.50">next, previous</text>
+<!-- type~dictionary_node&#45;&gt;type~dictionary_node -->
+<g id="edge2" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M30.1265,-26.0602C25.9224,-35.0996 30.5469,-44 44,-44 52.198,-44 57.1176,-40.6949 58.7588,-36.0674"/>
+<polygon fill="#000000" stroke="#000000" points="62.2412,-35.7128 57.8735,-26.0602 55.2684,-36.3297 62.2412,-35.7128"/>
+<text text-anchor="middle" x="44" y="-48.45" font-family="Helvetica,sans-Serif" font-size="9.50">next, previous</text>
 </g>
 </g>
 </svg>
@@ -354,7 +362,7 @@
                 
     <br><br>
     
-    <p><strong>List</strong> class to storage any contents by means of abstract container nodes.</p>
+    <p><strong>Dictionary</strong> class to storage any contents by means of generic key/content pairs nodes.</p>
     
     
     <h3>Inherited By</h3>
@@ -364,29 +372,29 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.26.3 (20100126.1600)
  -->
-<!-- Title: type~~list~~InheritedByGraph Pages: 1 -->
-<svg id="typelistInheritedByGraph" width="192pt" height="34pt"
- viewBox="0.00 0.00 192.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="type~~list~~InheritedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
-<title>type~~list~~InheritedByGraph</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-30 189,-30 189,5 -4,5"/>
-<!-- type~list -->
-<g id="node1" class="node"><title>type~list</title>
-<polygon fill="none" stroke="black" points="54,-26 2.13163e-14,-26 0,-1.24345e-14 54,-3.55271e-15 54,-26"/>
-<text text-anchor="middle" x="27" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">list</text>
+<!-- Title: type~~dictionary~~InheritedByGraph Pages: 1 -->
+<svg id="typedictionaryInheritedByGraph" width="196pt" height="34pt"
+ viewBox="0.00 0.00 196.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="type~~dictionary~~InheritedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>type~~dictionary~~InheritedByGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 193,-30 193,5 -4,5"/>
+<!-- type~dictionary -->
+<g id="node1" class="node"><title>type~dictionary</title>
+<polygon fill="none" stroke="black" points="58,-26 2.4869e-14,-26 0,-1.24345e-14 58,-3.55271e-15 58,-26"/>
+<text text-anchor="middle" x="29" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">dictionary</text>
 </g>
 <!-- type~hash_table -->
 <g id="node2" class="node"><title>type~hash_table</title>
 <a xlink:href="../type/hash_table.html" xlink:title="hash_table">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="183,-26 119,-26 119,-1.24345e-14 183,-3.55271e-15 183,-26"/>
-<text text-anchor="middle" x="151" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hash_table</text>
+<polygon fill="#5cb85c" stroke="#5cb85c" points="187,-26 123,-26 123,-1.24345e-14 187,-3.55271e-15 187,-26"/>
+<text text-anchor="middle" x="155" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hash_table</text>
 </a>
 </g>
-<!-- type~list&#45;&gt;type~hash_table -->
-<g id="edge2" class="edge"><title>type~list&#45;&gt;type~hash_table</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.2123,-13C69.9455,-13 90.0977,-13 107.936,-13"/>
-<polygon fill="#000000" stroke="#000000" points="108.121,-16.5001 118.121,-13 108.121,-9.5001 108.121,-16.5001"/>
-<text text-anchor="middle" x="86" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">bucket</text>
+<!-- type~dictionary&#45;&gt;type~hash_table -->
+<g id="edge2" class="edge"><title>type~dictionary&#45;&gt;type~hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M58.2236,-13C74.2673,-13 94.4602,-13 112.245,-13"/>
+<polygon fill="#000000" stroke="#000000" points="112.388,-16.5001 122.388,-13 112.388,-9.5001 112.388,-16.5001"/>
+<text text-anchor="middle" x="90" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">bucket</text>
 </g>
 </g>
 </svg>
@@ -449,11 +457,11 @@
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list.html#variable-nodes_number">nodes_number</a>
+      <a class="list-group-item" href="../type/dictionary.html#variable-head">head</a>
       
-      <a class="list-group-item" href="../type/list.html#variable-head">head</a>
+      <a class="list-group-item" href="../type/dictionary.html#variable-tail">tail</a>
       
-      <a class="list-group-item" href="../type/list.html#variable-tail">tail</a>
+      <a class="list-group-item" href="../type/dictionary.html#variable-nodes_number">nodes_number</a>
       
     </div>
   </div>
@@ -479,7 +487,7 @@
   <div id="fins-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list.html#finalproc-finalize">finalize</a>
+      <a class="list-group-item" href="../type/dictionary.html#finalproc-finalize">finalize</a>
       
     </div>
   </div>
@@ -491,27 +499,35 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-add_pointer%7E2">add_pointer</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-add_pointer">add_pointer</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-add_clone%7E2">add_clone</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-add_clone">add_clone</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-destroy%7E2">destroy</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-destroy">destroy</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-get%7E2">get</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-get_clone">get_clone</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-has_key">has_key</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-get_pointer">get_pointer</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-node">node</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-has_key">has_key</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-print_keys">print_keys</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop">loop</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-remove">remove</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_key">loop_key</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-traverse">traverse</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_content">loop_content</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-remove_by_pointer">remove_by_pointer</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-node">node</a>
       
-      <a class="list-group-item" href="../type/list.html#boundprocedure-traverse_iterator">traverse_iterator</a>
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-print_keys">print_keys</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-remove">remove</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-traverse">traverse</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-remove_by_pointer">remove_by_pointer</a>
+      
+      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-traverse_iterator">traverse_iterator</a>
       
     </div>
   </div>
@@ -522,7 +538,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../type/list.html#src">list</a>
+    <a class="list-group-item" href="../type/dictionary.html#src">dictionary</a>
   </div>
 </div>
 
@@ -549,39 +565,39 @@
   
 <tr>
   
+  <td><span class="anchor" id="variable-head"></span>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
+  
+  <td>private,</td>
+  <td>pointer</td><td>::</td>
+  <td><strong>head</strong></td><td>=> </td><td>null()</td><td><p>The first node in the dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-tail"></span>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
+  
+  <td>private,</td>
+  <td>pointer</td><td>::</td>
+  <td><strong>tail</strong></td><td>=> </td><td>null()</td><td><p>The last node in the dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
   <td><span class="anchor" id="variable-nodes_number"></span>integer(kind=I4P),</td>
   
-  <td>public</td>
+  <td>private</td>
   <td></td><td>::</td>
-  <td><strong>nodes_number</strong></td><td> =</td><td>0</td><td><p>Number of nodes in the list.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-head"></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
-  
-  <td>public,</td>
-  <td>pointer</td><td>::</td>
-  <td><strong>head</strong></td><td>=> </td><td>null()</td><td><p>The first node in the list.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-tail"></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
-  
-  <td>public,</td>
-  <td>pointer</td><td>::</td>
-  <td><strong>tail</strong></td><td>=> </td><td>null()</td><td><p>The last node in the list.</p></td>
+  <td><strong>nodes_number</strong></td><td> =</td><td>0</td><td><p>Number of nodes in the dictionary.</p></td>
   
 </tr>
 
@@ -606,14 +622,14 @@
     
 
 
-    <p>Finalize the list.</p>
+    <p>Finalize the dictionary.</p>
   </div>
   <ul class="list-group">
      <li class="list-group-item">
        
     
     <h3>
-private subroutine <a href='../proc/finalize%7E2.html'>finalize</a>(self)
+private subroutine <a href='../proc/finalize.html'>finalize</a>(self)
     
     
 	 
@@ -626,7 +642,7 @@ private subroutine <a href='../proc/finalize%7E2.html'>finalize</a>(self)
 
 
 
-<p>Finalize the list.</p>
+<p>Finalize the dictionary.</p>
     
     <h4>Arguments</h4>
     
@@ -647,12 +663,12 @@ private subroutine <a href='../proc/finalize%7E2.html'>finalize</a>(self)
   
 <tr>
   
-  <td><span class="anchor" ></span>type(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>type(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -678,7 +694,7 @@ private subroutine <a href='../proc/finalize%7E2.html'>finalize</a>(self)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add_pointer%7E2"></span><h3>procedure, public, pass(self) :: <strong>add_pointer</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add_pointer"></span><h3>procedure, public, pass(self) :: <strong>add_pointer</strong>  
     
   </h3></div>
   
@@ -686,7 +702,7 @@ private subroutine <a href='../proc/finalize%7E2.html'>finalize</a>(self)
     
 
 
-    <p>Add a node pointer to the list.</p>
+    <p>Add a node pointer to the dictionary.</p>
   </div>
   
   <ul class="list-group">
@@ -696,7 +712,7 @@ private subroutine <a href='../proc/finalize%7E2.html'>finalize</a>(self)
          
     
     <h3>
-private subroutine <a href='../proc/add_pointer%7E2.html'>add_pointer</a>(self, key, content)
+private subroutine <a href='../proc/add_pointer.html'>add_pointer</a>(self, key, content)
     
     
 	 
@@ -709,7 +725,7 @@ private subroutine <a href='../proc/add_pointer%7E2.html'>add_pointer</a>(self, 
 
 
 
-<p>Add a node pointer to the list.</p>
+<p>Add a node pointer to the dictionary.</p>
     
     <h4>Arguments</h4>
     
@@ -730,12 +746,12 @@ private subroutine <a href='../proc/add_pointer%7E2.html'>add_pointer</a>(self, 
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -750,7 +766,7 @@ private subroutine <a href='../proc/add_pointer%7E2.html'>add_pointer</a>(self, 
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -785,7 +801,7 @@ private subroutine <a href='../proc/add_pointer%7E2.html'>add_pointer</a>(self, 
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add_clone%7E2"></span><h3>procedure, public, pass(self) :: <strong>add_clone</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-add_clone"></span><h3>procedure, public, pass(self) :: <strong>add_clone</strong>  
     
   </h3></div>
   
@@ -793,7 +809,7 @@ private subroutine <a href='../proc/add_pointer%7E2.html'>add_pointer</a>(self, 
     
 
 
-    <p>Add a node to the list cloning contents (non pointer add).</p>
+    <p>Add a node to the dictionary cloning contents (non pointer add).</p>
   </div>
   
   <ul class="list-group">
@@ -803,7 +819,7 @@ private subroutine <a href='../proc/add_pointer%7E2.html'>add_pointer</a>(self, 
          
     
     <h3>
-private subroutine <a href='../proc/add_clone%7E2.html'>add_clone</a>(self, key, content)
+private subroutine <a href='../proc/add_clone.html'>add_clone</a>(self, key, content)
     
     
 	 
@@ -816,7 +832,7 @@ private subroutine <a href='../proc/add_clone%7E2.html'>add_clone</a>(self, key,
 
 
 
-<p>Add a node to the list cloning content (non pointer add).</p>
+<p>Add a node to the dictionary cloning content (non pointer add).</p>
     
     <h4>Arguments</h4>
     
@@ -837,12 +853,12 @@ private subroutine <a href='../proc/add_clone%7E2.html'>add_clone</a>(self, key,
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -857,7 +873,7 @@ private subroutine <a href='../proc/add_clone%7E2.html'>add_clone</a>(self, key,
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -892,7 +908,7 @@ private subroutine <a href='../proc/add_clone%7E2.html'>add_clone</a>(self, key,
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy%7E2"></span><h3>procedure, public, pass(self) :: <strong>destroy</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy"></span><h3>procedure, public, pass(self) :: <strong>destroy</strong>  
     
   </h3></div>
   
@@ -900,7 +916,7 @@ private subroutine <a href='../proc/add_clone%7E2.html'>add_clone</a>(self, key,
     
 
 
-    <p>Destroy the list.</p>
+    <p>Destroy the dictionary.</p>
   </div>
   
   <ul class="list-group">
@@ -910,7 +926,7 @@ private subroutine <a href='../proc/add_clone%7E2.html'>add_clone</a>(self, key,
          
     
     <h3>
-private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
+private subroutine <a href='../proc/destroy.html'>destroy</a>(self)
     
     
 	 
@@ -923,7 +939,7 @@ private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
 
 
 
-<p>Destroy the list.</p>
+<p>Destroy the dictionary.</p>
     
     <h4>Arguments</h4>
     
@@ -944,12 +960,12 @@ private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -969,7 +985,7 @@ private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get%7E2"></span><h3>procedure, public, pass(self) :: <strong>get</strong>  
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_clone"></span><h3>procedure, public, pass(self) :: <strong>get_clone</strong>  
     
   </h3></div>
   
@@ -977,7 +993,7 @@ private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
     
 
 
-    <p>Return a pointer to a node's container in the list.</p>
+    <p>Return a node's content in the dictionary by cloning.</p>
   </div>
   
   <ul class="list-group">
@@ -987,7 +1003,7 @@ private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
          
     
     <h3>
-private function <a href='../proc/get%7E2.html'>get</a>(self, key) result(content)
+private subroutine <a href='../proc/get_clone.html'>get_clone</a>(self, key, content)
     
     
 	 
@@ -1000,7 +1016,7 @@ private function <a href='../proc/get%7E2.html'>get</a>(self, key) result(conten
 
 
 
-<p>Return a pointer to a node's content in the list.</p>
+<p>Return a node's content in the dictionary by cloning.</p>
     
     <h4>Arguments</h4>
     
@@ -1021,12 +1037,12 @@ private function <a href='../proc/get%7E2.html'>get</a>(self, key) result(conten
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1041,7 +1057,114 @@ private function <a href='../proc/get%7E2.html'>get</a>(self, key) result(conten
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(out),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>content</strong></td><td><p>Content of the queried node.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_pointer"></span><h3>procedure, public, pass(self) :: <strong>get_pointer</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Return a pointer to a node's container in the dictionary.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/get_pointer.html'>get_pointer</a>(self, key) result(content)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Return a pointer to a node's content in the dictionary.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -1058,7 +1181,7 @@ private function <a href='../proc/get%7E2.html'>get</a>(self, key) result(conten
   
      <h4>Return Value <small>class(*),
   pointer</small></h4>
-  <p>content pointer of the queried node.</p>
+  <p>Content pointer of the queried node.</p>
     
 
       
@@ -1078,7 +1201,7 @@ private function <a href='../proc/get%7E2.html'>get</a>(self, key) result(conten
     
 
 
-    <p>Check if the key is present in the list.</p>
+    <p>Check if the key is present in the dictionary.</p>
   </div>
   
   <ul class="list-group">
@@ -1101,7 +1224,7 @@ private function <a href='../proc/has_key.html'>has_key</a>(self, key)
 
 
 
-<p>Check if the key is present in the list.</p>
+<p>Check if the key is present in the dictionary.</p>
     
     <h4>Arguments</h4>
     
@@ -1122,12 +1245,12 @@ private function <a href='../proc/has_key.html'>has_key</a>(self, key)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1142,7 +1265,7 @@ private function <a href='../proc/has_key.html'>has_key</a>(self, key)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -1171,6 +1294,324 @@ private function <a href='../proc/has_key.html'>has_key</a>(self, key)
     
 	   
 <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-loop"></span><h3>procedure, public, pass(self) :: <strong>loop</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/loop.html'>loop</a>(self, key, content) result(again)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(out),</td>
+  <td>optional</td>
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>content</strong></td><td><p>The content.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>Sentinel flag to contine the loop.</p>
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-loop_key"></span><h3>procedure, public, pass(self) :: <strong>loop_key</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Sentinel while-loop on nodes returning the key (for key looping).</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/loop_key.html'>loop_key</a>(self, key) result(again)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Sentinel while-loop on nodes returning the key (for key looping).</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(out),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>Sentinel flag to contine the loop.</p>
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-loop_content"></span><h3>procedure, public, pass(self) :: <strong>loop_content</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Sentinel while-loop on nodes returning the content (for content looping).</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/loop_content.html'>loop_content</a>(self, content) result(again)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Sentinel while-loop on nodes returning the content pointer (for content looping).</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(out),</td>
+  <td></td>
+  
+  <td>pointer</td><td>::</td>
+  <td><strong>content</strong></td><td><p>The content.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>Sentinel flag to contine the loop.</p>
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-node"></span><h3>procedure, public, pass(self) :: <strong>node</strong>  
     
   </h3></div>
@@ -1179,7 +1620,7 @@ private function <a href='../proc/has_key.html'>has_key</a>(self, key)
     
 
 
-    <p>Return a pointer to a node in the list.</p>
+    <p>Return a pointer to a node in the dictionary.</p>
   </div>
   
   <ul class="list-group">
@@ -1202,7 +1643,7 @@ private function <a href='../proc/node.html'>node</a>(self, key) result(p)
 
 
 
-<p>Return a pointer to a node in the list.</p>
+<p>Return a pointer to a node in the dictionary.</p>
     
     <h4>Arguments</h4>
     
@@ -1223,12 +1664,12 @@ private function <a href='../proc/node.html'>node</a>(self, key) result(p)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1243,7 +1684,7 @@ private function <a href='../proc/node.html'>node</a>(self, key) result(p)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -1258,7 +1699,7 @@ private function <a href='../proc/node.html'>node</a>(self, key) result(p)
   
   
   
-     <h4>Return Value <small>type(<a href='../type/list_node.html'>list_node</a>),
+     <h4>Return Value <small>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),
   pointer</small></h4>
   <p>Pointer to node queried.</p>
     
@@ -1280,7 +1721,7 @@ private function <a href='../proc/node.html'>node</a>(self, key) result(p)
     
 
 
-    <p>Print the list of keys.</p>
+    <p>Print the dictionary keys.</p>
   </div>
   
   <ul class="list-group">
@@ -1303,7 +1744,7 @@ private subroutine <a href='../proc/print_keys.html'>print_keys</a>(self)
 
 
 
-<p>Print the list of keys.</p>
+<p>Print the dictionary keys.</p>
     
     <h4>Arguments</h4>
     
@@ -1324,12 +1765,12 @@ private subroutine <a href='../proc/print_keys.html'>print_keys</a>(self)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1357,7 +1798,7 @@ private subroutine <a href='../proc/print_keys.html'>print_keys</a>(self)
     
 
 
-    <p>Remove a node from the list, given the key.</p>
+    <p>Remove a node from the dictionary, given the key.</p>
   </div>
   
   <ul class="list-group">
@@ -1380,7 +1821,7 @@ private subroutine <a href='../proc/remove.html'>remove</a>(self, key)
 
 
 
-<p>Remove a node from the list, given the key.</p>
+<p>Remove a node from the dictionary, given the key.</p>
     
     <h4>Arguments</h4>
     
@@ -1401,12 +1842,12 @@ private subroutine <a href='../proc/remove.html'>remove</a>(self, key)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1421,7 +1862,7 @@ private subroutine <a href='../proc/remove.html'>remove</a>(self, key)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID, can be any <a href="../type/key_adt.html">key_adt</a> concrete extensions.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -1449,7 +1890,7 @@ private subroutine <a href='../proc/remove.html'>remove</a>(self, key)
     
 
 
-    <p>Traverse list from head to tail calling the iterator procedure.</p>
+    <p>Traverse dictionary from head to tail calling the iterator procedure.</p>
   </div>
   
   <ul class="list-group">
@@ -1472,7 +1913,7 @@ private subroutine <a href='../proc/traverse.html'>traverse</a>(self, iterator)
 
 
 
-<p>Traverse list from head to tail calling the iterator procedure.</p>
+<p>Traverse dictionary from head to tail calling the iterator procedure.</p>
     
     <h4>Arguments</h4>
     
@@ -1493,12 +1934,12 @@ private subroutine <a href='../proc/traverse.html'>traverse</a>(self, iterator)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1541,7 +1982,7 @@ private subroutine <a href='../proc/traverse.html'>traverse</a>(self, iterator)
     
 
 
-    <p>Remove node from list, given pointer to it.</p>
+    <p>Remove node from dictionary, given pointer to it.</p>
   </div>
   
   <ul class="list-group">
@@ -1564,7 +2005,7 @@ private subroutine <a href='../proc/remove_by_pointer.html'>remove_by_pointer</a
 
 
 
-<p>Remove node from list, given pointer to it.</p>
+<p>Remove node from dictionary, given pointer to it.</p>
     
     <h4>Arguments</h4>
     
@@ -1585,12 +2026,12 @@ private subroutine <a href='../proc/remove_by_pointer.html'>remove_by_pointer</a
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1600,7 +2041,7 @@ private subroutine <a href='../proc/remove_by_pointer.html'>remove_by_pointer</a
   
 <tr>
   
-  <td><span class="anchor" ></span>type(<a href='../type/list_node.html'>list_node</a>),</td>
+  <td><span class="anchor" ></span>type(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(inout),</td>
   <td></td>
   
@@ -1633,7 +2074,7 @@ private subroutine <a href='../proc/remove_by_pointer.html'>remove_by_pointer</a
     
 
 
-    <p>Traverse list from head to tail calling the iterator procedure.</p>
+    <p>Traverse dictionary from head to tail calling the iterator procedure.</p>
   </div>
   
   <ul class="list-group">
@@ -1656,7 +2097,7 @@ private subroutine <a href='../proc/traverse_iterator.html'>traverse_iterator</a
 
 
 
-<p>Traverse list from head to tail calling the iterator procedure.</p>
+<p>Traverse dictionary from head to tail calling the iterator procedure.</p>
     
     <h4>Arguments</h4>
     
@@ -1677,12 +2118,12 @@ private subroutine <a href='../proc/traverse_iterator.html'>traverse_iterator</a
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1721,28 +2162,33 @@ private subroutine <a href='../proc/traverse_iterator.html'>traverse_iterator</a
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span><span class="k">type</span> <span class="kd">::</span> <span class="n">list</span>
-  <span class="c">!&lt; **List** class to storage any contents by means of abstract container nodes.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>             <span class="kd">::</span> <span class="n">nodes_number</span><span class="o">=</span><span class="mi">0</span> <span class="c">!&lt; Number of nodes in the list.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">list_node</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">head</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>   <span class="c">!&lt; The first node in the list.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">list_node</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">tail</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>   <span class="c">!&lt; The last node in the list.</span>
+    <div class="highlight"><pre><span></span><span class="k">type</span> <span class="kd">::</span> <span class="n">dictionary</span>
+  <span class="c">!&lt; **Dictionary** class to storage any contents by means of generic key/content pairs nodes.</span>
+  <span class="k">private</span>
+<span class="k">  type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">head</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>   <span class="c">!&lt; The first node in the dictionary.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">tail</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>   <span class="c">!&lt; The last node in the dictionary.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                   <span class="kd">::</span> <span class="n">nodes_number</span><span class="o">=</span><span class="mi">0</span> <span class="c">!&lt; Number of nodes in the dictionary.</span>
   <span class="k">contains</span>
     <span class="c">! public methods</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_pointer</span> <span class="c">!&lt; Add a node pointer to the list.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_clone</span>   <span class="c">!&lt; Add a node to the list cloning contents (non pointer add).</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy</span>     <span class="c">!&lt; Destroy the list.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get</span>         <span class="c">!&lt; Return a pointer to a node&#39;s container in the list.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">has_key</span>     <span class="c">!&lt; Check if the key is present in the list.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">node</span>        <span class="c">!&lt; Return a pointer to a node in the list.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">print_keys</span>  <span class="c">!&lt; Print the list of keys.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">remove</span>      <span class="c">!&lt; Remove a node from the list, given the key.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">traverse</span>    <span class="c">!&lt; Traverse list from head to tail calling the iterator procedure.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_pointer</span>  <span class="c">!&lt; Add a node pointer to the dictionary.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_clone</span>    <span class="c">!&lt; Add a node to the dictionary cloning contents (non pointer add).</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy</span>      <span class="c">!&lt; Destroy the dictionary.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_clone</span>    <span class="c">!&lt; Return a node&#39;s content in the dictionary by cloning.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_pointer</span>  <span class="c">!&lt; Return a pointer to a node&#39;s container in the dictionary.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">has_key</span>      <span class="c">!&lt; Check if the key is present in the dictionary.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop</span>         <span class="c">!&lt; Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop_key</span>     <span class="c">!&lt; Sentinel while-loop on nodes returning the key (for key looping).</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop_content</span> <span class="c">!&lt; Sentinel while-loop on nodes returning the content (for content looping).</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">node</span>         <span class="c">!&lt; Return a pointer to a node in the dictionary.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">print_keys</span>   <span class="c">!&lt; Print the dictionary keys.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">remove</span>       <span class="c">!&lt; Remove a node from the dictionary, given the key.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">traverse</span>     <span class="c">!&lt; Traverse dictionary from head to tail calling the iterator procedure.</span>
     <span class="c">! private methods</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">remove_by_pointer</span> <span class="c">!&lt; Remove node from list, given pointer to it.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">traverse_iterator</span> <span class="c">!&lt; Traverse list from head to tail calling the iterator procedure.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">remove_by_pointer</span> <span class="c">!&lt; Remove node from dictionary, given pointer to it.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">traverse_iterator</span> <span class="c">!&lt; Traverse dictionary from head to tail calling the iterator procedure.</span>
     <span class="c">! finalizer</span>
-    <span class="k">final</span> <span class="kd">::</span> <span class="n">finalize</span> <span class="c">!&lt; Finalize the list.</span>
-<span class="n">endtype</span> <span class="n">list</span>
+    <span class="k">final</span> <span class="kd">::</span> <span class="n">finalize</span> <span class="c">!&lt; Finalize the dictionary.</span>
+<span class="n">endtype</span> <span class="n">dictionary</span>
 </pre></div>
 
     </section>
@@ -1762,13 +2208,13 @@ private subroutine <a href='../proc/traverse_iterator.html'>traverse_iterator</a
       
       <a class="list-group-item" href="../type/content_adt.html">content_adt</a>
       
+      <a class="list-group-item" href="../type/dictionary.html">dictionary</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html">dictionary_node</a>
+      
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
-      
-      <a class="list-group-item" href="../type/list.html">list</a>
-      
-      <a class="list-group-item" href="../type/list_node.html">list_node</a>
       
     </div>
   </div>

@@ -120,18 +120,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.6% of total for procedures.">7 statements</a>
+	  title=" 0.5% of total for procedures.">7 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_list.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_list.f90.html'>hasty_list.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary.f90.html'>hasty_dictionary.f90</a></li>
   
-     <li><a href='../module/hasty_list.html'>hasty_list</a></li>
+     <li><a href='../module/hasty_dictionary.html'>hasty_dictionary</a></li>
   
      <li class="active">remove</li>
   </ol>
@@ -283,13 +283,17 @@
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -307,15 +311,25 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -323,11 +337,19 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -337,7 +359,11 @@
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -405,6 +431,8 @@
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
       
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
+      
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       
     </div>
@@ -428,7 +456,7 @@ private subroutine remove(self, key)
 
 
     
-    <p>Remove a node from the list, given the key.</p>
+    <p>Remove a node from the dictionary, given the key.</p>
     
 
     <h3>Arguments</h3>
@@ -449,12 +477,12 @@ private subroutine remove(self, key)
   
 <tr>
   
-  <td><span class="anchor" id="variable-self%7E21"></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" id="variable-self%7E19"></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -464,12 +492,12 @@ private subroutine remove(self, key)
   
 <tr>
   
-  <td><span class="anchor" id="variable-key%7E15"></span>class(*),</td>
+  <td><span class="anchor" id="variable-key%7E11"></span>class(*),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID, can be any <a href="../type/key_adt.html">key_adt</a> concrete extensions.</p></td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -537,11 +565,11 @@ private subroutine remove(self, key)
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span>  <span class="k">subroutine </span><span class="n">remove</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="c">!&lt; Remove a node from the list, given the key.</span>
+  <span class="c">!&lt; Remove a node from the dictionary, given the key.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="k">class</span><span class="p">(</span><span class="n">list</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The list.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>    <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">key</span>  <span class="c">!&lt; The key ID, can be any [[key_adt]] concrete extensions.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">list_node</span><span class="p">),</span> <span class="k">pointer</span>   <span class="kd">::</span> <span class="n">p</span>    <span class="c">!&lt; Pointer to scan the list.</span>
+  <span class="k">class</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The dictionary.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">key</span>  <span class="c">!&lt; The key.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span>   <span class="kd">::</span> <span class="n">p</span>    <span class="c">!&lt; Pointer to scan the dictionary.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
@@ -663,13 +691,17 @@ private subroutine remove(self, key)
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -687,15 +719,25 @@ private subroutine remove(self, key)
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -703,11 +745,19 @@ private subroutine remove(self, key)
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -717,7 +767,11 @@ private subroutine remove(self, key)
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -784,6 +838,8 @@ private subroutine remove(self, key)
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
+      
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       

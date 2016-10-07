@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.6% of total for procedures.">7 statements</a>
+	  title=" 0.5% of total for procedures.">7 statements</a>
      </li> 
      
      
@@ -283,13 +283,17 @@
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -307,15 +311,25 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -323,11 +337,19 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -337,7 +359,11 @@
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -404,6 +430,8 @@
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
+      
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       
@@ -758,13 +786,17 @@ private elemental function bit_size_R8P(i) result(bits)
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -782,15 +814,25 @@ private elemental function bit_size_R8P(i) result(bits)
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -798,11 +840,19 @@ private elemental function bit_size_R8P(i) result(bits)
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -812,7 +862,11 @@ private elemental function bit_size_R8P(i) result(bits)
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -879,6 +933,8 @@ private elemental function bit_size_R8P(i) result(bits)
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
+      
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       

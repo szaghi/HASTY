@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 9.8% of total for derived types.</p>Including implementation: 6 statements,  1.7% of total for derived types.">6 statements</a>
+	  title="<p> 9.6% of total for derived types.</p>Including implementation: 7 statements,  1.4% of total for derived types.">7 statements</a>
      </li> 
      
      
@@ -174,6 +174,8 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../type/key_adt.html#boundprocedure-destroy%7E5">destroy</a>
+      
       <a class="list-group-item" href="../type/key_adt.html#boundprocedure-stringify">stringify</a>
       
       <a class="list-group-item" href="../type/key_adt.html#boundprocedure-is_equal%7E2">is_equal</a>
@@ -204,13 +206,13 @@
       
       <a class="list-group-item" href="../type/content_adt.html">content_adt</a>
       
+      <a class="list-group-item" href="../type/dictionary.html">dictionary</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html">dictionary_node</a>
+      
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
-      
-      <a class="list-group-item" href="../type/list.html">list</a>
-      
-      <a class="list-group-item" href="../type/list_node.html">list_node</a>
       
     </div>
   </div>
@@ -254,6 +256,8 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../type/key_adt.html#boundprocedure-destroy%7E5">destroy</a>
+      
       <a class="list-group-item" href="../type/key_adt.html#boundprocedure-stringify">stringify</a>
       
       <a class="list-group-item" href="../type/key_adt.html#boundprocedure-is_equal%7E2">is_equal</a>
@@ -286,6 +290,85 @@
      
     <section>
     <h2>Type-Bound Procedures</h2>
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-destroy%7E5"></span><h3>procedure(<a href='../interface/destroy_interface%7E2.html'>destroy_interface</a>), public, deferred, pass(self) :: <strong>destroy</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Destroy the key.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+            
+    
+    <h3>
+elemental subroutine <a href='../interface/destroy_interface%7E2.html'>destroy_interface</a>(self)
+    
+    
+	 
+<small>Prototype</small></h3>
+    
+
+
+
+
+
+
+
+<p>Destroy the key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_adt.html'>key_adt</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+         
+      
+      </li>
+    
+  </ul>
+</div>
+
     
 	   
 <div class="panel panel-default">
@@ -595,6 +678,7 @@ elemental function <a href='../interface/is_equal_interface%7E2.html'>is_equal_i
   <span class="c">!&lt; It can be extended to use any data as a key.</span>
   <span class="k">contains</span>
     <span class="c">! public deferred methods</span>
+    <span class="k">procedure</span><span class="p">(</span><span class="n">destroy_interface</span><span class="p">),</span>   <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">destroy</span>   <span class="c">!&lt; Destroy the key.</span>
     <span class="k">procedure</span><span class="p">(</span><span class="n">stringify_interface</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">stringify</span> <span class="c">!&lt; Return a string representation of the key.</span>
     <span class="c">! private deferred methods</span>
     <span class="k">procedure</span><span class="p">(</span><span class="n">is_equal_interface</span><span class="p">),</span> <span class="k">pass</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span> <span class="k">private</span><span class="p">,</span> <span class="k">deferred</span> <span class="kd">::</span> <span class="n">is_equal</span> <span class="c">!&lt; Implement `==` operator.</span>
@@ -620,13 +704,13 @@ elemental function <a href='../interface/is_equal_interface%7E2.html'>is_equal_i
       
       <a class="list-group-item" href="../type/content_adt.html">content_adt</a>
       
+      <a class="list-group-item" href="../type/dictionary.html">dictionary</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html">dictionary_node</a>
+      
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
-      
-      <a class="list-group-item" href="../type/list.html">list</a>
-      
-      <a class="list-group-item" href="../type/list_node.html">list_node</a>
       
     </div>
   </div>

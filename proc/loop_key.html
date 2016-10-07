@@ -10,7 +10,7 @@
     <meta name="author" content="Stefano Zaghi" >
     <link rel="icon" href="../favicon.png">
 
-    <title>get &ndash; HASTY</title>
+    <title>loop_key &ndash; HASTY</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -102,7 +102,7 @@
     
   
   <div class="row">
-    <h1>get
+    <h1>loop_key
       <small>Function</small>
     
     </h1>
@@ -120,20 +120,20 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.7% of total for procedures.">9 statements</a>
+	  title=" 1.5% of total for procedures.">21 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_list.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_list.f90.html'>hasty_list.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary.f90.html'>hasty_dictionary.f90</a></li>
   
-     <li><a href='../module/hasty_list.html'>hasty_list</a></li>
+     <li><a href='../module/hasty_dictionary.html'>hasty_dictionary</a></li>
   
-     <li class="active">get</li>
+     <li class="active">loop_key</li>
   </ol>
 </div>
 </div>
@@ -174,7 +174,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/get%7E2.html#src">get</a>
+    <a class="list-group-item" href="../proc/loop_key.html#src">loop_key</a>
   </div>
 </div>
 
@@ -283,13 +283,17 @@
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -307,15 +311,25 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -323,11 +337,19 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -337,7 +359,11 @@
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -405,6 +431,8 @@
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
       
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
+      
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       
     </div>
@@ -418,7 +446,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private function get(self, key) result(content)
+private function loop_key(self, key) result(again)
     
     
 	 
@@ -428,7 +456,7 @@ private function get(self, key) result(content)
 
 
     
-    <p>Return a pointer to a node's content in the list.</p>
+    <p>Sentinel while-loop on nodes returning the key (for key looping).</p>
     
 
     <h3>Arguments</h3>
@@ -449,12 +477,12 @@ private function get(self, key) result(content)
   
 <tr>
   
-  <td><span class="anchor" id="variable-self%7E14"></span>class(<a href='../type/list.html'>list</a>),</td>
+  <td><span class="anchor" id="variable-self%7E11"></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The list.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -464,12 +492,12 @@ private function get(self, key) result(content)
   
 <tr>
   
-  <td><span class="anchor" id="variable-key%7E10"></span>class(*),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" id="variable-key%7E6"></span>class(*),</td>
+  <td>intent(out),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key ID.</p></td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -483,9 +511,9 @@ private function get(self, key) result(content)
     
     
     
-	 <h3>Return Value <small><span class="anchor" id="variable-content%7E8"></span>class(*),
-  pointer</small></h3>
-    <p>content pointer of the queried node.</p>
+	 <h3>Return Value <small><span class="anchor" id="variable-again%7E2"></span>logical
+  </small></h3>
+    <p>Sentinel flag to contine the loop.</p>
     
     
      
@@ -516,7 +544,7 @@ private function get(self, key) result(content)
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../proc/get%7E2.html#src">get</a>
+    <a class="list-group-item" href="../proc/loop_key.html#src">loop_key</a>
   </div>
 </div>
 
@@ -544,22 +572,34 @@ private function get(self, key) result(content)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>  <span class="k">function </span><span class="n">get</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>  <span class="k">function </span><span class="n">loop_key</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">again</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="c">!&lt; Return a pointer to a node&#39;s content in the list.</span>
+  <span class="c">!&lt; Sentinel while-loop on nodes returning the key (for key looping).</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="k">class</span><span class="p">(</span><span class="n">list</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">self</span>    <span class="c">!&lt; The list.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>    <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">key</span>     <span class="c">!&lt; The key ID.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span>        <span class="kd">::</span> <span class="n">content</span> <span class="c">!&lt; content pointer of the queried node.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">list_node</span><span class="p">),</span> <span class="k">pointer</span> <span class="kd">::</span> <span class="n">p</span>       <span class="c">!&lt; Pointer to scan the list.</span>
+  <span class="k">class</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span>     <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">self</span>      <span class="c">!&lt; The dictionary.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">allocatable</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>   <span class="kd">::</span> <span class="n">key</span>       <span class="c">!&lt; The key.</span>
+  <span class="kt">logical</span>                              <span class="kd">::</span> <span class="n">again</span>     <span class="c">!&lt; Sentinel flag to contine the loop.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">save</span> <span class="kd">::</span> <span class="n">p</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; Pointer to current node.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="n">content</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span>
-  <span class="n">p</span> <span class="o">=&gt;</span> <span class="n">self</span><span class="p">%</span><span class="n">node</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="n">content</span> <span class="o">=&gt;</span> <span class="n">p</span><span class="p">%</span><span class="n">content</span>
+  <span class="n">again</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">nodes_number</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">    if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">associated</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">      </span><span class="n">p</span> <span class="o">=&gt;</span> <span class="n">self</span><span class="p">%</span><span class="n">head</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">p</span><span class="p">%</span><span class="n">key</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">p</span><span class="p">%</span><span class="n">key</span><span class="p">)</span>
+      <span class="n">again</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+    <span class="n">elseif</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">p</span><span class="p">%</span><span class="n">next</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">      </span><span class="n">p</span> <span class="o">=&gt;</span> <span class="n">p</span><span class="p">%</span><span class="n">next</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">p</span><span class="p">%</span><span class="n">key</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">p</span><span class="p">%</span><span class="n">key</span><span class="p">)</span>
+      <span class="n">again</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+    <span class="k">else</span>
+<span class="k">      </span><span class="n">p</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span>
+      <span class="n">again</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+    <span class="n">endif</span>
+  <span class="n">endif</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="n">endfunction</span> <span class="n">get</span>
+  <span class="n">endfunction</span> <span class="n">loop_key</span>
 </pre></div>
 
     </section>
@@ -674,13 +714,17 @@ private function get(self, key) result(content)
       
       <a class="list-group-item" href="../proc/destroy%7E2.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
-      <a class="list-group-item" href="../proc/destroy_contents.html">destroy_contents</a>
+      <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/destroy_list_node.html">destroy_list_node</a>
+      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
       
@@ -698,15 +742,25 @@ private function get(self, key) result(content)
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
-      <a class="list-group-item" href="../proc/get.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
-      <a class="list-group-item" href="../proc/get%7E2.html">get</a>
+      <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer.html">get_pointer</a>
+      
+      <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
       <a class="list-group-item" href="../proc/hash_key.html">hash_key</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_finalize.html">hash_table_finalize</a>
+      
+      <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
@@ -714,11 +768,19 @@ private function get(self, key) result(content)
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
+      
+      <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_finalize.html">list_finalize</a>
+      <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
-      <a class="list-group-item" href="../proc/list_len.html">list_len</a>
+      <a class="list-group-item" href="../proc/loop.html">loop</a>
+      
+      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
+      
+      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -728,7 +790,11 @@ private function get(self, key) result(content)
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
+      <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
+      
       <a class="list-group-item" href="../proc/remove.html">remove</a>
+      
+      <a class="list-group-item" href="../proc/remove%7E2.html">remove</a>
       
       <a class="list-group-item" href="../proc/remove_by_pointer.html">remove_by_pointer</a>
       
@@ -795,6 +861,8 @@ private function get(self, key) result(content)
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
+      
+      <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse_iterator.html">traverse_iterator</a>
       

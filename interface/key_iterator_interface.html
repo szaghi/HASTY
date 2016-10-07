@@ -122,18 +122,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="11.5% of total for abstract interfaces.">7 statements</a>
+	  title="10.4% of total for abstract interfaces.">7 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_list.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_list.f90.html'>hasty_list.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary.f90.html'>hasty_dictionary.f90</a></li>
   
-     <li><a href='../module/hasty_list.html'>hasty_list</a></li>
+     <li><a href='../module/hasty_dictionary.html'>hasty_dictionary</a></li>
   
      <li class="active">key_iterator_interface</li>
   </ol>
@@ -185,6 +185,8 @@
       
       <a class="list-group-item" href="../interface/destroy_interface.html">destroy_interface</a>
       
+      <a class="list-group-item" href="../interface/destroy_interface%7E2.html">destroy_interface</a>
+      
       <a class="list-group-item" href="../interface/is_equal_interface.html">is_equal_interface</a>
       
       <a class="list-group-item" href="../interface/is_equal_interface%7E2.html">is_equal_interface</a>
@@ -214,11 +216,11 @@
 	
     
     <h2>abstract interface</h2>
-    <p>Iterator procedure for traversing all nodes in a list by keys.</p>
+    <p>Iterator procedure for traversing all nodes in a dictionary by keys.</p>
     
     
     <h2>
-public subroutine key_iterator_interface(key, done, content)
+public subroutine key_iterator_interface(key, content, done)
     
     
 	 
@@ -262,12 +264,12 @@ public subroutine key_iterator_interface(key, done, content)
   
 <tr>
   
-  <td><span class="anchor" id="variable-done"></span>logical,</td>
-  <td>intent(out)</td>
+  <td><span class="anchor" id="variable-content%7E4"></span>class(*),</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>done</strong></td><td><p>Flag to set to true to stop traversing.</p></td>
+  <td>pointer</td><td>::</td>
+  <td><strong>content</strong></td><td><p>The generic content.</p></td>
   
 </tr>
 
@@ -277,12 +279,12 @@ public subroutine key_iterator_interface(key, done, content)
   
 <tr>
   
-  <td><span class="anchor" id="variable-content%7E4"></span>class(*),</td>
-  <td>intent(out),</td>
-  <td>optional</td>
+  <td><span class="anchor" id="variable-done"></span>logical,</td>
+  <td>intent(out)</td>
+  <td></td>
   
-  <td>pointer</td><td>::</td>
-  <td><strong>content</strong></td><td><p>The generic  content.</p></td>
+  <td></td><td>::</td>
+  <td><strong>done</strong></td><td><p>Flag to set to true to stop traversing.</p></td>
   
 </tr>
 
@@ -293,7 +295,7 @@ public subroutine key_iterator_interface(key, done, content)
     
     
     <h3>Description</h3>
-    <p>Iterator procedure for traversing all nodes in a list by keys.</p>
+    <p>Iterator procedure for traversing all nodes in a dictionary by keys.</p>
     
     <br>
 
@@ -310,6 +312,8 @@ public subroutine key_iterator_interface(key, done, content)
     <div class="list-group">
       
       <a class="list-group-item" href="../interface/destroy_interface.html">destroy_interface</a>
+      
+      <a class="list-group-item" href="../interface/destroy_interface%7E2.html">destroy_interface</a>
       
       <a class="list-group-item" href="../interface/is_equal_interface.html">is_equal_interface</a>
       
