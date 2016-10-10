@@ -28,8 +28,8 @@ type :: dictionary
     procedure, pass(self) :: add_pointer  !< Add a node pointer to the dictionary.
     procedure, pass(self) :: add_clone    !< Add a node to the dictionary cloning contents (non pointer add).
     procedure, pass(self) :: destroy      !< Destroy the dictionary.
-    procedure, pass(self) :: get_clone    !< Return a node's content in the dictionary by cloning.
-    procedure, pass(self) :: get_pointer  !< Return a pointer to a node's container in the dictionary.
+    procedure, pass(self) :: get_clone    !< Return a node's content by cloning.
+    procedure, pass(self) :: get_pointer  !< Return a pointer to a node's content.
     procedure, pass(self) :: has_key      !< Check if the key is present in the dictionary.
     procedure, pass(self) :: loop         !< Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).
     procedure, pass(self) :: loop_key     !< Sentinel while-loop on nodes returning the key (for key looping).
@@ -183,7 +183,7 @@ contains
 
   subroutine get_clone(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Return a node's content in the dictionary by cloning.
+  !< Return a node's content by cloning.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(dictionary),     intent(in)  :: self      !< The dictionary.
   class(*),              intent(in)  :: key       !< The key.
@@ -199,7 +199,7 @@ contains
 
   function get_pointer(self, key) result(content)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Return a pointer to a node's content in the dictionary.
+  !< Return a pointer to a node's content.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(dictionary), intent(in)  :: self    !< The dictionary.
   class(*),          intent(in)  :: key     !< The key.

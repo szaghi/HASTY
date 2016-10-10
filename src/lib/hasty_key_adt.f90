@@ -27,7 +27,7 @@ public :: key_adt
 
 !-----------------------------------------------------------------------------------------------------------------------------------
 type, abstract :: key_adt
-  !< Abstract **key** class to identify a node of list.
+  !< Abstract **key** class to identify a node.
   !<
   !< It can be extended to use any data as a key.
   contains
