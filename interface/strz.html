@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.2% of total for procedures.</p>Including implementation: 39 statements,  2.8% of total for procedures.">3 statements</a>
+	  title="<p> 0.2% of total for procedures.</p>Including implementation: 39 statements,  2.7% of total for procedures.">3 statements</a>
      </li> 
      
      
@@ -295,6 +295,8 @@
       
       <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E4.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
       <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
@@ -343,7 +345,13 @@
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
+      <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
+      
       <a class="list-group-item" href="../proc/is_filled.html">is_filled</a>
+      
+      <a class="list-group-item" href="../proc/is_homogeneous.html">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../proc/is_initialized.html">is_initialized</a>
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
@@ -429,6 +437,8 @@
       
       <a class="list-group-item" href="../proc/strf_r8p.html">strf_R8P</a>
       
+      <a class="list-group-item" href="../proc/stringify.html">stringify</a>
+      
       <a class="list-group-item" href="../interface/strz.html">strz</a>
       
       <a class="list-group-item" href="../proc/strz_i1p.html">strz_I1P</a>
@@ -476,27 +486,27 @@
 <polygon fill="none" stroke="black" points="54,-92 2.13163e-14,-92 0,-66 54,-66 54,-92"/>
 <text text-anchor="middle" x="27" y="-76.55" font-family="Helvetica,sans-Serif" font-size="10.50">strz</text>
 </g>
-<!-- proc~strz_i2p -->
-<g id="node2" class="node"><title>proc~strz_i2p</title>
-<a xlink:href="../proc/strz_i2p.html" xlink:title="strz_I2P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-158 90,-158 90,-132 144,-132 144,-158"/>
-<text text-anchor="middle" x="117" y="-142.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strz_I2P</text>
-</a>
-</g>
-<!-- interface~strz&#45;&gt;proc~strz_i2p -->
-<g id="edge2" class="edge"><title>interface~strz&#45;&gt;proc~strz_i2p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M44.7811,-92.0395C57.9707,-101.712 76.1575,-115.049 90.9803,-125.919"/>
-<polygon fill="#000000" stroke="#000000" points="89.122,-128.896 99.2558,-131.988 93.2616,-123.252 89.122,-128.896"/>
-</g>
 <!-- proc~strz_i8p -->
-<g id="node3" class="node"><title>proc~strz_i8p</title>
+<g id="node2" class="node"><title>proc~strz_i8p</title>
 <a xlink:href="../proc/strz_i8p.html" xlink:title="strz_I8P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-114 90,-114 90,-88 144,-88 144,-114"/>
-<text text-anchor="middle" x="117" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strz_I8P</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-158 90,-158 90,-132 144,-132 144,-158"/>
+<text text-anchor="middle" x="117" y="-142.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strz_I8P</text>
 </a>
 </g>
 <!-- interface~strz&#45;&gt;proc~strz_i8p -->
-<g id="edge4" class="edge"><title>interface~strz&#45;&gt;proc~strz_i8p</title>
+<g id="edge2" class="edge"><title>interface~strz&#45;&gt;proc~strz_i8p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M44.7811,-92.0395C57.9707,-101.712 76.1575,-115.049 90.9803,-125.919"/>
+<polygon fill="#000000" stroke="#000000" points="89.122,-128.896 99.2558,-131.988 93.2616,-123.252 89.122,-128.896"/>
+</g>
+<!-- proc~strz_i2p -->
+<g id="node3" class="node"><title>proc~strz_i2p</title>
+<a xlink:href="../proc/strz_i2p.html" xlink:title="strz_I2P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-114 90,-114 90,-88 144,-88 144,-114"/>
+<text text-anchor="middle" x="117" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strz_I2P</text>
+</a>
+</g>
+<!-- interface~strz&#45;&gt;proc~strz_i2p -->
+<g id="edge4" class="edge"><title>interface~strz&#45;&gt;proc~strz_i2p</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.003,-85.6007C62.1158,-87.5839 71.1631,-89.7954 79.8131,-91.9099"/>
 <polygon fill="#000000" stroke="#000000" points="79.1599,-95.3532 89.705,-94.3279 80.8221,-88.5534 79.1599,-95.3532"/>
 </g>
@@ -1193,6 +1203,8 @@ private elemental function <a href='../proc/strz_i1p.html'>strz_I1P</a>(n, nz_pa
       
       <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E4.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
       <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
@@ -1241,7 +1253,13 @@ private elemental function <a href='../proc/strz_i1p.html'>strz_I1P</a>(n, nz_pa
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
+      <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
+      
       <a class="list-group-item" href="../proc/is_filled.html">is_filled</a>
+      
+      <a class="list-group-item" href="../proc/is_homogeneous.html">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../proc/is_initialized.html">is_initialized</a>
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
@@ -1326,6 +1344,8 @@ private elemental function <a href='../proc/strz_i1p.html'>strz_I1P</a>(n, nz_pa
       <a class="list-group-item" href="../proc/strf_r4p.html">strf_R4P</a>
       
       <a class="list-group-item" href="../proc/strf_r8p.html">strf_R8P</a>
+      
+      <a class="list-group-item" href="../proc/stringify.html">stringify</a>
       
       <a class="list-group-item" href="../interface/strz.html">strz</a>
       

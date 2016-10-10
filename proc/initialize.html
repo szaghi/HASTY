@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.7% of total for procedures.">9 statements</a>
+	  title=" 1.1% of total for procedures.">16 statements</a>
      </li> 
      
      
@@ -285,6 +285,8 @@
       
       <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E4.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
       <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
@@ -333,7 +335,13 @@
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
+      <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
+      
       <a class="list-group-item" href="../proc/is_filled.html">is_filled</a>
+      
+      <a class="list-group-item" href="../proc/is_homogeneous.html">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../proc/is_initialized.html">is_initialized</a>
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
@@ -419,6 +427,8 @@
       
       <a class="list-group-item" href="../proc/strf_r8p.html">strf_R8P</a>
       
+      <a class="list-group-item" href="../proc/stringify.html">stringify</a>
+      
       <a class="list-group-item" href="../interface/strz.html">strz</a>
       
       <a class="list-group-item" href="../proc/strz_i1p.html">strz_I1P</a>
@@ -446,7 +456,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private subroutine initialize(self, buckets_number)
+private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, typeguard_content)
     
     
 	 
@@ -477,7 +487,7 @@ private subroutine initialize(self, buckets_number)
   
 <tr>
   
-  <td><span class="anchor" id="variable-self%7E39"></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td><span class="anchor" id="variable-self%7E41"></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -498,6 +508,51 @@ private subroutine initialize(self, buckets_number)
   
   <td></td><td>::</td>
   <td><strong>buckets_number</strong></td><td><p>Number of buckets for initialize the hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-homogeneous"></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>homogeneous</strong></td><td><p>If true the hash is supposed to accept only homogeneous nodes.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-typeguard_key%7E2"></span>class(*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>typeguard_key</strong></td><td><p>Key type guard (mold) for homogeneous keys check.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-typeguard_content%7E2"></span>class(*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>typeguard_content</strong></td><td><p>content type guard (mold) for homogeneous contents check.</p></td>
   
 </tr>
 
@@ -563,19 +618,25 @@ private subroutine initialize(self, buckets_number)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>  <span class="k">subroutine </span><span class="n">initialize</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">buckets_number</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>  <span class="k">subroutine </span><span class="n">initialize</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">buckets_number</span><span class="p">,</span> <span class="n">homogeneous</span><span class="p">,</span> <span class="n">typeguard_key</span><span class="p">,</span> <span class="n">typeguard_content</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="c">!&lt; Initialize the hash table.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">self</span>           <span class="c">!&lt; The hash table.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">buckets_number</span> <span class="c">!&lt; Number of buckets for initialize the hash table.</span>
+  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">self</span>              <span class="c">!&lt; The hash table.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">buckets_number</span>    <span class="c">!&lt; Number of buckets for initialize the hash table.</span>
+  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">homogeneous</span>       <span class="c">!&lt; If true the hash is supposed to accept only homogeneous nodes.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">typeguard_key</span>     <span class="c">!&lt; Key type guard (mold) for homogeneous keys check.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">typeguard_content</span> <span class="c">!&lt; content type guard (mold) for homogeneous contents check.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">destroy</span>
   <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">HT_BUCKETS_NUMBER_DEF</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">buckets_number</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">buckets_number</span>
   <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">))</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">is_initialized</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+  <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">homogeneous</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="n">homogeneous</span>
+  <span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">typeguard_key</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">typeguard_key</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">typeguard_content</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">typeguard_content</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">endsubroutine</span> <span class="n">initialize</span>
 </pre></div>
@@ -694,6 +755,8 @@ private subroutine initialize(self, buckets_number)
       
       <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E4.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
       <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
@@ -742,7 +805,13 @@ private subroutine initialize(self, buckets_number)
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
+      <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
+      
       <a class="list-group-item" href="../proc/is_filled.html">is_filled</a>
+      
+      <a class="list-group-item" href="../proc/is_homogeneous.html">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../proc/is_initialized.html">is_initialized</a>
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
@@ -827,6 +896,8 @@ private subroutine initialize(self, buckets_number)
       <a class="list-group-item" href="../proc/strf_r4p.html">strf_R4P</a>
       
       <a class="list-group-item" href="../proc/strf_r8p.html">strf_R8P</a>
+      
+      <a class="list-group-item" href="../proc/stringify.html">stringify</a>
       
       <a class="list-group-item" href="../interface/strz.html">strz</a>
       

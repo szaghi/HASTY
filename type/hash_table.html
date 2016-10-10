@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>27.4% of total for derived types.</p>Including implementation: 125 statements, 25.8% of total for derived types.">20 statements</a>
+	  title="<p>29.4% of total for derived types.</p>Including implementation: 190 statements, 32.6% of total for derived types.">25 statements</a>
      </li> 
      
      
@@ -164,7 +164,13 @@
       
       <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number%7E2">nodes_number</a>
       
-      <a class="list-group-item" href="../type/hash_table.html#variable-is_initialized">is_initialized</a>
+      <a class="list-group-item" href="../type/hash_table.html#variable-is_homogeneous_">is_homogeneous_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-is_initialized_">is_initialized_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-typeguard_key">typeguard_key</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-typeguard_content">typeguard_content</a>
       
     </div>
   </div>
@@ -218,6 +224,10 @@
       
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-initialize">initialize</a>
       
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-is_homogeneous">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-is_initialized">is_initialized</a>
+      
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-print_keys%7E2">print_keys</a>
       
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-remove%7E2">remove</a>
@@ -255,6 +265,8 @@
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
+      
+      <a class="list-group-item" href="../type/key_morton.html">key_morton</a>
       
     </div>
   </div>
@@ -388,7 +400,13 @@
       
       <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number%7E2">nodes_number</a>
       
-      <a class="list-group-item" href="../type/hash_table.html#variable-is_initialized">is_initialized</a>
+      <a class="list-group-item" href="../type/hash_table.html#variable-is_homogeneous_">is_homogeneous_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-is_initialized_">is_initialized_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-typeguard_key">typeguard_key</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-typeguard_content">typeguard_content</a>
       
     </div>
   </div>
@@ -441,6 +459,10 @@
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-has_key%7E2">has_key</a>
       
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-initialize">initialize</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-is_homogeneous">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-is_initialized">is_initialized</a>
       
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-print_keys%7E2">print_keys</a>
       
@@ -526,11 +548,53 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-is_initialized"></span>logical,</td>
+  <td><span class="anchor" id="variable-is_homogeneous_"></span>logical,</td>
   
   <td>private</td>
   <td></td><td>::</td>
-  <td><strong>is_initialized</strong></td><td> =</td><td>.false.</td><td><p>Initialization status.</p></td>
+  <td><strong>is_homogeneous_</strong></td><td> =</td><td>.false.</td><td><p>Homogeneity status-guardian.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-is_initialized_"></span>logical,</td>
+  
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>is_initialized_</strong></td><td> =</td><td>.false.</td><td><p>Initialization status.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-typeguard_key"></span>class(*),</td>
+  
+  <td>private,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>typeguard_key</strong></td><td></td><td></td><td><p>Key type guard (mold) for homogeneous keys check.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-typeguard_content"></span>class(*),</td>
+  
+  <td>private,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>typeguard_content</strong></td><td></td><td></td><td><p>Content type guard (mold) for homogeneous contents check.</p></td>
   
 </tr>
 
@@ -1346,7 +1410,7 @@ private function <a href='../proc/has_key%7E2.html'>has_key</a>(self, key)
          
     
     <h3>
-private subroutine <a href='../proc/initialize.html'>initialize</a>(self, buckets_number)
+private subroutine <a href='../proc/initialize.html'>initialize</a>(self, buckets_number, homogeneous, typeguard_key, typeguard_content)
     
     
 	 
@@ -1404,11 +1468,228 @@ private subroutine <a href='../proc/initialize.html'>initialize</a>(self, bucket
   
 </tr>
 
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>homogeneous</strong></td><td><p>If true the hash is supposed to accept only homogeneous nodes.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>typeguard_key</strong></td><td><p>Key type guard (mold) for homogeneous keys check.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>typeguard_content</strong></td><td><p>content type guard (mold) for homogeneous contents check.</p></td>
+  
+</tr>
+
 </tbody>
 </table>
 
       
     
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-is_homogeneous"></span><h3>procedure, public, pass(self) :: <strong>is_homogeneous</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Return homogeneity status.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private elemental function <a href='../proc/is_homogeneous.html'>is_homogeneous</a>(self)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Return homogeneity status.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>Homogeneity status.</p>
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-is_initialized"></span><h3>procedure, public, pass(self) :: <strong>is_initialized</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Return initialization status.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private elemental function <a href='../proc/is_initialized.html'>is_initialized</a>(self)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Return initialization status.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>Initialization status.</p>
     
 
       
@@ -1688,23 +1969,28 @@ private subroutine <a href='../proc/traverse%7E2.html'>traverse</a>(self, iterat
     <div class="highlight"><pre><span></span><span class="k">type</span> <span class="kd">::</span> <span class="n">hash_table</span>
   <span class="c">!&lt; **Hash table** class to storage any contents by means of generic dictionary buckets.</span>
   <span class="k">private</span>
-<span class="k">  type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">bucket</span><span class="p">(:)</span>              <span class="c">!&lt; Hash table buckets.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">buckets_number</span><span class="o">=</span><span class="mi">0_I4P</span>   <span class="c">!&lt; Number of buckets used.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">nodes_number</span><span class="o">=</span><span class="mi">0_I4P</span>     <span class="c">!&lt; Number of nodes actually stored, namely the hash table length.</span>
-  <span class="kt">logical</span>                       <span class="kd">::</span> <span class="n">is_initialized</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="c">!&lt; Initialization status.</span>
+<span class="k">  type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">bucket</span><span class="p">(:)</span>               <span class="c">!&lt; Hash table buckets.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">buckets_number</span><span class="o">=</span><span class="mi">0_I4P</span>    <span class="c">!&lt; Number of buckets used.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">nodes_number</span><span class="o">=</span><span class="mi">0_I4P</span>      <span class="c">!&lt; Number of nodes actually stored, namely the hash table length.</span>
+  <span class="kt">logical</span>                       <span class="kd">::</span> <span class="n">is_homogeneous_</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="c">!&lt; Homogeneity status-guardian.</span>
+  <span class="kt">logical</span>                       <span class="kd">::</span> <span class="n">is_initialized_</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="c">!&lt; Initialization status.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">allocatable</span>         <span class="kd">::</span> <span class="n">typeguard_key</span>           <span class="c">!&lt; Key type guard (mold) for homogeneous keys check.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">allocatable</span>         <span class="kd">::</span> <span class="n">typeguard_content</span>       <span class="c">!&lt; Content type guard (mold) for homogeneous contents check.</span>
   <span class="k">contains</span>
     <span class="c">! public methods</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_pointer</span> <span class="c">!&lt; Add a node pointer to the hash table.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_clone</span>   <span class="c">!&lt; Add a node to the hash table cloning contents (non pointer add).</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy</span>     <span class="c">!&lt; Destroy the hash table.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_clone</span>   <span class="c">!&lt; Return a node&#39;s content in the hash table by cloning.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_pointer</span> <span class="c">!&lt; Return a pointer to a node&#39;s content in the hash table.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">hash</span>        <span class="c">!&lt; Hash the key.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">has_key</span>     <span class="c">!&lt; Check if the key is present in the hash table.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">initialize</span>  <span class="c">!&lt; Initialize the hash table.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">print_keys</span>  <span class="c">!&lt; Print the hash table keys.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">remove</span>      <span class="c">!&lt; Remove a node from the hash table, given the key.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">traverse</span>    <span class="c">!&lt; Traverse hash table calling the iterator procedure.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_pointer</span>    <span class="c">!&lt; Add a node pointer to the hash table.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_clone</span>      <span class="c">!&lt; Add a node to the hash table cloning contents (non pointer add).</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy</span>        <span class="c">!&lt; Destroy the hash table.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_clone</span>      <span class="c">!&lt; Return a node&#39;s content in the hash table by cloning.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_pointer</span>    <span class="c">!&lt; Return a pointer to a node&#39;s content in the hash table.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">hash</span>           <span class="c">!&lt; Hash the key.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">has_key</span>        <span class="c">!&lt; Check if the key is present in the hash table.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">initialize</span>     <span class="c">!&lt; Initialize the hash table.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">is_homogeneous</span> <span class="c">!&lt; Return homogeneity status.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">is_initialized</span> <span class="c">!&lt; Return initialization status.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">print_keys</span>     <span class="c">!&lt; Print the hash table keys.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">remove</span>         <span class="c">!&lt; Remove a node from the hash table, given the key.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">traverse</span>       <span class="c">!&lt; Traverse hash table calling the iterator procedure.</span>
     <span class="c">! private methods</span>
     <span class="c">! finalizer</span>
     <span class="k">final</span> <span class="kd">::</span> <span class="n">finalize</span> <span class="c">!&lt; Finalize the hash table.</span>
@@ -1735,6 +2021,8 @@ private subroutine <a href='../proc/traverse%7E2.html'>traverse</a>(self, iterat
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
+      
+      <a class="list-group-item" href="../type/key_morton.html">key_morton</a>
       
     </div>
   </div>

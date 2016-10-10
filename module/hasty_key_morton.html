@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="HASh Table fortran container exploiting coarraY">
+    
+    <meta name="author" content="Stefano Zaghi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>hasty_key_morton &ndash; HASTY</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">HASTY </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+				
+            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>hasty_key_morton 
+    <small>Module</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 1.8% of total for modules and submodules.">33 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/hasty_key_morton.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/hasty_key_morton.f90.html'>hasty_key_morton.f90</a></li>
+  
+     <li class="active">hasty_key_morton</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-0">Derived Types</a></h3></div>
+  <div id="types-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#type-key_morton">key_morton</a>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-0">Functions</a></h3></div>
+  <div id="funcs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#proc-stringify">stringify</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#proc-is_equal">is_equal</a>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#proc-destroy%7E4">destroy</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-0">All Modules</a></h3></div>
+  <div id="allmods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty.html">hasty</a>
+      
+      <a class="list-group-item" href="../module/hasty_content_adt.html">hasty_content_adt</a>
+      
+      <a class="list-group-item" href="../module/hasty_dictionary.html">hasty_dictionary</a>
+      
+      <a class="list-group-item" href="../module/hasty_dictionary_node.html">hasty_dictionary_node</a>
+      
+      <a class="list-group-item" href="../module/hasty_hash_table.html">hasty_hash_table</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_adt.html">hasty_key_adt</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html">hasty_key_morton</a>
+      
+      <a class="list-group-item" href="../module/penf.html">penf</a>
+      
+      <a class="list-group-item" href="../module/penf_b_size.html">penf_b_size</a>
+      
+      <a class="list-group-item" href="../module/penf_global_parameters_variables.html">penf_global_parameters_variables</a>
+      
+      <a class="list-group-item" href="../module/penf_stringify.html">penf_stringify</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href='../module/hasty_key_adt.html'>hasty_key_adt</a></li>
+      
+      <li><a href='../module/penf.html'>penf</a></li>
+      
+    </ul>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: module~~hasty_key_morton~~UsesGraph Pages: 1 -->
+<svg id="modulehasty_key_mortonUsesGraph" width="641pt" height="121pt"
+ viewBox="0.00 0.00 641.00 120.78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~hasty_key_morton~~UsesGraph" class="graph" transform="scale(0.836815 0.836815) rotate(0) translate(4 140.337)">
+<title>module~~hasty_key_morton~~UsesGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-140.337 763,-140.337 763,5 -4,5"/>
+<!-- module~hasty_key_morton -->
+<g id="node1" class="node"><title>module~hasty_key_morton</title>
+<polygon fill="none" stroke="black" points="758,-128 658,-128 658,-102 758,-102 758,-128"/>
+<text text-anchor="middle" x="708" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_key_morton</text>
+</g>
+<!-- module~hasty_key_adt -->
+<g id="node2" class="node"><title>module~hasty_key_adt</title>
+<a xlink:href="../module/hasty_key_adt.html" xlink:title="hasty_key_adt">
+<polygon fill="#337ab7" stroke="#337ab7" points="622,-108 540,-108 540,-82 622,-82 622,-108"/>
+<text text-anchor="middle" x="581" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_adt</text>
+</a>
+</g>
+<!-- module~hasty_key_adt&#45;&gt;module~hasty_key_morton -->
+<g id="edge18" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_key_morton</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M622.233,-101.493C630.354,-102.772 639.032,-104.139 647.632,-105.493"/>
+<polygon fill="#000000" stroke="#000000" points="647.232,-108.973 657.655,-107.072 648.321,-102.059 647.232,-108.973"/>
+</g>
+<!-- module~penf -->
+<g id="node3" class="node"><title>module~penf</title>
+<a xlink:href="../module/penf.html" xlink:title="penf">
+<polygon fill="#337ab7" stroke="#337ab7" points="504,-128 450,-128 450,-102 504,-102 504,-128"/>
+<text text-anchor="middle" x="477" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf</text>
+</a>
+</g>
+<!-- module~penf&#45;&gt;module~hasty_key_morton -->
+<g id="edge20" class="edge"><title>module~penf&#45;&gt;module~hasty_key_morton</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.284,-116.055C515.366,-116.434 528.292,-116.814 540,-117 576.44,-117.578 585.558,-117.424 622,-117 630.372,-116.903 639.202,-116.752 647.887,-116.576"/>
+<polygon fill="#000000" stroke="#000000" points="648.058,-120.073 657.98,-116.36 647.908,-113.075 648.058,-120.073"/>
+</g>
+<!-- module~penf&#45;&gt;module~hasty_key_adt -->
+<g id="edge2" class="edge"><title>module~penf&#45;&gt;module~hasty_key_adt</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.053,-109.797C512.012,-108.267 520.992,-106.54 529.935,-104.82"/>
+<polygon fill="#000000" stroke="#000000" points="530.802,-108.218 539.961,-102.892 529.48,-101.344 530.802,-108.218"/>
+</g>
+<!-- module~penf_b_size -->
+<g id="node5" class="node"><title>module~penf_b_size</title>
+<a xlink:href="../module/penf_b_size.html" xlink:title="penf_b_size">
+<polygon fill="#337ab7" stroke="#337ab7" points="293,-108 223,-108 223,-82 293,-82 293,-108"/>
+<text text-anchor="middle" x="258" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_b_size</text>
+</a>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf -->
+<g id="edge12" class="edge"><title>module~penf_b_size&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M280.699,-108.214C303.885,-120.414 341.305,-136.572 376,-136"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M376,-136C397.555,-135.644 421.168,-130.981 440.14,-126.139"/>
+<polygon fill="#000000" stroke="#000000" points="441.123,-129.499 449.88,-123.535 439.315,-122.736 441.123,-129.499"/>
+</g>
+<!-- module~penf_stringify -->
+<g id="node7" class="node"><title>module~penf_stringify</title>
+<a xlink:href="../module/penf_stringify.html" xlink:title="penf_stringify">
+<polygon fill="#337ab7" stroke="#337ab7" points="414,-87 338,-87 338,-61 414,-61 414,-87"/>
+<text text-anchor="middle" x="376" y="-71.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_stringify</text>
+</a>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf_stringify -->
+<g id="edge6" class="edge"><title>module~penf_b_size&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.084,-88.7562C304.014,-86.8111 316.261,-84.6316 327.919,-82.5569"/>
+<polygon fill="#000000" stroke="#000000" points="328.732,-85.9672 337.964,-80.7692 327.505,-79.0755 328.732,-85.9672"/>
+</g>
+<!-- module~penf_global_parameters_variables -->
+<g id="node6" class="node"><title>module~penf_global_parameters_variables</title>
+<a xlink:href="../module/penf_global_parameters_variables.html" xlink:title="penf_global_parameters_variables">
+<polygon fill="#337ab7" stroke="#337ab7" points="178,-108 8.52651e-14,-108 0,-82 178,-82 178,-108"/>
+<text text-anchor="middle" x="89" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_global_parameters_variables</text>
+</a>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf -->
+<g id="edge14" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M143.427,-108.01C200.911,-120.517 294.347,-137.347 376,-136"/>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_b_size -->
+<g id="edge4" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_b_size</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178.449,-95C190.206,-95 201.835,-95 212.422,-95"/>
+<polygon fill="#000000" stroke="#000000" points="212.627,-98.5001 222.627,-95 212.627,-91.5001 212.627,-98.5001"/>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_stringify -->
+<g id="edge10" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M150.709,-81.9431C170.794,-78.2835 193.256,-74.8116 214,-73 252.963,-69.5974 262.89,-72.7358 302,-73 310.312,-73.0562 319.149,-73.1478 327.715,-73.2534"/>
+<polygon fill="#000000" stroke="#000000" points="327.93,-76.7564 337.975,-73.3877 328.022,-69.757 327.93,-76.7564"/>
+</g>
+<!-- module~penf_stringify&#45;&gt;module~penf -->
+<g id="edge16" class="edge"><title>module~penf_stringify&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M408.235,-87.0854C418.489,-91.2481 429.905,-95.8822 440.442,-100.16"/>
+<polygon fill="#000000" stroke="#000000" points="439.231,-103.445 449.813,-103.964 441.864,-96.9595 439.231,-103.445"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="node9" class="node"><title>iso_fortran_env</title>
+<a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="301,-26 215,-26 215,-1.24345e-14 301,-3.55271e-15 301,-26"/>
+<text text-anchor="middle" x="258" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~penf_stringify -->
+<g id="edge8" class="edge"><title>iso_fortran_env&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.314,-26.086C300.346,-34.8907 323.01,-46.607 341.663,-56.2498"/>
+<polygon fill="#000000" stroke="#000000" points="340.237,-59.4525 350.728,-60.9356 343.452,-53.2342 340.237,-59.4525"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmodulehasty_key_mortonUsesGraph = svgPanZoom('#modulehasty_key_mortonUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="486pt" height="34pt"
+ viewBox="0.00 0.00 486.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 483,-30 483,5 -4,5"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-26 2.13163e-14,-26 0,-1.24345e-14 54,-3.55271e-15 54,-26"/>
+<text text-anchor="middle" x="27" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="138,-26 72,-26 72,-1.24345e-14 138,-3.55271e-15 138,-26"/>
+<text text-anchor="middle" x="105" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="220,-26 156,-26 156,-1.24345e-14 220,-3.55271e-15 220,-26"/>
+<text text-anchor="middle" x="188" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="292,-26 238,-26 238,-1.24345e-14 292,-3.55271e-15 292,-26"/>
+<text text-anchor="middle" x="265" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="364,-26 310,-26 310,-1.24345e-14 364,-3.55271e-15 364,-26"/>
+<text text-anchor="middle" x="337" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="478,-26 382,-26 382,-1.24345e-14 478,-3.55271e-15 478,-26"/>
+<text text-anchor="middle" x="430" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+
+    
+    <p>HASTY Morton (Z-order) <strong>key</strong> class.</p>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: module~~hasty_key_morton~~UsedByGraph Pages: 1 -->
+<svg id="modulehasty_key_mortonUsedByGraph" width="458pt" height="210pt"
+ viewBox="0.00 0.00 458.00 210.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~hasty_key_morton~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 206)">
+<title>module~~hasty_key_morton~~UsedByGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-206 455,-206 455,5 -4,5"/>
+<!-- module~hasty_key_morton -->
+<g id="node1" class="node"><title>module~hasty_key_morton</title>
+<polygon fill="none" stroke="black" points="100,-114 4.26326e-14,-114 0,-88 100,-88 100,-114"/>
+<text text-anchor="middle" x="50" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_key_morton</text>
+</g>
+<!-- module~hasty -->
+<g id="node2" class="node"><title>module~hasty</title>
+<a xlink:href="../module/hasty.html" xlink:title="hasty">
+<polygon fill="#337ab7" stroke="#337ab7" points="190,-114 136,-114 136,-88 190,-88 190,-114"/>
+<text text-anchor="middle" x="163" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty</text>
+</a>
+</g>
+<!-- module~hasty_key_morton&#45;&gt;module~hasty -->
+<g id="edge12" class="edge"><title>module~hasty_key_morton&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.222,-101C108.746,-101 117.464,-101 125.586,-101"/>
+<polygon fill="#000000" stroke="#000000" points="125.853,-104.5 135.853,-101 125.853,-97.5001 125.853,-104.5"/>
+</g>
+<!-- program~hasty_test_hash_table_homocontent_failure -->
+<g id="node3" class="node"><title>program~hasty_test_hash_table_homocontent_failure</title>
+<a xlink:href="../program/hasty_test_hash_table_homocontent_failure.html" xlink:title="hasty_test_hash_table_homocontent_failure">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="449,-202 227,-202 227,-176 449,-176 449,-202"/>
+<text text-anchor="middle" x="338" y="-186.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homocontent_failure</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure -->
+<g id="edge2" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.749,-114.229C182.587,-129.493 202.523,-154.135 226,-167 229.516,-168.927 233.176,-170.687 236.936,-172.294"/>
+<polygon fill="#000000" stroke="#000000" points="235.87,-175.634 246.459,-175.982 238.398,-169.106 235.87,-175.634"/>
+</g>
+<!-- program~hasty_test_hash_table -->
+<g id="node4" class="node"><title>program~hasty_test_hash_table</title>
+<a xlink:href="../program/hasty_test_hash_table.html" xlink:title="hasty_test_hash_table">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="398,-158 278,-158 278,-132 398,-132 398,-158"/>
+<text text-anchor="middle" x="338" y="-142.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table -->
+<g id="edge4" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.024,-111.384C201.068,-115.378 214.036,-119.754 226,-123 239.389,-126.633 253.83,-129.924 267.748,-132.789"/>
+<polygon fill="#000000" stroke="#000000" points="267.274,-136.263 277.767,-134.798 268.651,-129.4 267.274,-136.263"/>
+</g>
+<!-- program~hasty_test_hash_table_homokey_failure -->
+<g id="node5" class="node"><title>program~hasty_test_hash_table_homokey_failure</title>
+<a xlink:href="../program/hasty_test_hash_table_homokey_failure.html" xlink:title="hasty_test_hash_table_homokey_failure">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="440,-114 236,-114 236,-88 440,-88 440,-114"/>
+<text text-anchor="middle" x="338" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homokey_failure</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure -->
+<g id="edge6" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.344,-101C200.28,-101 212.223,-101 224.957,-101"/>
+<polygon fill="#000000" stroke="#000000" points="225.316,-104.5 235.316,-101 225.316,-97.5001 225.316,-104.5"/>
+</g>
+<!-- program~hasty_test_dictionary -->
+<g id="node6" class="node"><title>program~hasty_test_dictionary</title>
+<a xlink:href="../program/hasty_test_dictionary.html" xlink:title="hasty_test_dictionary">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="394,-70 282,-70 282,-44 394,-44 394,-70"/>
+<text text-anchor="middle" x="338" y="-54.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_dictionary</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_dictionary -->
+<g id="edge8" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.024,-90.6163C201.068,-86.6222 214.036,-82.2462 226,-79 240.451,-75.0788 256.129,-71.5558 271.05,-68.5374"/>
+<polygon fill="#000000" stroke="#000000" points="272.101,-71.8977 281.235,-66.5297 270.747,-65.0298 272.101,-71.8977"/>
+</g>
+<!-- program~hasty_test_hash_table_homo -->
+<g id="node7" class="node"><title>program~hasty_test_hash_table_homo</title>
+<a xlink:href="../program/hasty_test_hash_table_homo.html" xlink:title="hasty_test_hash_table_homo">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="414,-26 262,-26 262,-1.24345e-14 414,-3.55271e-15 414,-26"/>
+<text text-anchor="middle" x="338" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homo</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homo -->
+<g id="edge10" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homo</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.749,-87.7707C182.587,-72.5075 202.523,-47.8651 226,-35 233.976,-30.6291 242.692,-27.1183 251.627,-24.2998"/>
+<polygon fill="#000000" stroke="#000000" points="252.734,-27.6236 261.383,-21.5051 250.806,-20.8943 252.734,-27.6236"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.26.3 (20100126.1600)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="486pt" height="34pt"
+ viewBox="0.00 0.00 486.00 34.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 30)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-30 483,-30 483,5 -4,5"/>
+<!-- Module -->
+<g id="node1" class="node"><title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-26 2.13163e-14,-26 0,-1.24345e-14 54,-3.55271e-15 54,-26"/>
+<text text-anchor="middle" x="27" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node"><title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="138,-26 72,-26 72,-1.24345e-14 138,-3.55271e-15 138,-26"/>
+<text text-anchor="middle" x="105" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node"><title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="220,-26 156,-26 156,-1.24345e-14 220,-3.55271e-15 220,-26"/>
+<text text-anchor="middle" x="188" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node"><title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="292,-26 238,-26 238,-1.24345e-14 292,-3.55271e-15 292,-26"/>
+<text text-anchor="middle" x="265" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node"><title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="364,-26 310,-26 310,-1.24345e-14 364,-3.55271e-15 364,-26"/>
+<text text-anchor="middle" x="337" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node"><title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="478,-26 382,-26 382,-1.24345e-14 478,-3.55271e-15 478,-26"/>
+<text text-anchor="middle" x="430" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-1">Derived Types</a></h3></div>
+  <div id="types-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#type-key_morton">key_morton</a>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-1">Functions</a></h3></div>
+  <div id="funcs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#proc-stringify">stringify</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#proc-is_equal">is_equal</a>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html#proc-destroy%7E4">destroy</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-key_morton"></span><h3>type, public, extends(<a href='../type/key_adt.html'>key_adt</a>) :: <a href='../type/key_morton.html'>key_morton</a>
+    
+  </h3></div>
+  <div class="panel-body">
+    
+    
+    <p>Morton (Z-order) <strong>key</strong> class to identify a node.</p>
+    
+     
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-key%7E2"></span>integer(kind=I8P),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>key</strong></td><td> =</td><td>0_I8P</td><td><p>The key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>generic, public :: <strong><a href='../type/key_morton.html#boundprocedure-operator%28%3D%3D%29%7E3'>operator(==)</a></strong>  => is_equal </td>
+       <td><p>Overloading <code>==</code> operator.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/key_morton.html#boundprocedure-destroy%7E6'>destroy</a></strong>  </td>
+       <td><p>Destroy the key.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/key_morton.html#boundprocedure-stringify%7E2'>stringify</a></strong>  </td>
+       <td><p>Return a string representation of the key.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(lhs) :: <strong><a href='../type/key_morton.html#boundprocedure-is_equal%7E3'>is_equal</a></strong>  </td>
+       <td><p>Implement <code>==</code> operator.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+     
+    <section>
+    <h2>Functions</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-stringify"></span><h3>
+private pure function <a href='../proc/stringify.html'>stringify</a>(self) result(str_key)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Return a string representation of the key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_morton.html'>key_morton</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  allocatable</small></h4>
+  <p>The key stringified.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-is_equal"></span><h3>
+private elemental function <a href='../proc/is_equal.html'>is_equal</a>(lhs, rhs)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Implement <code>==</code> operator.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_morton.html'>key_morton</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_adt.html'>key_adt</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Rigth hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  
+    
+
+  </div>
+  </div>
+
+    
+    </section>
+    <br>
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-destroy%7E4"></span><h3>
+private elemental subroutine <a href='../proc/destroy%7E4.html'>destroy</a>(self)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Destroy the key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_morton.html'>key_morton</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-1">All Modules</a></h3></div>
+  <div id="allmods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/hasty.html">hasty</a>
+      
+      <a class="list-group-item" href="../module/hasty_content_adt.html">hasty_content_adt</a>
+      
+      <a class="list-group-item" href="../module/hasty_dictionary.html">hasty_dictionary</a>
+      
+      <a class="list-group-item" href="../module/hasty_dictionary_node.html">hasty_dictionary_node</a>
+      
+      <a class="list-group-item" href="../module/hasty_hash_table.html">hasty_hash_table</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_adt.html">hasty_key_adt</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_morton.html">hasty_key_morton</a>
+      
+      <a class="list-group-item" href="../module/penf.html">penf</a>
+      
+      <a class="list-group-item" href="../module/penf_b_size.html">penf_b_size</a>
+      
+      <a class="list-group-item" href="../module/penf_global_parameters_variables.html">penf_global_parameters_variables</a>
+      
+      <a class="list-group-item" href="../module/penf_stringify.html">penf_stringify</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2016 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> HASTY was developed by Stefano Zaghi</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

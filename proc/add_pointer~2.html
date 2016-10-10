@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.9% of total for procedures.">13 statements</a>
+	  title=" 1.7% of total for procedures.">25 statements</a>
      </li> 
      
      
@@ -285,6 +285,8 @@
       
       <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E4.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
       <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
@@ -333,7 +335,13 @@
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
+      <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
+      
       <a class="list-group-item" href="../proc/is_filled.html">is_filled</a>
+      
+      <a class="list-group-item" href="../proc/is_homogeneous.html">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../proc/is_initialized.html">is_initialized</a>
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
@@ -419,6 +427,8 @@
       
       <a class="list-group-item" href="../proc/strf_r8p.html">strf_R8P</a>
       
+      <a class="list-group-item" href="../proc/stringify.html">stringify</a>
+      
       <a class="list-group-item" href="../interface/strz.html">strz</a>
       
       <a class="list-group-item" href="../proc/strz_i1p.html">strz_I1P</a>
@@ -458,6 +468,8 @@ private subroutine add_pointer(self, key, content)
     
     <p>Add a node pointer to the hash table.</p>
 <p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>If a node with the same key is already in the hash table, it is removed and the new one will replace it.</p></div>
+<p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>If the table is <strong>homogeneous</strong> the key/content types are verified against the typeguard members: if those typeguards
+ have not been initialized by an invocation of <a href="../type/hash_table.html#boundprocedure-initialize">initialize</a> they are initialized by the types here passed.</p></div>
     
 
     <h3>Arguments</h3>
@@ -478,7 +490,7 @@ private subroutine add_pointer(self, key, content)
   
 <tr>
   
-  <td><span class="anchor" id="variable-self%7E35"></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td><span class="anchor" id="variable-self%7E37"></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
   <td>intent(inout)</td>
   <td></td>
   
@@ -493,7 +505,7 @@ private subroutine add_pointer(self, key, content)
   
 <tr>
   
-  <td><span class="anchor" id="variable-key%7E17"></span>class(*),</td>
+  <td><span class="anchor" id="variable-key%7E18"></span>class(*),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -685,6 +697,9 @@ private subroutine add_pointer(self, key, content)
   <span class="c">!&lt; Add a node pointer to the hash table.</span>
   <span class="c">!&lt;</span>
   <span class="c">!&lt; @note If a node with the same key is already in the hash table, it is removed and the new one will replace it.</span>
+  <span class="c">!&lt;</span>
+  <span class="c">!&lt; @note If the table is **homogeneous** the key/content types are verified against the typeguard members: if those typeguards</span>
+  <span class="c">!&lt; have not been initialized by an invocation of [[hash_table:initialize]] they are initialized by the types here passed.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span>          <span class="c">!&lt; The hash table.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">key</span>           <span class="c">!&lt; The key.</span>
@@ -695,7 +710,19 @@ private subroutine add_pointer(self, key, content)
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">is_key_allowed</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="n">error</span> <span class="k">stop</span> <span class="s1">&#39;error: key type not supported&#39;</span>
-  <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">self</span><span class="p">%</span><span class="n">is_initialized</span><span class="p">)</span> <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">initialize</span> <span class="c">! initialize the table with default options</span>
+  <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span><span class="p">)</span> <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">initialize</span> <span class="c">! initialize the table with default options</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">    if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">      allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">elseif</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">same_type_as</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">      </span><span class="n">error</span> <span class="k">stop</span> <span class="s1">&#39;error: key type is different from type-guard one for the homogeneous table&#39;</span>
+    <span class="n">endif</span>
+    <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">      allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">elseif</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">same_type_as</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">      </span><span class="n">error</span> <span class="k">stop</span> <span class="s1">&#39;error: content type is different from type-guard one for the homogeneous table&#39;</span>
+    <span class="n">endif</span>
+  <span class="n">endif</span>
   <span class="n">b</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">hash</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
   <span class="n">bucket_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
   <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">add_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
@@ -818,6 +845,8 @@ private subroutine add_pointer(self, key, content)
       
       <a class="list-group-item" href="../proc/destroy%7E3.html">destroy</a>
       
+      <a class="list-group-item" href="../proc/destroy%7E4.html">destroy</a>
+      
       <a class="list-group-item" href="../proc/destroy_content.html">destroy_content</a>
       
       <a class="list-group-item" href="../proc/destroy_dictionary_node.html">destroy_dictionary_node</a>
@@ -866,7 +895,13 @@ private subroutine add_pointer(self, key, content)
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
       
+      <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
+      
       <a class="list-group-item" href="../proc/is_filled.html">is_filled</a>
+      
+      <a class="list-group-item" href="../proc/is_homogeneous.html">is_homogeneous</a>
+      
+      <a class="list-group-item" href="../proc/is_initialized.html">is_initialized</a>
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
@@ -951,6 +986,8 @@ private subroutine add_pointer(self, key, content)
       <a class="list-group-item" href="../proc/strf_r4p.html">strf_R4P</a>
       
       <a class="list-group-item" href="../proc/strf_r8p.html">strf_R8P</a>
+      
+      <a class="list-group-item" href="../proc/stringify.html">stringify</a>
       
       <a class="list-group-item" href="../interface/strz.html">strz</a>
       

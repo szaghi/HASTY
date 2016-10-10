@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>31.5% of total for derived types.</p>Including implementation: 262 statements, 54.1% of total for derived types.">23 statements</a>
+	  title="<p>27.1% of total for derived types.</p>Including implementation: 262 statements, 44.9% of total for derived types.">23 statements</a>
      </li> 
      
      
@@ -261,6 +261,8 @@
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
+      
+      <a class="list-group-item" href="../type/key_morton.html">key_morton</a>
       
     </div>
   </div>
@@ -993,7 +995,7 @@ private subroutine <a href='../proc/destroy.html'>destroy</a>(self)
     
 
 
-    <p>Return a node's content in the dictionary by cloning.</p>
+    <p>Return a node's content by cloning.</p>
   </div>
   
   <ul class="list-group">
@@ -1016,7 +1018,7 @@ private subroutine <a href='../proc/get_clone.html'>get_clone</a>(self, key, con
 
 
 
-<p>Return a node's content in the dictionary by cloning.</p>
+<p>Return a node's content by cloning.</p>
     
     <h4>Arguments</h4>
     
@@ -1100,7 +1102,7 @@ private subroutine <a href='../proc/get_clone.html'>get_clone</a>(self, key, con
     
 
 
-    <p>Return a pointer to a node's container in the dictionary.</p>
+    <p>Return a pointer to a node's content.</p>
   </div>
   
   <ul class="list-group">
@@ -1123,7 +1125,7 @@ private function <a href='../proc/get_pointer.html'>get_pointer</a>(self, key) r
 
 
 
-<p>Return a pointer to a node's content in the dictionary.</p>
+<p>Return a pointer to a node's content.</p>
     
     <h4>Arguments</h4>
     
@@ -2173,8 +2175,8 @@ private subroutine <a href='../proc/traverse_iterator.html'>traverse_iterator</a
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_pointer</span>  <span class="c">!&lt; Add a node pointer to the dictionary.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">add_clone</span>    <span class="c">!&lt; Add a node to the dictionary cloning contents (non pointer add).</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy</span>      <span class="c">!&lt; Destroy the dictionary.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_clone</span>    <span class="c">!&lt; Return a node&#39;s content in the dictionary by cloning.</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_pointer</span>  <span class="c">!&lt; Return a pointer to a node&#39;s container in the dictionary.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_clone</span>    <span class="c">!&lt; Return a node&#39;s content by cloning.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_pointer</span>  <span class="c">!&lt; Return a pointer to a node&#39;s content.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">has_key</span>      <span class="c">!&lt; Check if the key is present in the dictionary.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop</span>         <span class="c">!&lt; Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop_key</span>     <span class="c">!&lt; Sentinel while-loop on nodes returning the key (for key looping).</span>
@@ -2215,6 +2217,8 @@ private subroutine <a href='../proc/traverse_iterator.html'>traverse_iterator</a
       <a class="list-group-item" href="../type/hash_table.html">hash_table</a>
       
       <a class="list-group-item" href="../type/key_adt.html">key_adt</a>
+      
+      <a class="list-group-item" href="../type/key_morton.html">key_morton</a>
       
     </div>
   </div>

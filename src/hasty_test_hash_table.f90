@@ -13,7 +13,7 @@ class(*), pointer     :: a_content       !< A content.
 class(*), allocatable :: another_content !< Another content.
 type(hash_table)      :: a_table         !< A table.
 integer(int32)        :: max_content     !< Maximum content value.
-logical               :: test_passed(6)  !< List of passed tests.
+logical               :: test_passed(8)  !< List of passed tests.
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -62,6 +62,13 @@ if (allocated(another_content)) then
   endselect
 endif
 print "(A,L1)", 'a_table(5) = 13, is correct? ', test_passed(6)
+
+call a_table%destroy
+call a_table%initialize(buckets_number=11, homogeneous=.true., typeguard_key='a string', typeguard_content=1_int32)
+test_passed(7) = a_table%is_initialized()
+print "(A,L1)", 'a_table is initialized, is correct? ', test_passed(7)
+test_passed(8) = a_table%is_homogeneous()
+print "(A,L1)", 'a_table is homogeneous, is correct? ', test_passed(8)
 
 print "(A,L1)", new_line('a')//'Are all tests passed? ', all(test_passed)
 stop
