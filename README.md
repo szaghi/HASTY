@@ -67,9 +67,9 @@ Go to [Top](#top)
 
 HASTY is a Free and Open Source Software (FOSS), it is distributed under a **very permissive** multi-licensing system: selectable licenses are [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html), [BSD2-Clause](http://opensource.org/licenses/BSD-2-Clause), [BSD3-Clause](http://opensource.org/licenses/BSD-3-Clause) and [MIT](http://opensource.org/licenses/MIT), feel free to select the license that best matches your workflow.
 
-> Anyone is interest to use, to develop or to contribute to MORTIF is welcome.
+> Anyone is interest to use, to develop or to contribute to HASTY is welcome.
 
-More details can be found on [wiki](https://github.com/szaghi/MORTIF/wiki/Copyrights).
+More details can be found on [wiki](https://github.com/szaghi/HASTY/wiki/Copyrights).
 
 Go to [Top](#top)
 
