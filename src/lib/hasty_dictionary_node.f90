@@ -5,6 +5,7 @@ module hasty_dictionary_node
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_content_adt
 use hasty_key_adt
+use penf
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -18,15 +19,19 @@ public :: dictionary_node
 type :: dictionary_node
   !< **Dictionary node** class to storage any contents by means of generic key/content pairs.
   !<
-  !< @note The members of this class are public because they can be safely handled by the [[dictionary]] class.
-  class(*),              allocatable :: key              !< The key.
-  class(*),              pointer     :: content=>null()  !< The generic  content.
-  type(dictionary_node), pointer     :: next=>null()     !< The next node in the dictionary.
-  type(dictionary_node), pointer     :: previous=>null() !< The previous node in the dictionary.
+  !< @note The `next/previous` members of this class are public because they can be safely handled by the [[dictionary]] class.
+  private
+  class(*),              allocatable     :: key_             !< The key.
+  class(*),              pointer         :: content_=>null() !< The generic content.
+  type(dictionary_node), pointer, public :: next=>null()     !< The next node in the dictionary.
+  type(dictionary_node), pointer, public :: previous=>null() !< The previous node in the dictionary.
   contains
     ! public methods
     procedure, pass(self) :: destroy     !< Destroy the node (key & content).
+    procedure, pass(self) :: get_pointer !< Return a pointer to node's content.
+    procedure, pass(self) :: has_key     !< Return .true. if the node has a key (or id) set-up.
     procedure, pass(self) :: is_filled   !< Return storage status.
+    procedure, pass(self) :: key         !< Return the value of the key
     procedure, pass(self) :: set_pointer !< Set the node pointer-associating content.
     procedure, pass(self) :: set_clone   !< Set the node cloning content.
     ! private methods
@@ -70,6 +75,31 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy
 
+  function get_pointer(self) result(content)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Return a pointer to node's content.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary_node), intent(in) :: self    !< The node.
+  class(*), pointer                  :: content !< Content pointer of the node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  if (associated(self%content_)) content => self%content_
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction get_pointer
+
+  elemental logical function has_key(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Return .true. if the node has a key (or id) set-up.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary_node), intent(in) :: self !< The node.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  has_key = allocated(self%key_)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction has_key
+
   elemental logical function is_filled(self)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return storage status.
@@ -79,10 +109,10 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   is_filled = .false.
-  if (allocated(self%key)) then
-    if (associated(self%content)) then
+  if (self%has_key()) then
+    if (associated(self%content_)) then
       is_filled = .true.
-      associate(content=>self%content)
+      associate(content=>self%content_)
         select type(content)
         class is(content_adt)
           is_filled = content%is_filled()
@@ -92,6 +122,19 @@ contains
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction is_filled
+
+  function key(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Return the value of the key.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary_node), intent(in) :: self !< The node.
+  class(*), allocatable              :: key  !< Key value.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  if (allocated(self%key_)) allocate(key, source=self%key_)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction key
 
   subroutine set_pointer(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -104,9 +147,9 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
-  allocate(self%key, source=key)
+  allocate(self%key_, source=key)
   call self%destroy_content
-  self%content => content
+  self%content_ => content
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine set_pointer
 
@@ -121,9 +164,9 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
-  allocate(self%key, source=key)
+  allocate(self%key_, source=key)
   call self%destroy_content
-  allocate(self%content, source=content)
+  allocate(self%content_, source=content)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine set_clone
 
@@ -136,14 +179,14 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (allocated(self%key)) then
-    associate(key=>self%key)
+  if (allocated(self%key_)) then
+    associate(key=>self%key_)
       select type(key)
       class is(key_adt)
         call key%destroy
       endselect
     endassociate
-    deallocate(self%key)
+    deallocate(self%key_)
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy_key
@@ -156,15 +199,15 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (associated(self%content)) then
-    associate(content=>self%content)
+  if (associated(self%content_)) then
+    associate(content=>self%content_)
       select type(content)
       class is(content_adt)
         call content%destroy
       endselect
     endassociate
-    deallocate(self%content)
-    self%content => null()
+    deallocate(self%content_)
+    self%content_ => null()
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy_content
