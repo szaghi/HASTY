@@ -120,18 +120,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.5% of total for procedures.">7 statements</a>
+	  title=" 0.3% of total for procedures.">5 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_hash_table.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_dictionary_node.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_hash_table.f90.html'>hasty_hash_table.f90</a></li>
+     <li><a href='../sourcefile/hasty_dictionary_node.f90.html'>hasty_dictionary_node.f90</a></li>
   
-     <li><a href='../module/hasty_hash_table.html'>hasty_hash_table</a></li>
+     <li><a href='../module/hasty_dictionary_node.html'>hasty_dictionary_node</a></li>
   
      <li class="active">get_pointer</li>
   </ol>
@@ -293,8 +293,6 @@
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
-      
       <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
@@ -321,9 +319,13 @@
       
       <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
+      <a class="list-group-item" href="../proc/get_pointer%7E3.html">get_pointer</a>
+      
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
       
       <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E3.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
@@ -334,6 +336,8 @@
       <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
+      
+      <a class="list-group-item" href="../proc/initialize%7E2.html">initialize</a>
       
       <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
       
@@ -349,15 +353,13 @@
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
       
+      <a class="list-group-item" href="../proc/key.html">key</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
       <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
       <a class="list-group-item" href="../proc/loop.html">loop</a>
-      
-      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
-      
-      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -439,6 +441,16 @@
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
+      <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_false.html">test_assert_false</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_true.html">test_assert_true</a>
+      
+      <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/tests_non_captured.html">tests_non_captured</a>
+      
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
       
       <a class="list-group-item" href="../proc/traverse%7E2.html">traverse</a>
@@ -456,7 +468,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private function get_pointer(self, key) result(content)
+private function get_pointer(self) result(content)
     
     
 	 
@@ -466,7 +478,7 @@ private function get_pointer(self, key) result(content)
 
 
     
-    <p>Return a pointer to a node's content in the hash table.</p>
+    <p>Return a pointer to node's content.</p>
     
 
     <h3>Arguments</h3>
@@ -487,27 +499,12 @@ private function get_pointer(self, key) result(content)
   
 <tr>
   
-  <td><span class="anchor" id="variable-self%7E32"></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td><span class="anchor" id="variable-self%7E22"></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The hash table.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-key%7E15"></span>class(*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key.</p></td>
+  <td><strong>self</strong></td><td><p>The node.</p></td>
   
 </tr>
 
@@ -521,9 +518,9 @@ private function get_pointer(self, key) result(content)
     
     
     
-	 <h3>Return Value <small><span class="anchor" id="variable-content%7E13"></span>class(*),
+	 <h3>Return Value <small><span class="anchor" id="variable-content%7E9"></span>class(*),
   pointer</small></h3>
-    <p>Content pointer of the queried node.</p>
+    <p>Content pointer of the node.</p>
     
     
      
@@ -582,18 +579,16 @@ private function get_pointer(self, key) result(content)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>  <span class="k">function </span><span class="n">get_pointer</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>  <span class="k">function </span><span class="n">get_pointer</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="c">!&lt; Return a pointer to a node&#39;s content in the hash table.</span>
+  <span class="c">!&lt; Return a pointer to node&#39;s content.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span>    <span class="c">!&lt; The hash table.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">key</span>     <span class="c">!&lt; The key.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span>             <span class="kd">::</span> <span class="n">content</span> <span class="c">!&lt; Content pointer of the queried node.</span>
+  <span class="k">class</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span>    <span class="c">!&lt; The node.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span>                  <span class="kd">::</span> <span class="n">content</span> <span class="c">!&lt; Content pointer of the node.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="n">content</span> <span class="o">=&gt;</span> <span class="nb">null</span><span class="p">()</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span><span class="p">)</span> <span class="n">content</span> <span class="o">=&gt;</span> <span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">hash</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">))%</span><span class="n">get_pointer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">content_</span><span class="p">))</span> <span class="n">content</span> <span class="o">=&gt;</span> <span class="n">self</span><span class="p">%</span><span class="n">content_</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">endfunction</span> <span class="n">get_pointer</span>
 </pre></div>
@@ -720,8 +715,6 @@ private function get_pointer(self, key) result(content)
       
       <a class="list-group-item" href="../proc/destroy_key.html">destroy_key</a>
       
-      <a class="list-group-item" href="../proc/dictionary_finalize.html">dictionary_finalize</a>
-      
       <a class="list-group-item" href="../proc/dictionary_len.html">dictionary_len</a>
       
       <a class="list-group-item" href="../interface/digit.html">digit</a>
@@ -748,9 +741,13 @@ private function get_pointer(self, key) result(content)
       
       <a class="list-group-item" href="../proc/get_pointer%7E2.html">get_pointer</a>
       
+      <a class="list-group-item" href="../proc/get_pointer%7E3.html">get_pointer</a>
+      
       <a class="list-group-item" href="../proc/has_key.html">has_key</a>
       
       <a class="list-group-item" href="../proc/has_key%7E2.html">has_key</a>
+      
+      <a class="list-group-item" href="../proc/has_key%7E3.html">has_key</a>
       
       <a class="list-group-item" href="../proc/hash.html">hash</a>
       
@@ -761,6 +758,8 @@ private function get_pointer(self, key) result(content)
       <a class="list-group-item" href="../proc/hash_table_len.html">hash_table_len</a>
       
       <a class="list-group-item" href="../proc/initialize.html">initialize</a>
+      
+      <a class="list-group-item" href="../proc/initialize%7E2.html">initialize</a>
       
       <a class="list-group-item" href="../proc/is_equal.html">is_equal</a>
       
@@ -776,15 +775,13 @@ private function get_pointer(self, key) result(content)
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
       
+      <a class="list-group-item" href="../proc/key.html">key</a>
+      
       <a class="list-group-item" href="../interface/len.html">len</a>
       
       <a class="list-group-item" href="../interface/len%7E2.html">len</a>
       
       <a class="list-group-item" href="../proc/loop.html">loop</a>
-      
-      <a class="list-group-item" href="../proc/loop_content.html">loop_content</a>
-      
-      <a class="list-group-item" href="../proc/loop_key.html">loop_key</a>
       
       <a class="list-group-item" href="../proc/node.html">node</a>
       
@@ -865,6 +862,16 @@ private function get_pointer(self, key) result(content)
       <a class="list-group-item" href="../proc/strz_i4p.html">strz_I4P</a>
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_false.html">test_assert_false</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_true.html">test_assert_true</a>
+      
+      <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
+      
+      <a class="list-group-item" href="../proc/tests_non_captured.html">tests_non_captured</a>
       
       <a class="list-group-item" href="../proc/traverse.html">traverse</a>
       

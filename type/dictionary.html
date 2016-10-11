@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>27.1% of total for derived types.</p>Including implementation: 262 statements, 44.9% of total for derived types.">23 statements</a>
+	  title="<p>24.1% of total for derived types.</p>Including implementation: 219 statements, 39.2% of total for derived types.">21 statements</a>
      </li> 
      
      
@@ -213,10 +213,6 @@
       <a class="list-group-item" href="../type/dictionary.html#boundprocedure-has_key">has_key</a>
       
       <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop">loop</a>
-      
-      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_key">loop_key</a>
-      
-      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_content">loop_content</a>
       
       <a class="list-group-item" href="../type/dictionary.html#boundprocedure-node">node</a>
       
@@ -514,10 +510,6 @@
       <a class="list-group-item" href="../type/dictionary.html#boundprocedure-has_key">has_key</a>
       
       <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop">loop</a>
-      
-      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_key">loop_key</a>
-      
-      <a class="list-group-item" href="../type/dictionary.html#boundprocedure-loop_content">loop_content</a>
       
       <a class="list-group-item" href="../type/dictionary.html#boundprocedure-node">node</a>
       
@@ -1412,208 +1404,6 @@ private function <a href='../proc/loop.html'>loop</a>(self, key, content) result
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-loop_key"></span><h3>procedure, public, pass(self) :: <strong>loop_key</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Sentinel while-loop on nodes returning the key (for key looping).</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-    
-    <h3>
-private function <a href='../proc/loop_key.html'>loop_key</a>(self, key) result(again)
-    
-    
-	 
-</h3>
-    
-
-
-
-
-
-
-
-<p>Sentinel while-loop on nodes returning the key (for key looping).</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(*),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>allocatable</td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>Sentinel flag to contine the loop.</p>
-    
-
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-loop_content"></span><h3>procedure, public, pass(self) :: <strong>loop_content</strong>  
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Sentinel while-loop on nodes returning the content (for content looping).</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-    
-    <h3>
-private function <a href='../proc/loop_content.html'>loop_content</a>(self, content) result(again)
-    
-    
-	 
-</h3>
-    
-
-
-
-
-
-
-
-<p>Sentinel while-loop on nodes returning the content pointer (for content looping).</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(*),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>pointer</td><td>::</td>
-  <td><strong>content</strong></td><td><p>The content.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>Sentinel flag to contine the loop.</p>
-    
-
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-node"></span><h3>procedure, public, pass(self) :: <strong>node</strong>  
     
   </h3></div>
@@ -2179,8 +1969,6 @@ private subroutine <a href='../proc/traverse_iterator.html'>traverse_iterator</a
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_pointer</span>  <span class="c">!&lt; Return a pointer to a node&#39;s content.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">has_key</span>      <span class="c">!&lt; Check if the key is present in the dictionary.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop</span>         <span class="c">!&lt; Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop_key</span>     <span class="c">!&lt; Sentinel while-loop on nodes returning the key (for key looping).</span>
-    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">loop_content</span> <span class="c">!&lt; Sentinel while-loop on nodes returning the content (for content looping).</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">node</span>         <span class="c">!&lt; Return a pointer to a node in the dictionary.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">print_keys</span>   <span class="c">!&lt; Print the dictionary keys.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">remove</span>       <span class="c">!&lt; Remove a node from the dictionary, given the key.</span>

@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>16.5% of total for derived types.</p>Including implementation: 81 statements, 13.9% of total for derived types.">14 statements</a>
+	  title="<p>20.7% of total for derived types.</p>Including implementation: 99 statements, 17.7% of total for derived types.">18 statements</a>
      </li> 
      
      
@@ -158,9 +158,9 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/dictionary_node.html#variable-key">key</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-key_">key_</a>
       
-      <a class="list-group-item" href="../type/dictionary_node.html#variable-content">content</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-content_">content_</a>
       
       <a class="list-group-item" href="../type/dictionary_node.html#variable-next">next</a>
       
@@ -204,7 +204,13 @@
       
       <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy%7E2">destroy</a>
       
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-get_pointer%7E2">get_pointer</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-has_key%7E2">has_key</a>
+      
       <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-is_filled%7E2">is_filled</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-key">key</a>
       
       <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-set_pointer">set_pointer</a>
       
@@ -261,7 +267,7 @@
       <h2>type, public :: dictionary_node</h2>
     
     <p><strong>Dictionary node</strong> class to storage any contents by means of generic key/content pairs.</p>
-<p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>The members of this class are public because they can be safely handled by the <a href="../type/dictionary.html">dictionary</a> class.</p></div>
+<p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>The <code>next/previous</code> members of this class are public because they can be safely handled by the <a href="../type/dictionary.html">dictionary</a> class.</p></div>
     
     
     <h3>Inherited By</h3>
@@ -375,9 +381,9 @@
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/dictionary_node.html#variable-key">key</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-key_">key_</a>
       
-      <a class="list-group-item" href="../type/dictionary_node.html#variable-content">content</a>
+      <a class="list-group-item" href="../type/dictionary_node.html#variable-content_">content_</a>
       
       <a class="list-group-item" href="../type/dictionary_node.html#variable-next">next</a>
       
@@ -421,7 +427,13 @@
       
       <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-destroy%7E2">destroy</a>
       
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-get_pointer%7E2">get_pointer</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-has_key%7E2">has_key</a>
+      
       <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-is_filled%7E2">is_filled</a>
+      
+      <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-key">key</a>
       
       <a class="list-group-item" href="../type/dictionary_node.html#boundprocedure-set_pointer">set_pointer</a>
       
@@ -467,11 +479,11 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-key"></span>class(*),</td>
+  <td><span class="anchor" id="variable-key_"></span>class(*),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>allocatable</td><td>::</td>
-  <td><strong>key</strong></td><td></td><td></td><td><p>The key.</p></td>
+  <td><strong>key_</strong></td><td></td><td></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -481,11 +493,11 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-content"></span>class(*),</td>
+  <td><span class="anchor" id="variable-content_"></span>class(*),</td>
   
-  <td>public,</td>
+  <td>private,</td>
   <td>pointer</td><td>::</td>
-  <td><strong>content</strong></td><td>=> </td><td>null()</td><td><p>The generic  content.</p></td>
+  <td><strong>content_</strong></td><td>=> </td><td>null()</td><td><p>The generic content.</p></td>
   
 </tr>
 
@@ -687,6 +699,178 @@ private subroutine <a href='../proc/destroy%7E2.html'>destroy</a>(self)
     
 	   
 <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_pointer%7E2"></span><h3>procedure, public, pass(self) :: <strong>get_pointer</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Return a pointer to node's content.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/get_pointer%7E2.html'>get_pointer</a>(self) result(content)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Return a pointer to node's content.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The node.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(*),
+  pointer</small></h4>
+  <p>Content pointer of the node.</p>
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-has_key%7E2"></span><h3>procedure, public, pass(self) :: <strong>has_key</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Return .true. if the node has a key (or id) set-up.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private elemental function <a href='../proc/has_key%7E2.html'>has_key</a>(self)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Return .true. if the node has a key (or id) set-up.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The node.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-is_filled%7E2"></span><h3>procedure, public, pass(self) :: <strong>is_filled</strong>  
     
   </h3></div>
@@ -762,6 +946,92 @@ private elemental function <a href='../proc/is_filled.html'>is_filled</a>(self)
      <h4>Return Value <small>logical
   </small></h4>
   
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-key"></span><h3>procedure, public, pass(self) :: <strong>key</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Return the value of the key</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private function <a href='../proc/key.html'>key</a>(self)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Return the value of the key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary_node.html'>dictionary_node</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The node.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>class(*),
+  allocatable</small></h4>
+  <p>Key value.</p>
     
 
       
@@ -1148,15 +1418,19 @@ private subroutine <a href='../proc/destroy_content.html'>destroy_content</a>(se
     <div class="highlight"><pre><span></span><span class="k">type</span> <span class="kd">::</span> <span class="n">dictionary_node</span>
   <span class="c">!&lt; **Dictionary node** class to storage any contents by means of generic key/content pairs.</span>
   <span class="c">!&lt;</span>
-  <span class="c">!&lt; @note The members of this class are public because they can be safely handled by the [[dictionary]] class.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>              <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">key</span>              <span class="c">!&lt; The key.</span>
-  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>              <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">content</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>  <span class="c">!&lt; The generic  content.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">next</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>     <span class="c">!&lt; The next node in the dictionary.</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span>     <span class="kd">::</span> <span class="n">previous</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; The previous node in the dictionary.</span>
+  <span class="c">!&lt; @note The `next/previous` members of this class are public because they can be safely handled by the [[dictionary]] class.</span>
+  <span class="k">private</span>
+<span class="k">  class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>              <span class="k">allocatable</span>     <span class="kd">::</span> <span class="n">key_</span>             <span class="c">!&lt; The key.</span>
+  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>              <span class="k">pointer</span>         <span class="kd">::</span> <span class="n">content_</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; The generic content.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">next</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>     <span class="c">!&lt; The next node in the dictionary.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">previous</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; The previous node in the dictionary.</span>
   <span class="k">contains</span>
     <span class="c">! public methods</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">destroy</span>     <span class="c">!&lt; Destroy the node (key &amp; content).</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">get_pointer</span> <span class="c">!&lt; Return a pointer to node&#39;s content.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">has_key</span>     <span class="c">!&lt; Return .true. if the node has a key (or id) set-up.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">is_filled</span>   <span class="c">!&lt; Return storage status.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">key</span>         <span class="c">!&lt; Return the value of the key</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">set_pointer</span> <span class="c">!&lt; Set the node pointer-associating content.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">set_clone</span>   <span class="c">!&lt; Set the node cloning content.</span>
     <span class="c">! private methods</span>

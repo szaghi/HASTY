@@ -32,8 +32,6 @@ type :: dictionary
     procedure, pass(self) :: get_pointer  !< Return a pointer to a node's content.
     procedure, pass(self) :: has_key      !< Check if the key is present in the dictionary.
     procedure, pass(self) :: loop         !< Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).
-    procedure, pass(self) :: loop_key     !< Sentinel while-loop on nodes returning the key (for key looping).
-    procedure, pass(self) :: loop_content !< Sentinel while-loop on nodes returning the content (for content looping).
     procedure, pass(self) :: node         !< Return a pointer to a node in the dictionary.
     procedure, pass(self) :: print_keys   !< Print the dictionary keys.
     procedure, pass(self) :: remove       !< Remove a node from the dictionary, given the key.
@@ -110,7 +108,7 @@ contains
   if (.not.is_key_allowed(key)) error stop 'error: key type not supported'
 
   ! if the node is already there, then remove it
-  p => self%node(key=key) ! associate p to the pointer allocated
+  p => self%node(key=key)
   if (associated(p)) call self%remove_by_pointer(p)
 
   ! update next/previous pointers
@@ -146,7 +144,7 @@ contains
   if (.not.is_key_allowed(key)) error stop 'error: key type not supported'
 
   ! if the node is already there, then remove it
-  p => self%node(key=key) ! associate p to the pointer allocated
+  p => self%node(key=key)
   if (associated(p)) call self%remove_by_pointer(p)
 
   ! update next/previous pointers
@@ -210,7 +208,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   content => null()
   p => self%node(key=key)
-  if (associated(p)) content => p%content
+  if (associated(p)) content => p%get_pointer()
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction get_pointer
 
@@ -237,7 +235,8 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
-    has_key = are_keys_equal(lhs=node%key, rhs=key)
+    has_key = .false.
+    if (node%has_key()) has_key = are_keys_equal(lhs=node%key(), rhs=key)
     done = has_key
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_search
@@ -260,13 +259,13 @@ contains
   if (self%nodes_number>0) then
     if (.not.associated(p)) then
       p => self%head
-      if (present(key).and.allocated(p%key)) allocate(key, source=p%key)
-      if (present(content)) content => p%content
+      if (present(key).and.p%has_key()) allocate(key, source=p%key())
+      if (present(content)) content => p%get_pointer()
       again = .true.
     elseif (associated(p%next)) then
       p => p%next
-      if (present(key).and.allocated(p%key)) allocate(key, source=p%key)
-      if (present(content)) content => p%content
+      if (present(key).and.p%has_key()) allocate(key, source=p%key())
+      if (present(content)) content => p%get_pointer()
       again = .true.
     else
       p => null()
@@ -275,65 +274,6 @@ contains
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction loop
-
-  function loop_key(self, key) result(again)
-  !---------------------------------------------------------------------------------------------------------------------------------
-  !< Sentinel while-loop on nodes returning the key (for key looping).
-  !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary),     intent(in)    :: self      !< The dictionary.
-  class(*), allocatable, intent(out)   :: key       !< The key.
-  logical                              :: again     !< Sentinel flag to contine the loop.
-  type(dictionary_node), pointer, save :: p=>null() !< Pointer to current node.
-  !---------------------------------------------------------------------------------------------------------------------------------
-
-  !---------------------------------------------------------------------------------------------------------------------------------
-  again = .false.
-  if (self%nodes_number>0) then
-    if (.not.associated(p)) then
-      p => self%head
-      if (allocated(p%key)) allocate(key, source=p%key)
-      again = .true.
-    elseif (associated(p%next)) then
-      p => p%next
-      if (allocated(p%key)) allocate(key, source=p%key)
-      again = .true.
-    else
-      p => null()
-      again = .false.
-    endif
-  endif
-  !---------------------------------------------------------------------------------------------------------------------------------
-  endfunction loop_key
-
-  function loop_content(self, content) result(again)
-  !---------------------------------------------------------------------------------------------------------------------------------
-  !< Sentinel while-loop on nodes returning the content pointer (for content looping).
-  !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary), intent(in)        :: self      !< The dictionary.
-  class(*), pointer, intent(out)       :: content   !< The content.
-  logical                              :: again     !< Sentinel flag to contine the loop.
-  type(dictionary_node), pointer, save :: p=>null() !< Pointer to current node.
-  !---------------------------------------------------------------------------------------------------------------------------------
-
-  !---------------------------------------------------------------------------------------------------------------------------------
-  again = .false.
-  content => null()
-  if (self%nodes_number>0) then
-    if (.not.associated(p)) then
-      p => self%head
-      content => p%content
-      again = .true.
-    elseif (associated(p%next)) then
-      p => p%next
-      content => p%content
-      again = .true.
-    else
-      p => null()
-      again = .false.
-    endif
-  endif
-  !---------------------------------------------------------------------------------------------------------------------------------
-  endfunction loop_content
 
   function node(self, key) result(p)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -358,7 +298,8 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
-    done = are_keys_equal(lhs=node%key, rhs=key)
+    done = .false.
+    if (node%has_key()) done = are_keys_equal(lhs=node%key(), rhs=key)
     if (done) then
       p => node
     endif
@@ -386,7 +327,7 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
-    if (allocated(node%key)) print '(A)', str_key(node%key)
+    if (node%has_key()) print '(A)', str_key(node%key())
     done = .false. ! never stop until the tail
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_print
@@ -428,7 +369,7 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
-    call iterator(key=node%key, content=node%content, done=done)
+    if (node%has_key()) call iterator(key=node%key(), content=node%get_pointer(), done=done)
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_wrapper
   endsubroutine traverse
