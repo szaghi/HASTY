@@ -4,7 +4,7 @@ module hasty_dictionary_node
 !< HASTY dictionary node class.
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_content_adt
-use hasty_key_adt
+use hasty_key_base
 use penf
 !-----------------------------------------------------------------------------------------------------------------------------------
 
@@ -20,18 +20,16 @@ type :: dictionary_node
   !< **Dictionary node** class to storage any contents by means of generic key/content pairs.
   !<
   !< @note The `next/previous` members of this class are public because they can be safely handled by the [[dictionary]] class.
-  private
-  class(*),              allocatable     :: key_             !< The key.
-  class(*),              pointer         :: content_=>null() !< The generic content.
-  type(dictionary_node), pointer, public :: next=>null()     !< The next node in the dictionary.
-  type(dictionary_node), pointer, public :: previous=>null() !< The previous node in the dictionary.
+  class(key_base),       allocatable, public  :: key              !< The key.
+  class(*),              pointer,     private :: content_=>null() !< The generic content.
+  type(dictionary_node), pointer,     public  :: next=>null()     !< The next node in the dictionary.
+  type(dictionary_node), pointer,     public  :: previous=>null() !< The previous node in the dictionary.
   contains
     ! public methods
     procedure, pass(self) :: destroy     !< Destroy the node (key & content).
     procedure, pass(self) :: get_pointer !< Return a pointer to node's content.
     procedure, pass(self) :: has_key     !< Return .true. if the node has a key (or id) set-up.
     procedure, pass(self) :: is_filled   !< Return storage status.
-    procedure, pass(self) :: key         !< Return the value of the key
     procedure, pass(self) :: set_pointer !< Set the node pointer-associating content.
     procedure, pass(self) :: set_clone   !< Set the node cloning content.
     ! private methods
@@ -96,7 +94,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  has_key = allocated(self%key_)
+  has_key = allocated(self%key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction has_key
 
@@ -123,48 +121,37 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction is_filled
 
-  function key(self)
-  !---------------------------------------------------------------------------------------------------------------------------------
-  !< Return the value of the key.
-  !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary_node), intent(in) :: self !< The node.
-  class(*), allocatable              :: key  !< Key value.
-  !---------------------------------------------------------------------------------------------------------------------------------
-
-  !---------------------------------------------------------------------------------------------------------------------------------
-  if (allocated(self%key_)) allocate(key, source=self%key_)
-  !---------------------------------------------------------------------------------------------------------------------------------
-  endfunction key
-
-  subroutine set_pointer(self, key, content)
+  subroutine set_pointer(self, key, ids, content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Set the node pointer-associating content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary_node), intent(inout) :: self    !< The node.
-  class(*),               intent(in)    :: key     !< The key.
-  class(*), pointer,      intent(in)    :: content !< The content.
+  class(dictionary_node),    intent(inout) :: self    !< The node.
+  class(*),                  intent(in)    :: key     !< The key.
+  integer(I8P), allocatable, intent(in)    :: ids(:)  !< IDs list of other keys.
+  class(*), pointer,         intent(in)    :: content !< The content.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
-  allocate(self%key_, source=key)
+  allocate(self%key, source=key_base(key=key, ids=ids))
   call self%destroy_content
   self%content_ => content
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine set_pointer
 
-  subroutine set_clone(self, key, content)
+  subroutine set_clone(self, key, ids, content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Set the node cloning content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary_node), intent(inout) :: self    !< The node.
-  class(*),               intent(in)    :: key     !< The key.
-  class(*),               intent(in)    :: content !< The content.
+  class(dictionary_node),    intent(inout) :: self    !< The node.
+  class(*),                  intent(in)    :: key     !< The key.
+  integer(I8P), allocatable, intent(in)    :: ids(:)  !< IDs list of other keys.
+  class(*),                  intent(in)    :: content !< The content.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
-  allocate(self%key_, source=key)
+  allocate(self%key, source=key_base(key=key, ids=ids))
   call self%destroy_content
   allocate(self%content_, source=content)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -179,14 +166,14 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (allocated(self%key_)) then
-    associate(key=>self%key_)
+  if (allocated(self%key)) then
+    associate(key=>self%key)
       select type(key)
-      class is(key_adt)
+      class is(key_base)
         call key%destroy
       endselect
     endassociate
-    deallocate(self%key_)
+    deallocate(self%key)
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy_key

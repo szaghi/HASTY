@@ -4,7 +4,7 @@ module hasty_hash_table
 !< HASTY class of hash table.
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_content_adt
-use hasty_key_adt
+use hasty_key_base
 use hasty_dictionary
 use penf, penf_is_initialized=>is_initialized
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -25,6 +25,7 @@ type :: hash_table
   type(dictionary), allocatable :: bucket(:)               !< Hash table buckets.
   integer(I4P)                  :: buckets_number=0_I4P    !< Number of buckets used.
   integer(I4P)                  :: nodes_number=0_I4P      !< Number of nodes actually stored, namely the hash table length.
+  integer(I8P), allocatable     :: ids(:)                  !< Unique key ids list of actually stored nodes.
   logical                       :: is_homogeneous_=.false. !< Homogeneity status-guardian.
   logical                       :: is_initialized_=.false. !< Initialization status.
   class(*), allocatable         :: typeguard_key           !< Key type guard (mold) for homogeneous keys check.
@@ -101,7 +102,7 @@ contains
       error stop 'error: content type is different from type-guard one for the homogeneous table'
     endif
   endif
-  b = self%hash(key=key)
+  b = self%hash(key=key_base(key=key, ids=self%ids))
   bucket_length = len(self%bucket(b))
   call self%bucket(b)%add_pointer(key=key, content=content)
   self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
@@ -139,7 +140,7 @@ contains
       error stop 'error: content type is different from type-guard one for the homogeneous table'
     endif
   endif
-  b = self%hash(key=key)
+  b = self%hash(key=key_base(key=key, ids=self%ids))
   bucket_length = len(self%bucket(b))
   call self%bucket(b)%add_clone(key=key, content=content)
   self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
@@ -163,12 +164,13 @@ contains
   endif
   self%buckets_number = 0_I4P
   self%nodes_number = 0_I4P
+  if (allocated(self%ids)) deallocate(self%ids)
   self%is_homogeneous_ = .false.
   self%is_initialized_ = .false.
   if (allocated(self%typeguard_key)) then
     associate(key=>self%typeguard_key)
       select type(key)
-      class is(key_adt)
+      class is(key_base)
         call key%destroy
       endselect
     endassociate
@@ -213,7 +215,7 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   content => null()
-  if (self%is_initialized_) content => self%bucket(self%hash(key=key))%get_pointer(key=key)
+  if (self%is_initialized_) content => self%bucket(self%hash(key=key_base(key=key, ids=self%ids)))%get_pointer(key=key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction get_pointer
 
@@ -222,13 +224,13 @@ contains
   !< Hash the key.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(hash_table), intent(in) :: self   !< The hash table.
-  class(*),          intent(in) :: key    !< Key to hash.
+  class(key_base),   intent(in) :: key    !< Key to hash.
   integer(I4P)                  :: bucket !< Bucket index corresponding to the key.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   bucket = 0
-  if (self%is_initialized_) bucket = hash_key(key=key, buckets_number=self%buckets_number)
+  if (self%is_initialized_) bucket = key%hash(buckets_number=self%buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction hash
 
@@ -243,7 +245,7 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   has_key = .false.
-  if (self%is_initialized_) has_key = self%bucket(self%hash(key=key))%has_key(key=key)
+  if (self%is_initialized_) has_key = self%bucket(self%hash(key=key_base(key=key, ids=self%ids)))%has_key(key=key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction has_key
 
@@ -321,7 +323,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (self%is_initialized_) call self%bucket(self%hash(key=key))%remove(key=key)
+  if (self%is_initialized_) call self%bucket(self%hash(key=key_base(key=key, ids=self%ids)))%remove(key=key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove
 

@@ -3,7 +3,7 @@ module hasty_dictionary
 !-----------------------------------------------------------------------------------------------------------------------------------
 !< HASTY dictionary class.
 !-----------------------------------------------------------------------------------------------------------------------------------
-use hasty_key_adt
+use hasty_key_base
 use hasty_dictionary_node
 use penf
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -23,6 +23,7 @@ type :: dictionary
   type(dictionary_node), pointer :: head=>null()   !< The first node in the dictionary.
   type(dictionary_node), pointer :: tail=>null()   !< The last node in the dictionary.
   integer(I4P)                   :: nodes_number=0 !< Number of nodes in the dictionary.
+  integer(I8P), allocatable      :: ids(:)         !< Unique key ids list of actually stored nodes.
   contains
     ! public methods
     procedure, pass(self) :: add_pointer  !< Add a node pointer to the dictionary.
@@ -37,7 +38,9 @@ type :: dictionary
     procedure, pass(self) :: remove       !< Remove a node from the dictionary, given the key.
     procedure, pass(self) :: traverse     !< Traverse dictionary from head to tail calling the iterator procedure.
     ! private methods
+    procedure, pass(self), private :: add_id            !< Add a id to ids list.
     procedure, pass(self), private :: remove_by_pointer !< Remove node from dictionary, given pointer to it.
+    procedure, pass(self), private :: remove_id         !< Remove a id from ids list.
     procedure, pass(self), private :: traverse_iterator !< Traverse dictionary from head to tail calling the iterator procedure.
     ! finalizer
     final :: finalize !< Finalize the dictionary.
@@ -92,6 +95,7 @@ contains
   endfunction dictionary_len
 
   ! public methods
+
   subroutine add_pointer(self, key, content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Add a node pointer to the dictionary.
@@ -122,7 +126,9 @@ contains
   end if
   self%tail => p
 
-  call p%set_pointer(key=key, content=content) ! fill the new node with provided contents
+  call p%set_pointer(key=key, ids=self%ids, content=content) ! fill the new node with provided contents
+
+  call self%add_id(id=p%key%id())
 
   self%nodes_number = self%nodes_number + 1
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -158,7 +164,9 @@ contains
   end if
   self%tail => p
 
-  call p%set_clone(key=key, content=content) ! fill the new node with provided contents
+  call p%set_clone(key=key, ids=self%ids, content=content) ! fill the new node with provided contents
+
+  call self%add_id(id=p%key%id())
 
   self%nodes_number = self%nodes_number + 1
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -176,6 +184,7 @@ contains
   self%head => null()
   self%tail => null()
   self%nodes_number = 0
+  if (allocated(self%ids)) deallocate(self%ids)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy
 
@@ -236,7 +245,7 @@ contains
 
     !-------------------------------------------------------------------------------------------------------------------------------
     has_key = .false.
-    if (node%has_key()) has_key = are_keys_equal(lhs=node%key(), rhs=key)
+    if (node%has_key()) has_key = node%key==key
     done = has_key
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_search
@@ -259,12 +268,12 @@ contains
   if (self%nodes_number>0) then
     if (.not.associated(p)) then
       p => self%head
-      if (present(key).and.p%has_key()) allocate(key, source=p%key())
+      if (present(key).and.p%has_key()) allocate(key, source=p%key)
       if (present(content)) content => p%get_pointer()
       again = .true.
     elseif (associated(p%next)) then
       p => p%next
-      if (present(key).and.p%has_key()) allocate(key, source=p%key())
+      if (present(key).and.p%has_key()) allocate(key, source=p%key)
       if (present(content)) content => p%get_pointer()
       again = .true.
     else
@@ -299,7 +308,7 @@ contains
 
     !-------------------------------------------------------------------------------------------------------------------------------
     done = .false.
-    if (node%has_key()) done = are_keys_equal(lhs=node%key(), rhs=key)
+    if (node%has_key()) done = node%key==key
     if (done) then
       p => node
     endif
@@ -327,7 +336,7 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
-    if (node%has_key()) print '(A)', str_key(node%key())
+    if (node%has_key()) print '(A)', node%key%stringify()
     done = .false. ! never stop until the tail
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_print
@@ -369,12 +378,36 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
 
     !-------------------------------------------------------------------------------------------------------------------------------
-    if (node%has_key()) call iterator(key=node%key(), content=node%get_pointer(), done=done)
+    if (node%has_key()) call iterator(key=node%key, content=node%get_pointer(), done=done)
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_wrapper
   endsubroutine traverse
 
   ! private methods
+  pure subroutine add_id(self, id)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Add a id to ids list.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary), intent(inout) :: self       !< The dictionary.
+  integer(I8P),      intent(in)    :: id         !< Unique id to add.
+  integer(I8P), allocatable        :: ids(:)     !< Temporary list of ids.
+  integer(I4P)                     :: ids_number !< Number of ids.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  if (allocated(self%ids)) then
+    ids_number = size(self%ids, dim=1)
+    allocate(ids(1:ids_number+1))
+    ids(1:ids_number) = self%ids
+    ids(ids_number+1) = id
+    call move_alloc(from=ids, to=self%ids)
+  else
+    allocate(self%ids(1:1))
+    self%ids(1) = id
+  endif
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine add_id
+
   subroutine remove_by_pointer(self, p)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Remove node from dictionary, given pointer to it.
@@ -387,6 +420,7 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   if (associated(p)) then
+    call self%remove_id(id=p%key%id())
     call p%destroy ! destroy the node contents
     has_next     = associated(p%next)
     has_previous = associated(p%previous)
@@ -409,6 +443,38 @@ contains
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove_by_pointer
+
+  pure subroutine remove_id(self, id)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Remove a id from ids list.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary), intent(inout) :: self       !< The dictionary.
+  integer(I8P),      intent(in)    :: id         !< Unique id to add.
+  integer(I8P), allocatable        :: ids(:)     !< Temporary list of ids.
+  integer(I4P)                     :: ids_number !< Number of ids.
+  integer(I4P)                     :: i          !< Counter.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  if (allocated(self%ids)) then
+
+    if (any(self%ids==id, dim=1)) then
+      ids_number = size(self%ids, dim=1)
+      allocate(ids(1:ids_number-1))
+      i = minloc(self%ids, mask=self%ids==id, dim=1)
+      if (i==1) then
+        ids(1:) = self%ids(2:ids_number)
+      elseif (i==ids_number) then
+        ids(1:) = self%ids(1:ids_number-1)
+      else
+        ids(1:i-1) = self%ids(1:i-1)
+        ids(i:) = self%ids(i+1:ids_number)
+      endif
+      call move_alloc(from=ids, to=self%ids)
+    endif
+  endif
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine remove_id
 
   subroutine traverse_iterator(self, iterator)
   !---------------------------------------------------------------------------------------------------------------------------------

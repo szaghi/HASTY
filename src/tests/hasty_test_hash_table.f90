@@ -5,86 +5,67 @@ program hasty_test_hash_table
 !-----------------------------------------------------------------------------------------------------------------------------------
 use, intrinsic :: iso_fortran_env, only : int32
 use hasty
+use tester
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
+type(tester_t)        :: hasty_tester    !< Tests handler.
 class(*), allocatable :: a_key           !< A key.
 class(*), pointer     :: a_content       !< A content.
 class(*), allocatable :: another_content !< Another content.
 type(hash_table)      :: a_table         !< A table.
 integer(int32)        :: max_content     !< Maximum content value.
-logical               :: test_passed(8)  !< List of passed tests.
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
-test_passed = .false.
+call hasty_tester%init
 
-call hash_table_finalize
+call initialize
 
-allocate(a_key, source=3_int32)
-allocate(a_content, source=12_int32)
-
-call a_table%add_pointer(key=a_key, content=a_content)
-call a_table%add_clone(key=5_int32, content=13_int32)
-print '(A)', 'Keys in table:'
-call a_table%print_keys
+call tests_non_captured
 
 call a_table%add_clone(key=5_int32, content=13_int32)
 a_content => a_table%get_pointer(key=5_int32)
-if (associated(a_content)) then
-  select type(a_content)
-  type is(integer(int32))
-    test_passed(1) = a_content==13_int32
-  endselect
-endif
-print "(A,L1)", 'a_table(5) = 13, is correct? ', test_passed(1)
+call test_assert_equal(content=a_content, reference=13_int32)
 
-test_passed(2) = a_table%has_key(3_int32)
-print "(A,L1)", 'a_table has key "3", is correct? ', test_passed(2)
+call hasty_tester%assert_equal(a_table%has_key(3_int32), .true.)
 
-test_passed(3) = len(a_table)==2
-print "(A,L1)", 'len(a_table) = 2, is correct? ', test_passed(3)
+call hasty_tester%assert_equal(len(a_table), 2_int32)
 
 max_content = 0
 call a_table%traverse(iterator=iterator_max)
-test_passed(4) = max_content==13
-print "(A,L1)", 'max(a_table) = 13, is correct? ', test_passed(4)
+call hasty_tester%assert_equal(max_content, 13)
 
 call a_table%remove(key=3_int32)
-test_passed(5) = .not.a_table%has_key(3_int32)
-print "(A,L1)", 'a_table has not key "3", is correct? ', test_passed(5)
+call hasty_tester%assert_equal(a_table%has_key(3_int32), .false.)
 
 call a_table%get_clone(key=5_int32, content=another_content)
 if (allocated(another_content)) then
-  select type(another_content)
-  type is(integer(int32))
-    test_passed(6) = another_content==13_int32
-  endselect
+  call test_assert_equal(content=another_content, reference=13_int32)
 endif
-print "(A,L1)", 'a_table(5) = 13, is correct? ', test_passed(6)
 
 call a_table%destroy
 call a_table%initialize(buckets_number=11, homogeneous=.true., typeguard_key='a string', typeguard_content=1_int32)
-test_passed(7) = a_table%is_initialized()
-print "(A,L1)", 'a_table is initialized, is correct? ', test_passed(7)
-test_passed(8) = a_table%is_homogeneous()
-print "(A,L1)", 'a_table is homogeneous, is correct? ', test_passed(8)
+call hasty_tester%assert_equal(a_table%is_initialized(), .true.)
+call hasty_tester%assert_equal(a_table%is_homogeneous(), .true.)
 
-print "(A,L1)", new_line('a')//'Are all tests passed? ', all(test_passed)
-stop
+call hasty_tester%print
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
-  subroutine hash_table_finalize
+  ! auxiliary procedures
+  subroutine initialize
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Test [[hash_table:finalize]].
-  !---------------------------------------------------------------------------------------------------------------------------------
-  type(hash_table) :: local_hash_table !< A hash_table.
+  !< Initialize tests.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  call local_hash_table%add_clone(key=5_int32, content=13_int32)
+  allocate(a_key, source=3_int32)
+  allocate(a_content, source=12_int32)
+
+  call a_table%add_pointer(key=a_key, content=a_content)
+  call a_table%add_clone(key=5_int32, content=13_int32)
   !---------------------------------------------------------------------------------------------------------------------------------
-  endsubroutine hash_table_finalize
+  endsubroutine initialize
 
   subroutine iterator_max(key, content, done)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -105,4 +86,46 @@ contains
   done = .false.
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine iterator_max
+
+  ! tests
+  subroutine test_assert_equal(content, reference)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Test `content==reference`.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(*),       intent(in) :: content   !< Content value.
+  integer(int32), intent(in) :: reference !< Reference value.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  select type(content)
+  type is(integer(int32))
+    call hasty_tester%assert_equal(content, reference)
+  endselect
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine test_assert_equal
+
+  subroutine hash_table_finalize
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Test [[hash_table:finalize]].
+  !---------------------------------------------------------------------------------------------------------------------------------
+  type(hash_table) :: local_hash_table !< A hash_table.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  call local_hash_table%add_clone(key=5_int32, content=13_int32)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine hash_table_finalize
+
+  subroutine tests_non_captured
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Tests with non-captured results.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  print '(A)', 'Keys in table:'
+  call a_table%print_keys
+
+  call hash_table_finalize
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endsubroutine tests_non_captured
 endprogram hasty_test_hash_table

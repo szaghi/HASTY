@@ -16,7 +16,10 @@ declare -a tests_executed
 
 echo "Run non intentionally failing tests"
 for e in $( find ./exe/ -type f -executable -print | grep -v failure); do
-  is_passed=`$e | grep -i "Are all tests passed? " | awk '{print $5}'`
+  is_passed=`$e | grep -i "error(s)" | awk '{print $2}'`
+  if [ "$is_passed" == '0' ]; then
+    is_passed='T'
+  fi
   echo "  run test $e, is passed? $is_passed"
   tests_executed=("${tests_executed[@]}" "$is_passed")
   if [ "$is_passed" == 'F' ]; then
@@ -35,8 +38,8 @@ fi
 echo
 echo "Run intentionally failing tests"
 for e in $( find ./exe/ -type f -executable -print | grep failure); do
-  is_passed=`$e 2>/dev/null | grep -i "Are all tests passed? " | awk '{print $5}'`
-  if [ "$is_passed" == 'F' ]; then
+  is_passed=`$e 2>&1 | grep -i "error stop"`
+  if [ "$is_passed" != "" ]; then
     is_passed='T';
   else
     is_passed='F';
