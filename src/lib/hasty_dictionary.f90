@@ -20,10 +20,10 @@ public :: dictionary
 type :: dictionary
   !< **Dictionary** class to storage any contents by means of generic key/content pairs nodes.
   private
-  type(dictionary_node), pointer :: head=>null()   !< The first node in the dictionary.
-  type(dictionary_node), pointer :: tail=>null()   !< The last node in the dictionary.
-  integer(I4P)                   :: nodes_number=0 !< Number of nodes in the dictionary.
-  integer(I8P), allocatable      :: ids(:)         !< Unique key ids list of actually stored nodes.
+  type(dictionary_node), pointer :: head=>null()    !< The first node in the dictionary.
+  type(dictionary_node), pointer :: tail=>null()    !< The last node in the dictionary.
+  integer(I4P)                   :: nodes_number=0  !< Number of nodes in the dictionary.
+  integer(I8P)                   :: ids_(1:2)=[0,0] !< Minimum and maximum unique key id values actually stored.
   contains
     ! public methods
     procedure, pass(self) :: add_pointer  !< Add a node pointer to the dictionary.
@@ -31,6 +31,7 @@ type :: dictionary
     procedure, pass(self) :: destroy      !< Destroy the dictionary.
     procedure, pass(self) :: get_clone    !< Return a node's content by cloning.
     procedure, pass(self) :: get_pointer  !< Return a pointer to a node's content.
+    procedure, pass(self) :: ids          !< Return the list of ids actually stored.
     procedure, pass(self) :: has_key      !< Check if the key is present in the dictionary.
     procedure, pass(self) :: loop         !< Sentinel while-loop on nodes returning the key/content pair (for dictionary looping).
     procedure, pass(self) :: node         !< Return a pointer to a node in the dictionary.
@@ -96,16 +97,17 @@ contains
 
   ! public methods
 
-  subroutine add_pointer(self, key, content)
+  subroutine add_pointer(self, key, content, buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Add a node pointer to the dictionary.
   !<
   !< @note If a node with the same key is already in the dictionary, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary), intent(inout) :: self    !< The dictionary.
-  class(*),          intent(in)    :: key     !< The key.
-  class(*), pointer, intent(in)    :: content !< The content.
-  type(dictionary_node), pointer   :: p       !< Pointer to scan the dictionary.
+  class(dictionary), intent(inout)        :: self           !< The dictionary.
+  class(*),          intent(in)           :: key            !< The key.
+  class(*), pointer, intent(in)           :: content        !< The content.
+  integer(I4P),      intent(in), optional :: buckets_number !< Buckets number.
+  type(dictionary_node), pointer          :: p              !< Pointer to scan the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -126,7 +128,7 @@ contains
   end if
   self%tail => p
 
-  call p%set_pointer(key=key, ids=self%ids, content=content) ! fill the new node with provided contents
+  call p%set_pointer(key=key, content=content, buckets_number=buckets_number) ! fill the new node with provided contents
 
   call self%add_id(id=p%key%id())
 
@@ -134,16 +136,17 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine add_pointer
 
-  subroutine add_clone(self, key, content)
+  subroutine add_clone(self, key, content, buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Add a node to the dictionary cloning content (non pointer add).
   !<
   !< @note If a node with the same key is already in the dictionary, it is removed and the new one will replace it.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary), intent(inout) :: self    !< The dictionary.
-  class(*),          intent(in)    :: key     !< The key.
-  class(*),          intent(in)    :: content !< The content.
-  type(dictionary_node), pointer   :: p       !< Pointer to scan the dictionary.
+  class(dictionary), intent(inout)        :: self           !< The dictionary.
+  class(*),          intent(in)           :: key            !< The key.
+  class(*),          intent(in)           :: content        !< The content.
+  integer(I4P),      intent(in), optional :: buckets_number !< Buckets number.
+  type(dictionary_node), pointer          :: p              !< Pointer to scan the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -164,7 +167,7 @@ contains
   end if
   self%tail => p
 
-  call p%set_clone(key=key, ids=self%ids, content=content) ! fill the new node with provided contents
+  call p%set_clone(key=key, content=content, buckets_number=buckets_number) ! fill the new node with provided contents
 
   call self%add_id(id=p%key%id())
 
@@ -184,7 +187,7 @@ contains
   self%head => null()
   self%tail => null()
   self%nodes_number = 0
-  if (allocated(self%ids)) deallocate(self%ids)
+  self%ids_ = 0
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine destroy
 
@@ -250,6 +253,19 @@ contains
     !-------------------------------------------------------------------------------------------------------------------------------
     endsubroutine key_iterator_search
   endfunction has_key
+
+  pure function ids(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Return the minimum and maximum unique key id values actually stored.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(dictionary), intent(in)  :: self     !< The dictionary.
+  integer(I8P)                   :: ids(1:2) !< Minimum and maximum id values actually stored.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  ids = self%ids_
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction ids
 
   function loop(self, key, content) result(again)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -386,25 +402,15 @@ contains
   ! private methods
   pure subroutine add_id(self, id)
   !---------------------------------------------------------------------------------------------------------------------------------
-  !< Add a id to ids list.
+  !< Add a id to minimum and maximum unique key id values.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary), intent(inout) :: self       !< The dictionary.
-  integer(I8P),      intent(in)    :: id         !< Unique id to add.
-  integer(I8P), allocatable        :: ids(:)     !< Temporary list of ids.
-  integer(I4P)                     :: ids_number !< Number of ids.
+  class(dictionary), intent(inout) :: self !< The dictionary.
+  integer(I8P),      intent(in)    :: id   !< Unique id to add.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (allocated(self%ids)) then
-    ids_number = size(self%ids, dim=1)
-    allocate(ids(1:ids_number+1))
-    ids(1:ids_number) = self%ids
-    ids(ids_number+1) = id
-    call move_alloc(from=ids, to=self%ids)
-  else
-    allocate(self%ids(1:1))
-    self%ids(1) = id
-  endif
+  self%ids_(1) = min(self%ids_(1), id) ; if (self%ids_(1)==0) self%ids_(1) = id
+  self%ids_(2) = max(self%ids_(2), id)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine add_id
 
@@ -444,36 +450,56 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove_by_pointer
 
-  pure subroutine remove_id(self, id)
+  subroutine remove_id(self, id)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Remove a id from ids list.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary), intent(inout) :: self       !< The dictionary.
-  integer(I8P),      intent(in)    :: id         !< Unique id to add.
-  integer(I8P), allocatable        :: ids(:)     !< Temporary list of ids.
-  integer(I4P)                     :: ids_number !< Number of ids.
-  integer(I4P)                     :: i          !< Counter.
+  class(dictionary), intent(inout) :: self !< The dictionary.
+  integer(I8P),      intent(in)    :: id   !< Unique id to add.
+  type(dictionary_node), pointer   :: p    !< Pointer to scan the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (allocated(self%ids)) then
-
-    if (any(self%ids==id, dim=1)) then
-      ids_number = size(self%ids, dim=1)
-      allocate(ids(1:ids_number-1))
-      i = minloc(self%ids, mask=self%ids==id, dim=1)
-      if (i==1) then
-        ids(1:) = self%ids(2:ids_number)
-      elseif (i==ids_number) then
-        ids(1:) = self%ids(1:ids_number-1)
-      else
-        ids(1:i-1) = self%ids(1:i-1)
-        ids(i:) = self%ids(i+1:ids_number)
+  if (self%nodes_number==1) then
+    self%ids_ = 0
+  elseif (self%nodes_number>=2) then
+    p => null()
+    if (self%ids_(1)==id) then
+      call self%traverse_iterator(iterator=id_iterator_search)
+      if (associated(p)) then
+        if (associated(p%next)) then
+          if (p%next%has_key()) then
+            self%ids_(1) = p%next%key%id()
+          endif
+        endif
       endif
-      call move_alloc(from=ids, to=self%ids)
+    elseif (self%ids_(2)==id) then
+      call self%traverse_iterator(iterator=id_iterator_search)
+      if (associated(p)) then
+        if (associated(p%previous)) then
+          if (p%previous%has_key()) then
+            self%ids_(2) = p%previous%key%id()
+          endif
+        endif
+      endif
     endif
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
+  contains
+    subroutine id_iterator_search(node, done)
+    !-------------------------------------------------------------------------------------------------------------------------------
+    !< Iterator procedure for searching a id.
+    !-------------------------------------------------------------------------------------------------------------------------------
+    type(dictionary_node), pointer, intent(in)  :: node !< Actual node pointer in the dictionary.
+    logical,                        intent(out) :: done !< Flag to set to true to stop traversing.
+    !-------------------------------------------------------------------------------------------------------------------------------
+
+    !-------------------------------------------------------------------------------------------------------------------------------
+    done = .false.
+    if (node%has_key()) done = node%key%id()==id
+    if (done) p => node
+    !-------------------------------------------------------------------------------------------------------------------------------
+    endsubroutine id_iterator_search
   endsubroutine remove_id
 
   subroutine traverse_iterator(self, iterator)

@@ -3,7 +3,7 @@ program hasty_test_dictionary
 !-----------------------------------------------------------------------------------------------------------------------------------
 !< HASTY test dictionary.
 !-----------------------------------------------------------------------------------------------------------------------------------
-use, intrinsic :: iso_fortran_env, only : int32, output_unit
+use, intrinsic :: iso_fortran_env, only : int32, int64, output_unit
 use hasty
 use tester
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ call test_assert_equal(content=another_content, reference=10_int32)
 
 a_content => null()
 allocate(a_content, source=int(len(a_dictionary), int32))
-call test_assert_equal(content=a_content, reference=2_int32)
+call test_assert_equal(content=a_content, reference=3_int32)
 
 call hasty_tester%assert_equal(a_dictionary%has_key(3_int32), .true.)
 
@@ -59,6 +59,12 @@ call test_assert_equal(content=a_content, reference=13_int32)
 
 call a_dictionary%get_clone(key=5_int32, content=a_key)
 call test_assert_equal(content=a_key, reference=13_int32)
+
+call a_dictionary%remove(key='foo')
+call hasty_tester%assert_equal(a_dictionary%ids(), [5_int64, 5_int64])
+
+call a_dictionary%remove(key=5_int64)
+call hasty_tester%assert_equal(a_dictionary%ids(), [0_int64, 0_int64])
 
 call a_dictionary%destroy
 a_content => null()
@@ -80,6 +86,7 @@ contains
 
   call a_dictionary%add_pointer(key=a_key, content=a_content)
   call a_dictionary%add_clone(key=5_int32, content=13_int32)
+  call a_dictionary%add_clone(key='foo', content=0_int32)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine initialize
 

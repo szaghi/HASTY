@@ -121,37 +121,37 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction is_filled
 
-  subroutine set_pointer(self, key, ids, content)
+  subroutine set_pointer(self, key, content, buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Set the node pointer-associating content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary_node),    intent(inout) :: self    !< The node.
-  class(*),                  intent(in)    :: key     !< The key.
-  integer(I8P), allocatable, intent(in)    :: ids(:)  !< IDs list of other keys.
-  class(*), pointer,         intent(in)    :: content !< The content.
+  class(dictionary_node), intent(inout)        :: self           !< The node.
+  class(*),               intent(in)           :: key            !< The key.
+  class(*), pointer,      intent(in)           :: content        !< The content.
+  integer(I4P),           intent(in), optional :: buckets_number !< Buckets number.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
-  allocate(self%key, source=key_base(key=key, ids=ids))
+  allocate(self%key, source=key_base(key=key, buckets_number=buckets_number))
   call self%destroy_content
   self%content_ => content
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine set_pointer
 
-  subroutine set_clone(self, key, ids, content)
+  subroutine set_clone(self, key, content, buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Set the node cloning content.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(dictionary_node),    intent(inout) :: self    !< The node.
-  class(*),                  intent(in)    :: key     !< The key.
-  integer(I8P), allocatable, intent(in)    :: ids(:)  !< IDs list of other keys.
-  class(*),                  intent(in)    :: content !< The content.
+  class(dictionary_node), intent(inout)        :: self           !< The node.
+  class(*),               intent(in)           :: key            !< The key.
+  class(*),               intent(in)           :: content        !< The content.
+  integer(I4P),           intent(in), optional :: buckets_number !< Buckets number.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy_key
-  allocate(self%key, source=key_base(key=key, ids=ids))
+  allocate(self%key, source=key_base(key=key, buckets_number=buckets_number))
   call self%destroy_content
   allocate(self%content_, source=content)
   !---------------------------------------------------------------------------------------------------------------------------------

@@ -25,7 +25,7 @@ type :: hash_table
   type(dictionary), allocatable :: bucket(:)               !< Hash table buckets.
   integer(I4P)                  :: buckets_number=0_I4P    !< Number of buckets used.
   integer(I4P)                  :: nodes_number=0_I4P      !< Number of nodes actually stored, namely the hash table length.
-  integer(I8P), allocatable     :: ids(:)                  !< Unique key ids list of actually stored nodes.
+  integer(I8P), allocatable     :: ids(:)                  !< Maximum id value actually stored into each bucket.
   logical                       :: is_homogeneous_=.false. !< Homogeneity status-guardian.
   logical                       :: is_initialized_=.false. !< Initialization status.
   class(*), allocatable         :: typeguard_key           !< Key type guard (mold) for homogeneous keys check.
@@ -102,7 +102,7 @@ contains
       error stop 'error: content type is different from type-guard one for the homogeneous table'
     endif
   endif
-  b = self%hash(key=key_base(key=key, ids=self%ids))
+  b = self%hash(key=key_base(key=key, buckets_number=self%buckets_number))
   bucket_length = len(self%bucket(b))
   call self%bucket(b)%add_pointer(key=key, content=content)
   self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
@@ -140,7 +140,7 @@ contains
       error stop 'error: content type is different from type-guard one for the homogeneous table'
     endif
   endif
-  b = self%hash(key=key_base(key=key, ids=self%ids))
+  b = self%hash(key=key_base(key=key, buckets_number=self%buckets_number))
   bucket_length = len(self%bucket(b))
   call self%bucket(b)%add_clone(key=key, content=content)
   self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
@@ -215,7 +215,8 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   content => null()
-  if (self%is_initialized_) content => self%bucket(self%hash(key=key_base(key=key, ids=self%ids)))%get_pointer(key=key)
+  if (self%is_initialized_) &
+    content => self%bucket(self%hash(key=key_base(key=key, buckets_number=self%buckets_number)))%get_pointer(key=key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction get_pointer
 
@@ -245,7 +246,8 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   has_key = .false.
-  if (self%is_initialized_) has_key = self%bucket(self%hash(key=key_base(key=key, ids=self%ids)))%has_key(key=key)
+  if (self%is_initialized_) &
+    has_key = self%bucket(self%hash(key=key_base(key=key, buckets_number=self%buckets_number)))%has_key(key=key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction has_key
 
@@ -264,6 +266,8 @@ contains
   call self%destroy
   self%buckets_number = HT_BUCKETS_NUMBER_DEF ; if (present(buckets_number)) self%buckets_number = buckets_number
   allocate(self%bucket(1:self%buckets_number))
+  allocate(self%ids(1:self%buckets_number))
+  self%ids = 0
   self%is_homogeneous_ = .false. ; if (present(homogeneous)) self%is_homogeneous_ = homogeneous
   self%is_initialized_ = .true.
   if (present(typeguard_key)) allocate(self%typeguard_key, mold=typeguard_key)
@@ -323,7 +327,8 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (self%is_initialized_) call self%bucket(self%hash(key=key_base(key=key, ids=self%ids)))%remove(key=key)
+  if (self%is_initialized_) &
+    call self%bucket(self%hash(key=key_base(key=key, buckets_number=self%buckets_number)))%remove(key=key)
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove
 

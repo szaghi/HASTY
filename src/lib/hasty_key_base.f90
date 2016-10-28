@@ -31,7 +31,8 @@ type :: key_base
     ! public generics
     generic, public :: operator(==) => is_equal !< Overloading `==` operator.
     ! private methods
-    procedure, pass(lhs),  private :: is_equal !< Implement `==` operator.
+    procedure, pass(lhs),  private :: is_equal    !< Implement `==` operator.
+    procedure, nopass,     private :: hash_string !< Hash a string.
 endtype key_base
 
 interface key_base
@@ -40,17 +41,17 @@ endinterface key_base
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
   ! private non TBP
-  function creator(key, ids) result(key_)
+  function creator(key, buckets_number) result(key_)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return an  instance of [[key_base]]
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(*),                  intent(in) :: key    !< The key value.
-  integer(I8P), allocatable, intent(in) :: ids(:) !< IDs list of other keys.
-  type(key_base)                        :: key_   !< Instance of [[key_base]].
+  class(*),     intent(in)           :: key            !< The key value.
+  integer(I4P), intent(in), optional :: buckets_number !< Buckets number.
+  type(key_base)                     :: key_           !< Instance of [[key_base]].
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  call key_%set(key=key, ids=ids)
+  call key_%set(key=key, buckets_number=buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction creator
 
@@ -111,26 +112,26 @@ contains
   class is(key_base)
     is_key_allowed = .true.
   type is(integer(I1P))
-    is_key_allowed = .true.
+    if (key>0) is_key_allowed = .true.
   type is(integer(I2P))
-    is_key_allowed = .true.
+    if (key>0) is_key_allowed = .true.
   type is(integer(I4P))
-    is_key_allowed = .true.
+    if (key>0) is_key_allowed = .true.
   type is(integer(I8P))
-    is_key_allowed = .true.
+    if (key>0) is_key_allowed = .true.
   type is(character(len=*))
     is_key_allowed = .true.
   endselect
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction is_key_allowed
 
-  subroutine set(self, key, ids)
+  subroutine set(self, key, buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Set the key.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(key_base),           intent(inout) :: self   !< The key.
-  class(*),                  intent(in)    :: key    !< The key value.
-  integer(I8P), allocatable, intent(in)    :: ids(:) !< IDs list of other keys.
+  class(key_base), intent(inout)        :: self           !< The key.
+  class(*),        intent(in)           :: key            !< The key value.
+  integer(I4P),    intent(in), optional :: buckets_number !< Buckets number.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -149,10 +150,10 @@ contains
     type is(integer(I8P))
       self%id_ = int(key, kind=I8P)
     type is(character(len=*))
-      if (allocated(ids)) then
-        self%id_ = maxval(ids, dim=1) + 1
+      if (present(buckets_number)) then
+        self%id_ = self%hash_string(string=key, buckets_number=buckets_number)
       else
-        self%id_ = 1
+        self%id_ = self%hash_string(string=key, buckets_number=9973_I4P)
       endif
       self%char_key_ = key
     endselect
@@ -181,6 +182,24 @@ contains
   endfunction stringify
 
   ! private methods
+  elemental function hash_string(string, buckets_number) result(bucket)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Hash a string.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  character(*), intent(in) :: string         !< The string.
+  integer(I4P), intent(in) :: buckets_number !< Buckets number.
+  integer(I8P)             :: bucket         !< Bucket index corresponding to the string.
+  integer(I4P)             :: c              !< Counter.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  bucket = int(buckets_number, I8P)
+  do c=1, len(string)
+    bucket = (ishft(bucket, 5) + bucket) + ichar(string(c:c), kind=I8P)
+  enddo
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction hash_string
+
   elemental logical function is_equal(lhs, rhs)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Implement `==` operator.
