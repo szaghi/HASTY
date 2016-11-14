@@ -22,7 +22,11 @@ integer(I4P), parameter :: HT_BUCKETS_NUMBER_DEF = 9973_I4P !< Default number of
 type :: hash_table
   !< **Hash table** class to storage any contents by means of generic dictionary buckets.
   private
+#ifdef CAF
+  type(dictionary), allocatable :: bucket(:)[:]            !< Hash table buckets.
+#else
   type(dictionary), allocatable :: bucket(:)               !< Hash table buckets.
+#endif
   integer(I4P)                  :: buckets_number=0_I4P    !< Number of buckets used.
   integer(I4P)                  :: nodes_number=0_I4P      !< Number of nodes actually stored, namely the hash table length.
   integer(I8P), allocatable     :: ids_(:,:)               !< Minimum and maximum id values actually stored into each bucket.
@@ -159,6 +163,9 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
+#ifdef CAF
+  sync all
+#endif
   if (allocated(self%bucket)) then
     do b=1, size(self%bucket, dim=1)
       call self%bucket(b)%destroy
@@ -285,7 +292,11 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   call self%destroy
   self%buckets_number = HT_BUCKETS_NUMBER_DEF ; if (present(buckets_number)) self%buckets_number = buckets_number
+#ifdef CAF
+  allocate(self%bucket(1:self%buckets_number)[*])
+#else
   allocate(self%bucket(1:self%buckets_number))
+#endif
   allocate(self%ids_(1:2,1:self%buckets_number))
   self%ids_ = 0
   self%is_homogeneous_ = .false. ; if (present(homogeneous)) self%is_homogeneous_ = homogeneous
