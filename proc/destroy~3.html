@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.6% of total for procedures.">33 statements</a>
+	  title=" 1.7% of total for procedures.">34 statements</a>
      </li> 
      
      
@@ -663,6 +663,9 @@ private subroutine destroy(self)
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="cp">#ifdef CAF</span>
+  <span class="k">sync all</span>
+<span class="cp">#endif</span>
   <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">))</span> <span class="k">then</span>
 <span class="k">    do </span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">,</span> <span class="nb">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
       <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">destroy</span>
