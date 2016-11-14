@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="14.3% of total for modules and submodules.">252 statements</a>
+	  title="13.3% of total for modules and submodules.">311 statements</a>
      </li> 
      
      
@@ -207,6 +207,8 @@
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-has_key">has_key</a>
       
+      <a class="list-group-item" href="../module/hasty_dictionary.html#proc-ids">ids</a>
+      
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-loop">loop</a>
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-node">node</a>
@@ -235,7 +237,11 @@
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-traverse">traverse</a>
       
+      <a class="list-group-item" href="../module/hasty_dictionary.html#proc-add_id">add_id</a>
+      
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-remove_by_pointer">remove_by_pointer</a>
+      
+      <a class="list-group-item" href="../module/hasty_dictionary.html#proc-remove_id">remove_id</a>
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-traverse_iterator">traverse_iterator</a>
       
@@ -271,7 +277,7 @@
       
       <a class="list-group-item" href="../module/hasty_hash_table.html">hasty_hash_table</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html">hasty_key_adt</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html">hasty_key_base</a>
       
       <a class="list-group-item" href="../module/hasty_key_morton.html">hasty_key_morton</a>
       
@@ -282,6 +288,8 @@
       <a class="list-group-item" href="../module/penf_global_parameters_variables.html">penf_global_parameters_variables</a>
       
       <a class="list-group-item" href="../module/penf_stringify.html">penf_stringify</a>
+      
+      <a class="list-group-item" href="../module/tester.html">tester</a>
       
     </div>
   </div>
@@ -299,7 +307,7 @@
     <ul class="list-inline">
       <li><h4>Uses:</h4></li>
       
-      <li><a href='../module/hasty_key_adt.html'>hasty_key_adt</a></li>
+      <li><a href='../module/hasty_key_base.html'>hasty_key_base</a></li>
       
       <li><a href='../module/hasty_dictionary_node.html'>hasty_dictionary_node</a></li>
       
@@ -323,131 +331,131 @@
 <polygon fill="none" stroke="black" points="922,-148 832,-148 832,-122 922,-122 922,-148"/>
 <text text-anchor="middle" x="877" y="-132.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_dictionary</text>
 </g>
-<!-- module~hasty_key_adt -->
-<g id="node2" class="node"><title>module~hasty_key_adt</title>
-<a xlink:href="../module/hasty_key_adt.html" xlink:title="hasty_key_adt">
-<polygon fill="#337ab7" stroke="#337ab7" points="631,-128 549,-128 549,-102 631,-102 631,-128"/>
-<text text-anchor="middle" x="590" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_adt</text>
+<!-- module~hasty_key_base -->
+<g id="node2" class="node"><title>module~hasty_key_base</title>
+<a xlink:href="../module/hasty_key_base.html" xlink:title="hasty_key_base">
+<polygon fill="#337ab7" stroke="#337ab7" points="635,-128 545,-128 545,-102 635,-102 635,-128"/>
+<text text-anchor="middle" x="590" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_base</text>
 </a>
 </g>
-<!-- module~hasty_key_adt&#45;&gt;module~hasty_dictionary -->
-<g id="edge24" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_dictionary</title>
+<!-- module~hasty_key_base&#45;&gt;module~hasty_dictionary -->
+<g id="edge24" class="edge"><title>module~hasty_key_base&#45;&gt;module~hasty_dictionary</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M618.424,-128.047C647.376,-140.116 693.876,-156.176 736,-156"/>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M736,-156C764.513,-155.881 795.918,-151.616 821.839,-146.961"/>
 <polygon fill="#000000" stroke="#000000" points="822.662,-150.368 831.851,-145.095 821.379,-143.486 822.662,-150.368"/>
 </g>
 <!-- module~hasty_dictionary_node -->
-<g id="node4" class="node"><title>module~hasty_dictionary_node</title>
+<g id="node3" class="node"><title>module~hasty_dictionary_node</title>
 <a xlink:href="../module/hasty_dictionary_node.html" xlink:title="hasty_dictionary_node">
 <polygon fill="#337ab7" stroke="#337ab7" points="796,-107 676,-107 676,-81 796,-81 796,-107"/>
 <text text-anchor="middle" x="736" y="-91.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary_node</text>
 </a>
 </g>
-<!-- module~hasty_key_adt&#45;&gt;module~hasty_dictionary_node -->
-<g id="edge22" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_dictionary_node</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M631.058,-109.094C641.93,-107.531 653.98,-105.797 665.925,-104.079"/>
-<polygon fill="#000000" stroke="#000000" points="666.506,-107.532 675.906,-102.644 665.509,-100.603 666.506,-107.532"/>
+<!-- module~hasty_key_base&#45;&gt;module~hasty_dictionary_node -->
+<g id="edge8" class="edge"><title>module~hasty_key_base&#45;&gt;module~hasty_dictionary_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M635.395,-108.471C645.101,-107.075 655.57,-105.569 665.959,-104.074"/>
+<polygon fill="#000000" stroke="#000000" points="666.467,-107.537 675.867,-102.649 665.471,-100.609 666.467,-107.537"/>
+</g>
+<!-- module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary -->
+<g id="edge26" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M781.001,-107.085C794.101,-110.895 808.559,-115.099 822.193,-119.063"/>
+<polygon fill="#000000" stroke="#000000" points="821.363,-122.467 831.943,-121.898 823.318,-115.745 821.363,-122.467"/>
 </g>
 <!-- module~penf -->
-<g id="node3" class="node"><title>module~penf</title>
+<g id="node4" class="node"><title>module~penf</title>
 <a xlink:href="../module/penf.html" xlink:title="penf">
 <polygon fill="#337ab7" stroke="#337ab7" points="504,-128 450,-128 450,-102 504,-102 504,-128"/>
 <text text-anchor="middle" x="477" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf</text>
 </a>
 </g>
 <!-- module~penf&#45;&gt;module~hasty_dictionary -->
-<g id="edge26" class="edge"><title>module~penf&#45;&gt;module~hasty_dictionary</title>
+<g id="edge28" class="edge"><title>module~penf&#45;&gt;module~hasty_dictionary</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.188,-126.093C515.143,-130.14 528.006,-134.364 540,-137 625.48,-155.783 648.481,-156.365 736,-156"/>
 </g>
-<!-- module~penf&#45;&gt;module~hasty_key_adt -->
-<g id="edge2" class="edge"><title>module~penf&#45;&gt;module~hasty_key_adt</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.066,-115C514.368,-115 526.482,-115 538.312,-115"/>
-<polygon fill="#000000" stroke="#000000" points="538.582,-118.5 548.582,-115 538.582,-111.5 538.582,-118.5"/>
+<!-- module~penf&#45;&gt;module~hasty_key_base -->
+<g id="edge2" class="edge"><title>module~penf&#45;&gt;module~hasty_key_base</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.066,-115C513.27,-115 523.918,-115 534.519,-115"/>
+<polygon fill="#000000" stroke="#000000" points="534.62,-118.5 544.62,-115 534.62,-111.5 534.62,-118.5"/>
 </g>
 <!-- module~penf&#45;&gt;module~hasty_dictionary_node -->
-<g id="edge20" class="edge"><title>module~penf&#45;&gt;module~hasty_dictionary_node</title>
+<g id="edge6" class="edge"><title>module~penf&#45;&gt;module~hasty_dictionary_node</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.071,-103.307C515.01,-99.178 527.893,-95.0532 540,-93 581.246,-86.0054 628.079,-85.9596 665.621,-87.8016"/>
 <polygon fill="#000000" stroke="#000000" points="665.775,-91.3152 675.951,-88.367 666.158,-84.3256 665.775,-91.3152"/>
 </g>
-<!-- module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary -->
-<g id="edge28" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M781.001,-107.085C794.101,-110.895 808.559,-115.099 822.193,-119.063"/>
-<polygon fill="#000000" stroke="#000000" points="821.363,-122.467 831.943,-121.898 823.318,-115.745 821.363,-122.467"/>
-</g>
-<!-- module~penf_b_size -->
-<g id="node6" class="node"><title>module~penf_b_size</title>
-<a xlink:href="../module/penf_b_size.html" xlink:title="penf_b_size">
-<polygon fill="#337ab7" stroke="#337ab7" points="293,-108 223,-108 223,-82 293,-82 293,-108"/>
-<text text-anchor="middle" x="258" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_b_size</text>
-</a>
-</g>
-<!-- module~penf_b_size&#45;&gt;module~penf -->
-<g id="edge12" class="edge"><title>module~penf_b_size&#45;&gt;module~penf</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M280.699,-108.214C303.885,-120.414 341.305,-136.572 376,-136"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M376,-136C397.555,-135.644 421.168,-130.981 440.14,-126.139"/>
-<polygon fill="#000000" stroke="#000000" points="441.123,-129.499 449.88,-123.535 439.315,-122.736 441.123,-129.499"/>
-</g>
-<!-- module~penf_stringify -->
-<g id="node8" class="node"><title>module~penf_stringify</title>
-<a xlink:href="../module/penf_stringify.html" xlink:title="penf_stringify">
-<polygon fill="#337ab7" stroke="#337ab7" points="414,-87 338,-87 338,-61 414,-61 414,-87"/>
-<text text-anchor="middle" x="376" y="-71.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_stringify</text>
-</a>
-</g>
-<!-- module~penf_b_size&#45;&gt;module~penf_stringify -->
-<g id="edge6" class="edge"><title>module~penf_b_size&#45;&gt;module~penf_stringify</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.084,-88.7562C304.014,-86.8111 316.261,-84.6316 327.919,-82.5569"/>
-<polygon fill="#000000" stroke="#000000" points="328.732,-85.9672 337.964,-80.7692 327.505,-79.0755 328.732,-85.9672"/>
-</g>
-<!-- module~penf_global_parameters_variables -->
-<g id="node7" class="node"><title>module~penf_global_parameters_variables</title>
-<a xlink:href="../module/penf_global_parameters_variables.html" xlink:title="penf_global_parameters_variables">
-<polygon fill="#337ab7" stroke="#337ab7" points="178,-108 8.52651e-14,-108 0,-82 178,-82 178,-108"/>
-<text text-anchor="middle" x="89" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_global_parameters_variables</text>
-</a>
-</g>
-<!-- module~penf_global_parameters_variables&#45;&gt;module~penf -->
-<g id="edge14" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M143.427,-108.01C200.911,-120.517 294.347,-137.347 376,-136"/>
-</g>
-<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_b_size -->
-<g id="edge4" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_b_size</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178.449,-95C190.206,-95 201.835,-95 212.422,-95"/>
-<polygon fill="#000000" stroke="#000000" points="212.627,-98.5001 222.627,-95 212.627,-91.5001 212.627,-98.5001"/>
-</g>
-<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_stringify -->
-<g id="edge10" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_stringify</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M150.709,-81.9431C170.794,-78.2835 193.256,-74.8116 214,-73 252.963,-69.5974 262.89,-72.7358 302,-73 310.312,-73.0562 319.149,-73.1478 327.715,-73.2534"/>
-<polygon fill="#000000" stroke="#000000" points="327.93,-76.7564 337.975,-73.3877 328.022,-69.757 327.93,-76.7564"/>
-</g>
-<!-- module~penf_stringify&#45;&gt;module~penf -->
-<g id="edge16" class="edge"><title>module~penf_stringify&#45;&gt;module~penf</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M408.235,-87.0854C418.489,-91.2481 429.905,-95.8822 440.442,-100.16"/>
-<polygon fill="#000000" stroke="#000000" points="439.231,-103.445 449.813,-103.964 441.864,-96.9595 439.231,-103.445"/>
-</g>
-<!-- iso_fortran_env -->
-<g id="node10" class="node"><title>iso_fortran_env</title>
-<a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
-<polygon fill="#337ab7" stroke="#337ab7" points="301,-26 215,-26 215,-1.24345e-14 301,-3.55271e-15 301,-26"/>
-<text text-anchor="middle" x="258" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
-</a>
-</g>
-<!-- iso_fortran_env&#45;&gt;module~penf_stringify -->
-<g id="edge8" class="edge"><title>iso_fortran_env&#45;&gt;module~penf_stringify</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.314,-26.086C300.346,-34.8907 323.01,-46.607 341.663,-56.2498"/>
-<polygon fill="#000000" stroke="#000000" points="340.237,-59.4525 350.728,-60.9356 343.452,-53.2342 340.237,-59.4525"/>
-</g>
 <!-- module~hasty_content_adt -->
-<g id="node17" class="node"><title>module~hasty_content_adt</title>
+<g id="node6" class="node"><title>module~hasty_content_adt</title>
 <a xlink:href="../module/hasty_content_adt.html" xlink:title="hasty_content_adt">
 <polygon fill="#337ab7" stroke="#337ab7" points="640,-46 540,-46 540,-20 640,-20 640,-46"/>
 <text text-anchor="middle" x="590" y="-30.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_content_adt</text>
 </a>
 </g>
 <!-- module~hasty_content_adt&#45;&gt;module~hasty_dictionary_node -->
-<g id="edge18" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty_dictionary_node</title>
+<g id="edge4" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty_dictionary_node</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M621.321,-46.086C642.971,-55.1319 671.978,-67.2511 695.401,-77.0376"/>
 <polygon fill="#000000" stroke="#000000" points="694.155,-80.3099 704.731,-80.9356 696.853,-73.851 694.155,-80.3099"/>
+</g>
+<!-- module~penf_b_size -->
+<g id="node10" class="node"><title>module~penf_b_size</title>
+<a xlink:href="../module/penf_b_size.html" xlink:title="penf_b_size">
+<polygon fill="#337ab7" stroke="#337ab7" points="293,-108 223,-108 223,-82 293,-82 293,-108"/>
+<text text-anchor="middle" x="258" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_b_size</text>
+</a>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf -->
+<g id="edge18" class="edge"><title>module~penf_b_size&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M280.699,-108.214C303.885,-120.414 341.305,-136.572 376,-136"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M376,-136C397.555,-135.644 421.168,-130.981 440.14,-126.139"/>
+<polygon fill="#000000" stroke="#000000" points="441.123,-129.499 449.88,-123.535 439.315,-122.736 441.123,-129.499"/>
+</g>
+<!-- module~penf_stringify -->
+<g id="node12" class="node"><title>module~penf_stringify</title>
+<a xlink:href="../module/penf_stringify.html" xlink:title="penf_stringify">
+<polygon fill="#337ab7" stroke="#337ab7" points="414,-87 338,-87 338,-61 414,-61 414,-87"/>
+<text text-anchor="middle" x="376" y="-71.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_stringify</text>
+</a>
+</g>
+<!-- module~penf_b_size&#45;&gt;module~penf_stringify -->
+<g id="edge12" class="edge"><title>module~penf_b_size&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.084,-88.7562C304.014,-86.8111 316.261,-84.6316 327.919,-82.5569"/>
+<polygon fill="#000000" stroke="#000000" points="328.732,-85.9672 337.964,-80.7692 327.505,-79.0755 328.732,-85.9672"/>
+</g>
+<!-- module~penf_global_parameters_variables -->
+<g id="node11" class="node"><title>module~penf_global_parameters_variables</title>
+<a xlink:href="../module/penf_global_parameters_variables.html" xlink:title="penf_global_parameters_variables">
+<polygon fill="#337ab7" stroke="#337ab7" points="178,-108 8.52651e-14,-108 0,-82 178,-82 178,-108"/>
+<text text-anchor="middle" x="89" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf_global_parameters_variables</text>
+</a>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf -->
+<g id="edge20" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M143.427,-108.01C200.911,-120.517 294.347,-137.347 376,-136"/>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_b_size -->
+<g id="edge10" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_b_size</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178.449,-95C190.206,-95 201.835,-95 212.422,-95"/>
+<polygon fill="#000000" stroke="#000000" points="212.627,-98.5001 222.627,-95 212.627,-91.5001 212.627,-98.5001"/>
+</g>
+<!-- module~penf_global_parameters_variables&#45;&gt;module~penf_stringify -->
+<g id="edge16" class="edge"><title>module~penf_global_parameters_variables&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M150.709,-81.9431C170.794,-78.2835 193.256,-74.8116 214,-73 252.963,-69.5974 262.89,-72.7358 302,-73 310.312,-73.0562 319.149,-73.1478 327.715,-73.2534"/>
+<polygon fill="#000000" stroke="#000000" points="327.93,-76.7564 337.975,-73.3877 328.022,-69.757 327.93,-76.7564"/>
+</g>
+<!-- module~penf_stringify&#45;&gt;module~penf -->
+<g id="edge22" class="edge"><title>module~penf_stringify&#45;&gt;module~penf</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M408.235,-87.0854C418.489,-91.2481 429.905,-95.8822 440.442,-100.16"/>
+<polygon fill="#000000" stroke="#000000" points="439.231,-103.445 449.813,-103.964 441.864,-96.9595 439.231,-103.445"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="node14" class="node"><title>iso_fortran_env</title>
+<a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="301,-26 215,-26 215,-1.24345e-14 301,-3.55271e-15 301,-26"/>
+<text text-anchor="middle" x="258" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~penf_stringify -->
+<g id="edge14" class="edge"><title>iso_fortran_env&#45;&gt;module~penf_stringify</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.314,-26.086C300.346,-34.8907 323.01,-46.607 341.663,-56.2498"/>
+<polygon fill="#000000" stroke="#000000" points="340.237,-59.4525 350.728,-60.9356 343.452,-53.2342 340.237,-59.4525"/>
 </g>
 </g>
 </svg>
@@ -577,53 +585,53 @@
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M223.799,-112.85C232.6,-111.2 241.642,-109.505 250.036,-107.931"/>
 <polygon fill="#000000" stroke="#000000" points="250.711,-111.365 259.895,-106.082 249.421,-104.485 250.711,-111.365"/>
 </g>
-<!-- program~hasty_test_hash_table_homokey_failure -->
-<g id="node5" class="node"><title>program~hasty_test_hash_table_homokey_failure</title>
-<a xlink:href="../program/hasty_test_hash_table_homokey_failure.html" xlink:title="hasty_test_hash_table_homokey_failure">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="564,-202 360,-202 360,-176 564,-176 564,-202"/>
-<text text-anchor="middle" x="462" y="-186.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homokey_failure</text>
-</a>
-</g>
-<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure -->
-<g id="edge4" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M295.749,-114.229C306.587,-129.493 326.523,-154.135 350,-167 353.516,-168.927 357.176,-170.687 360.936,-172.294"/>
-<polygon fill="#000000" stroke="#000000" points="359.87,-175.634 370.459,-175.982 362.398,-169.106 359.87,-175.634"/>
-</g>
-<!-- program~hasty_test_hash_table_homo -->
-<g id="node6" class="node"><title>program~hasty_test_hash_table_homo</title>
-<a xlink:href="../program/hasty_test_hash_table_homo.html" xlink:title="hasty_test_hash_table_homo">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="538,-158 386,-158 386,-132 538,-132 538,-158"/>
-<text text-anchor="middle" x="462" y="-142.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homo</text>
-</a>
-</g>
-<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homo -->
-<g id="edge6" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homo</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M314.024,-111.384C325.068,-115.378 338.036,-119.754 350,-123 359.013,-125.446 368.504,-127.736 377.99,-129.847"/>
-<polygon fill="#000000" stroke="#000000" points="377.341,-133.287 387.854,-131.979 378.82,-126.445 377.341,-133.287"/>
-</g>
-<!-- program~hasty_test_hash_table_homocontent_failure -->
-<g id="node7" class="node"><title>program~hasty_test_hash_table_homocontent_failure</title>
-<a xlink:href="../program/hasty_test_hash_table_homocontent_failure.html" xlink:title="hasty_test_hash_table_homocontent_failure">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="573,-114 351,-114 351,-88 573,-88 573,-114"/>
-<text text-anchor="middle" x="462" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homocontent_failure</text>
-</a>
-</g>
-<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure -->
-<g id="edge8" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M314.344,-101C321.978,-101 330.796,-101 340.247,-101"/>
-<polygon fill="#000000" stroke="#000000" points="340.303,-104.5 350.303,-101 340.303,-97.5001 340.303,-104.5"/>
-</g>
 <!-- program~hasty_test_dictionary -->
-<g id="node8" class="node"><title>program~hasty_test_dictionary</title>
+<g id="node5" class="node"><title>program~hasty_test_dictionary</title>
 <a xlink:href="../program/hasty_test_dictionary.html" xlink:title="hasty_test_dictionary">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="518,-70 406,-70 406,-44 518,-44 518,-70"/>
-<text text-anchor="middle" x="462" y="-54.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_dictionary</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="518,-202 406,-202 406,-176 518,-176 518,-202"/>
+<text text-anchor="middle" x="462" y="-186.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_dictionary</text>
 </a>
 </g>
 <!-- module~hasty&#45;&gt;program~hasty_test_dictionary -->
-<g id="edge10" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_dictionary</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M314.024,-90.6163C325.068,-86.6222 338.036,-82.2462 350,-79 364.451,-75.0788 380.129,-71.5558 395.05,-68.5374"/>
-<polygon fill="#000000" stroke="#000000" points="396.101,-71.8977 405.235,-66.5297 394.747,-65.0298 396.101,-71.8977"/>
+<g id="edge4" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M295.749,-114.229C306.587,-129.493 326.523,-154.135 350,-167 363.756,-174.538 379.714,-179.518 395.197,-182.801"/>
+<polygon fill="#000000" stroke="#000000" points="394.796,-186.288 405.275,-184.723 396.107,-179.412 394.796,-186.288"/>
+</g>
+<!-- program~hasty_test_hash_table_homocontent_failure -->
+<g id="node6" class="node"><title>program~hasty_test_hash_table_homocontent_failure</title>
+<a xlink:href="../program/hasty_test_hash_table_homocontent_failure.html" xlink:title="hasty_test_hash_table_homocontent_failure">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="573,-158 351,-158 351,-132 573,-132 573,-158"/>
+<text text-anchor="middle" x="462" y="-142.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homocontent_failure</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure -->
+<g id="edge6" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M314.024,-111.384C325.068,-115.378 338.036,-119.754 350,-123 359.013,-125.446 368.504,-127.736 377.99,-129.847"/>
+<polygon fill="#000000" stroke="#000000" points="377.341,-133.287 387.854,-131.979 378.82,-126.445 377.341,-133.287"/>
+</g>
+<!-- program~hasty_test_hash_table_homo -->
+<g id="node7" class="node"><title>program~hasty_test_hash_table_homo</title>
+<a xlink:href="../program/hasty_test_hash_table_homo.html" xlink:title="hasty_test_hash_table_homo">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="538,-114 386,-114 386,-88 538,-88 538,-114"/>
+<text text-anchor="middle" x="462" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homo</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homo -->
+<g id="edge8" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homo</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M314.344,-101C330.933,-101 353.114,-101 375.232,-101"/>
+<polygon fill="#000000" stroke="#000000" points="375.37,-104.5 385.37,-101 375.37,-97.5001 375.37,-104.5"/>
+</g>
+<!-- program~hasty_test_hash_table_homokey_failure -->
+<g id="node8" class="node"><title>program~hasty_test_hash_table_homokey_failure</title>
+<a xlink:href="../program/hasty_test_hash_table_homokey_failure.html" xlink:title="hasty_test_hash_table_homokey_failure">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="564,-70 360,-70 360,-44 564,-44 564,-70"/>
+<text text-anchor="middle" x="462" y="-54.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homokey_failure</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure -->
+<g id="edge10" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M314.024,-90.6163C325.068,-86.6222 338.036,-82.2462 350,-79 359.013,-76.5543 368.504,-74.2635 377.99,-72.1535"/>
+<polygon fill="#000000" stroke="#000000" points="378.82,-75.555 387.854,-70.0211 377.341,-68.7131 378.82,-75.555"/>
 </g>
 <!-- program~hasty_test_hash_table -->
 <g id="node9" class="node"><title>program~hasty_test_hash_table</title>
@@ -769,6 +777,8 @@
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-has_key">has_key</a>
       
+      <a class="list-group-item" href="../module/hasty_dictionary.html#proc-ids">ids</a>
+      
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-loop">loop</a>
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-node">node</a>
@@ -797,7 +807,11 @@
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-traverse">traverse</a>
       
+      <a class="list-group-item" href="../module/hasty_dictionary.html#proc-add_id">add_id</a>
+      
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-remove_by_pointer">remove_by_pointer</a>
+      
+      <a class="list-group-item" href="../module/hasty_dictionary.html#proc-remove_id">remove_id</a>
       
       <a class="list-group-item" href="../module/hasty_dictionary.html#proc-traverse_iterator">traverse_iterator</a>
       
@@ -1184,6 +1198,20 @@ private subroutine <a href='../interface/iterator_interface.html'>iterator_inter
   
 </tr>
 
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ids_"></span>integer(kind=I8P),</td>
+  
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>ids_</strong>(1:2)</td><td> =</td><td>[0, 0]</td><td><p>Minimum and maximum unique key id values actually stored.</p></td>
+  
+</tr>
+
 </tbody>
 </table>
 
@@ -1219,6 +1247,9 @@ private subroutine <a href='../interface/iterator_interface.html'>iterator_inter
        <tr><td>procedure, public, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-get_pointer'>get_pointer</a></strong>  </td>
        <td><p>Return a pointer to a node's content.</p></td></tr>
       
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-ids'>ids</a></strong>  </td>
+       <td><p>Return the list of ids actually stored.</p></td></tr>
+      
        <tr><td>procedure, public, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-has_key'>has_key</a></strong>  </td>
        <td><p>Check if the key is present in the dictionary.</p></td></tr>
       
@@ -1237,8 +1268,14 @@ private subroutine <a href='../interface/iterator_interface.html'>iterator_inter
        <tr><td>procedure, public, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-traverse'>traverse</a></strong>  </td>
        <td><p>Traverse dictionary from head to tail calling the iterator procedure.</p></td></tr>
       
+       <tr><td>procedure, private, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-add_id'>add_id</a></strong>  </td>
+       <td><p>Add a id to ids list.</p></td></tr>
+      
        <tr><td>procedure, private, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-remove_by_pointer'>remove_by_pointer</a></strong>  </td>
        <td><p>Remove node from dictionary, given pointer to it.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-remove_id'>remove_id</a></strong>  </td>
+       <td><p>Remove a id from ids list.</p></td></tr>
       
        <tr><td>procedure, private, pass(self) :: <strong><a href='../type/dictionary.html#boundprocedure-traverse_iterator'>traverse_iterator</a></strong>  </td>
        <td><p>Traverse dictionary from head to tail calling the iterator procedure.</p></td></tr>
@@ -1494,6 +1531,74 @@ private function <a href='../proc/has_key.html'>has_key</a>(self, key)
     
     
   <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-ids"></span><h3>
+private pure function <a href='../proc/ids.html'>ids</a>(self)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Return the minimum and maximum unique key id values actually stored.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=I8P)
+  (1:2)</small></h4>
+  <p>Minimum and maximum id values actually stored.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-loop"></span><h3>
 private function <a href='../proc/loop.html'>loop</a>(self, key, content) result(again)
     
@@ -1684,7 +1789,7 @@ private function <a href='../proc/node.html'>node</a>(self, key) result(p)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-add_pointer"></span><h3>
-private subroutine <a href='../proc/add_pointer.html'>add_pointer</a>(self, key, content)
+private subroutine <a href='../proc/add_pointer.html'>add_pointer</a>(self, key, content, buckets_number)
     
     
 	 
@@ -1759,6 +1864,21 @@ private subroutine <a href='../proc/add_pointer.html'>add_pointer</a>(self, key,
   
 </tr>
 
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>buckets_number</strong></td><td><p>Buckets number.</p></td>
+  
+</tr>
+
 </tbody>
 </table>
 
@@ -1773,7 +1893,7 @@ private subroutine <a href='../proc/add_pointer.html'>add_pointer</a>(self, key,
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-add_clone"></span><h3>
-private subroutine <a href='../proc/add_clone.html'>add_clone</a>(self, key, content)
+private subroutine <a href='../proc/add_clone.html'>add_clone</a>(self, key, content, buckets_number)
     
     
 	 
@@ -1845,6 +1965,21 @@ private subroutine <a href='../proc/add_clone.html'>add_clone</a>(self, key, con
   
   <td></td><td>::</td>
   <td><strong>content</strong></td><td><p>The content.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>buckets_number</strong></td><td><p>Buckets number.</p></td>
   
 </tr>
 
@@ -2216,6 +2351,80 @@ private subroutine <a href='../proc/traverse.html'>traverse</a>(self, iterator)
     
     
   <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-add_id"></span><h3>
+private pure subroutine <a href='../proc/add_id.html'>add_id</a>(self, id)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Add a id to minimum and maximum unique key id values.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I8P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>id</strong></td><td><p>Unique id to add.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-remove_by_pointer"></span><h3>
 private subroutine <a href='../proc/remove_by_pointer.html'>remove_by_pointer</a>(self, p)
     
@@ -2274,6 +2483,80 @@ private subroutine <a href='../proc/remove_by_pointer.html'>remove_by_pointer</a
   
   <td>pointer</td><td>::</td>
   <td><strong>p</strong></td><td><p>Pointer to the node to remove.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-remove_id"></span><h3>
+private subroutine <a href='../proc/remove_id.html'>remove_id</a>(self, id)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Remove a id from ids list.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I8P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>id</strong></td><td><p>Unique id to add.</p></td>
   
 </tr>
 
@@ -2448,7 +2731,7 @@ private subroutine <a href='../proc/finalize.html'>finalize</a>(self)
       
       <a class="list-group-item" href="../module/hasty_hash_table.html">hasty_hash_table</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html">hasty_key_adt</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html">hasty_key_base</a>
       
       <a class="list-group-item" href="../module/hasty_key_morton.html">hasty_key_morton</a>
       
@@ -2459,6 +2742,8 @@ private subroutine <a href='../proc/finalize.html'>finalize</a>(self)
       <a class="list-group-item" href="../module/penf_global_parameters_variables.html">penf_global_parameters_variables</a>
       
       <a class="list-group-item" href="../module/penf_stringify.html">penf_stringify</a>
+      
+      <a class="list-group-item" href="../module/tester.html">tester</a>
       
     </div>
   </div>

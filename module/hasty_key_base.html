@@ -10,7 +10,7 @@
     <meta name="author" content="Stefano Zaghi" >
     <link rel="icon" href="../favicon.png">
 
-    <title>hasty_key_adt &ndash; HASTY</title>
+    <title>hasty_key_base &ndash; HASTY</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -102,7 +102,7 @@
     
   
   <div class="row">
-    <h1>hasty_key_adt 
+    <h1>hasty_key_base 
     <small>Module</small>
     
     </h1>
@@ -120,18 +120,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 7.5% of total for modules and submodules.">133 statements</a>
+	  title=" 5.9% of total for modules and submodules.">139 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_key_adt.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_key_base.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_key_adt.f90.html'>hasty_key_adt.f90</a></li>
+     <li><a href='../sourcefile/hasty_key_base.f90.html'>hasty_key_base.f90</a></li>
   
-     <li class="active">hasty_key_adt</li>
+     <li class="active">hasty_key_base</li>
   </ol>
 </div>
 </div>
@@ -158,21 +158,17 @@
 
 
 
-
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#absints-0">Abstract Interfaces</a></h3></div>
-  <div id="absints-0" class="panel-collapse collapse">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
+  <div id="inters-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#interface-destroy_interface%7E2">destroy_interface</a>
-      
-      <a class="list-group-item" href="../module/hasty_key_adt.html#interface-stringify_interface">stringify_interface</a>
-      
-      <a class="list-group-item" href="../module/hasty_key_adt.html#interface-is_equal_interface%7E2">is_equal_interface</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#interface-key_base">key_base</a>
       
     </div>
   </div>
 </div>
+
 
 
 <div class="panel panel-primary">
@@ -180,7 +176,7 @@
   <div id="types-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#type-key_adt">key_adt</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#type-key_base">key_base</a>
       
     </div>
   </div>
@@ -192,18 +188,37 @@
   <div id="funcs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-are_keys_equal">are_keys_equal</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-creator">creator</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-hash_key">hash_key</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-hash%7E2">hash</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-is_key_allowed">is_key_allowed</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-id">id</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-str_key">str_key</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-is_key_allowed">is_key_allowed</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-stringify">stringify</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-hash_string">hash_string</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-is_equal">is_equal</a>
       
     </div>
   </div>
 </div>
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-destroy%7E4">destroy</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-set">set</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -231,7 +246,7 @@
       
       <a class="list-group-item" href="../module/hasty_hash_table.html">hasty_hash_table</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html">hasty_key_adt</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html">hasty_key_base</a>
       
       <a class="list-group-item" href="../module/hasty_key_morton.html">hasty_key_morton</a>
       
@@ -242,6 +257,8 @@
       <a class="list-group-item" href="../module/penf_global_parameters_variables.html">penf_global_parameters_variables</a>
       
       <a class="list-group-item" href="../module/penf_stringify.html">penf_stringify</a>
+      
+      <a class="list-group-item" href="../module/tester.html">tester</a>
       
     </div>
   </div>
@@ -268,16 +285,16 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.26.3 (20100126.1600)
  -->
-<!-- Title: module~~hasty_key_adt~~UsesGraph Pages: 1 -->
-<svg id="modulehasty_key_adtUsesGraph" width="630pt" height="144pt"
- viewBox="0.00 0.00 630.00 144.34" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~hasty_key_adt~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 140.337)">
-<title>module~~hasty_key_adt~~UsesGraph</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-140.337 627,-140.337 627,5 -4,5"/>
-<!-- module~hasty_key_adt -->
-<g id="node1" class="node"><title>module~hasty_key_adt</title>
-<polygon fill="none" stroke="black" points="622,-128 540,-128 540,-102 622,-102 622,-128"/>
-<text text-anchor="middle" x="581" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_key_adt</text>
+<!-- Title: module~~hasty_key_base~~UsesGraph Pages: 1 -->
+<svg id="modulehasty_key_baseUsesGraph" width="638pt" height="144pt"
+ viewBox="0.00 0.00 638.00 144.34" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~hasty_key_base~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 140.337)">
+<title>module~~hasty_key_base~~UsesGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-140.337 635,-140.337 635,5 -4,5"/>
+<!-- module~hasty_key_base -->
+<g id="node1" class="node"><title>module~hasty_key_base</title>
+<polygon fill="none" stroke="black" points="630,-128 540,-128 540,-102 630,-102 630,-128"/>
+<text text-anchor="middle" x="585" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_key_base</text>
 </g>
 <!-- module~penf -->
 <g id="node2" class="node"><title>module~penf</title>
@@ -286,10 +303,10 @@
 <text text-anchor="middle" x="477" y="-112.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">penf</text>
 </a>
 </g>
-<!-- module~penf&#45;&gt;module~hasty_key_adt -->
-<g id="edge16" class="edge"><title>module~penf&#45;&gt;module~hasty_key_adt</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.053,-115C512.012,-115 520.992,-115 529.935,-115"/>
-<polygon fill="#000000" stroke="#000000" points="529.961,-118.5 539.961,-115 529.961,-111.5 529.961,-118.5"/>
+<!-- module~penf&#45;&gt;module~hasty_key_base -->
+<g id="edge16" class="edge"><title>module~penf&#45;&gt;module~hasty_key_base</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M504.253,-115C511.978,-115 520.68,-115 529.437,-115"/>
+<polygon fill="#000000" stroke="#000000" points="529.687,-118.5 539.687,-115 529.687,-111.5 529.687,-118.5"/>
 </g>
 <!-- module~penf_b_size -->
 <g id="node3" class="node"><title>module~penf_b_size</title>
@@ -426,14 +443,7 @@
     
 
     
-    <p>HASTY abstract <strong>key</strong> class.</p>
-<p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>This module provides also helper procedures for:</p></div>
-<ul>
-<li>comparing two Unlimited Polymorphic Classes for the keys comparison necessities;</li>
-<li>hasing a key;</li>
-<li>typeguard for allowed types of keys;</li>
-<li>key stringify;</li>
-</ul>
+    <p>HASTY <strong>key</strong> class.</p>
     
     
     <h3>Used By</h3>
@@ -443,172 +453,172 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.26.3 (20100126.1600)
  -->
-<!-- Title: module~~hasty_key_adt~~UsedByGraph Pages: 1 -->
-<svg id="modulehasty_key_adtUsedByGraph" width="641pt" height="165pt"
- viewBox="0.00 0.00 641.00 165.46" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~hasty_key_adt~~UsedByGraph" class="graph" transform="scale(0.740185 0.740185) rotate(0) translate(4 219.534)">
-<title>module~~hasty_key_adt~~UsedByGraph</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-219.534 863,-219.534 863,5 -4,5"/>
-<!-- module~hasty_key_adt -->
-<g id="node1" class="node"><title>module~hasty_key_adt</title>
-<polygon fill="none" stroke="black" points="82,-127.534 4.26326e-14,-127.534 0,-101.534 82,-101.534 82,-127.534"/>
-<text text-anchor="middle" x="41" y="-112.084" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_key_adt</text>
-</g>
-<!-- module~hasty_dictionary_node -->
-<g id="node2" class="node"><title>module~hasty_dictionary_node</title>
-<a xlink:href="../module/hasty_dictionary_node.html" xlink:title="hasty_dictionary_node">
-<polygon fill="#337ab7" stroke="#337ab7" points="238,-148.534 118,-148.534 118,-122.534 238,-122.534 238,-148.534"/>
-<text text-anchor="middle" x="178" y="-133.084" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary_node</text>
-</a>
-</g>
-<!-- module~hasty_key_adt&#45;&gt;module~hasty_dictionary_node -->
-<g id="edge24" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_dictionary_node</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.1045,-120.834C90.2935,-122.09 99.1078,-123.441 107.956,-124.797"/>
-<polygon fill="#000000" stroke="#000000" points="107.515,-128.27 117.93,-126.326 108.576,-121.351 107.515,-128.27"/>
+<!-- Title: module~~hasty_key_base~~UsedByGraph Pages: 1 -->
+<svg id="modulehasty_key_baseUsedByGraph" width="641pt" height="164pt"
+ viewBox="0.00 0.00 641.00 164.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~hasty_key_base~~UsedByGraph" class="graph" transform="scale(0.73341 0.73341) rotate(0) translate(4 220)">
+<title>module~~hasty_key_base~~UsedByGraph</title>
+<polygon fill="white" stroke="white" points="-4,5 -4,-220 871,-220 871,5 -4,5"/>
+<!-- module~hasty_key_base -->
+<g id="node1" class="node"><title>module~hasty_key_base</title>
+<polygon fill="none" stroke="black" points="90,-144 4.26326e-14,-144 0,-118 90,-118 90,-144"/>
+<text text-anchor="middle" x="45" y="-128.55" font-family="Helvetica,sans-Serif" font-size="10.50">hasty_key_base</text>
 </g>
 <!-- module~hasty_key_morton -->
-<g id="node3" class="node"><title>module~hasty_key_morton</title>
+<g id="node2" class="node"><title>module~hasty_key_morton</title>
 <a xlink:href="../module/hasty_key_morton.html" xlink:title="hasty_key_morton">
-<polygon fill="#337ab7" stroke="#337ab7" points="374,-66.5336 274,-66.5336 274,-40.5336 374,-40.5336 374,-66.5336"/>
-<text text-anchor="middle" x="324" y="-51.0836" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_morton</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="382,-216 282,-216 282,-190 382,-190 382,-216"/>
+<text text-anchor="middle" x="332" y="-200.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_key_morton</text>
 </a>
 </g>
-<!-- module~hasty_key_adt&#45;&gt;module~hasty_key_morton -->
-<g id="edge26" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_key_morton</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178,-94.5336C212.154,-89.6429 249.6,-79.0153 278.017,-69.8059"/>
-<polygon fill="#000000" stroke="#000000" points="279.273,-73.0773 287.672,-66.6194 277.079,-66.43 279.273,-73.0773"/>
+<!-- module~hasty_key_base&#45;&gt;module~hasty_key_morton -->
+<g id="edge24" class="edge"><title>module~hasty_key_base&#45;&gt;module~hasty_key_morton</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M90.3534,-143.551C101.958,-146.698 114.427,-150.025 126,-153 175.063,-165.615 230.922,-179.119 272.084,-188.91"/>
+<polygon fill="#000000" stroke="#000000" points="271.416,-192.349 281.954,-191.253 273.033,-185.538 271.416,-192.349"/>
+</g>
+<!-- module~hasty_dictionary_node -->
+<g id="node3" class="node"><title>module~hasty_dictionary_node</title>
+<a xlink:href="../module/hasty_dictionary_node.html" xlink:title="hasty_dictionary_node">
+<polygon fill="#337ab7" stroke="#337ab7" points="246,-144 126,-144 126,-118 246,-118 246,-144"/>
+<text text-anchor="middle" x="186" y="-128.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary_node</text>
+</a>
+</g>
+<!-- module~hasty_key_base&#45;&gt;module~hasty_dictionary_node -->
+<g id="edge26" class="edge"><title>module~hasty_key_base&#45;&gt;module~hasty_dictionary_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M90.001,-131C98.2267,-131 106.988,-131 115.744,-131"/>
+<polygon fill="#000000" stroke="#000000" points="115.988,-134.5 125.988,-131 115.988,-127.5 115.988,-134.5"/>
 </g>
 <!-- module~hasty_dictionary -->
 <g id="node4" class="node"><title>module~hasty_dictionary</title>
 <a xlink:href="../module/hasty_dictionary.html" xlink:title="hasty_dictionary">
-<polygon fill="#337ab7" stroke="#337ab7" points="369,-148.534 279,-148.534 279,-122.534 369,-122.534 369,-148.534"/>
-<text text-anchor="middle" x="324" y="-133.084" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="377,-134 287,-134 287,-108 377,-108 377,-134"/>
+<text text-anchor="middle" x="332" y="-118.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary</text>
 </a>
 </g>
-<!-- module~hasty_key_adt&#45;&gt;module~hasty_dictionary -->
-<g id="edge28" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_dictionary</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178,-94.5336C217.688,-88.8504 261.822,-104.437 291.069,-117.999"/>
-<polygon fill="#000000" stroke="#000000" points="289.86,-121.302 300.388,-122.487 292.897,-114.995 289.86,-121.302"/>
+<!-- module~hasty_key_base&#45;&gt;module~hasty_dictionary -->
+<g id="edge28" class="edge"><title>module~hasty_key_base&#45;&gt;module~hasty_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186,-80C225.289,-75.9078 268.676,-90.696 297.861,-103.639"/>
+<polygon fill="#000000" stroke="#000000" points="296.64,-106.93 307.187,-107.928 299.564,-100.57 296.64,-106.93"/>
 </g>
 <!-- module~hasty -->
 <g id="node5" class="node"><title>module~hasty</title>
 <a xlink:href="../module/hasty.html" xlink:title="hasty">
-<polygon fill="#337ab7" stroke="#337ab7" points="598,-127.534 544,-127.534 544,-101.534 598,-101.534 598,-127.534"/>
-<text text-anchor="middle" x="571" y="-112.084" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="606,-114 552,-114 552,-88 606,-88 606,-114"/>
+<text text-anchor="middle" x="579" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty</text>
 </a>
 </g>
-<!-- module~hasty_key_adt&#45;&gt;module~hasty -->
-<g id="edge30" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.0589,-108.498C109.27,-104.508 145.763,-99.1775 178,-94.5336"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178,-94.5336C228.512,-87.2571 225.914,-48.6273 274,-31.5336 351.88,-3.84858 379.892,11.4184 459,-12.5336"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M459,-12.5336C502.348,-25.2324 537.943,-66.8027 556.678,-92.789"/>
-<polygon fill="#000000" stroke="#000000" points="553.994,-95.0591 562.586,-101.258 559.735,-91.0539 553.994,-95.0591"/>
+<!-- module~hasty_key_base&#45;&gt;module~hasty -->
+<g id="edge30" class="edge"><title>module~hasty_key_base&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M69.5888,-117.935C97.0541,-104.35 143.28,-84.4496 186,-80"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186,-80C250.54,-73.2778 267.111,-79.8798 332,-80"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332,-80C413.779,-80.1514 435.372,-65.327 516,-79 524.702,-80.4757 533.805,-83.0216 542.298,-85.87"/>
+<polygon fill="#000000" stroke="#000000" points="541.335,-89.2422 551.929,-89.3067 543.687,-82.6494 541.335,-89.2422"/>
 </g>
 <!-- module~hasty_hash_table -->
 <g id="node6" class="node"><title>module~hasty_hash_table</title>
 <a xlink:href="../module/hasty_hash_table.html" xlink:title="hasty_hash_table">
-<polygon fill="#337ab7" stroke="#337ab7" points="507,-127.534 411,-127.534 411,-101.534 507,-101.534 507,-127.534"/>
-<text text-anchor="middle" x="459" y="-112.084" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_hash_table</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="515,-114 419,-114 419,-88 515,-88 515,-114"/>
+<text text-anchor="middle" x="467" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_hash_table</text>
 </a>
 </g>
-<!-- module~hasty_key_adt&#45;&gt;module~hasty_hash_table -->
-<g id="edge32" class="edge"><title>module~hasty_key_adt&#45;&gt;module~hasty_hash_table</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178,-94.5336C254.387,-83.5953 343.353,-93.7368 400.378,-103.129"/>
-<polygon fill="#000000" stroke="#000000" points="399.851,-106.59 410.295,-104.808 401.019,-99.688 399.851,-106.59"/>
-</g>
-<!-- module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary -->
-<g id="edge2" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M238.227,-135.534C248.254,-135.534 258.613,-135.534 268.515,-135.534"/>
-<polygon fill="#000000" stroke="#000000" points="268.636,-139.034 278.636,-135.534 268.636,-132.034 268.636,-139.034"/>
-</g>
-<!-- module~hasty_dictionary_node&#45;&gt;module~hasty -->
-<g id="edge4" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M215.397,-148.658C269.363,-165.859 372.136,-192.111 459,-176.534"/>
+<!-- module~hasty_key_base&#45;&gt;module~hasty_hash_table -->
+<g id="edge32" class="edge"><title>module~hasty_key_base&#45;&gt;module~hasty_hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M332,-80C357.217,-80.0467 384.771,-83.6763 408.373,-87.9049"/>
+<polygon fill="#000000" stroke="#000000" points="407.755,-91.3499 418.228,-89.7451 409.04,-84.4689 407.755,-91.3499"/>
 </g>
 <!-- module~hasty_key_morton&#45;&gt;module~hasty -->
-<g id="edge6" class="edge"><title>module~hasty_key_morton&#45;&gt;module~hasty</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M353.314,-40.4682C386.702,-26.325 439.19,-6.53569 459,-12.5336"/>
+<g id="edge2" class="edge"><title>module~hasty_key_morton&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M371.606,-189.933C398.369,-181.36 434.599,-170.251 467,-162"/>
+</g>
+<!-- module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary -->
+<g id="edge4" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M246.227,-126.875C256.254,-126.188 266.613,-125.479 276.515,-124.8"/>
+<polygon fill="#000000" stroke="#000000" points="276.899,-128.282 286.636,-124.107 276.42,-121.299 276.899,-128.282"/>
+</g>
+<!-- module~hasty_dictionary_node&#45;&gt;module~hasty -->
+<g id="edge6" class="edge"><title>module~hasty_dictionary_node&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M246.142,-142.631C315.922,-155.247 426.572,-172.295 467,-162"/>
 </g>
 <!-- module~hasty_dictionary&#45;&gt;module~hasty -->
 <g id="edge10" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M355.206,-148.624C388.472,-161.928 439.049,-180.111 459,-176.534"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M459,-176.534C492.263,-170.569 525.523,-149.818 547.05,-133.949"/>
-<polygon fill="#000000" stroke="#000000" points="549.404,-136.556 555.249,-127.719 545.169,-130.982 549.404,-136.556"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M361.821,-134.003C395.152,-147.834 447.061,-167.078 467,-162"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M467,-162C498.871,-153.884 531.462,-134.65 553.209,-119.933"/>
+<polygon fill="#000000" stroke="#000000" points="555.328,-122.723 561.55,-114.147 551.338,-116.971 555.328,-122.723"/>
 </g>
 <!-- module~hasty_dictionary&#45;&gt;module~hasty_hash_table -->
 <g id="edge8" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty_hash_table</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M369.329,-128.482C379.21,-126.945 389.804,-125.297 400.125,-123.692"/>
-<polygon fill="#000000" stroke="#000000" points="400.975,-127.102 410.319,-122.106 399.899,-120.185 400.975,-127.102"/>
-</g>
-<!-- program~hasty_test_hash_table_homokey_failure -->
-<g id="node12" class="node"><title>program~hasty_test_hash_table_homokey_failure</title>
-<a xlink:href="../program/hasty_test_hash_table_homokey_failure.html" xlink:title="hasty_test_hash_table_homokey_failure">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="848,-215.534 644,-215.534 644,-189.534 848,-189.534 848,-215.534"/>
-<text text-anchor="middle" x="746" y="-200.084" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homokey_failure</text>
-</a>
-</g>
-<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure -->
-<g id="edge12" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M579.749,-127.763C590.587,-143.026 610.523,-167.669 634,-180.534 637.516,-182.461 641.176,-184.22 644.936,-185.827"/>
-<polygon fill="#000000" stroke="#000000" points="643.87,-189.168 654.459,-189.515 646.398,-182.64 643.87,-189.168"/>
-</g>
-<!-- program~hasty_test_hash_table_homo -->
-<g id="node13" class="node"><title>program~hasty_test_hash_table_homo</title>
-<a xlink:href="../program/hasty_test_hash_table_homo.html" xlink:title="hasty_test_hash_table_homo">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="822,-171.534 670,-171.534 670,-145.534 822,-145.534 822,-171.534"/>
-<text text-anchor="middle" x="746" y="-156.084" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homo</text>
-</a>
-</g>
-<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homo -->
-<g id="edge14" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homo</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M598.024,-124.917C609.068,-128.911 622.036,-133.287 634,-136.534 643.013,-138.979 652.504,-141.27 661.99,-143.38"/>
-<polygon fill="#000000" stroke="#000000" points="661.341,-146.821 671.854,-145.513 662.82,-139.979 661.341,-146.821"/>
-</g>
-<!-- program~hasty_test_hash_table_homocontent_failure -->
-<g id="node14" class="node"><title>program~hasty_test_hash_table_homocontent_failure</title>
-<a xlink:href="../program/hasty_test_hash_table_homocontent_failure.html" xlink:title="hasty_test_hash_table_homocontent_failure">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="857,-127.534 635,-127.534 635,-101.534 857,-101.534 857,-127.534"/>
-<text text-anchor="middle" x="746" y="-112.084" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homocontent_failure</text>
-</a>
-</g>
-<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure -->
-<g id="edge16" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M598.344,-114.534C605.978,-114.534 614.796,-114.534 624.247,-114.534"/>
-<polygon fill="#000000" stroke="#000000" points="624.303,-118.034 634.303,-114.534 624.303,-111.034 624.303,-118.034"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.329,-114.285C387.21,-112.821 397.804,-111.251 408.125,-109.722"/>
+<polygon fill="#000000" stroke="#000000" points="408.939,-113.14 418.319,-108.212 407.914,-106.215 408.939,-113.14"/>
 </g>
 <!-- program~hasty_test_dictionary -->
-<g id="node15" class="node"><title>program~hasty_test_dictionary</title>
+<g id="node12" class="node"><title>program~hasty_test_dictionary</title>
 <a xlink:href="../program/hasty_test_dictionary.html" xlink:title="hasty_test_dictionary">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="802,-83.5336 690,-83.5336 690,-57.5336 802,-57.5336 802,-83.5336"/>
-<text text-anchor="middle" x="746" y="-68.0836" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_dictionary</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="810,-202 698,-202 698,-176 810,-176 810,-202"/>
+<text text-anchor="middle" x="754" y="-186.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_dictionary</text>
 </a>
 </g>
 <!-- module~hasty&#45;&gt;program~hasty_test_dictionary -->
-<g id="edge18" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_dictionary</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M598.024,-104.15C609.068,-100.156 622.036,-95.7798 634,-92.5336 648.451,-88.6125 664.129,-85.0894 679.05,-82.071"/>
-<polygon fill="#000000" stroke="#000000" points="680.101,-85.4313 689.235,-80.0633 678.747,-78.5635 680.101,-85.4313"/>
+<g id="edge12" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_dictionary</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M587.749,-114.229C598.587,-129.493 618.523,-154.135 642,-167 655.756,-174.538 671.714,-179.518 687.197,-182.801"/>
+<polygon fill="#000000" stroke="#000000" points="686.796,-186.288 697.275,-184.723 688.107,-179.412 686.796,-186.288"/>
+</g>
+<!-- program~hasty_test_hash_table_homocontent_failure -->
+<g id="node13" class="node"><title>program~hasty_test_hash_table_homocontent_failure</title>
+<a xlink:href="../program/hasty_test_hash_table_homocontent_failure.html" xlink:title="hasty_test_hash_table_homocontent_failure">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="865,-158 643,-158 643,-132 865,-132 865,-158"/>
+<text text-anchor="middle" x="754" y="-142.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homocontent_failure</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure -->
+<g id="edge14" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homocontent_failure</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M606.024,-111.384C617.068,-115.378 630.036,-119.754 642,-123 651.013,-125.446 660.504,-127.736 669.99,-129.847"/>
+<polygon fill="#000000" stroke="#000000" points="669.341,-133.287 679.854,-131.979 670.82,-126.445 669.341,-133.287"/>
+</g>
+<!-- program~hasty_test_hash_table_homo -->
+<g id="node14" class="node"><title>program~hasty_test_hash_table_homo</title>
+<a xlink:href="../program/hasty_test_hash_table_homo.html" xlink:title="hasty_test_hash_table_homo">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="830,-114 678,-114 678,-88 830,-88 830,-114"/>
+<text text-anchor="middle" x="754" y="-98.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homo</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homo -->
+<g id="edge16" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homo</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M606.344,-101C622.933,-101 645.114,-101 667.232,-101"/>
+<polygon fill="#000000" stroke="#000000" points="667.37,-104.5 677.37,-101 667.37,-97.5001 667.37,-104.5"/>
+</g>
+<!-- program~hasty_test_hash_table_homokey_failure -->
+<g id="node15" class="node"><title>program~hasty_test_hash_table_homokey_failure</title>
+<a xlink:href="../program/hasty_test_hash_table_homokey_failure.html" xlink:title="hasty_test_hash_table_homokey_failure">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="856,-70 652,-70 652,-44 856,-44 856,-70"/>
+<text text-anchor="middle" x="754" y="-54.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table_homokey_failure</text>
+</a>
+</g>
+<!-- module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure -->
+<g id="edge18" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table_homokey_failure</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M606.024,-90.6163C617.068,-86.6222 630.036,-82.2462 642,-79 651.013,-76.5543 660.504,-74.2635 669.99,-72.1535"/>
+<polygon fill="#000000" stroke="#000000" points="670.82,-75.555 679.854,-70.0211 669.341,-68.7131 670.82,-75.555"/>
 </g>
 <!-- program~hasty_test_hash_table -->
 <g id="node16" class="node"><title>program~hasty_test_hash_table</title>
 <a xlink:href="../program/hasty_test_hash_table.html" xlink:title="hasty_test_hash_table">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="806,-39.5336 686,-39.5336 686,-13.5336 806,-13.5336 806,-39.5336"/>
-<text text-anchor="middle" x="746" y="-24.0836" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="814,-26 694,-26 694,-1.24345e-14 814,-3.55271e-15 814,-26"/>
+<text text-anchor="middle" x="754" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_test_hash_table</text>
 </a>
 </g>
 <!-- module~hasty&#45;&gt;program~hasty_test_hash_table -->
 <g id="edge20" class="edge"><title>module~hasty&#45;&gt;program~hasty_test_hash_table</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M579.749,-101.304C590.587,-86.0411 610.523,-61.3987 634,-48.5336 646.778,-41.5312 661.456,-36.7364 675.888,-33.4587"/>
-<polygon fill="#000000" stroke="#000000" points="676.72,-36.8609 685.813,-31.4234 675.314,-30.0036 676.72,-36.8609"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M587.749,-87.7707C598.587,-72.5075 618.523,-47.8651 642,-35 654.778,-27.9976 669.456,-23.2028 683.888,-19.9251"/>
+<polygon fill="#000000" stroke="#000000" points="684.72,-23.3273 693.813,-17.8898 683.314,-16.47 684.72,-23.3273"/>
 </g>
 <!-- module~hasty_hash_table&#45;&gt;module~hasty -->
 <g id="edge22" class="edge"><title>module~hasty_hash_table&#45;&gt;module~hasty</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M507.799,-114.534C516.503,-114.534 525.443,-114.534 533.759,-114.534"/>
-<polygon fill="#000000" stroke="#000000" points="533.895,-118.034 543.895,-114.534 533.895,-111.034 533.895,-118.034"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M515.799,-101C524.503,-101 533.443,-101 541.759,-101"/>
+<polygon fill="#000000" stroke="#000000" points="541.895,-104.5 551.895,-101 541.895,-97.5001 541.895,-104.5"/>
 </g>
 </g>
 </svg>
 </div>
-                <script>var panmodulehasty_key_adtUsedByGraph = svgPanZoom('#modulehasty_key_adtUsedByGraph', {
+                <script>var panmodulehasty_key_baseUsedByGraph = svgPanZoom('#modulehasty_key_baseUsedByGraph', {
                     zoomEnabled: true,
                     controlIconsEnabled: true,
                     fit: true,
@@ -694,21 +704,17 @@
 
 
 
-
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#absints-1">Abstract Interfaces</a></h3></div>
-  <div id="absints-1" class="panel-collapse collapse">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
+  <div id="inters-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#interface-destroy_interface%7E2">destroy_interface</a>
-      
-      <a class="list-group-item" href="../module/hasty_key_adt.html#interface-stringify_interface">stringify_interface</a>
-      
-      <a class="list-group-item" href="../module/hasty_key_adt.html#interface-is_equal_interface%7E2">is_equal_interface</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#interface-key_base">key_base</a>
       
     </div>
   </div>
 </div>
+
 
 
 <div class="panel panel-primary">
@@ -716,7 +722,7 @@
   <div id="types-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#type-key_adt">key_adt</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#type-key_base">key_base</a>
       
     </div>
   </div>
@@ -728,18 +734,37 @@
   <div id="funcs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-are_keys_equal">are_keys_equal</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-creator">creator</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-hash_key">hash_key</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-hash%7E2">hash</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-is_key_allowed">is_key_allowed</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-id">id</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html#proc-str_key">str_key</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-is_key_allowed">is_key_allowed</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-stringify">stringify</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-hash_string">hash_string</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-is_equal">is_equal</a>
       
     </div>
   </div>
 </div>
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-destroy%7E4">destroy</a>
+      
+      <a class="list-group-item" href="../module/hasty_key_base.html#proc-set">set</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -759,30 +784,24 @@
     
     
     
-
-    
     <section>
-     <h2>Abstract Interfaces</h2>
+	 <h2>Interfaces</h2>
 	 
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-destroy_interface%7E2"></span><h3>abstract interface
+  <div class="panel-heading codesum"><span class="anchor" id="interface-key_base"></span><h3>public interface <a href='../interface/key_base.html'>key_base</a>
     
   </h3></div>
   
-  <div class="panel-body">
-    
-
-
-    <p>Destroy the key.</p>
-  </div>
-  
   <ul class="list-group">
+  
+  
+  
     <li class="list-group-item">
     
     
     <h3>
-private elemental subroutine <a href='../interface/destroy_interface%7E2.html'>destroy_interface</a>(self)
+private function <a href='../proc/creator.html'>creator</a>(key, buckets_number) result(key_)
     
     
 	 
@@ -795,7 +814,7 @@ private elemental subroutine <a href='../interface/destroy_interface%7E2.html'>d
 
 
 
-<p>Destroy the key.</p>
+<p>Return an  instance of <a href="../interface/key_base.html">key_base</a></p>
     
     <h4>Arguments</h4>
     
@@ -816,72 +835,14 @@ private elemental subroutine <a href='../interface/destroy_interface%7E2.html'>d
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/key_adt.html'>key_adt</a>),</td>
-  <td>intent(inout)</td>
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The key.</p></td>
+  <td><strong>key</strong></td><td><p>The key value.</p></td>
   
 </tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-stringify_interface"></span><h3>abstract interface
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Return a string representation of the key.</p>
-  </div>
-  
-  <ul class="list-group">
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function <a href='../interface/stringify_interface.html'>stringify_interface</a>(self) result(str_key)
-    
-    
-	 
-</h3>
-    
-
-
-
-
-
-
-
-<p>Return a string representation of the key.</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
 
   
   
@@ -889,12 +850,12 @@ private pure function <a href='../interface/stringify_interface.html'>stringify_
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/key_adt.html'>key_adt</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The key.</p></td>
+  <td><strong>buckets_number</strong></td><td><p>Buckets number.</p></td>
   
 </tr>
 
@@ -909,115 +870,22 @@ private pure function <a href='../interface/stringify_interface.html'>stringify_
   
   
   
-     <h4>Return Value <small>character(len=:),
-  allocatable</small></h4>
-  <p>The key stringified.</p>
-    
-
-    </li>
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-is_equal_interface%7E2"></span><h3>abstract interface
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Implement <code>==</code> operator.</p>
-  </div>
-  
-  <ul class="list-group">
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function <a href='../interface/is_equal_interface%7E2.html'>is_equal_interface</a>(lhs, rhs)
-    
-    
-	 
-</h3>
-    
-
-
-
-
-
-
-
-<p>Implement <code>==</code> operator.</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/key_adt.html'>key_adt</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/key_adt.html'>key_adt</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Rigth hand side.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
+     <h4>Return Value <small>type(<a href='../type/key_base.html'>key_base</a>)
   </small></h4>
-  
+  <p>Instance of <a href="../interface/key_base.html">key_base</a>.</p>
     
 
     </li>
+  
+  
   </ul>
 </div>
 
     
     </section>
 	<br>
+    
+
     
     
     
@@ -1026,15 +894,74 @@ private elemental function <a href='../interface/is_equal_interface%7E2.html'>is
 	 
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="type-key_adt"></span><h3>type, public, abstract :: <a href='../type/key_adt.html'>key_adt</a>
+  <div class="panel-heading codesum"><span class="anchor" id="type-key_base"></span><h3>type, public :: <a href='../type/key_base.html'>key_base</a>
     
   </h3></div>
   <div class="panel-body">
     
     
-    <p>Abstract <strong>key</strong> class to identify a node.</p>
+    <p><strong>Key</strong> class to identify a node.</p>
     
      
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-id_"></span>integer(kind=I8P),</td>
+  
+  <td>public,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>id_</strong></td><td></td><td></td><td><p>Unique key id.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-char_key_"></span>character(len=:),</td>
+  
+  <td>public,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>char_key_</strong></td><td></td><td></td><td><p>Store character key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+     <h4>Constructor</h4>
+       
+         
+       
+       <table class="table table-striped varlist">
+      <tbody>
+        
+             
+             
+             
+             <tr><td>private  function <strong><a href='../proc/creator.html'>creator</a></strong>(key, buckets_number)</td><td><p>Return an  instance of <a href="../interface/key_base.html">key_base</a></p></td></tr>
+             
+        
+       </tbody>
+       </table>
      
           
      
@@ -1042,17 +969,32 @@ private elemental function <a href='../interface/is_equal_interface%7E2.html'>is
       <table class="table table-striped varlist">
       <tbody>
       
-       <tr><td>procedure(destroy_interface), public, pass(self) :: <strong><a href='../type/key_adt.html#boundprocedure-destroy%7E5'>destroy</a></strong>  </td>
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/key_base.html#boundprocedure-destroy%7E5'>destroy</a></strong>  </td>
        <td><p>Destroy the key.</p></td></tr>
       
-       <tr><td>procedure(stringify_interface), public, pass(self) :: <strong><a href='../type/key_adt.html#boundprocedure-stringify'>stringify</a></strong>  </td>
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/key_base.html#boundprocedure-hash%7E2'>hash</a></strong>  </td>
+       <td><p>Hash the key.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/key_base.html#boundprocedure-id'>id</a></strong>  </td>
+       <td><p>Return the id.</p></td></tr>
+      
+       <tr><td>procedure, public, nopass :: <strong><a href='../type/key_base.html#boundprocedure-is_key_allowed'>is_key_allowed</a></strong>  </td>
+       <td><p>Typeguard for used key.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/key_base.html#boundprocedure-set%7E2'>set</a></strong>  </td>
+       <td><p>Set the key.</p></td></tr>
+      
+       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/key_base.html#boundprocedure-stringify'>stringify</a></strong>  </td>
        <td><p>Return a string representation of the key.</p></td></tr>
       
-       <tr><td>procedure(is_equal_interface), private, pass(lhs) :: <strong><a href='../type/key_adt.html#boundprocedure-is_equal%7E2'>is_equal</a></strong>  </td>
+       <tr><td>generic, public :: <strong><a href='../type/key_base.html#boundprocedure-operator%28%3D%3D%29%7E2'>operator(==)</a></strong>  => is_equal </td>
+       <td><p>Overloading <code>==</code> operator.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(lhs) :: <strong><a href='../type/key_base.html#boundprocedure-is_equal%7E2'>is_equal</a></strong>  </td>
        <td><p>Implement <code>==</code> operator.</p></td></tr>
       
-       <tr><td>generic, public :: <strong><a href='../type/key_adt.html#boundprocedure-operator%28%3D%3D%29%7E2'>operator(==)</a></strong>  => is_equal </td>
-       <td><p>Overloading <code>==</code> operator.</p></td></tr>
+       <tr><td>procedure, private, nopass :: <strong><a href='../type/key_base.html#boundprocedure-hash_string'>hash_string</a></strong>  </td>
+       <td><p>Hash a string.</p></td></tr>
       
        </tbody>
        </table>
@@ -1071,8 +1013,8 @@ private elemental function <a href='../interface/is_equal_interface%7E2.html'>is
     
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-are_keys_equal"></span><h3>
-public pure function <a href='../proc/are_keys_equal.html'>are_keys_equal</a>(lhs, rhs)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-creator"></span><h3>
+private function <a href='../proc/creator.html'>creator</a>(key, buckets_number) result(key_)
     
     
 	 
@@ -1087,7 +1029,7 @@ public pure function <a href='../proc/are_keys_equal.html'>are_keys_equal</a>(lh
 
 
 
-<p>Return true if the two keys are equal.</p>
+<p>Return an  instance of <a href="../interface/key_base.html">key_base</a></p>
     
     <h4>Arguments</h4>
     
@@ -1113,7 +1055,7 @@ public pure function <a href='../proc/are_keys_equal.html'>are_keys_equal</a>(lh
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  <td><strong>key</strong></td><td><p>The key value.</p></td>
   
 </tr>
 
@@ -1123,12 +1065,12 @@ public pure function <a href='../proc/are_keys_equal.html'>are_keys_equal</a>(lh
   
 <tr>
   
-  <td><span class="anchor" ></span>class(*),</td>
-  <td>intent(in)</td>
-  <td></td>
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td><p>Right hand side.</p></td>
+  <td><strong>buckets_number</strong></td><td><p>Buckets number.</p></td>
   
 </tr>
 
@@ -1143,9 +1085,9 @@ public pure function <a href='../proc/are_keys_equal.html'>are_keys_equal</a>(lh
   
   
   
-     <h4>Return Value <small>logical
+     <h4>Return Value <small>type(<a href='../type/key_base.html'>key_base</a>)
   </small></h4>
-  <p>Test result.</p>
+  <p>Instance of <a href="../interface/key_base.html">key_base</a>.</p>
     
 
   </div>
@@ -1154,8 +1096,8 @@ public pure function <a href='../proc/are_keys_equal.html'>are_keys_equal</a>(lh
     
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-hash_key"></span><h3>
-public elemental function <a href='../proc/hash_key.html'>hash_key</a>(key, buckets_number) result(bucket)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-hash%7E2"></span><h3>
+private elemental function <a href='../proc/hash%7E2.html'>hash</a>(self, buckets_number) result(bucket)
     
     
 	 
@@ -1191,12 +1133,12 @@ public elemental function <a href='../proc/hash_key.html'>hash_key</a>(key, buck
   
 <tr>
   
-  <td><span class="anchor" ></span>class(*),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>Key to hash.</p></td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -1229,6 +1171,74 @@ public elemental function <a href='../proc/hash_key.html'>hash_key</a>(key, buck
      <h4>Return Value <small>integer(kind=I4P)
   </small></h4>
   <p>Bucket index corresponding to the key.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-id"></span><h3>
+private elemental function <a href='../proc/id.html'>id</a>(self)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Return the id.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=I8P)
+  </small></h4>
+  <p>Unique key id.</p>
     
 
   </div>
@@ -1305,8 +1315,8 @@ public elemental function <a href='../proc/is_key_allowed.html'>is_key_allowed</
     
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-str_key"></span><h3>
-public pure function <a href='../proc/str_key.html'>str_key</a>(key)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-stringify"></span><h3>
+private pure function <a href='../proc/stringify.html'>stringify</a>(self) result(str_key)
     
     
 	 
@@ -1321,7 +1331,7 @@ public pure function <a href='../proc/str_key.html'>str_key</a>(key)
 
 
 
-<p>Return the key as character string.</p>
+<p>Return a string representation of the key.</p>
     
     <h4>Arguments</h4>
     
@@ -1342,12 +1352,12 @@ public pure function <a href='../proc/str_key.html'>str_key</a>(key)
   
 <tr>
   
-  <td><span class="anchor" ></span>class(*),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>The key.</p></td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
   
 </tr>
 
@@ -1371,10 +1381,330 @@ public pure function <a href='../proc/str_key.html'>str_key</a>(key)
   </div>
 
     
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-hash_string"></span><h3>
+private elemental function <a href='../proc/hash_string.html'>hash_string</a>(string, buckets_number) result(bucket)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Hash a string.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>string</strong></td><td><p>The string.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>buckets_number</strong></td><td><p>Buckets number.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=I8P)
+  </small></h4>
+  <p>Bucket index corresponding to the string.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-is_equal"></span><h3>
+private elemental function <a href='../proc/is_equal.html'>is_equal</a>(lhs, rhs)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Implement <code>==</code> operator.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td><p>Left hand side.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td><p>Rigth hand side.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  
+    
+
+  </div>
+  </div>
+
+    
     </section>
     <br>
     
 
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-destroy%7E4"></span><h3>
+private elemental subroutine <a href='../proc/destroy%7E4.html'>destroy</a>(self)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Destroy the key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-set"></span><h3>
+private subroutine <a href='../proc/set.html'>set</a>(self, key, buckets_number)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Set the key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>key</strong></td><td><p>The key value.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>buckets_number</strong></td><td><p>Buckets number.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
     
     
     
@@ -1400,7 +1730,7 @@ public pure function <a href='../proc/str_key.html'>str_key</a>(key)
       
       <a class="list-group-item" href="../module/hasty_hash_table.html">hasty_hash_table</a>
       
-      <a class="list-group-item" href="../module/hasty_key_adt.html">hasty_key_adt</a>
+      <a class="list-group-item" href="../module/hasty_key_base.html">hasty_key_base</a>
       
       <a class="list-group-item" href="../module/hasty_key_morton.html">hasty_key_morton</a>
       
@@ -1411,6 +1741,8 @@ public pure function <a href='../proc/str_key.html'>str_key</a>(key)
       <a class="list-group-item" href="../module/penf_global_parameters_variables.html">penf_global_parameters_variables</a>
       
       <a class="list-group-item" href="../module/penf_stringify.html">penf_stringify</a>
+      
+      <a class="list-group-item" href="../module/tester.html">tester</a>
       
     </div>
   </div>
