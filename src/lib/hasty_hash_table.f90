@@ -25,7 +25,7 @@ type :: hash_table
   type(dictionary), allocatable :: bucket(:)               !< Hash table buckets.
   integer(I4P)                  :: buckets_number=0_I4P    !< Number of buckets used.
   integer(I4P)                  :: nodes_number=0_I4P      !< Number of nodes actually stored, namely the hash table length.
-  integer(I8P), allocatable     :: ids(:)                  !< Maximum id value actually stored into each bucket.
+  integer(I8P), allocatable     :: ids_(:,:)               !< Minimum and maximum id values actually stored into each bucket.
   logical                       :: is_homogeneous_=.false. !< Homogeneity status-guardian.
   logical                       :: is_initialized_=.false. !< Initialization status.
   class(*), allocatable         :: typeguard_key           !< Key type guard (mold) for homogeneous keys check.
@@ -39,6 +39,7 @@ type :: hash_table
     procedure, pass(self) :: get_pointer    !< Return a pointer to a node's content in the hash table.
     procedure, pass(self) :: hash           !< Hash the key.
     procedure, pass(self) :: has_key        !< Check if the key is present in the hash table.
+    procedure, pass(self) :: ids            !< Return the list of ids actually stored.
     procedure, pass(self) :: initialize     !< Initialize the hash table.
     procedure, pass(self) :: is_homogeneous !< Return homogeneity status.
     procedure, pass(self) :: is_initialized !< Return initialization status.
@@ -106,6 +107,7 @@ contains
   bucket_length = len(self%bucket(b))
   call self%bucket(b)%add_pointer(key=key, content=content)
   self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
+  self%ids_(1:2, b) = self%bucket(b)%ids()
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine add_pointer
 
@@ -144,6 +146,7 @@ contains
   bucket_length = len(self%bucket(b))
   call self%bucket(b)%add_clone(key=key, content=content)
   self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
+  self%ids_(1:2, b) = self%bucket(b)%ids()
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine add_clone
 
@@ -164,7 +167,7 @@ contains
   endif
   self%buckets_number = 0_I4P
   self%nodes_number = 0_I4P
-  if (allocated(self%ids)) deallocate(self%ids)
+  if (allocated(self%ids_)) deallocate(self%ids_)
   self%is_homogeneous_ = .false.
   self%is_initialized_ = .false.
   if (allocated(self%typeguard_key)) then
@@ -251,6 +254,23 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction has_key
 
+  pure function ids(self)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Return the minimum and maximum unique key id values actually stored.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(hash_table), intent(in)  :: self     !< The hash table.
+  integer(I8P)                   :: ids(1:2) !< Minimum and maximum id values actually stored.
+  integer(I4P)                   :: b        !< Bucket index, namely hashed key.
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  ids = [huge(1_I8P), -huge(1_I8P)]
+  do b=1, self%buckets_number
+    if (len(self%bucket(b))>0) ids = [min(ids(1), self%ids_(1,b)), max(ids(2), self%ids_(2,b))]
+  enddo
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction ids
+
   subroutine initialize(self, buckets_number, homogeneous, typeguard_key, typeguard_content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Initialize the hash table.
@@ -266,8 +286,8 @@ contains
   call self%destroy
   self%buckets_number = HT_BUCKETS_NUMBER_DEF ; if (present(buckets_number)) self%buckets_number = buckets_number
   allocate(self%bucket(1:self%buckets_number))
-  allocate(self%ids(1:self%buckets_number))
-  self%ids = 0
+  allocate(self%ids_(1:2,1:self%buckets_number))
+  self%ids_ = 0
   self%is_homogeneous_ = .false. ; if (present(homogeneous)) self%is_homogeneous_ = homogeneous
   self%is_initialized_ = .true.
   if (present(typeguard_key)) allocate(self%typeguard_key, mold=typeguard_key)
@@ -324,11 +344,15 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   class(hash_table), intent(inout) :: self !< The hash table.
   class(*),          intent(in)    :: key  !< The key.
+  integer(I4P)                     :: b    !< Bucket index, namely hashed key.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  if (self%is_initialized_) &
-    call self%bucket(self%hash(key=key_base(key=key, buckets_number=self%buckets_number)))%remove(key=key)
+  if (self%is_initialized_) then
+    b = self%hash(key=key_base(key=key, buckets_number=self%buckets_number))
+    call self%bucket(b)%remove(key=key)
+    self%ids_(1:2, b) = self%bucket(b)%ids()
+  endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine remove
 

@@ -44,6 +44,8 @@ if (allocated(another_content)) then
   call test_assert_equal(content=another_content, reference=13_int32)
 endif
 
+call hasty_tester%assert_equal(int(a_table%ids(), int32), [5_int32, 5_int32])
+
 call a_table%destroy
 call a_table%initialize(buckets_number=11, homogeneous=.true., typeguard_key='a string', typeguard_content=1_int32)
 call hasty_tester%assert_equal(a_table%is_initialized(), .true.)
