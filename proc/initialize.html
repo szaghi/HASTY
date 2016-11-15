@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.9% of total for procedures.">19 statements</a>
+	  title=" 1.0% of total for procedures.">21 statements</a>
      </li> 
      
      
@@ -730,6 +730,7 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
   <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">HT_BUCKETS_NUMBER_DEF</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">buckets_number</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">buckets_number</span>
 <span class="cp">#ifdef CAF</span>
   <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">)[</span><span class="o">*</span><span class="p">])</span>
+  <span class="n">self</span><span class="p">%</span><span class="n">me</span> <span class="o">=</span> <span class="nb">this_image</span><span class="p">()</span>
 <span class="cp">#else</span>
   <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">))</span>
 <span class="cp">#endif</span>
@@ -739,6 +740,9 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
   <span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
   <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">typeguard_key</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">typeguard_key</span><span class="p">)</span>
   <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">typeguard_content</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">typeguard_content</span><span class="p">)</span>
+<span class="cp">#ifdef CAF</span>
+  <span class="k">sync all</span>
+<span class="cp">#endif</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">endsubroutine</span> <span class="n">initialize</span>
 </pre></div>

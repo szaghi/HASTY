@@ -24,6 +24,7 @@ type :: hash_table
   private
 #ifdef CAF
   type(dictionary), allocatable :: bucket(:)[:]            !< Hash table buckets.
+  integer(I4P)                  :: me=0                    !< Index of current CAF image.
 #else
   type(dictionary), allocatable :: bucket(:)               !< Hash table buckets.
 #endif
@@ -172,6 +173,9 @@ contains
     enddo
     deallocate(self%bucket)
   endif
+#ifdef CAF
+  self%me = 0
+#endif
   self%buckets_number = 0_I4P
   self%nodes_number = 0_I4P
   if (allocated(self%ids_)) deallocate(self%ids_)
@@ -294,6 +298,7 @@ contains
   self%buckets_number = HT_BUCKETS_NUMBER_DEF ; if (present(buckets_number)) self%buckets_number = buckets_number
 #ifdef CAF
   allocate(self%bucket(1:self%buckets_number)[*])
+  self%me = this_image()
 #else
   allocate(self%bucket(1:self%buckets_number))
 #endif
@@ -303,6 +308,9 @@ contains
   self%is_initialized_ = .true.
   if (present(typeguard_key)) allocate(self%typeguard_key, mold=typeguard_key)
   if (present(typeguard_content)) allocate(self%typeguard_content, mold=typeguard_content)
+#ifdef CAF
+  sync all
+#endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine initialize
 
