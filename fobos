@@ -3,6 +3,7 @@ modes = shared-gnu static-gnu shared-gnu-debug static-gnu-debug
         shared-intel static-intel shared-intel-debug static-intel-debug
         tests-gnu tests-gnu-debug
         tests-intel tests-intel-debug
+        tests-gnu-caf tests-gnu-caf-debug
         tests-intel-caf tests-intel-caf-debug
 
 [common-variables]
@@ -52,6 +53,14 @@ build_dir = ./exe/
 
 [tests-gnu-debug]
 template  = template-static-gnu-debug
+build_dir = ./exe/
+
+[tests-gnu-caf]
+template = template-static-gnu-caf
+build_dir = ./exe/
+
+[tests-gnu-caf-debug]
+template  = template-static-gnu-caf-debug
 build_dir = ./exe/
 
 # Intel
@@ -125,6 +134,21 @@ quiet        = False
 log          = True
 jobs         = 2
 
+[template-static-gnu-caf]
+compiler     = opencoarrays-gnu
+cflags       = $CSTATIC_GNU $OPTIMIZE
+lflags       = $OPTIMIZE
+preproc      = -DCAF
+coarray      = True
+exclude_dirs = $EXDIRS
+mod_dir      = ./mod/
+obj_dir      = ./obj/
+src          = ./src/
+colors       = True
+quiet        = False
+log          = True
+jobs         = 2
+
 [template-shared-gnu-debug]
 compiler     = gnu
 cflags       = $CSHARED_GNU $DEBUG_GNU
@@ -142,6 +166,21 @@ jobs         = 2
 compiler     = gnu
 cflags       = $CSTATIC_GNU $DEBUG_GNU
 lflags       = $DEBUG_GNU
+exclude_dirs = $EXDIRS
+mod_dir      = ./mod/
+obj_dir      = ./obj/
+src          = ./src/
+colors       = True
+quiet        = False
+log          = True
+jobs         = 2
+
+[template-static-gnu-caf-debug]
+compiler     = opencoarrays-gnu
+cflags       = $CSTATIC_GNU $DEBUG_GNU
+lflags       = $DEBUG_GNU
+preproc      = -DCAF
+coarray      = True
 exclude_dirs = $EXDIRS
 mod_dir      = ./mod/
 obj_dir      = ./obj/
