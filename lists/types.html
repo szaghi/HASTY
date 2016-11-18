@@ -144,42 +144,8 @@ All Types &ndash; HASTY
 <text text-anchor="middle" x="166" y="-85.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">key_morton</text>
 </a>
 </g>
-<!-- type~content_adt -->
-<g id="node2" class="node"><title>type~content_adt</title>
-<a xlink:href="../type/content_adt.html" xlink:title="content_adt">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="69,-119 1,-119 1,-93 69,-93 69,-119"/>
-<text text-anchor="middle" x="35" y="-103.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">content_adt</text>
-</a>
-</g>
-<!-- type~hash_table -->
-<g id="node3" class="node"><title>type~hash_table</title>
-<a xlink:href="../type/hash_table.html" xlink:title="hash_table">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="507,-26 443,-26 443,-1.24345e-14 507,-3.55271e-15 507,-26"/>
-<text text-anchor="middle" x="475" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hash_table</text>
-</a>
-</g>
-<!-- type~tester_t -->
-<g id="node4" class="node"><title>type~tester_t</title>
-<a xlink:href="../type/tester_t.html" xlink:title="tester_t">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="62,-163 8,-163 8,-137 62,-137 62,-163"/>
-<text text-anchor="middle" x="35" y="-147.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tester_t</text>
-</a>
-</g>
-<!-- type~dictionary -->
-<g id="node5" class="node"><title>type~dictionary</title>
-<a xlink:href="../type/dictionary.html" xlink:title="dictionary">
-<polygon fill="#5cb85c" stroke="#5cb85c" points="344,-26 286,-26 286,-1.24345e-14 344,-3.55271e-15 344,-26"/>
-<text text-anchor="middle" x="315" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dictionary</text>
-</a>
-</g>
-<!-- type~dictionary&#45;&gt;type~hash_table -->
-<g id="edge4" class="edge"><title>type~dictionary&#45;&gt;type~hash_table</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M344.346,-13C368.905,-13 404.283,-13 432.033,-13"/>
-<polygon fill="#000000" stroke="#000000" points="432.257,-16.5001 442.257,-13 432.257,-9.5001 432.257,-16.5001"/>
-<text text-anchor="middle" x="393" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">bucket, bucket</text>
-</g>
 <!-- type~key_base -->
-<g id="node6" class="node"><title>type~key_base</title>
+<g id="node2" class="node"><title>type~key_base</title>
 <a xlink:href="../type/key_base.html" xlink:title="key_base">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="64,-75 6,-75 6,-49 64,-49 64,-75"/>
 <text text-anchor="middle" x="35" y="-59.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">key_base</text>
@@ -191,29 +157,63 @@ All Types &ndash; HASTY
 <polygon fill="#000000" stroke="#000000" points="120.941,-82.6252 131.431,-81.1391 122.304,-75.7592 120.941,-82.6252"/>
 </g>
 <!-- type~dictionary_node -->
-<g id="node7" class="node"><title>type~dictionary_node</title>
+<g id="node3" class="node"><title>type~dictionary_node</title>
 <a xlink:href="../type/dictionary_node.html" xlink:title="dictionary_node">
 <polygon fill="#5cb85c" stroke="#5cb85c" points="210,-26 122,-26 122,-1.24345e-14 210,-3.55271e-15 210,-26"/>
 <text text-anchor="middle" x="166" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dictionary_node</text>
 </a>
 </g>
 <!-- type~key_base&#45;&gt;type~dictionary_node -->
-<g id="edge10" class="edge"><title>type~key_base&#45;&gt;type~dictionary_node</title>
+<g id="edge4" class="edge"><title>type~key_base&#45;&gt;type~dictionary_node</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M64.0731,-51.1253C80.8907,-44.8348 102.406,-36.787 121.331,-29.7081"/>
 <polygon fill="#000000" stroke="#000000" points="122.814,-32.8906 130.954,-26.109 120.361,-26.3342 122.814,-32.8906"/>
 <text text-anchor="middle" x="96" y="-45.45" font-family="Helvetica,sans-Serif" font-size="9.50">key</text>
 </g>
+<!-- type~dictionary_node&#45;&gt;type~dictionary_node -->
+<g id="edge6" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary_node</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.157,-26.0602C150.568,-35.0996 154.516,-44 166,-44 172.998,-44 177.198,-40.6949 178.599,-36.0674"/>
+<polygon fill="#000000" stroke="#000000" points="182.086,-35.7682 177.843,-26.0602 175.106,-36.2953 182.086,-35.7682"/>
+<text text-anchor="middle" x="166" y="-48.45" font-family="Helvetica,sans-Serif" font-size="9.50">next, previous</text>
+</g>
+<!-- type~dictionary -->
+<g id="node7" class="node"><title>type~dictionary</title>
+<a xlink:href="../type/dictionary.html" xlink:title="dictionary">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="344,-26 286,-26 286,-1.24345e-14 344,-3.55271e-15 344,-26"/>
+<text text-anchor="middle" x="315" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dictionary</text>
+</a>
+</g>
 <!-- type~dictionary_node&#45;&gt;type~dictionary -->
-<g id="edge6" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary</title>
+<g id="edge10" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M210.301,-13C231.048,-13 255.555,-13 275.641,-13"/>
 <polygon fill="#000000" stroke="#000000" points="275.699,-16.5001 285.699,-13 275.699,-9.5001 275.699,-16.5001"/>
 <text text-anchor="middle" x="248" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">head, tail</text>
 </g>
-<!-- type~dictionary_node&#45;&gt;type~dictionary_node -->
-<g id="edge8" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary_node</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.157,-26.0602C150.568,-35.0996 154.516,-44 166,-44 172.998,-44 177.198,-40.6949 178.599,-36.0674"/>
-<polygon fill="#000000" stroke="#000000" points="182.086,-35.7682 177.843,-26.0602 175.106,-36.2953 182.086,-35.7682"/>
-<text text-anchor="middle" x="166" y="-48.45" font-family="Helvetica,sans-Serif" font-size="9.50">next, previous</text>
+<!-- type~hash_table -->
+<g id="node4" class="node"><title>type~hash_table</title>
+<a xlink:href="../type/hash_table.html" xlink:title="hash_table">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="507,-26 443,-26 443,-1.24345e-14 507,-3.55271e-15 507,-26"/>
+<text text-anchor="middle" x="475" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hash_table</text>
+</a>
+</g>
+<!-- type~tester_t -->
+<g id="node5" class="node"><title>type~tester_t</title>
+<a xlink:href="../type/tester_t.html" xlink:title="tester_t">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="62,-119 8,-119 8,-93 62,-93 62,-119"/>
+<text text-anchor="middle" x="35" y="-103.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tester_t</text>
+</a>
+</g>
+<!-- type~content_adt -->
+<g id="node6" class="node"><title>type~content_adt</title>
+<a xlink:href="../type/content_adt.html" xlink:title="content_adt">
+<polygon fill="#5cb85c" stroke="#5cb85c" points="69,-163 1,-163 1,-137 69,-137 69,-163"/>
+<text text-anchor="middle" x="35" y="-147.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">content_adt</text>
+</a>
+</g>
+<!-- type~dictionary&#45;&gt;type~hash_table -->
+<g id="edge8" class="edge"><title>type~dictionary&#45;&gt;type~hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M344.346,-13C368.905,-13 404.283,-13 432.033,-13"/>
+<polygon fill="#000000" stroke="#000000" points="432.257,-16.5001 442.257,-13 432.257,-9.5001 432.257,-16.5001"/>
+<text text-anchor="middle" x="393" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">bucket, bucket</text>
 </g>
 </g>
 </svg>
