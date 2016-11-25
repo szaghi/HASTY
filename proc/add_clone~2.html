@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.3% of total for procedures.">26 statements</a>
+	  title=" 0.8% of total for procedures.">18 statements</a>
      </li> 
      
      
@@ -196,6 +196,8 @@
       <a class="list-group-item" href="../proc/add_pointer.html">add_pointer</a>
       
       <a class="list-group-item" href="../proc/add_pointer%7E2.html">add_pointer</a>
+      
+      <a class="list-group-item" href="../proc/allocate_members.html">allocate_members</a>
       
       <a class="list-group-item" href="../proc/assert_close_r32.html">assert_close_r32</a>
       
@@ -321,6 +323,8 @@
       
       <a class="list-group-item" href="../proc/check_endian.html">check_endian</a>
       
+      <a class="list-group-item" href="../proc/check_type.html">check_type</a>
+      
       <a class="list-group-item" href="../proc/compact_real_string.html">compact_real_string</a>
       
       <a class="list-group-item" href="../proc/creator.html">creator</a>
@@ -375,6 +379,10 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
+      <a class="list-group-item" href="../proc/find_next_prime.html">find_next_prime</a>
+      
+      <a class="list-group-item" href="../proc/get_bucket_image_indexes.html">get_bucket_image_indexes</a>
+      
       <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
       <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
@@ -427,6 +435,8 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/is_prime.html">is_prime</a>
+      
       <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
@@ -447,6 +457,8 @@
       
       <a class="list-group-item" href="../proc/print.html">print</a>
       
+      <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
+      
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
       <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
@@ -461,7 +473,13 @@
       
       <a class="list-group-item" href="../proc/set.html">set</a>
       
+      <a class="list-group-item" href="../proc/set_buckets_number.html">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../proc/set_caf_dimensions.html">set_caf_dimensions</a>
+      
       <a class="list-group-item" href="../proc/set_clone.html">set_clone</a>
+      
+      <a class="list-group-item" href="../proc/set_homogeneous.html">set_homogeneous</a>
       
       <a class="list-group-item" href="../proc/set_pointer.html">set_pointer</a>
       
@@ -525,9 +543,13 @@
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
+      <a class="list-group-item" href="../proc/synchronize_images.html">synchronize_images</a>
+      
       <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_assert_equal%7E2.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_equal%7E3.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
       
@@ -800,30 +822,22 @@ private subroutine add_clone(self, key, content)
   <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span>          <span class="c">!&lt; The hash table.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">key</span>           <span class="c">!&lt; The key.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>    <span class="kd">::</span> <span class="n">content</span>       <span class="c">!&lt; The content.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">b</span>             <span class="c">!&lt; Bucket index, namely hashed key.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">b</span>             <span class="c">!&lt; Bucket index.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">i</span>             <span class="c">!&lt; Image index.</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                     <span class="kd">::</span> <span class="n">bucket_length</span> <span class="c">!&lt; Length (nodes number) of the bucket where the node is placed.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">is_key_allowed</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="n">error</span> <span class="k">stop</span> <span class="s1">&#39;error: key type not supported&#39;</span>
   <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span><span class="p">)</span> <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">initialize</span> <span class="c">! initialize the table with default options</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span><span class="p">)</span> <span class="k">then</span>
-<span class="k">    if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">))</span> <span class="k">then</span>
-<span class="k">      allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
-    <span class="n">elseif</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">same_type_as</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span> <span class="k">then</span>
-<span class="k">      </span><span class="n">error</span> <span class="k">stop</span> <span class="s1">&#39;error: key type is different from type-guard one for the homogeneous table&#39;</span>
-    <span class="n">endif</span>
-    <span class="k">if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">))</span> <span class="k">then</span>
-<span class="k">      allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
-    <span class="n">elseif</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="nb">same_type_as</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">,</span> <span class="n">content</span><span class="p">))</span> <span class="k">then</span>
-<span class="k">      </span><span class="n">error</span> <span class="k">stop</span> <span class="s1">&#39;error: content type is different from type-guard one for the homogeneous table&#39;</span>
-    <span class="n">endif</span>
+  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">check_type</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">get_bucket_image_indexes</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">bucket</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">me</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">    </span><span class="n">bucket_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+    <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">add_clone</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">self</span><span class="p">%</span><span class="n">nodes_number</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">nodes_number</span> <span class="o">+</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">-</span> <span class="n">bucket_length</span><span class="p">)</span>
+    <span class="n">self</span><span class="p">%</span><span class="n">ids_</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">ids</span><span class="p">()</span>
   <span class="n">endif</span>
-  <span class="n">b</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">hash</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key_base</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">buckets_number</span><span class="o">=</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">))</span>
-  <span class="n">bucket_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">add_clone</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">nodes_number</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">nodes_number</span> <span class="o">+</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">-</span> <span class="n">bucket_length</span><span class="p">)</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">ids_</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="n">b</span><span class="p">)%</span><span class="n">ids</span><span class="p">()</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">endsubroutine</span> <span class="n">add_clone</span>
 </pre></div>
@@ -853,6 +867,8 @@ private subroutine add_clone(self, key, content)
       <a class="list-group-item" href="../proc/add_pointer.html">add_pointer</a>
       
       <a class="list-group-item" href="../proc/add_pointer%7E2.html">add_pointer</a>
+      
+      <a class="list-group-item" href="../proc/allocate_members.html">allocate_members</a>
       
       <a class="list-group-item" href="../proc/assert_close_r32.html">assert_close_r32</a>
       
@@ -978,6 +994,8 @@ private subroutine add_clone(self, key, content)
       
       <a class="list-group-item" href="../proc/check_endian.html">check_endian</a>
       
+      <a class="list-group-item" href="../proc/check_type.html">check_type</a>
+      
       <a class="list-group-item" href="../proc/compact_real_string.html">compact_real_string</a>
       
       <a class="list-group-item" href="../proc/creator.html">creator</a>
@@ -1032,6 +1050,10 @@ private subroutine add_clone(self, key, content)
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
+      <a class="list-group-item" href="../proc/find_next_prime.html">find_next_prime</a>
+      
+      <a class="list-group-item" href="../proc/get_bucket_image_indexes.html">get_bucket_image_indexes</a>
+      
       <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
       <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
@@ -1084,6 +1106,8 @@ private subroutine add_clone(self, key, content)
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/is_prime.html">is_prime</a>
+      
       <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
@@ -1104,6 +1128,8 @@ private subroutine add_clone(self, key, content)
       
       <a class="list-group-item" href="../proc/print.html">print</a>
       
+      <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
+      
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
       <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
@@ -1118,7 +1144,13 @@ private subroutine add_clone(self, key, content)
       
       <a class="list-group-item" href="../proc/set.html">set</a>
       
+      <a class="list-group-item" href="../proc/set_buckets_number.html">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../proc/set_caf_dimensions.html">set_caf_dimensions</a>
+      
       <a class="list-group-item" href="../proc/set_clone.html">set_clone</a>
+      
+      <a class="list-group-item" href="../proc/set_homogeneous.html">set_homogeneous</a>
       
       <a class="list-group-item" href="../proc/set_pointer.html">set_pointer</a>
       
@@ -1182,9 +1214,13 @@ private subroutine add_clone(self, key, content)
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
+      <a class="list-group-item" href="../proc/synchronize_images.html">synchronize_images</a>
+      
       <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_assert_equal%7E2.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_equal%7E3.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
       

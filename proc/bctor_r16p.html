@@ -197,6 +197,8 @@
       
       <a class="list-group-item" href="../proc/add_pointer%7E2.html">add_pointer</a>
       
+      <a class="list-group-item" href="../proc/allocate_members.html">allocate_members</a>
+      
       <a class="list-group-item" href="../proc/assert_close_r32.html">assert_close_r32</a>
       
       <a class="list-group-item" href="../proc/assert_close_r32_1.html">assert_close_r32_1</a>
@@ -321,6 +323,8 @@
       
       <a class="list-group-item" href="../proc/check_endian.html">check_endian</a>
       
+      <a class="list-group-item" href="../proc/check_type.html">check_type</a>
+      
       <a class="list-group-item" href="../proc/compact_real_string.html">compact_real_string</a>
       
       <a class="list-group-item" href="../proc/creator.html">creator</a>
@@ -375,6 +379,10 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
+      <a class="list-group-item" href="../proc/find_next_prime.html">find_next_prime</a>
+      
+      <a class="list-group-item" href="../proc/get_bucket_image_indexes.html">get_bucket_image_indexes</a>
+      
       <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
       <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
@@ -427,6 +435,8 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/is_prime.html">is_prime</a>
+      
       <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
@@ -447,6 +457,8 @@
       
       <a class="list-group-item" href="../proc/print.html">print</a>
       
+      <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
+      
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
       <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
@@ -461,7 +473,13 @@
       
       <a class="list-group-item" href="../proc/set.html">set</a>
       
+      <a class="list-group-item" href="../proc/set_buckets_number.html">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../proc/set_caf_dimensions.html">set_caf_dimensions</a>
+      
       <a class="list-group-item" href="../proc/set_clone.html">set_clone</a>
+      
+      <a class="list-group-item" href="../proc/set_homogeneous.html">set_homogeneous</a>
       
       <a class="list-group-item" href="../proc/set_pointer.html">set_pointer</a>
       
@@ -525,9 +543,13 @@
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
+      <a class="list-group-item" href="../proc/synchronize_images.html">synchronize_images</a>
+      
       <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_assert_equal%7E2.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_equal%7E3.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
       
@@ -617,7 +639,7 @@ private elemental function bctor_R16P(bstr, knd) result(n)
     
     
     
-	 <h3>Return Value <small><span class="anchor" id="variable-n%7E45"></span>real(kind=R16P)
+	 <h3>Return Value <small><span class="anchor" id="variable-n%7E47"></span>real(kind=R16P)
   </small></h3>
     <p>Number returned.</p>
     
@@ -637,20 +659,20 @@ private elemental function bctor_R16P(bstr, knd) result(n)
 <polygon fill="white" stroke="white" points="-4,5 -4,-786 501,-786 501,5 -4,5"/>
 <!-- proc~bctor_r16p -->
 <g id="node1" class="node"><title>proc~bctor_r16p</title>
-<polygon fill="none" stroke="black" points="69,-398 1,-398 1,-372 69,-372 69,-398"/>
-<text text-anchor="middle" x="35" y="-382.55" font-family="Helvetica,sans-Serif" font-size="10.50">bctor_R16P</text>
+<polygon fill="none" stroke="black" points="69,-404 1,-404 1,-378 69,-378 69,-404"/>
+<text text-anchor="middle" x="35" y="-388.55" font-family="Helvetica,sans-Serif" font-size="10.50">bctor_R16P</text>
 </g>
 <!-- interface~str -->
 <g id="node2" class="node"><title>interface~str</title>
 <a xlink:href="../interface/str.html" xlink:title="str">
-<polygon fill="#a7506f" stroke="#a7506f" points="160,-398 106,-398 106,-372 160,-372 160,-398"/>
-<text text-anchor="middle" x="133" y="-382.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="160,-404 106,-404 106,-378 160,-378 160,-404"/>
+<text text-anchor="middle" x="133" y="-388.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str</text>
 </a>
 </g>
 <!-- proc~bctor_r16p&#45;&gt;interface~str -->
 <g id="edge56" class="edge"><title>proc~bctor_r16p&#45;&gt;interface~str</title>
-<path fill="none" stroke="#000000" d="M69.5511,-385C78.0135,-385 87.1073,-385 95.6925,-385"/>
-<polygon fill="#000000" stroke="#000000" points="95.8358,-388.5 105.836,-385 95.8357,-381.5 95.8358,-388.5"/>
+<path fill="none" stroke="#000000" d="M69.5511,-391C78.0135,-391 87.1073,-391 95.6925,-391"/>
+<polygon fill="#000000" stroke="#000000" points="95.8358,-394.5 105.836,-391 95.8357,-387.5 95.8358,-394.5"/>
 </g>
 <!-- proc~strf_r8p -->
 <g id="node3" class="node"><title>proc~strf_r8p</title>
@@ -661,271 +683,271 @@ private elemental function bctor_R16P(bstr, knd) result(n)
 </g>
 <!-- interface~str&#45;&gt;proc~strf_r8p -->
 <g id="edge18" class="edge"><title>interface~str&#45;&gt;proc~strf_r8p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.927,-398.121C138.207,-455.845 157.507,-686.999 196,-747 196.33,-747.514 196.677,-748.02 197.038,-748.516"/>
-<polygon fill="#000000" stroke="#000000" points="194.537,-750.964 203.973,-755.783 199.601,-746.132 194.537,-750.964"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.15,-404.014C139.294,-460.248 161.474,-682.223 196,-742 197.336,-744.313 198.948,-746.519 200.729,-748.6"/>
+<polygon fill="#000000" stroke="#000000" points="198.632,-751.447 208.211,-755.974 203.545,-746.461 198.632,-751.447"/>
 </g>
-<!-- proc~strf_i1p -->
-<g id="node4" class="node"><title>proc~strf_i1p</title>
-<a xlink:href="../proc/strf_i1p.html" xlink:title="strf_I1P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-738 201,-738 201,-712 255,-712 255,-738"/>
-<text text-anchor="middle" x="228" y="-722.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I1P</text>
+<!-- proc~str_a_r8p -->
+<g id="node4" class="node"><title>proc~str_a_r8p</title>
+<a xlink:href="../proc/str_a_r8p.html" xlink:title="str_a_R8P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="259,-656 197,-656 197,-630 259,-630 259,-656"/>
+<text text-anchor="middle" x="228" y="-640.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_R8P</text>
 </a>
 </g>
-<!-- interface~str&#45;&gt;proc~strf_i1p -->
-<g id="edge20" class="edge"><title>interface~str&#45;&gt;proc~strf_i1p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.294,-398.294C139.701,-451.804 161.812,-651.049 196,-703 196.336,-703.51 196.688,-704.012 197.055,-704.505"/>
-<polygon fill="#000000" stroke="#000000" points="194.576,-706.977 204.041,-711.738 199.611,-702.114 194.576,-706.977"/>
+<!-- interface~str&#45;&gt;proc~str_a_r8p -->
+<g id="edge20" class="edge"><title>interface~str&#45;&gt;proc~str_a_r8p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.977,-404.017C137.234,-440.351 150.254,-544.861 196,-616 197.445,-618.247 199.134,-620.405 200.968,-622.454"/>
+<polygon fill="#000000" stroke="#000000" points="198.921,-625.342 208.547,-629.768 203.782,-620.305 198.921,-625.342"/>
+</g>
+<!-- proc~str_a_i2p -->
+<g id="node5" class="node"><title>proc~str_a_i2p</title>
+<a xlink:href="../proc/str_a_i2p.html" xlink:title="str_a_I2P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="257,-700 199,-700 199,-674 257,-674 257,-700"/>
+<text text-anchor="middle" x="228" y="-684.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_I2P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~str_a_i2p -->
+<g id="edge22" class="edge"><title>interface~str&#45;&gt;proc~str_a_i2p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.729,-404.077C141.319,-452.476 166.011,-620.906 196,-665 196.427,-665.627 196.877,-666.242 197.35,-666.843"/>
+<polygon fill="#000000" stroke="#000000" points="194.903,-669.347 204.45,-673.941 199.852,-664.396 194.903,-669.347"/>
+</g>
+<!-- proc~str_i8p -->
+<g id="node6" class="node"><title>proc~str_i8p</title>
+<a xlink:href="../proc/str_i8p.html" xlink:title="str_I8P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-298 296,-298 296,-272 350,-272 350,-298"/>
+<text text-anchor="middle" x="323" y="-282.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I8P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~str_i8p -->
+<g id="edge24" class="edge"><title>interface~str&#45;&gt;proc~str_i8p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M142.207,-377.951C153.337,-363.094 173.409,-339.066 196,-325 223.632,-307.796 259.289,-297.416 285.783,-291.558"/>
+<polygon fill="#000000" stroke="#000000" points="286.739,-294.934 295.81,-289.459 285.305,-288.082 286.739,-294.934"/>
 </g>
 <!-- proc~str_r4p -->
-<g id="node5" class="node"><title>proc~str_r4p</title>
+<g id="node7" class="node"><title>proc~str_r4p</title>
 <a xlink:href="../proc/str_r4p.html" xlink:title="str_R4P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-612 296,-612 296,-586 350,-586 350,-612"/>
-<text text-anchor="middle" x="323" y="-596.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_R4P</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-486 296,-486 296,-460 350,-460 350,-486"/>
+<text text-anchor="middle" x="323" y="-470.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_R4P</text>
 </a>
 </g>
 <!-- interface~str&#45;&gt;proc~str_r4p -->
-<g id="edge22" class="edge"><title>interface~str&#45;&gt;proc~str_r4p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.705,-398.386C136.18,-431.382 147.225,-517.249 196,-563 220.233,-585.731 257.75,-594.261 285.733,-597.386"/>
-<polygon fill="#000000" stroke="#000000" points="285.662,-600.894 295.944,-598.337 286.311,-593.924 285.662,-600.894"/>
+<g id="edge26" class="edge"><title>interface~str&#45;&gt;proc~str_r4p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.222,-402.749C193.378,-417.058 249.518,-441.287 286.425,-457.215"/>
+<polygon fill="#000000" stroke="#000000" points="285.26,-460.524 295.828,-461.273 288.034,-454.097 285.26,-460.524"/>
 </g>
-<!-- proc~str_bol -->
-<g id="node6" class="node"><title>proc~str_bol</title>
-<a xlink:href="../proc/str_bol.html" xlink:title="str_bol">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-650 201,-650 201,-624 255,-624 255,-650"/>
-<text text-anchor="middle" x="228" y="-634.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_bol</text>
+<!-- proc~strf_i8p -->
+<g id="node8" class="node"><title>proc~strf_i8p</title>
+<a xlink:href="../proc/strf_i8p.html" xlink:title="strf_I8P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-574 201,-574 201,-548 255,-548 255,-574"/>
+<text text-anchor="middle" x="228" y="-558.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I8P</text>
 </a>
 </g>
-<!-- interface~str&#45;&gt;proc~str_bol -->
-<g id="edge24" class="edge"><title>interface~str&#45;&gt;proc~str_bol</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.977,-398.017C137.234,-434.351 150.254,-538.861 196,-610 197.445,-612.247 199.134,-614.405 200.968,-616.454"/>
-<polygon fill="#000000" stroke="#000000" points="198.921,-619.342 208.547,-623.768 203.782,-614.305 198.921,-619.342"/>
+<!-- interface~str&#45;&gt;proc~strf_i8p -->
+<g id="edge28" class="edge"><title>interface~str&#45;&gt;proc~strf_i8p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M135.947,-404.174C142.64,-431.728 161.174,-496.413 196,-539 196.579,-539.708 197.186,-540.402 197.817,-541.083"/>
+<polygon fill="#000000" stroke="#000000" points="195.512,-543.718 205.28,-547.821 200.203,-538.522 195.512,-543.718"/>
+</g>
+<!-- proc~strf_i2p -->
+<g id="node9" class="node"><title>proc~strf_i2p</title>
+<a xlink:href="../proc/strf_i2p.html" xlink:title="strf_I2P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-530 201,-530 201,-504 255,-504 255,-530"/>
+<text text-anchor="middle" x="228" y="-514.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I2P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~strf_i2p -->
+<g id="edge30" class="edge"><title>interface~str&#45;&gt;proc~strf_i2p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M138.664,-404.008C148.229,-424.935 169.192,-466.601 196,-495 196.764,-495.809 197.562,-496.605 198.387,-497.386"/>
+<polygon fill="#000000" stroke="#000000" points="196.401,-500.287 206.332,-503.98 200.872,-494.9 196.401,-500.287"/>
+</g>
+<!-- proc~str_i2p -->
+<g id="node10" class="node"><title>proc~str_i2p</title>
+<a xlink:href="../proc/str_i2p.html" xlink:title="str_I2P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-720 296,-720 296,-694 350,-694 350,-720"/>
+<text text-anchor="middle" x="323" y="-704.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I2P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~str_i2p -->
+<g id="edge32" class="edge"><title>interface~str&#45;&gt;proc~str_i2p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.484,-404.24C135.8,-459.327 147.724,-669.349 196,-709 220.738,-729.318 258.26,-725.949 286.111,-719.224"/>
+<polygon fill="#000000" stroke="#000000" points="287.123,-722.577 295.893,-716.632 285.33,-715.81 287.123,-722.577"/>
 </g>
 <!-- proc~str_a_i4p -->
-<g id="node7" class="node"><title>proc~str_a_i4p</title>
+<g id="node11" class="node"><title>proc~str_a_i4p</title>
 <a xlink:href="../proc/str_a_i4p.html" xlink:title="str_a_I4P">
 <polygon fill="#d94e8f" stroke="#d94e8f" points="257,-234 199,-234 199,-208 257,-208 257,-234"/>
 <text text-anchor="middle" x="228" y="-218.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_I4P</text>
 </a>
 </g>
 <!-- interface~str&#45;&gt;proc~str_a_i4p -->
-<g id="edge26" class="edge"><title>interface~str&#45;&gt;proc~str_a_i4p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M136.884,-371.897C144.923,-346.253 165.245,-288.416 196,-248 197.816,-245.614 199.877,-243.296 202.058,-241.086"/>
-<polygon fill="#000000" stroke="#000000" points="204.736,-243.379 209.749,-234.045 200.009,-238.216 204.736,-243.379"/>
+<g id="edge34" class="edge"><title>interface~str&#45;&gt;proc~str_a_i4p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M135.947,-377.826C142.64,-350.272 161.174,-285.587 196,-243 196.579,-242.292 197.186,-241.598 197.817,-240.917"/>
+<polygon fill="#000000" stroke="#000000" points="200.203,-243.478 205.28,-234.179 195.512,-238.282 200.203,-243.478"/>
 </g>
-<!-- proc~str_r8p -->
-<g id="node8" class="node"><title>proc~str_r8p</title>
-<a xlink:href="../proc/str_r8p.html" xlink:title="str_R8P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-568 296,-568 296,-542 350,-542 350,-568"/>
-<text text-anchor="middle" x="323" y="-552.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_R8P</text>
+<!-- proc~str_bol -->
+<g id="node12" class="node"><title>proc~str_bol</title>
+<a xlink:href="../proc/str_bol.html" xlink:title="str_bol">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-404 201,-404 201,-378 255,-378 255,-404"/>
+<text text-anchor="middle" x="228" y="-388.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_bol</text>
 </a>
 </g>
-<!-- interface~str&#45;&gt;proc~str_r8p -->
-<g id="edge28" class="edge"><title>interface~str&#45;&gt;proc~str_r8p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.093,-398.38C137.36,-428.888 149.915,-503.681 196,-539 221.338,-558.418 258.228,-561.082 285.727,-559.68"/>
-<polygon fill="#000000" stroke="#000000" points="286.036,-563.167 295.764,-558.97 285.542,-556.185 286.036,-563.167"/>
-</g>
-<!-- proc~strf_i8p -->
-<g id="node9" class="node"><title>proc~strf_i8p</title>
-<a xlink:href="../proc/strf_i8p.html" xlink:title="strf_I8P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-530 201,-530 201,-504 255,-504 255,-530"/>
-<text text-anchor="middle" x="228" y="-514.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I8P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~strf_i8p -->
-<g id="edge30" class="edge"><title>interface~str&#45;&gt;proc~strf_i8p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M138.187,-398.069C147.355,-419.988 168.119,-464.729 196,-495 196.731,-495.793 197.495,-496.574 198.286,-497.339"/>
-<polygon fill="#000000" stroke="#000000" points="196.033,-500.018 205.933,-503.793 200.548,-494.668 196.033,-500.018"/>
-</g>
-<!-- proc~str_a_i1p -->
-<g id="node10" class="node"><title>proc~str_a_i1p</title>
-<a xlink:href="../proc/str_a_i1p.html" xlink:title="str_a_I1P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="257,-316 199,-316 199,-290 257,-290 257,-316"/>
-<text text-anchor="middle" x="228" y="-300.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_I1P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~str_a_i1p -->
-<g id="edge32" class="edge"><title>interface~str&#45;&gt;proc~str_a_i1p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M147.959,-371.816C160.685,-360.629 179.474,-344.184 196,-330 198.73,-327.657 201.601,-325.21 204.456,-322.788"/>
-<polygon fill="#000000" stroke="#000000" points="206.953,-325.26 212.33,-316.131 202.434,-319.914 206.953,-325.26"/>
-</g>
-<!-- proc~strf_i2p -->
-<g id="node11" class="node"><title>proc~strf_i2p</title>
-<a xlink:href="../proc/strf_i2p.html" xlink:title="strf_I2P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-442 201,-442 201,-416 255,-416 255,-442"/>
-<text text-anchor="middle" x="228" y="-426.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I2P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~strf_i2p -->
-<g id="edge34" class="edge"><title>interface~str&#45;&gt;proc~strf_i2p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.223,-397.609C169.962,-402.119 181.101,-407.278 191.497,-412.093"/>
-<polygon fill="#000000" stroke="#000000" points="190.228,-415.363 200.773,-416.39 193.17,-409.011 190.228,-415.363"/>
+<!-- interface~str&#45;&gt;proc~str_bol -->
+<g id="edge36" class="edge"><title>interface~str&#45;&gt;proc~str_bol</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.223,-391C169.664,-391 180.42,-391 190.54,-391"/>
+<polygon fill="#000000" stroke="#000000" points="190.773,-394.5 200.773,-391 190.773,-387.5 190.773,-394.5"/>
 </g>
 <!-- proc~strf_r4p -->
-<g id="node12" class="node"><title>proc~strf_r4p</title>
+<g id="node13" class="node"><title>proc~strf_r4p</title>
 <a xlink:href="../proc/strf_r4p.html" xlink:title="strf_R4P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-398 201,-398 201,-372 255,-372 255,-398"/>
-<text text-anchor="middle" x="228" y="-382.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_R4P</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-360 201,-360 201,-334 255,-334 255,-360"/>
+<text text-anchor="middle" x="228" y="-344.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_R4P</text>
 </a>
 </g>
 <!-- interface~str&#45;&gt;proc~strf_r4p -->
-<g id="edge36" class="edge"><title>interface~str&#45;&gt;proc~strf_r4p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.223,-385C169.664,-385 180.42,-385 190.54,-385"/>
-<polygon fill="#000000" stroke="#000000" points="190.773,-388.5 200.773,-385 190.773,-381.5 190.773,-388.5"/>
-</g>
-<!-- proc~str_i2p -->
-<g id="node13" class="node"><title>proc~str_i2p</title>
-<a xlink:href="../proc/str_i2p.html" xlink:title="str_I2P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-46 296,-46 296,-20 350,-20 350,-46"/>
-<text text-anchor="middle" x="323" y="-30.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I2P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~str_i2p -->
-<g id="edge38" class="edge"><title>interface~str&#45;&gt;proc~str_i2p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.921,-371.645C137.884,-317.934 155.168,-118.402 196,-73 218.716,-47.742 257.201,-38.3013 285.866,-34.8415"/>
-<polygon fill="#000000" stroke="#000000" points="286.34,-38.3115 295.935,-33.8192 285.632,-31.3473 286.34,-38.3115"/>
-</g>
-<!-- proc~str_i8p -->
-<g id="node14" class="node"><title>proc~str_i8p</title>
-<a xlink:href="../proc/str_i8p.html" xlink:title="str_I8P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-182 296,-182 296,-156 350,-156 350,-182"/>
-<text text-anchor="middle" x="323" y="-166.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I8P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~str_i8p -->
-<g id="edge40" class="edge"><title>interface~str&#45;&gt;proc~str_i8p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M135.747,-371.75C143.968,-333.341 169.455,-223.145 196,-199 220.298,-176.899 257.806,-170.209 285.77,-168.563"/>
-<polygon fill="#000000" stroke="#000000" points="286.119,-172.052 295.972,-168.158 285.841,-165.057 286.119,-172.052"/>
-</g>
-<!-- proc~str_i1p -->
-<g id="node15" class="node"><title>proc~str_i1p</title>
-<a xlink:href="../proc/str_i1p.html" xlink:title="str_I1P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-336 296,-336 296,-310 350,-310 350,-336"/>
-<text text-anchor="middle" x="323" y="-320.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I1P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~str_i1p -->
-<g id="edge42" class="edge"><title>interface~str&#45;&gt;proc~str_i1p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.226,-375.287C171.299,-371.39 184.235,-366.906 196,-363 226.214,-352.969 260.674,-342.155 286.068,-334.302"/>
-<polygon fill="#000000" stroke="#000000" points="287.146,-337.633 295.67,-331.341 285.083,-330.944 287.146,-337.633"/>
-</g>
-<!-- proc~str_a_i8p -->
-<g id="node16" class="node"><title>proc~str_a_i8p</title>
-<a xlink:href="../proc/str_a_i8p.html" xlink:title="str_a_I8P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="257,-152 199,-152 199,-126 257,-126 257,-152"/>
-<text text-anchor="middle" x="228" y="-136.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_I8P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~str_a_i8p -->
-<g id="edge44" class="edge"><title>interface~str&#45;&gt;proc~str_a_i8p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.119,-371.815C137.693,-335.983 151.353,-234.89 196,-166 197.453,-163.758 199.148,-161.604 200.986,-159.558"/>
-<polygon fill="#000000" stroke="#000000" points="203.8,-161.707 208.572,-152.248 198.942,-156.666 203.8,-161.707"/>
-</g>
-<!-- proc~str_a_r8p -->
-<g id="node17" class="node"><title>proc~str_a_r8p</title>
-<a xlink:href="../proc/str_a_r8p.html" xlink:title="str_a_R8P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="259,-486 197,-486 197,-460 259,-460 259,-486"/>
-<text text-anchor="middle" x="228" y="-470.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_R8P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~str_a_r8p -->
-<g id="edge46" class="edge"><title>interface~str&#45;&gt;proc~str_a_r8p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M144.119,-398.174C156.177,-412.079 176.343,-434.259 196,-451 197.123,-451.956 198.287,-452.91 199.478,-453.854"/>
-<polygon fill="#000000" stroke="#000000" points="197.451,-456.708 207.559,-459.881 201.636,-451.097 197.451,-456.708"/>
+<g id="edge38" class="edge"><title>interface~str&#45;&gt;proc~strf_r4p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.223,-378.391C169.962,-373.881 181.101,-368.722 191.497,-363.907"/>
+<polygon fill="#000000" stroke="#000000" points="193.17,-366.989 200.773,-359.61 190.228,-360.637 193.17,-366.989"/>
 </g>
 <!-- proc~str_a_r4p -->
-<g id="node18" class="node"><title>proc~str_a_r4p</title>
+<g id="node14" class="node"><title>proc~str_a_r4p</title>
 <a xlink:href="../proc/str_a_r4p.html" xlink:title="str_a_R4P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="259,-694 197,-694 197,-668 259,-668 259,-694"/>
-<text text-anchor="middle" x="228" y="-678.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_R4P</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="259,-486 197,-486 197,-460 259,-460 259,-486"/>
+<text text-anchor="middle" x="228" y="-470.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_R4P</text>
 </a>
 </g>
 <!-- interface~str&#45;&gt;proc~str_a_r4p -->
-<g id="edge48" class="edge"><title>interface~str&#45;&gt;proc~str_a_r4p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.729,-398.077C141.319,-446.476 166.011,-614.906 196,-659 196.427,-659.627 196.877,-660.242 197.35,-660.843"/>
-<polygon fill="#000000" stroke="#000000" points="194.903,-663.347 204.45,-667.941 199.852,-658.396 194.903,-663.347"/>
+<g id="edge40" class="edge"><title>interface~str&#45;&gt;proc~str_a_r4p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M147.959,-404.184C160.685,-415.371 179.474,-431.816 196,-446 198.73,-448.343 201.601,-450.79 204.456,-453.212"/>
+<polygon fill="#000000" stroke="#000000" points="202.434,-456.086 212.33,-459.869 206.953,-450.74 202.434,-456.086"/>
+</g>
+<!-- proc~str_a_i1p -->
+<g id="node15" class="node"><title>proc~str_a_i1p</title>
+<a xlink:href="../proc/str_a_i1p.html" xlink:title="str_a_I1P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="257,-26 199,-26 199,-1.24345e-14 257,-3.55271e-15 257,-26"/>
+<text text-anchor="middle" x="228" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_I1P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~str_a_i1p -->
+<g id="edge42" class="edge"><title>interface~str&#45;&gt;proc~str_a_i1p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.15,-377.986C139.294,-321.752 161.474,-99.7768 196,-40 197.336,-37.6868 198.948,-35.4813 200.729,-33.4003"/>
+<polygon fill="#000000" stroke="#000000" points="203.545,-35.5388 208.211,-26.0264 198.632,-30.5533 203.545,-35.5388"/>
+</g>
+<!-- proc~str_r8p -->
+<g id="node16" class="node"><title>proc~str_r8p</title>
+<a xlink:href="../proc/str_r8p.html" xlink:title="str_R8P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-615 296,-615 296,-589 350,-589 350,-615"/>
+<text text-anchor="middle" x="323" y="-599.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_R8P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~str_r8p -->
+<g id="edge44" class="edge"><title>interface~str&#45;&gt;proc~str_r8p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M135.479,-404.218C143.143,-443.628 167.652,-559.068 196,-583 220.622,-603.786 257.924,-607.157 285.74,-606.153"/>
+<polygon fill="#000000" stroke="#000000" points="286.102,-609.638 295.889,-605.58 285.708,-602.649 286.102,-609.638"/>
 </g>
 <!-- proc~strf_i4p -->
-<g id="node19" class="node"><title>proc~strf_i4p</title>
+<g id="node17" class="node"><title>proc~strf_i4p</title>
 <a xlink:href="../proc/strf_i4p.html" xlink:title="strf_I4P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-108 201,-108 201,-82 255,-82 255,-108"/>
-<text text-anchor="middle" x="228" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I4P</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-190 201,-190 201,-164 255,-164 255,-190"/>
+<text text-anchor="middle" x="228" y="-174.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I4P</text>
 </a>
 </g>
 <!-- interface~str&#45;&gt;proc~strf_i4p -->
-<g id="edge50" class="edge"><title>interface~str&#45;&gt;proc~strf_i4p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.809,-371.881C141.586,-324.11 166.597,-160.007 196,-117 196.428,-116.374 196.88,-115.76 197.354,-115.159"/>
-<polygon fill="#000000" stroke="#000000" points="199.855,-117.608 204.464,-108.069 194.912,-112.652 199.855,-117.608"/>
-</g>
-<!-- proc~str_a_i2p -->
-<g id="node20" class="node"><title>proc~str_a_i2p</title>
-<a xlink:href="../proc/str_a_i2p.html" xlink:title="str_a_I2P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="257,-26 199,-26 199,-1.24345e-14 257,-3.55271e-15 257,-26"/>
-<text text-anchor="middle" x="228" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_I2P</text>
-</a>
-</g>
-<!-- interface~str&#45;&gt;proc~str_a_i2p -->
-<g id="edge52" class="edge"><title>interface~str&#45;&gt;proc~str_a_i2p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.209,-371.833C139.52,-315.953 162.033,-98.6041 196,-40 197.34,-37.6888 198.954,-35.4848 200.737,-33.4048"/>
-<polygon fill="#000000" stroke="#000000" points="203.553,-35.5435 208.221,-26.0327 198.641,-30.5564 203.553,-35.5435"/>
+<g id="edge46" class="edge"><title>interface~str&#45;&gt;proc~strf_i4p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.432,-377.543C138.567,-344.194 153.101,-256.285 196,-199 196.455,-198.393 196.931,-197.797 197.427,-197.212"/>
+<polygon fill="#000000" stroke="#000000" points="199.903,-199.687 204.713,-190.247 195.066,-194.626 199.903,-199.687"/>
 </g>
 <!-- proc~str_i4p -->
-<g id="node21" class="node"><title>proc~str_i4p</title>
+<g id="node18" class="node"><title>proc~str_i4p</title>
 <a xlink:href="../proc/str_i4p.html" xlink:title="str_I4P">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-245 296,-245 296,-219 350,-219 350,-245"/>
-<text text-anchor="middle" x="323" y="-229.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I4P</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-191 296,-191 296,-165 350,-165 350,-191"/>
+<text text-anchor="middle" x="323" y="-175.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I4P</text>
 </a>
 </g>
 <!-- interface~str&#45;&gt;proc~str_i4p -->
-<g id="edge54" class="edge"><title>interface~str&#45;&gt;proc~str_i4p</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.667,-371.931C146.07,-350.156 165.736,-306.346 196,-281 221.946,-259.27 258.605,-246.518 285.872,-239.5"/>
-<polygon fill="#000000" stroke="#000000" points="286.93,-242.845 295.821,-237.084 285.278,-236.043 286.93,-242.845"/>
+<g id="edge48" class="edge"><title>interface~str&#45;&gt;proc~str_i4p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.437,-377.875C139.707,-332.42 159.594,-182.963 196,-155 223.621,-133.785 264.517,-146.81 292.387,-160.318"/>
+<polygon fill="#000000" stroke="#000000" points="290.804,-163.439 301.302,-164.868 293.986,-157.204 290.804,-163.439"/>
+</g>
+<!-- proc~strf_i1p -->
+<g id="node19" class="node"><title>proc~strf_i1p</title>
+<a xlink:href="../proc/strf_i1p.html" xlink:title="strf_I1P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="255,-108 201,-108 201,-82 255,-82 255,-108"/>
+<text text-anchor="middle" x="228" y="-92.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">strf_I1P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~strf_i1p -->
+<g id="edge50" class="edge"><title>interface~str&#45;&gt;proc~strf_i1p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M134.946,-377.925C142.202,-330.3 168.673,-166.572 196,-122 197.396,-119.723 199.051,-117.543 200.861,-115.479"/>
+<polygon fill="#000000" stroke="#000000" points="203.677,-117.623 208.397,-108.137 198.792,-112.609 203.677,-117.623"/>
+</g>
+<!-- proc~str_a_i8p -->
+<g id="node20" class="node"><title>proc~str_a_i8p</title>
+<a xlink:href="../proc/str_a_i8p.html" xlink:title="str_a_I8P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="257,-278 199,-278 199,-252 257,-252 257,-278"/>
+<text text-anchor="middle" x="228" y="-262.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_a_I8P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~str_a_i8p -->
+<g id="edge52" class="edge"><title>interface~str&#45;&gt;proc~str_a_i8p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M139.632,-377.964C150.05,-358.177 171.598,-319.916 196,-292 198.153,-289.537 200.537,-287.106 203.006,-284.771"/>
+<polygon fill="#000000" stroke="#000000" points="205.349,-287.372 210.515,-278.122 200.708,-282.131 205.349,-287.372"/>
+</g>
+<!-- proc~str_i1p -->
+<g id="node21" class="node"><title>proc~str_i1p</title>
+<a xlink:href="../proc/str_i1p.html" xlink:title="str_I1P">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="350,-46 296,-46 296,-20 350,-20 350,-46"/>
+<text text-anchor="middle" x="323" y="-30.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">str_I1P</text>
+</a>
+</g>
+<!-- interface~str&#45;&gt;proc~str_i1p -->
+<g id="edge54" class="edge"><title>interface~str&#45;&gt;proc~str_i1p</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M133.858,-377.76C137.625,-323.577 154.404,-119.422 196,-73 218.67,-47.7004 257.161,-38.2659 285.841,-34.8188"/>
+<polygon fill="#000000" stroke="#000000" points="286.317,-38.2886 295.915,-33.8015 285.614,-31.324 286.317,-38.2886"/>
+</g>
+<!-- proc~str_a_r8p&#45;&gt;proc~str_r8p -->
+<g id="edge2" class="edge"><title>proc~str_a_r8p&#45;&gt;proc~str_r8p</title>
+<path fill="none" stroke="#000000" d="M258.32,-629.915C267.267,-626.053 277.154,-621.786 286.449,-617.775"/>
+<polygon fill="#000000" stroke="#000000" points="288.063,-620.89 295.857,-613.714 285.289,-614.463 288.063,-620.89"/>
+</g>
+<!-- proc~str_a_i2p&#45;&gt;proc~str_i2p -->
+<g id="edge4" class="edge"><title>proc~str_a_i2p&#45;&gt;proc~str_i2p</title>
+<path fill="none" stroke="#000000" d="M257.019,-693.109C266.076,-695.016 276.194,-697.146 285.734,-699.154"/>
+<polygon fill="#000000" stroke="#000000" points="285.274,-702.634 295.781,-701.27 286.716,-695.785 285.274,-702.634"/>
 </g>
 <!-- proc~compact_real_string -->
-<g id="node22" class="node"><title>proc~compact_real_string</title>
+<g id="node24" class="node"><title>proc~compact_real_string</title>
 <a xlink:href="../proc/compact_real_string.html" xlink:title="compact_real_string">
-<polygon fill="#d9534f" stroke="#d9534f" points="495,-590 387,-590 387,-564 495,-564 495,-590"/>
-<text text-anchor="middle" x="441" y="-574.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compact_real_string</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="495,-550 387,-550 387,-524 495,-524 495,-550"/>
+<text text-anchor="middle" x="441" y="-534.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">compact_real_string</text>
 </a>
 </g>
 <!-- proc~str_r4p&#45;&gt;proc~compact_real_string -->
-<g id="edge2" class="edge"><title>proc~str_r4p&#45;&gt;proc~compact_real_string</title>
-<path fill="none" stroke="#000000" d="M350.072,-593.953C357.967,-592.481 366.953,-590.805 376.131,-589.094"/>
-<polygon fill="#000000" stroke="#000000" points="376.933,-592.505 386.122,-587.231 375.65,-585.624 376.933,-592.505"/>
+<g id="edge6" class="edge"><title>proc~str_r4p&#45;&gt;proc~compact_real_string</title>
+<path fill="none" stroke="#000000" d="M347.164,-486.106C364.663,-495.597 388.532,-508.543 407.818,-519.003"/>
+<polygon fill="#000000" stroke="#000000" points="406.409,-522.221 416.869,-523.912 409.747,-516.067 406.409,-522.221"/>
 </g>
 <!-- proc~str_a_i4p&#45;&gt;proc~str_i4p -->
-<g id="edge4" class="edge"><title>proc~str_a_i4p&#45;&gt;proc~str_i4p</title>
-<path fill="none" stroke="#000000" d="M257.019,-224.36C266.076,-225.409 276.194,-226.58 285.734,-227.685"/>
-<polygon fill="#000000" stroke="#000000" points="285.445,-231.175 295.781,-228.848 286.25,-224.221 285.445,-231.175"/>
-</g>
-<!-- proc~str_r8p&#45;&gt;proc~compact_real_string -->
-<g id="edge6" class="edge"><title>proc~str_r8p&#45;&gt;proc~compact_real_string</title>
-<path fill="none" stroke="#000000" d="M350.072,-560.047C357.967,-561.519 366.953,-563.195 376.131,-564.906"/>
-<polygon fill="#000000" stroke="#000000" points="375.65,-568.376 386.122,-566.769 376.933,-561.495 375.65,-568.376"/>
-</g>
-<!-- proc~str_a_i1p&#45;&gt;proc~str_i1p -->
-<g id="edge8" class="edge"><title>proc~str_a_i1p&#45;&gt;proc~str_i1p</title>
-<path fill="none" stroke="#000000" d="M257.019,-309.109C266.076,-311.016 276.194,-313.146 285.734,-315.154"/>
-<polygon fill="#000000" stroke="#000000" points="285.274,-318.634 295.781,-317.27 286.716,-311.785 285.274,-318.634"/>
-</g>
-<!-- proc~str_a_i8p&#45;&gt;proc~str_i8p -->
-<g id="edge10" class="edge"><title>proc~str_a_i8p&#45;&gt;proc~str_i8p</title>
-<path fill="none" stroke="#000000" d="M257.019,-148.164C266.172,-151.054 276.409,-154.287 286.038,-157.328"/>
-<polygon fill="#000000" stroke="#000000" points="285.191,-160.731 295.781,-160.404 287.299,-154.056 285.191,-160.731"/>
-</g>
-<!-- proc~str_a_r8p&#45;&gt;proc~str_r8p -->
-<g id="edge12" class="edge"><title>proc~str_a_r8p&#45;&gt;proc~str_r8p</title>
-<path fill="none" stroke="#000000" d="M247.988,-486.018C252.05,-488.863 256.231,-491.942 260,-495 275.202,-507.335 291.159,-522.559 303.21,-534.586"/>
-<polygon fill="#000000" stroke="#000000" points="300.995,-537.322 310.519,-541.964 305.968,-532.396 300.995,-537.322"/>
+<g id="edge8" class="edge"><title>proc~str_a_i4p&#45;&gt;proc~str_i4p</title>
+<path fill="none" stroke="#000000" d="M256.761,-207.982C266.197,-203.711 276.807,-198.908 286.726,-194.419"/>
+<polygon fill="#000000" stroke="#000000" points="288.295,-197.551 295.962,-190.238 285.408,-191.174 288.295,-197.551"/>
 </g>
 <!-- proc~str_a_r4p&#45;&gt;proc~str_r4p -->
-<g id="edge14" class="edge"><title>proc~str_a_r4p&#45;&gt;proc~str_r4p</title>
-<path fill="none" stroke="#000000" d="M247.988,-667.982C252.05,-665.137 256.231,-662.058 260,-659 275.202,-646.665 291.159,-631.441 303.21,-619.414"/>
-<polygon fill="#000000" stroke="#000000" points="305.968,-621.604 310.519,-612.036 300.995,-616.678 305.968,-621.604"/>
+<g id="edge10" class="edge"><title>proc~str_a_r4p&#45;&gt;proc~str_r4p</title>
+<path fill="none" stroke="#000000" d="M259.634,-473C267.999,-473 277.106,-473 285.74,-473"/>
+<polygon fill="#000000" stroke="#000000" points="285.954,-476.5 295.954,-473 285.954,-469.5 285.954,-476.5"/>
 </g>
-<!-- proc~str_a_i2p&#45;&gt;proc~str_i2p -->
-<g id="edge16" class="edge"><title>proc~str_a_i2p&#45;&gt;proc~str_i2p</title>
+<!-- proc~str_a_i1p&#45;&gt;proc~str_i1p -->
+<g id="edge12" class="edge"><title>proc~str_a_i1p&#45;&gt;proc~str_i1p</title>
 <path fill="none" stroke="#000000" d="M257.019,-19.1093C266.076,-21.0159 276.194,-23.146 285.734,-25.1544"/>
 <polygon fill="#000000" stroke="#000000" points="285.274,-28.6344 295.781,-27.2696 286.716,-21.7845 285.274,-28.6344"/>
+</g>
+<!-- proc~str_r8p&#45;&gt;proc~compact_real_string -->
+<g id="edge14" class="edge"><title>proc~str_r8p&#45;&gt;proc~compact_real_string</title>
+<path fill="none" stroke="#000000" d="M346.879,-588.846C364.553,-579.111 388.837,-565.734 408.311,-555.007"/>
+<polygon fill="#000000" stroke="#000000" points="410.086,-558.025 417.156,-550.134 406.709,-551.893 410.086,-558.025"/>
+</g>
+<!-- proc~str_a_i8p&#45;&gt;proc~str_i8p -->
+<g id="edge16" class="edge"><title>proc~str_a_i8p&#45;&gt;proc~str_i8p</title>
+<path fill="none" stroke="#000000" d="M257.019,-271.109C266.076,-273.016 276.194,-275.146 285.734,-277.154"/>
+<polygon fill="#000000" stroke="#000000" points="285.274,-280.634 295.781,-279.27 286.716,-273.785 285.274,-280.634"/>
 </g>
 </g>
 </svg>
@@ -1096,6 +1118,8 @@ private elemental function bctor_R16P(bstr, knd) result(n)
       
       <a class="list-group-item" href="../proc/add_pointer%7E2.html">add_pointer</a>
       
+      <a class="list-group-item" href="../proc/allocate_members.html">allocate_members</a>
+      
       <a class="list-group-item" href="../proc/assert_close_r32.html">assert_close_r32</a>
       
       <a class="list-group-item" href="../proc/assert_close_r32_1.html">assert_close_r32_1</a>
@@ -1220,6 +1244,8 @@ private elemental function bctor_R16P(bstr, knd) result(n)
       
       <a class="list-group-item" href="../proc/check_endian.html">check_endian</a>
       
+      <a class="list-group-item" href="../proc/check_type.html">check_type</a>
+      
       <a class="list-group-item" href="../proc/compact_real_string.html">compact_real_string</a>
       
       <a class="list-group-item" href="../proc/creator.html">creator</a>
@@ -1274,6 +1300,10 @@ private elemental function bctor_R16P(bstr, knd) result(n)
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
+      <a class="list-group-item" href="../proc/find_next_prime.html">find_next_prime</a>
+      
+      <a class="list-group-item" href="../proc/get_bucket_image_indexes.html">get_bucket_image_indexes</a>
+      
       <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
       <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
@@ -1326,6 +1356,8 @@ private elemental function bctor_R16P(bstr, knd) result(n)
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/is_prime.html">is_prime</a>
+      
       <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
@@ -1346,6 +1378,8 @@ private elemental function bctor_R16P(bstr, knd) result(n)
       
       <a class="list-group-item" href="../proc/print.html">print</a>
       
+      <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
+      
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
       <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
@@ -1360,7 +1394,13 @@ private elemental function bctor_R16P(bstr, knd) result(n)
       
       <a class="list-group-item" href="../proc/set.html">set</a>
       
+      <a class="list-group-item" href="../proc/set_buckets_number.html">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../proc/set_caf_dimensions.html">set_caf_dimensions</a>
+      
       <a class="list-group-item" href="../proc/set_clone.html">set_clone</a>
+      
+      <a class="list-group-item" href="../proc/set_homogeneous.html">set_homogeneous</a>
       
       <a class="list-group-item" href="../proc/set_pointer.html">set_pointer</a>
       
@@ -1424,9 +1464,13 @@ private elemental function bctor_R16P(bstr, knd) result(n)
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
+      <a class="list-group-item" href="../proc/synchronize_images.html">synchronize_images</a>
+      
       <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_assert_equal%7E2.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_equal%7E3.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
       

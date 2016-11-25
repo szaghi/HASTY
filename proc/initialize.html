@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.0% of total for procedures.">21 statements</a>
+	  title=" 0.7% of total for procedures.">15 statements</a>
      </li> 
      
      
@@ -196,6 +196,8 @@
       <a class="list-group-item" href="../proc/add_pointer.html">add_pointer</a>
       
       <a class="list-group-item" href="../proc/add_pointer%7E2.html">add_pointer</a>
+      
+      <a class="list-group-item" href="../proc/allocate_members.html">allocate_members</a>
       
       <a class="list-group-item" href="../proc/assert_close_r32.html">assert_close_r32</a>
       
@@ -321,6 +323,8 @@
       
       <a class="list-group-item" href="../proc/check_endian.html">check_endian</a>
       
+      <a class="list-group-item" href="../proc/check_type.html">check_type</a>
+      
       <a class="list-group-item" href="../proc/compact_real_string.html">compact_real_string</a>
       
       <a class="list-group-item" href="../proc/creator.html">creator</a>
@@ -375,6 +379,10 @@
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
+      <a class="list-group-item" href="../proc/find_next_prime.html">find_next_prime</a>
+      
+      <a class="list-group-item" href="../proc/get_bucket_image_indexes.html">get_bucket_image_indexes</a>
+      
       <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
       <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
@@ -427,6 +435,8 @@
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/is_prime.html">is_prime</a>
+      
       <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
@@ -447,6 +457,8 @@
       
       <a class="list-group-item" href="../proc/print.html">print</a>
       
+      <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
+      
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
       <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
@@ -461,7 +473,13 @@
       
       <a class="list-group-item" href="../proc/set.html">set</a>
       
+      <a class="list-group-item" href="../proc/set_buckets_number.html">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../proc/set_caf_dimensions.html">set_caf_dimensions</a>
+      
       <a class="list-group-item" href="../proc/set_clone.html">set_clone</a>
+      
+      <a class="list-group-item" href="../proc/set_homogeneous.html">set_homogeneous</a>
       
       <a class="list-group-item" href="../proc/set_pointer.html">set_pointer</a>
       
@@ -525,9 +543,13 @@
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
+      <a class="list-group-item" href="../proc/synchronize_images.html">synchronize_images</a>
+      
       <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_assert_equal%7E2.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_equal%7E3.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
       
@@ -552,7 +574,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, typeguard_content)
+private subroutine initialize(self, buckets_number, use_prime, homogeneous, typeguard_key, typeguard_content)
     
     
 	 
@@ -604,6 +626,21 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
   
   <td></td><td>::</td>
   <td><strong>buckets_number</strong></td><td><p>Number of buckets for initialize the hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-use_prime"></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>use_prime</strong></td><td><p>If true the buckets number is rendered prime.</p></td>
   
 </tr>
 
@@ -714,12 +751,13 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>  <span class="k">subroutine </span><span class="n">initialize</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">buckets_number</span><span class="p">,</span> <span class="n">homogeneous</span><span class="p">,</span> <span class="n">typeguard_key</span><span class="p">,</span> <span class="n">typeguard_content</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>  <span class="k">subroutine </span><span class="n">initialize</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">buckets_number</span><span class="p">,</span> <span class="n">use_prime</span><span class="p">,</span> <span class="n">homogeneous</span><span class="p">,</span> <span class="n">typeguard_key</span><span class="p">,</span> <span class="n">typeguard_content</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="c">!&lt; Initialize the hash table.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">self</span>              <span class="c">!&lt; The hash table.</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">buckets_number</span>    <span class="c">!&lt; Number of buckets for initialize the hash table.</span>
+  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">use_prime</span>         <span class="c">!&lt; If true the buckets number is rendered prime.</span>
   <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">homogeneous</span>       <span class="c">!&lt; If true the hash is supposed to accept only homogeneous nodes.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">typeguard_key</span>     <span class="c">!&lt; Key type guard (mold) for homogeneous keys check.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">typeguard_content</span> <span class="c">!&lt; content type guard (mold) for homogeneous contents check.</span>
@@ -727,22 +765,12 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">destroy</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">HT_BUCKETS_NUMBER_DEF</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">buckets_number</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">buckets_number</span>
-<span class="cp">#ifdef CAF</span>
-  <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">)[</span><span class="o">*</span><span class="p">])</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">me</span> <span class="o">=</span> <span class="nb">this_image</span><span class="p">()</span>
-<span class="cp">#else</span>
-  <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">))</span>
-<span class="cp">#endif</span>
-  <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">ids_</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">))</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">ids_</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">homogeneous</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="n">homogeneous</span>
+  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">set_buckets_number</span><span class="p">(</span><span class="n">buckets_number</span><span class="o">=</span><span class="n">buckets_number</span><span class="p">,</span> <span class="n">use_prime</span><span class="o">=</span><span class="n">use_prime</span><span class="p">)</span>
+  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">allocate_members</span><span class="p">(</span><span class="n">typeguard_key</span><span class="o">=</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">typeguard_content</span><span class="o">=</span><span class="n">typeguard_content</span><span class="p">)</span>
+  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">set_caf_dimensions</span>
+  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">set_homogeneous</span><span class="p">(</span><span class="n">homogeneous</span><span class="o">=</span><span class="n">homogeneous</span><span class="p">)</span>
   <span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">typeguard_key</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">typeguard_key</span><span class="p">)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">typeguard_content</span><span class="p">))</span> <span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_content</span><span class="p">,</span> <span class="n">mold</span><span class="o">=</span><span class="n">typeguard_content</span><span class="p">)</span>
-<span class="cp">#ifdef CAF</span>
-  <span class="k">sync all</span>
-<span class="cp">#endif</span>
+  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">synchronize_images</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">endsubroutine</span> <span class="n">initialize</span>
 </pre></div>
@@ -772,6 +800,8 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
       <a class="list-group-item" href="../proc/add_pointer.html">add_pointer</a>
       
       <a class="list-group-item" href="../proc/add_pointer%7E2.html">add_pointer</a>
+      
+      <a class="list-group-item" href="../proc/allocate_members.html">allocate_members</a>
       
       <a class="list-group-item" href="../proc/assert_close_r32.html">assert_close_r32</a>
       
@@ -897,6 +927,8 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
       
       <a class="list-group-item" href="../proc/check_endian.html">check_endian</a>
       
+      <a class="list-group-item" href="../proc/check_type.html">check_type</a>
+      
       <a class="list-group-item" href="../proc/compact_real_string.html">compact_real_string</a>
       
       <a class="list-group-item" href="../proc/creator.html">creator</a>
@@ -951,6 +983,10 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
       
       <a class="list-group-item" href="../proc/finalize%7E3.html">finalize</a>
       
+      <a class="list-group-item" href="../proc/find_next_prime.html">find_next_prime</a>
+      
+      <a class="list-group-item" href="../proc/get_bucket_image_indexes.html">get_bucket_image_indexes</a>
+      
       <a class="list-group-item" href="../proc/get_clone.html">get_clone</a>
       
       <a class="list-group-item" href="../proc/get_clone%7E2.html">get_clone</a>
@@ -1003,6 +1039,8 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
       
       <a class="list-group-item" href="../proc/is_key_allowed.html">is_key_allowed</a>
       
+      <a class="list-group-item" href="../proc/is_prime.html">is_prime</a>
+      
       <a class="list-group-item" href="../proc/iterator_max.html">iterator_max</a>
       
       <a class="list-group-item" href="../proc/iterator_max%7E2.html">iterator_max</a>
@@ -1023,6 +1061,8 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
       
       <a class="list-group-item" href="../proc/print.html">print</a>
       
+      <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
+      
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
       <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
@@ -1037,7 +1077,13 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
       
       <a class="list-group-item" href="../proc/set.html">set</a>
       
+      <a class="list-group-item" href="../proc/set_buckets_number.html">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../proc/set_caf_dimensions.html">set_caf_dimensions</a>
+      
       <a class="list-group-item" href="../proc/set_clone.html">set_clone</a>
+      
+      <a class="list-group-item" href="../proc/set_homogeneous.html">set_homogeneous</a>
       
       <a class="list-group-item" href="../proc/set_pointer.html">set_pointer</a>
       
@@ -1101,9 +1147,13 @@ private subroutine initialize(self, buckets_number, homogeneous, typeguard_key, 
       
       <a class="list-group-item" href="../proc/strz_i8p.html">strz_I8P</a>
       
+      <a class="list-group-item" href="../proc/synchronize_images.html">synchronize_images</a>
+      
       <a class="list-group-item" href="../proc/test_assert_equal.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_assert_equal%7E2.html">test_assert_equal</a>
+      
+      <a class="list-group-item" href="../proc/test_assert_equal%7E3.html">test_assert_equal</a>
       
       <a class="list-group-item" href="../proc/test_dictionary_finalize.html">test_dictionary_finalize</a>
       

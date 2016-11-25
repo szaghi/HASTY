@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>20.0% of total for derived types.</p>Including implementation: 218 statements, 12.6% of total for derived types.">29 statements</a>
+	  title="<p>24.2% of total for derived types.</p>Including implementation: 298 statements, 16.5% of total for derived types.">37 statements</a>
      </li> 
      
      
@@ -160,9 +160,11 @@
       
       <a class="list-group-item" href="../type/hash_table.html#variable-bucket">bucket</a>
       
+      <a class="list-group-item" href="../type/hash_table.html#variable-bucket%7E2">bucket</a>
+      
       <a class="list-group-item" href="../type/hash_table.html#variable-me">me</a>
       
-      <a class="list-group-item" href="../type/hash_table.html#variable-bucket%7E2">bucket</a>
+      <a class="list-group-item" href="../type/hash_table.html#variable-images_number">images_number</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-buckets_number">buckets_number</a>
       
@@ -241,6 +243,20 @@
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-remove%7E2">remove</a>
       
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-traverse%7E2">traverse</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-allocate_members">allocate_members</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-check_type">check_type</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-get_bucket_image_indexes">get_bucket_image_indexes</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-set_buckets_number">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-set_caf_dimensions">set_caf_dimensions</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-set_homogeneous">set_homogeneous</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-synchronize_images">synchronize_images</a>
       
     </div>
   </div>
@@ -419,9 +435,11 @@
       
       <a class="list-group-item" href="../type/hash_table.html#variable-bucket">bucket</a>
       
+      <a class="list-group-item" href="../type/hash_table.html#variable-bucket%7E2">bucket</a>
+      
       <a class="list-group-item" href="../type/hash_table.html#variable-me">me</a>
       
-      <a class="list-group-item" href="../type/hash_table.html#variable-bucket%7E2">bucket</a>
+      <a class="list-group-item" href="../type/hash_table.html#variable-images_number">images_number</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-buckets_number">buckets_number</a>
       
@@ -501,6 +519,20 @@
       
       <a class="list-group-item" href="../type/hash_table.html#boundprocedure-traverse%7E2">traverse</a>
       
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-allocate_members">allocate_members</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-check_type">check_type</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-get_bucket_image_indexes">get_bucket_image_indexes</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-set_buckets_number">set_buckets_number</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-set_caf_dimensions">set_caf_dimensions</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-set_homogeneous">set_homogeneous</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#boundprocedure-synchronize_images">synchronize_images</a>
+      
     </div>
   </div>
 </div>
@@ -551,6 +583,20 @@
   
 <tr>
   
+  <td><span class="anchor" id="variable-bucket%7E2"></span>type(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  
+  <td>private,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>bucket</strong>(:)</td><td></td><td></td><td><p>Hash table buckets.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
   <td><span class="anchor" id="variable-me"></span>integer(kind=I4P),</td>
   
   <td>private</td>
@@ -565,11 +611,11 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-bucket%7E2"></span>type(<a href='../type/dictionary.html'>dictionary</a>),</td>
+  <td><span class="anchor" id="variable-images_number"></span>integer(kind=I4P),</td>
   
-  <td>private,</td>
-  <td>allocatable</td><td>::</td>
-  <td><strong>bucket</strong>(:)</td><td></td><td></td><td><p>Hash table buckets.</p></td>
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>images_number</strong></td><td> =</td><td>0</td><td><p>Number of CAF images.</p></td>
   
 </tr>
 
@@ -1330,7 +1376,7 @@ private elemental function <a href='../proc/hash.html'>hash</a>(self, key) resul
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
+  <td><span class="anchor" ></span>class(*),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -1569,7 +1615,7 @@ private pure function <a href='../proc/ids%7E2.html'>ids</a>(self)
          
     
     <h3>
-private subroutine <a href='../proc/initialize.html'>initialize</a>(self, buckets_number, homogeneous, typeguard_key, typeguard_content)
+private subroutine <a href='../proc/initialize.html'>initialize</a>(self, buckets_number, use_prime, homogeneous, typeguard_key, typeguard_content)
     
     
 	 
@@ -1624,6 +1670,21 @@ private subroutine <a href='../proc/initialize.html'>initialize</a>(self, bucket
   
   <td></td><td>::</td>
   <td><strong>buckets_number</strong></td><td><p>Number of buckets for initialize the hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>use_prime</strong></td><td><p>If true the buckets number is rendered prime.</p></td>
   
 </tr>
 
@@ -2119,6 +2180,695 @@ private subroutine <a href='../proc/traverse%7E2.html'>traverse</a>(self, iterat
 </div>
 
     
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-allocate_members"></span><h3>procedure, private, pass(self) :: <strong>allocate_members</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Allocate dynamic memory members.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private pure subroutine <a href='../proc/allocate_members.html'>allocate_members</a>(self, typeguard_key, typeguard_content)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Allocate dynamic memory members.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>typeguard_key</strong></td><td><p>Key type guard (mold) for homogeneous keys check.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>typeguard_content</strong></td><td><p>content type guard (mold) for homogeneous contents check.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-check_type"></span><h3>procedure, private, pass(self) :: <strong>check_type</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Check type consistency.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private subroutine <a href='../proc/check_type.html'>check_type</a>(self, key, content)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Check type consistency.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>content</strong></td><td><p>The content.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_bucket_image_indexes"></span><h3>procedure, private, pass(self) :: <strong>get_bucket_image_indexes</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Get the bucket and image indexes corresponding to the given key.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private subroutine <a href='../proc/get_bucket_image_indexes.html'>get_bucket_image_indexes</a>(self, key, bucket, image)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Get the bucket and image indexes corresponding to the given key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>key</strong></td><td><p>The key.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>bucket</strong></td><td><p>Bucket index.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>image</strong></td><td><p>Image index.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-set_buckets_number"></span><h3>procedure, private, pass(self) :: <strong>set_buckets_number</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Set buckets number.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private pure subroutine <a href='../proc/set_buckets_number.html'>set_buckets_number</a>(self, buckets_number, use_prime)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Set buckets number.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=I4P),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>buckets_number</strong></td><td><p>Number of buckets for initialize the hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>use_prime</strong></td><td><p>If true the buckets number is rendered prime.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-set_caf_dimensions"></span><h3>procedure, private, pass(self) :: <strong>set_caf_dimensions</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Set CAF dimensions by means of intrinsic inquiring functions.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private pure subroutine <a href='../proc/set_caf_dimensions.html'>set_caf_dimensions</a>(self)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Set CAF dimensions by means of intrinsic inquiring functions.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-set_homogeneous"></span><h3>procedure, private, pass(self) :: <strong>set_homogeneous</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Set homogeneity flag.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private pure subroutine <a href='../proc/set_homogeneous.html'>set_homogeneous</a>(self, homogeneous)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Set homogeneity flag.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>homogeneous</strong></td><td><p>If true the hash is supposed to accept only homogeneous nodes.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-synchronize_images"></span><h3>procedure, private, pass(self) :: <strong>synchronize_images</strong>  
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+
+
+    <p>Syncrhonize CAF images.</p>
+  </div>
+  
+  <ul class="list-group">
+    
+      <li class="list-group-item">
+      
+         
+    
+    <h3>
+private subroutine <a href='../proc/synchronize_images.html'>synchronize_images</a>(self)
+    
+    
+	 
+</h3>
+    
+
+
+
+
+
+
+
+<p>Synchronize CAF images.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+      
+      </li>
+    
+  </ul>
+</div>
+
+    
     </section>
     
     
@@ -2130,10 +2880,11 @@ private subroutine <a href='../proc/traverse%7E2.html'>traverse</a>(self, iterat
   <span class="k">private</span>
 <span class="cp">#ifdef CAF</span>
   <span class="k">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">bucket</span><span class="p">(:)[:]</span>            <span class="c">!&lt; Hash table buckets.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">me</span><span class="o">=</span><span class="mi">0</span>                    <span class="c">!&lt; Index of current CAF image.</span>
 <span class="cp">#else</span>
   <span class="k">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">bucket</span><span class="p">(:)</span>               <span class="c">!&lt; Hash table buckets.</span>
 <span class="cp">#endif</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">me</span><span class="o">=</span><span class="mi">0</span>                    <span class="c">!&lt; Index of current CAF image.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">images_number</span><span class="o">=</span><span class="mi">0</span>         <span class="c">!&lt; Number of CAF images.</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">buckets_number</span><span class="o">=</span><span class="mi">0_I4P</span>    <span class="c">!&lt; Number of buckets used.</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">nodes_number</span><span class="o">=</span><span class="mi">0_I4P</span>      <span class="c">!&lt; Number of nodes actually stored, namely the hash table length.</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I8P</span><span class="p">),</span> <span class="k">allocatable</span>     <span class="kd">::</span> <span class="n">ids_</span><span class="p">(:,:)</span>               <span class="c">!&lt; Minimum and maximum id values actually stored into each bucket.</span>
@@ -2158,6 +2909,13 @@ private subroutine <a href='../proc/traverse%7E2.html'>traverse</a>(self, iterat
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">remove</span>         <span class="c">!&lt; Remove a node from the hash table, given the key.</span>
     <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="kd">::</span> <span class="n">traverse</span>       <span class="c">!&lt; Traverse hash table calling the iterator procedure.</span>
     <span class="c">! private methods</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">allocate_members</span>         <span class="c">!&lt; Allocate dynamic memory members.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">check_type</span>               <span class="c">!&lt; Check type consistency.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">get_bucket_image_indexes</span> <span class="c">!&lt; Get the bucket and image indexes corresponding to the given key.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">set_buckets_number</span>       <span class="c">!&lt; Set buckets number.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">set_caf_dimensions</span>       <span class="c">!&lt; Set CAF dimensions by means of intrinsic inquiring functions.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">set_homogeneous</span>          <span class="c">!&lt; Set homogeneity flag.</span>
+    <span class="k">procedure</span><span class="p">,</span> <span class="k">pass</span><span class="p">(</span><span class="n">self</span><span class="p">),</span> <span class="k">private</span> <span class="kd">::</span> <span class="n">synchronize_images</span>       <span class="c">!&lt; Syncrhonize CAF images.</span>
     <span class="c">! finalizer</span>
     <span class="k">final</span> <span class="kd">::</span> <span class="n">finalize</span> <span class="c">!&lt; Finalize the hash table.</span>
 <span class="n">endtype</span> <span class="n">hash_table</span>
