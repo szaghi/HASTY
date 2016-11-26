@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="12.3% of total for source files.">345 statements</a>
+	  title="12.2% of total for source files.">343 statements</a>
      </li> 
      
      
@@ -1116,7 +1116,7 @@
 <a name="ln-443"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 <a name="ln-444"></a>  <span class="n">endsubroutine</span> <span class="n">check_type</span>
 <a name="ln-445"></a>
-<a name="ln-446"></a>  <span class="k">subroutine </span><span class="n">get_bucket_image_indexes</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+<a name="ln-446"></a>  <span class="k">pure subroutine </span><span class="n">get_bucket_image_indexes</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
 <a name="ln-447"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 <a name="ln-448"></a>  <span class="c">!&lt; Get the bucket and image indexes corresponding to the given key.</span>
 <a name="ln-449"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
@@ -1131,139 +1131,137 @@
 <a name="ln-458"></a>  <span class="n">image</span> <span class="o">=</span> <span class="mi">1</span>
 <a name="ln-459"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">images_number</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
 <a name="ln-460"></a><span class="k">    if</span> <span class="p">(</span><span class="n">bucket</span><span class="o">&gt;</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-461"></a><span class="k">      print</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;cazzo &#39;</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span>
-<a name="ln-462"></a>      <span class="n">image</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">((</span><span class="n">bucket</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">,</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<a name="ln-463"></a>      <span class="n">bucket</span> <span class="o">=</span> <span class="n">bucket</span> <span class="o">-</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">*</span> <span class="p">(</span><span class="n">image</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<a name="ln-464"></a>      <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;cazzooo &#39;</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span>
-<a name="ln-465"></a>    <span class="n">endif</span>
-<a name="ln-466"></a>  <span class="n">endif</span>
-<a name="ln-467"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-468"></a>  <span class="n">endsubroutine</span> <span class="n">get_bucket_image_indexes</span>
-<a name="ln-469"></a>
-<a name="ln-470"></a>  <span class="k">pure subroutine </span><span class="n">set_buckets_number</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">buckets_number</span><span class="p">,</span> <span class="n">use_prime</span><span class="p">)</span>
+<a name="ln-461"></a><span class="k">      </span><span class="n">image</span> <span class="o">=</span> <span class="p">(</span><span class="n">bucket</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">+</span> <span class="mi">1</span>
+<a name="ln-462"></a>      <span class="n">bucket</span> <span class="o">=</span> <span class="n">bucket</span> <span class="o">-</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">*</span> <span class="p">(</span><span class="n">image</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a name="ln-463"></a>    <span class="n">endif</span>
+<a name="ln-464"></a>  <span class="n">endif</span>
+<a name="ln-465"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-466"></a>  <span class="n">endsubroutine</span> <span class="n">get_bucket_image_indexes</span>
+<a name="ln-467"></a>
+<a name="ln-468"></a>  <span class="k">pure subroutine </span><span class="n">set_buckets_number</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">buckets_number</span><span class="p">,</span> <span class="n">use_prime</span><span class="p">)</span>
+<a name="ln-469"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-470"></a>  <span class="c">!&lt; Set buckets number.</span>
 <a name="ln-471"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-472"></a>  <span class="c">!&lt; Set buckets number.</span>
-<a name="ln-473"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-474"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">self</span>           <span class="c">!&lt; The hash table.</span>
-<a name="ln-475"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">buckets_number</span> <span class="c">!&lt; Number of buckets for initialize the hash table.</span>
-<a name="ln-476"></a>  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">use_prime</span>      <span class="c">!&lt; If true the buckets number is rendered prime.</span>
+<a name="ln-472"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">self</span>           <span class="c">!&lt; The hash table.</span>
+<a name="ln-473"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span>      <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">buckets_number</span> <span class="c">!&lt; Number of buckets for initialize the hash table.</span>
+<a name="ln-474"></a>  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">use_prime</span>      <span class="c">!&lt; If true the buckets number is rendered prime.</span>
+<a name="ln-475"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-476"></a>
 <a name="ln-477"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-478"></a>
-<a name="ln-479"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-480"></a>  <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">HT_BUCKETS_NUMBER_DEF</span>
-<a name="ln-481"></a>  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">buckets_number</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">buckets_number</span>
-<a name="ln-482"></a>  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">use_prime</span><span class="p">))</span> <span class="k">then</span>
-<a name="ln-483"></a><span class="k">    if</span> <span class="p">(</span><span class="n">use_prime</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-484"></a><span class="k">      if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">find_next_prime</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">)</span>
-<a name="ln-485"></a>    <span class="n">endif</span>
-<a name="ln-486"></a>  <span class="n">endif</span>
-<a name="ln-487"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-488"></a>  <span class="n">endsubroutine</span> <span class="n">set_buckets_number</span>
-<a name="ln-489"></a>
-<a name="ln-490"></a>  <span class="k">pure subroutine </span><span class="n">set_caf_dimensions</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+<a name="ln-478"></a>  <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">HT_BUCKETS_NUMBER_DEF</span>
+<a name="ln-479"></a>  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">buckets_number</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">buckets_number</span>
+<a name="ln-480"></a>  <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">use_prime</span><span class="p">))</span> <span class="k">then</span>
+<a name="ln-481"></a><span class="k">    if</span> <span class="p">(</span><span class="n">use_prime</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-482"></a><span class="k">      if</span> <span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="n">find_next_prime</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span><span class="p">)</span>
+<a name="ln-483"></a>    <span class="n">endif</span>
+<a name="ln-484"></a>  <span class="n">endif</span>
+<a name="ln-485"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-486"></a>  <span class="n">endsubroutine</span> <span class="n">set_buckets_number</span>
+<a name="ln-487"></a>
+<a name="ln-488"></a>  <span class="k">pure subroutine </span><span class="n">set_caf_dimensions</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+<a name="ln-489"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-490"></a>  <span class="c">!&lt; Set CAF dimensions by means of intrinsic inquiring functions.</span>
 <a name="ln-491"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-492"></a>  <span class="c">!&lt; Set CAF dimensions by means of intrinsic inquiring functions.</span>
+<a name="ln-492"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The hash table.</span>
 <a name="ln-493"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-494"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The hash table.</span>
+<a name="ln-494"></a>
 <a name="ln-495"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-496"></a>
-<a name="ln-497"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-498"></a><span class="cp">#ifdef CAF</span>
-<a name="ln-499"></a>  <span class="n">self</span><span class="p">%</span><span class="n">me</span> <span class="o">=</span> <span class="nb">this_image</span><span class="p">()</span>
-<a name="ln-500"></a>  <span class="n">self</span><span class="p">%</span><span class="n">images_number</span> <span class="o">=</span> <span class="nb">num_images</span><span class="p">()</span>
-<a name="ln-501"></a><span class="cp">#else</span>
-<a name="ln-502"></a>  <span class="n">self</span><span class="p">%</span><span class="n">me</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="ln-503"></a>  <span class="n">self</span><span class="p">%</span><span class="n">images_number</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="ln-504"></a><span class="cp">#endif</span>
-<a name="ln-505"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-506"></a>  <span class="n">endsubroutine</span> <span class="n">set_caf_dimensions</span>
-<a name="ln-507"></a>
-<a name="ln-508"></a>  <span class="k">pure subroutine </span><span class="n">set_homogeneous</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">homogeneous</span><span class="p">)</span>
+<a name="ln-496"></a><span class="cp">#ifdef CAF</span>
+<a name="ln-497"></a>  <span class="n">self</span><span class="p">%</span><span class="n">me</span> <span class="o">=</span> <span class="nb">this_image</span><span class="p">()</span>
+<a name="ln-498"></a>  <span class="n">self</span><span class="p">%</span><span class="n">images_number</span> <span class="o">=</span> <span class="nb">num_images</span><span class="p">()</span>
+<a name="ln-499"></a><span class="cp">#else</span>
+<a name="ln-500"></a>  <span class="n">self</span><span class="p">%</span><span class="n">me</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-501"></a>  <span class="n">self</span><span class="p">%</span><span class="n">images_number</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-502"></a><span class="cp">#endif</span>
+<a name="ln-503"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-504"></a>  <span class="n">endsubroutine</span> <span class="n">set_caf_dimensions</span>
+<a name="ln-505"></a>
+<a name="ln-506"></a>  <span class="k">pure subroutine </span><span class="n">set_homogeneous</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">homogeneous</span><span class="p">)</span>
+<a name="ln-507"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-508"></a>  <span class="c">!&lt; Set homogeneity flag.</span>
 <a name="ln-509"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-510"></a>  <span class="c">!&lt; Set homogeneity flag.</span>
-<a name="ln-511"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-512"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">self</span>              <span class="c">!&lt; The hash table.</span>
-<a name="ln-513"></a>  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">homogeneous</span>       <span class="c">!&lt; If true the hash is supposed to accept only homogeneous nodes.</span>
+<a name="ln-510"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>        <span class="kd">::</span> <span class="n">self</span>              <span class="c">!&lt; The hash table.</span>
+<a name="ln-511"></a>  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">homogeneous</span>       <span class="c">!&lt; If true the hash is supposed to accept only homogeneous nodes.</span>
+<a name="ln-512"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-513"></a>
 <a name="ln-514"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-515"></a>
+<a name="ln-515"></a>  <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">homogeneous</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="n">homogeneous</span>
 <a name="ln-516"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-517"></a>  <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="p">;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">homogeneous</span><span class="p">))</span> <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="n">homogeneous</span>
-<a name="ln-518"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-519"></a>  <span class="n">endsubroutine</span> <span class="n">set_homogeneous</span>
-<a name="ln-520"></a>
-<a name="ln-521"></a>  <span class="k">subroutine </span><span class="n">synchronize_images</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+<a name="ln-517"></a>  <span class="n">endsubroutine</span> <span class="n">set_homogeneous</span>
+<a name="ln-518"></a>
+<a name="ln-519"></a>  <span class="k">subroutine </span><span class="n">synchronize_images</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+<a name="ln-520"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-521"></a>  <span class="c">!&lt; Synchronize CAF images.</span>
 <a name="ln-522"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-523"></a>  <span class="c">!&lt; Synchronize CAF images.</span>
+<a name="ln-523"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The hash table.</span>
 <a name="ln-524"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-525"></a>  <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The hash table.</span>
+<a name="ln-525"></a>
 <a name="ln-526"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-527"></a>
-<a name="ln-528"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-529"></a><span class="cp">#ifdef CAF</span>
-<a name="ln-530"></a>  <span class="k">sync all</span>
-<a name="ln-531"></a><span class="cp">#endif</span>
-<a name="ln-532"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-533"></a>  <span class="n">endsubroutine</span> <span class="n">synchronize_images</span>
-<a name="ln-534"></a>
-<a name="ln-535"></a>  <span class="c">! finalizer</span>
-<a name="ln-536"></a>  <span class="k">subroutine </span><span class="n">finalize</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
-<a name="ln-537"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-538"></a>  <span class="c">!&lt; Finalize the hash table.</span>
-<a name="ln-539"></a>  <span class="c">!&lt;</span>
-<a name="ln-540"></a>  <span class="c">!&lt; A wrapper for [[hash_table:destroy]]</span>
+<a name="ln-527"></a><span class="cp">#ifdef CAF</span>
+<a name="ln-528"></a>  <span class="k">sync all</span>
+<a name="ln-529"></a><span class="cp">#endif</span>
+<a name="ln-530"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-531"></a>  <span class="n">endsubroutine</span> <span class="n">synchronize_images</span>
+<a name="ln-532"></a>
+<a name="ln-533"></a>  <span class="c">! finalizer</span>
+<a name="ln-534"></a>  <span class="k">subroutine </span><span class="n">finalize</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+<a name="ln-535"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-536"></a>  <span class="c">!&lt; Finalize the hash table.</span>
+<a name="ln-537"></a>  <span class="c">!&lt;</span>
+<a name="ln-538"></a>  <span class="c">!&lt; A wrapper for [[hash_table:destroy]]</span>
+<a name="ln-539"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-540"></a>  <span class="k">type</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The hash table.</span>
 <a name="ln-541"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-542"></a>  <span class="k">type</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span> <span class="c">!&lt; The hash table.</span>
+<a name="ln-542"></a>
 <a name="ln-543"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-544"></a>
+<a name="ln-544"></a>  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">destroy</span>
 <a name="ln-545"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-546"></a>  <span class="k">call </span><span class="n">self</span><span class="p">%</span><span class="n">destroy</span>
-<a name="ln-547"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-548"></a>  <span class="n">endsubroutine</span> <span class="n">finalize</span>
-<a name="ln-549"></a>
-<a name="ln-550"></a>  <span class="c">! private non TBP</span>
-<a name="ln-551"></a>  <span class="k">pure function </span><span class="n">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">is_prime_</span><span class="p">)</span>
+<a name="ln-546"></a>  <span class="n">endsubroutine</span> <span class="n">finalize</span>
+<a name="ln-547"></a>
+<a name="ln-548"></a>  <span class="c">! private non TBP</span>
+<a name="ln-549"></a>  <span class="k">pure function </span><span class="n">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">is_prime_</span><span class="p">)</span>
+<a name="ln-550"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-551"></a>  <span class="c">!&lt; Return true if `n` is prime accordingly division test, false if `n` is composite.</span>
 <a name="ln-552"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-553"></a>  <span class="c">!&lt; Return true if `n` is prime accordingly division test, false if `n` is composite.</span>
-<a name="ln-554"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-555"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span> <span class="k">intent</span> <span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>         <span class="c">!&lt; Number inquired.</span>
-<a name="ln-556"></a>  <span class="kt">logical</span>                   <span class="kd">::</span> <span class="n">is_prime_</span> <span class="c">!&lt; Result of the test.</span>
-<a name="ln-557"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>              <span class="kd">::</span> <span class="n">i</span>         <span class="c">!&lt; Counter.</span>
+<a name="ln-553"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span> <span class="k">intent</span> <span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>         <span class="c">!&lt; Number inquired.</span>
+<a name="ln-554"></a>  <span class="kt">logical</span>                   <span class="kd">::</span> <span class="n">is_prime_</span> <span class="c">!&lt; Result of the test.</span>
+<a name="ln-555"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>              <span class="kd">::</span> <span class="n">i</span>         <span class="c">!&lt; Counter.</span>
+<a name="ln-556"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-557"></a>
 <a name="ln-558"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-559"></a>
-<a name="ln-560"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-561"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mf">2.</span><span class="nb">or</span><span class="p">.</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2_I4P</span><span class="p">)</span><span class="o">==</span><span class="mi">0_I4P</span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">3_I4P</span><span class="p">)</span><span class="o">==</span><span class="mi">0_I4P</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-562"></a><span class="k">    </span><span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<a name="ln-563"></a>    <span class="k">return</span>
-<a name="ln-564"></a><span class="k">  </span><span class="n">elseif</span> <span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="mf">1.</span><span class="nb">and</span><span class="p">.</span><span class="n">n</span><span class="o">&lt;=</span><span class="mi">3</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-565"></a><span class="k">    </span><span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<a name="ln-566"></a>    <span class="k">return</span>
-<a name="ln-567"></a><span class="k">  </span><span class="n">endif</span>
-<a name="ln-568"></a>  <span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<a name="ln-569"></a>  <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">R8P</span><span class="p">)),</span> <span class="n">I4P</span><span class="p">),</span> <span class="mi">2</span>
-<a name="ln-570"></a>    <span class="k">if</span> <span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-571"></a><span class="k">      </span><span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<a name="ln-572"></a>      <span class="k">exit</span>
-<a name="ln-573"></a><span class="k">    </span><span class="n">endif</span>
-<a name="ln-574"></a>  <span class="n">enddo</span>
-<a name="ln-575"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-576"></a>  <span class="n">endfunction</span> <span class="n">is_prime</span>
-<a name="ln-577"></a>
-<a name="ln-578"></a>  <span class="k">pure function </span><span class="n">find_next_prime</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+<a name="ln-559"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mf">2.</span><span class="nb">or</span><span class="p">.</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2_I4P</span><span class="p">)</span><span class="o">==</span><span class="mi">0_I4P</span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">3_I4P</span><span class="p">)</span><span class="o">==</span><span class="mi">0_I4P</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-560"></a><span class="k">    </span><span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<a name="ln-561"></a>    <span class="k">return</span>
+<a name="ln-562"></a><span class="k">  </span><span class="n">elseif</span> <span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="mf">1.</span><span class="nb">and</span><span class="p">.</span><span class="n">n</span><span class="o">&lt;=</span><span class="mi">3</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-563"></a><span class="k">    </span><span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<a name="ln-564"></a>    <span class="k">return</span>
+<a name="ln-565"></a><span class="k">  </span><span class="n">endif</span>
+<a name="ln-566"></a>  <span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<a name="ln-567"></a>  <span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="kt">real</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">R8P</span><span class="p">)),</span> <span class="n">I4P</span><span class="p">),</span> <span class="mi">2</span>
+<a name="ln-568"></a>    <span class="k">if</span> <span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-569"></a><span class="k">      </span><span class="n">is_prime_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<a name="ln-570"></a>      <span class="k">exit</span>
+<a name="ln-571"></a><span class="k">    </span><span class="n">endif</span>
+<a name="ln-572"></a>  <span class="n">enddo</span>
+<a name="ln-573"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-574"></a>  <span class="n">endfunction</span> <span class="n">is_prime</span>
+<a name="ln-575"></a>
+<a name="ln-576"></a>  <span class="k">pure function </span><span class="n">find_next_prime</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+<a name="ln-577"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-578"></a>  <span class="c">!&lt; Return the next prime after `n` accordingly division test.</span>
 <a name="ln-579"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-580"></a>  <span class="c">!&lt; Return the next prime after `n` accordingly division test.</span>
-<a name="ln-581"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-582"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span> <span class="k">intent</span> <span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>     <span class="c">!&lt; Number inquired.</span>
-<a name="ln-583"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>              <span class="kd">::</span> <span class="n">prime</span> <span class="c">!&lt; Next prime after `n`.</span>
+<a name="ln-580"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span> <span class="k">intent</span> <span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>     <span class="c">!&lt; Number inquired.</span>
+<a name="ln-581"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>              <span class="kd">::</span> <span class="n">prime</span> <span class="c">!&lt; Next prime after `n`.</span>
+<a name="ln-582"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-583"></a>
 <a name="ln-584"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-585"></a>
-<a name="ln-586"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-587"></a>  <span class="n">prime</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1_I4P</span>
-<a name="ln-588"></a>  <span class="k">do while</span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
-<a name="ln-589"></a>    <span class="n">prime</span> <span class="o">=</span> <span class="n">prime</span> <span class="o">+</span> <span class="mi">1_I4P</span>
-<a name="ln-590"></a>  <span class="n">enddo</span>
-<a name="ln-591"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-592"></a>  <span class="n">endfunction</span> <span class="n">find_next_prime</span>
-<a name="ln-593"></a><span class="n">endmodule</span> <span class="n">hasty_hash_table</span>
+<a name="ln-585"></a>  <span class="n">prime</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1_I4P</span>
+<a name="ln-586"></a>  <span class="k">do while</span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="n">is_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">))</span>
+<a name="ln-587"></a>    <span class="n">prime</span> <span class="o">=</span> <span class="n">prime</span> <span class="o">+</span> <span class="mi">1_I4P</span>
+<a name="ln-588"></a>  <span class="n">enddo</span>
+<a name="ln-589"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-590"></a>  <span class="n">endfunction</span> <span class="n">find_next_prime</span>
+<a name="ln-591"></a><span class="n">endmodule</span> <span class="n">hasty_hash_table</span>
 </pre></div>
 
     </section>

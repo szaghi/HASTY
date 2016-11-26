@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.5% of total for procedures.">10 statements</a>
+	  title=" 0.3% of total for procedures.">7 statements</a>
      </li> 
      
      
@@ -711,10 +711,7 @@ private elemental function hash(self, buckets_number) result(bucket)
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">bucket</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">id_</span><span class="p">))</span> <span class="k">then</span>
-<span class="k">    </span><span class="n">bucket</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">id_</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">buckets_number</span><span class="p">,</span> <span class="n">I8P</span><span class="p">)),</span> <span class="n">I4P</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">bucket</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">bucket</span> <span class="o">=</span> <span class="n">bucket</span> <span class="o">+</span> <span class="mi">1</span>
-  <span class="n">endif</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">id_</span><span class="p">))</span> <span class="n">bucket</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">id_</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">buckets_number</span><span class="p">,</span> <span class="n">I8P</span><span class="p">)),</span> <span class="n">I4P</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">endfunction</span> <span class="n">hash</span>
 </pre></div>
