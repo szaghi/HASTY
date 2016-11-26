@@ -443,7 +443,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine check_type
 
-  subroutine get_bucket_image_indexes(self, key, bucket, image)
+  pure subroutine get_bucket_image_indexes(self, key, bucket, image)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Get the bucket and image indexes corresponding to the given key.
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -458,10 +458,8 @@ contains
   image = 1
   if (self%images_number>1) then
     if (bucket>self%buckets_number) then
-      print*, 'cazzo ', bucket, self%buckets_number
-      image = mod((bucket-1)/self%buckets_number, self%buckets_number) + 1
+      image = (bucket - 1) / self%buckets_number + 1
       bucket = bucket - self%buckets_number * (image - 1)
-      print*, 'cazzooo ', bucket, image, self%buckets_number
     endif
   endif
   !---------------------------------------------------------------------------------------------------------------------------------

@@ -80,10 +80,7 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   bucket = 0
-  if (allocated(self%id_)) then
-    bucket = int(mod(self%id_, int(buckets_number, I8P)), I4P)
-    if (bucket==0) bucket = bucket + 1
-  endif
+  if (allocated(self%id_)) bucket = int(mod(self%id_, int(buckets_number, I8P)), I4P)
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction hash
 
