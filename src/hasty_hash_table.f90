@@ -43,7 +43,6 @@ type :: hash_table
     procedure, pass(self) :: destroy        !< Destroy the hash table.
     procedure, pass(self) :: get_clone      !< Return a node's content in the hash table by cloning.
     procedure, pass(self) :: get_pointer    !< Return a pointer to a node's content in the hash table.
-    procedure, pass(self) :: hash           !< Hash the key.
     procedure, pass(self) :: has_key        !< Check if the key is present in the hash table.
     procedure, pass(self) :: ids            !< Return the list of ids actually stored.
     procedure, pass(self) :: initialize     !< Initialize the hash table.
@@ -56,6 +55,7 @@ type :: hash_table
     procedure, pass(self), private :: allocate_members         !< Allocate dynamic memory members.
     procedure, pass(self), private :: check_type               !< Check type consistency.
     procedure, pass(self), private :: get_bucket_image_indexes !< Get the bucket and image indexes corresponding to the given key.
+    procedure, pass(self), private :: hash                     !< Hash the key.
     procedure, pass(self), private :: set_buckets_number       !< Set buckets number.
     procedure, pass(self), private :: set_caf_dimensions       !< Set CAF dimensions by means of intrinsic inquiring functions.
     procedure, pass(self), private :: set_homogeneous          !< Set homogeneity flag.
@@ -194,21 +194,35 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return a node's content in the hash table by cloning.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(hash_table),     intent(in)  :: self      !< The hash table.
-  class(*),              intent(in)  :: key       !< The key.
-  class(*), allocatable, intent(out) :: content   !< Content of the queried node.
-  class(*), pointer                  :: content_p !< Content pointer of the queried node.
+  class(hash_table),     intent(in)  :: self    !< The hash table.
+  class(*),              intent(in)  :: key     !< The key.
+  class(*), allocatable, intent(out) :: content !< Content of the queried node.
+  integer(I4P)                       :: b       !< Bucket index.
+  integer(I4P)                       :: i       !< Image index.
+#ifdef CAF
+  type(dictionary)                   :: bucket  !< Local copy of queried bucket.
+#endif
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  content_p => self%get_pointer(key=key)
-  if (associated(content_p)) allocate(content, source=content_p)
+  if (self%is_initialized_) then
+    call self%get_bucket_image_indexes(key=key, bucket=b, image=i)
+#ifdef CAF
+    bucket = self%bucket(b)[i]
+    call bucket%get_clone(key=key, content=content)
+#else
+    call self%bucket(b)%get_clone(key=key, content=content)
+#endif
+  endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine get_clone
 
   function get_pointer(self, key) result(content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return a pointer to a node's content in the hash table.
+  !<
+  !< @note The result is associated only if the queried node belongs to the current CAF image, otherwise pointer association is
+  !< not allowed.
   !---------------------------------------------------------------------------------------------------------------------------------
   class(hash_table), intent(in) :: self    !< The hash table.
   class(*),          intent(in) :: key     !< The key.
@@ -227,25 +241,6 @@ contains
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction get_pointer
-
-  elemental function hash(self, key) result(bucket)
-  !---------------------------------------------------------------------------------------------------------------------------------
-  !< Hash the key.
-  !---------------------------------------------------------------------------------------------------------------------------------
-  class(hash_table), intent(in) :: self   !< The hash table.
-  class(*),          intent(in) :: key    !< Key to hash.
-  integer(I4P)                  :: bucket !< Bucket index corresponding to the key.
-  type(key_base)                :: key_   !< Key to hash casted to [[key_base]].
-  !---------------------------------------------------------------------------------------------------------------------------------
-
-  !---------------------------------------------------------------------------------------------------------------------------------
-  bucket = 0
-  if (self%is_initialized_) then
-    key_ = key_base(key=key, buckets_number=self%buckets_number*self%images_number)
-    bucket = key_%hash(buckets_number=self%buckets_number*self%images_number)
-  endif
-  !---------------------------------------------------------------------------------------------------------------------------------
-  endfunction hash
 
   function has_key(self, key)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -392,7 +387,7 @@ contains
   endsubroutine traverse
 
   ! private methods
-  pure subroutine allocate_members(self, typeguard_key, typeguard_content)
+  subroutine allocate_members(self, typeguard_key, typeguard_content)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Allocate dynamic memory members.
   !<
@@ -464,6 +459,25 @@ contains
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine get_bucket_image_indexes
+
+  elemental function hash(self, key) result(bucket)
+  !---------------------------------------------------------------------------------------------------------------------------------
+  !< Hash the key.
+  !---------------------------------------------------------------------------------------------------------------------------------
+  class(hash_table), intent(in) :: self   !< The hash table.
+  class(*),          intent(in) :: key    !< Key to hash.
+  integer(I4P)                  :: bucket !< Bucket index corresponding to the key.
+  type(key_base)                :: key_   !< Key to hash casted to [[key_base]].
+  !---------------------------------------------------------------------------------------------------------------------------------
+
+  !---------------------------------------------------------------------------------------------------------------------------------
+  bucket = 0
+  if (self%is_initialized_) then
+    key_ = key_base(key=key, buckets_number=self%buckets_number*self%images_number)
+    bucket = key_%hash(buckets_number=self%buckets_number*self%images_number)
+  endif
+  !---------------------------------------------------------------------------------------------------------------------------------
+  endfunction hash
 
   pure subroutine set_buckets_number(self, buckets_number, use_prime)
   !---------------------------------------------------------------------------------------------------------------------------------

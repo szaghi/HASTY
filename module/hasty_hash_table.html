@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="14.0% of total for modules and submodules.">343 statements</a>
+	  title="14.2% of total for modules and submodules.">349 statements</a>
      </li> 
      
      
@@ -203,8 +203,6 @@
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-get_pointer%7E3">get_pointer</a>
       
-      <a class="list-group-item" href="../module/hasty_hash_table.html#proc-hash">hash</a>
-      
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-has_key%7E3">has_key</a>
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-ids%7E2">ids</a>
@@ -212,6 +210,8 @@
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-is_homogeneous">is_homogeneous</a>
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-is_initialized">is_initialized</a>
+      
+      <a class="list-group-item" href="../module/hasty_hash_table.html#proc-hash">hash</a>
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-is_prime">is_prime</a>
       
@@ -812,8 +812,6 @@
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-get_pointer%7E3">get_pointer</a>
       
-      <a class="list-group-item" href="../module/hasty_hash_table.html#proc-hash">hash</a>
-      
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-has_key%7E3">has_key</a>
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-ids%7E2">ids</a>
@@ -821,6 +819,8 @@
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-is_homogeneous">is_homogeneous</a>
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-is_initialized">is_initialized</a>
+      
+      <a class="list-group-item" href="../module/hasty_hash_table.html#proc-hash">hash</a>
       
       <a class="list-group-item" href="../module/hasty_hash_table.html#proc-is_prime">is_prime</a>
       
@@ -1231,9 +1231,6 @@ private elemental function <a href='../proc/hash_table_len.html'>hash_table_len<
        <tr><td>procedure, public, pass(self) :: <strong><a href='../type/hash_table.html#boundprocedure-get_pointer%7E3'>get_pointer</a></strong>  </td>
        <td><p>Return a pointer to a node's content in the hash table.</p></td></tr>
       
-       <tr><td>procedure, public, pass(self) :: <strong><a href='../type/hash_table.html#boundprocedure-hash'>hash</a></strong>  </td>
-       <td><p>Hash the key.</p></td></tr>
-      
        <tr><td>procedure, public, pass(self) :: <strong><a href='../type/hash_table.html#boundprocedure-has_key%7E3'>has_key</a></strong>  </td>
        <td><p>Check if the key is present in the hash table.</p></td></tr>
       
@@ -1266,6 +1263,9 @@ private elemental function <a href='../proc/hash_table_len.html'>hash_table_len<
       
        <tr><td>procedure, private, pass(self) :: <strong><a href='../type/hash_table.html#boundprocedure-get_bucket_image_indexes'>get_bucket_image_indexes</a></strong>  </td>
        <td><p>Get the bucket and image indexes corresponding to the given key.</p></td></tr>
+      
+       <tr><td>procedure, private, pass(self) :: <strong><a href='../type/hash_table.html#boundprocedure-hash'>hash</a></strong>  </td>
+       <td><p>Hash the key.</p></td></tr>
       
        <tr><td>procedure, private, pass(self) :: <strong><a href='../type/hash_table.html#boundprocedure-set_buckets_number'>set_buckets_number</a></strong>  </td>
        <td><p>Set buckets number.</p></td></tr>
@@ -1439,89 +1439,6 @@ private function <a href='../proc/get_pointer%7E3.html'>get_pointer</a>(self, ke
      <h4>Return Value <small>class(*),
   pointer</small></h4>
   <p>Content pointer of the queried node.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-hash"></span><h3>
-private elemental function <a href='../proc/hash.html'>hash</a>(self, key) result(bucket)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-
-
-<p>Hash the key.</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The hash table.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>key</strong></td><td><p>Key to hash.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=I4P)
-  </small></h4>
-  <p>Bucket index corresponding to the key.</p>
     
 
   </div>
@@ -1809,6 +1726,89 @@ private elemental function <a href='../proc/is_initialized.html'>is_initialized<
      <h4>Return Value <small>logical
   </small></h4>
   <p>Initialization status.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-hash"></span><h3>
+private elemental function <a href='../proc/hash.html'>hash</a>(self, key) result(bucket)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Hash the key.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>key</strong></td><td><p>Key to hash.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=I4P)
+  </small></h4>
+  <p>Bucket index corresponding to the key.</p>
     
 
   </div>
@@ -2629,7 +2629,7 @@ private subroutine <a href='../proc/traverse%7E2.html'>traverse</a>(self, iterat
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-allocate_members"></span><h3>
-private pure subroutine <a href='../proc/allocate_members.html'>allocate_members</a>(self, typeguard_key, typeguard_content)
+private subroutine <a href='../proc/allocate_members.html'>allocate_members</a>(self, typeguard_key, typeguard_content)
     
     
 	 

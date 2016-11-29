@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="11.9% of total for programs.">43 statements</a>
+	  title="13.1% of total for programs.">48 statements</a>
      </li> 
      
      
@@ -380,7 +380,7 @@
 <polygon fill="#000000" stroke="#000000" points="978.303,-74.9495 985.336,-67.026 974.897,-68.834 978.303,-74.9495"/>
 </g>
 <!-- module~hasty_dictionary -->
-<g id="node11" class="node"><title>module~hasty_dictionary</title>
+<g id="node10" class="node"><title>module~hasty_dictionary</title>
 <a xlink:href="../module/hasty_dictionary.html" xlink:title="hasty_dictionary">
 <polygon fill="#337ab7" stroke="#337ab7" points="922,-184 832,-184 832,-158 922,-158 922,-184"/>
 <text text-anchor="middle" x="877" y="-168.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_dictionary</text>
@@ -411,15 +411,24 @@
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1036.13,-67.0064C1050.28,-73.3201 1067.42,-80.9714 1082.43,-87.6733"/>
 <polygon fill="#000000" stroke="#000000" points="1081.38,-91.0362 1091.93,-91.9168 1084.23,-84.6443 1081.38,-91.0362"/>
 </g>
+<!-- module~hasty_dictionary&#45;&gt;module~hasty -->
+<g id="edge52" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M922.058,-175.822C947.328,-177.331 979.254,-177.233 1007,-171"/>
+</g>
+<!-- module~hasty_dictionary&#45;&gt;module~hasty_hash_table -->
+<g id="edge32" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty_hash_table</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M901.631,-157.869C908.482,-153.784 915.752,-149.024 922,-144 947.971,-123.119 973.664,-94.5157 989.888,-75.2051"/>
+<polygon fill="#000000" stroke="#000000" points="992.755,-77.2314 996.439,-67.2978 987.364,-72.7656 992.755,-77.2314"/>
+</g>
 <!-- module~hasty_content_adt -->
-<g id="node10" class="node"><title>module~hasty_content_adt</title>
+<g id="node11" class="node"><title>module~hasty_content_adt</title>
 <a xlink:href="../module/hasty_content_adt.html" xlink:title="hasty_content_adt">
 <polygon fill="#337ab7" stroke="#337ab7" points="640,-26 540,-26 540,-1.24345e-14 640,-3.55271e-15 640,-26"/>
 <text text-anchor="middle" x="590" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">hasty_content_adt</text>
 </a>
 </g>
 <!-- module~hasty_content_adt&#45;&gt;module~hasty -->
-<g id="edge52" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty</title>
+<g id="edge54" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M640.124,-10.6332C697.476,-8.47416 794.168,-6.50915 877,-13"/>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M877,-13C956.661,-20.3803 984.996,4.8624 1056,-32 1077.77,-43.3003 1095.38,-65.5178 1106.39,-82.2994"/>
 <polygon fill="#000000" stroke="#000000" points="1103.54,-84.3416 1111.82,-90.9594 1109.48,-80.6264 1103.54,-84.3416"/>
@@ -433,15 +442,6 @@
 <g id="edge34" class="edge"><title>module~hasty_content_adt&#45;&gt;module~hasty_hash_table</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M877,-13C909.113,-15.5164 943.827,-26.9472 969.299,-37.1017"/>
 <polygon fill="#000000" stroke="#000000" points="968.004,-40.3534 978.584,-40.9098 970.66,-33.8769 968.004,-40.3534"/>
-</g>
-<!-- module~hasty_dictionary&#45;&gt;module~hasty -->
-<g id="edge54" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M922.058,-175.822C947.328,-177.331 979.254,-177.233 1007,-171"/>
-</g>
-<!-- module~hasty_dictionary&#45;&gt;module~hasty_hash_table -->
-<g id="edge32" class="edge"><title>module~hasty_dictionary&#45;&gt;module~hasty_hash_table</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M901.631,-157.869C908.482,-153.784 915.752,-149.024 922,-144 947.971,-123.119 973.664,-94.5157 989.888,-75.2051"/>
-<polygon fill="#000000" stroke="#000000" points="992.755,-77.2314 996.439,-67.2978 987.364,-72.7656 992.755,-77.2314"/>
 </g>
 <!-- module~penf -->
 <g id="node12" class="node"><title>module~penf</title>
@@ -916,7 +916,7 @@ subroutine <a href='../proc/print_content_iterator.html'>print_content_iterator<
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="c">!&lt; HASTY test hash table CAF basic.</span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">int32</span><span class="p">,</span> <span class="n">int64</span>
+<span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">int32</span><span class="p">,</span> <span class="n">int64</span><span class="p">,</span> <span class="n">error_unit</span>
 <span class="k">use </span><span class="n">hasty</span>
 <span class="k">use </span><span class="n">tester</span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
@@ -946,6 +946,16 @@ subroutine <a href='../proc/print_content_iterator.html'>print_content_iterator<
 <span class="c">! if (associated(a_content)) call test_assert_equal(content=a_content, reference=int(this_image(), int32))</span>
 
 <span class="k">call </span><span class="n">a_table</span><span class="p">%</span><span class="n">traverse</span><span class="p">(</span><span class="n">iterator</span><span class="o">=</span><span class="n">print_content_iterator</span><span class="p">)</span>
+
+<span class="k">sync all</span>
+
+<span class="k">write</span><span class="p">(</span><span class="n">error_unit</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s1">&#39;image &#39;</span><span class="p">,</span> <span class="nb">this_image</span><span class="p">(),</span> <span class="s1">&#39; ids = &#39;</span><span class="p">,</span> <span class="n">a_table</span><span class="p">%</span><span class="n">ids</span><span class="p">()</span>
+
+<span class="k">call </span><span class="n">a_table</span><span class="p">%</span><span class="n">destroy</span>
+
+<span class="k">sync all</span>
+
+<span class="k">write</span><span class="p">(</span><span class="n">error_unit</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s1">&#39;table length &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_table</span><span class="p">)</span>
 <span class="cp">#endif</span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="k">contains</span>

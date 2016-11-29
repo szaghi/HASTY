@@ -585,6 +585,8 @@ private function get_pointer(self, key) result(content)
 
     
     <p>Return a pointer to a node's content in the hash table.</p>
+<p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>The result is associated only if the queried node belongs to the current CAF image, otherwise pointer association is
+ not allowed.</p></div>
     
 
     <h3>Arguments</h3>
@@ -703,6 +705,9 @@ private function get_pointer(self, key) result(content)
     <div class="highlight"><pre><span></span>  <span class="k">function </span><span class="n">get_pointer</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="c">!&lt; Return a pointer to a node&#39;s content in the hash table.</span>
+  <span class="c">!&lt;</span>
+  <span class="c">!&lt; @note The result is associated only if the queried node belongs to the current CAF image, otherwise pointer association is</span>
+  <span class="c">!&lt; not allowed.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">class</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span>    <span class="c">!&lt; The hash table.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">key</span>     <span class="c">!&lt; The key.</span>

@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.5% of total for source files.">43 statements</a>
+	  title=" 1.7% of total for source files.">48 statements</a>
      </li> 
      
      
@@ -602,7 +602,7 @@
 <a name="ln-3"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <a name="ln-4"></a><span class="c">!&lt; HASTY test hash table CAF basic.</span>
 <a name="ln-5"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-6"></a><span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">int32</span><span class="p">,</span> <span class="n">int64</span>
+<a name="ln-6"></a><span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="n">only</span> <span class="p">:</span> <span class="n">int32</span><span class="p">,</span> <span class="n">int64</span><span class="p">,</span> <span class="n">error_unit</span>
 <a name="ln-7"></a><span class="k">use </span><span class="n">hasty</span>
 <a name="ln-8"></a><span class="k">use </span><span class="n">tester</span>
 <a name="ln-9"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
@@ -632,50 +632,60 @@
 <a name="ln-33"></a><span class="c">! if (associated(a_content)) call test_assert_equal(content=a_content, reference=int(this_image(), int32))</span>
 <a name="ln-34"></a>
 <a name="ln-35"></a><span class="k">call </span><span class="n">a_table</span><span class="p">%</span><span class="n">traverse</span><span class="p">(</span><span class="n">iterator</span><span class="o">=</span><span class="n">print_content_iterator</span><span class="p">)</span>
-<a name="ln-36"></a><span class="cp">#endif</span>
-<a name="ln-37"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-38"></a><span class="k">contains</span>
-<a name="ln-39"></a><span class="k">  subroutine </span><span class="n">test_assert_equal</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
-<a name="ln-40"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-41"></a>  <span class="c">!&lt; Test `content==reference`.</span>
-<a name="ln-42"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-43"></a>  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">content</span>   <span class="c">!&lt; Content value.</span>
-<a name="ln-44"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">reference</span> <span class="c">!&lt; Reference value.</span>
-<a name="ln-45"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-46"></a>
-<a name="ln-47"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-48"></a>  <span class="k">select type</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-<a name="ln-49"></a>  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
-<a name="ln-50"></a>    <span class="k">call </span><span class="n">hasty_tester</span><span class="p">%</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
-<a name="ln-51"></a>  <span class="n">endselect</span>
+<a name="ln-36"></a>
+<a name="ln-37"></a><span class="k">sync all</span>
+<a name="ln-38"></a>
+<a name="ln-39"></a><span class="k">write</span><span class="p">(</span><span class="n">error_unit</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s1">&#39;image &#39;</span><span class="p">,</span> <span class="nb">this_image</span><span class="p">(),</span> <span class="s1">&#39; ids = &#39;</span><span class="p">,</span> <span class="n">a_table</span><span class="p">%</span><span class="n">ids</span><span class="p">()</span>
+<a name="ln-40"></a>
+<a name="ln-41"></a><span class="k">call </span><span class="n">a_table</span><span class="p">%</span><span class="n">destroy</span>
+<a name="ln-42"></a>
+<a name="ln-43"></a><span class="k">sync all</span>
+<a name="ln-44"></a>
+<a name="ln-45"></a><span class="k">write</span><span class="p">(</span><span class="n">error_unit</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s1">&#39;table length &#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_table</span><span class="p">)</span>
+<a name="ln-46"></a><span class="cp">#endif</span>
+<a name="ln-47"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-48"></a><span class="k">contains</span>
+<a name="ln-49"></a><span class="k">  subroutine </span><span class="n">test_assert_equal</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
+<a name="ln-50"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-51"></a>  <span class="c">!&lt; Test `content==reference`.</span>
 <a name="ln-52"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-53"></a>  <span class="n">endsubroutine</span> <span class="n">test_assert_equal</span>
-<a name="ln-54"></a>
-<a name="ln-55"></a>  <span class="k">subroutine </span><span class="n">print_content_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">done</span><span class="p">)</span>
-<a name="ln-56"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-57"></a>  <span class="c">!&lt; Iterator that print contents.</span>
-<a name="ln-58"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-59"></a>  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">key</span>     <span class="c">!&lt; The node key.</span>
-<a name="ln-60"></a>  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">content</span> <span class="c">!&lt; The generic content.</span>
-<a name="ln-61"></a>  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">done</span>    <span class="c">!&lt; Flag to set to true to stop traversing.</span>
+<a name="ln-53"></a>  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>       <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">content</span>   <span class="c">!&lt; Content value.</span>
+<a name="ln-54"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">reference</span> <span class="c">!&lt; Reference value.</span>
+<a name="ln-55"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-56"></a>
+<a name="ln-57"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-58"></a>  <span class="k">select type</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<a name="ln-59"></a>  <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+<a name="ln-60"></a>    <span class="k">call </span><span class="n">hasty_tester</span><span class="p">%</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">reference</span><span class="p">)</span>
+<a name="ln-61"></a>  <span class="n">endselect</span>
 <a name="ln-62"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-63"></a>
-<a name="ln-64"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-65"></a>  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">content</span><span class="p">))</span> <span class="k">then</span>
-<a name="ln-66"></a><span class="k">    select type</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-<a name="ln-67"></a>    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
-<a name="ln-68"></a>      <span class="k">select type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<a name="ln-69"></a>      <span class="k">type is</span><span class="p">(</span><span class="n">key_base</span><span class="p">)</span>
-<a name="ln-70"></a><span class="cp">#ifdef CAF</span>
-<a name="ln-71"></a>        <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;image: &#39;</span><span class="p">,</span> <span class="nb">this_image</span><span class="p">(),</span> <span class="s1">&#39;key: &#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">%</span><span class="n">stringify</span><span class="p">(),</span> <span class="s1">&#39; content: &#39;</span><span class="p">,</span> <span class="n">content</span>
-<a name="ln-72"></a><span class="cp">#endif</span>
-<a name="ln-73"></a>      <span class="n">endselect</span>
-<a name="ln-74"></a>    <span class="n">endselect</span>
-<a name="ln-75"></a>  <span class="n">endif</span>
-<a name="ln-76"></a>  <span class="n">done</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<a name="ln-77"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-<a name="ln-78"></a>  <span class="n">endsubroutine</span> <span class="n">print_content_iterator</span>
-<a name="ln-79"></a><span class="n">endprogram</span> <span class="n">hasty_test_caf_basic</span>
+<a name="ln-63"></a>  <span class="n">endsubroutine</span> <span class="n">test_assert_equal</span>
+<a name="ln-64"></a>
+<a name="ln-65"></a>  <span class="k">subroutine </span><span class="n">print_content_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">done</span><span class="p">)</span>
+<a name="ln-66"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-67"></a>  <span class="c">!&lt; Iterator that print contents.</span>
+<a name="ln-68"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-69"></a>  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">key</span>     <span class="c">!&lt; The node key.</span>
+<a name="ln-70"></a>  <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">content</span> <span class="c">!&lt; The generic content.</span>
+<a name="ln-71"></a>  <span class="kt">logical</span><span class="p">,</span>           <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">done</span>    <span class="c">!&lt; Flag to set to true to stop traversing.</span>
+<a name="ln-72"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-73"></a>
+<a name="ln-74"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-75"></a>  <span class="k">if</span> <span class="p">(</span><span class="nb">associated</span><span class="p">(</span><span class="n">content</span><span class="p">))</span> <span class="k">then</span>
+<a name="ln-76"></a><span class="k">    select type</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<a name="ln-77"></a>    <span class="k">type is</span><span class="p">(</span><span class="kt">integer</span><span class="p">(</span><span class="n">int32</span><span class="p">))</span>
+<a name="ln-78"></a>      <span class="k">select type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<a name="ln-79"></a>      <span class="k">type is</span><span class="p">(</span><span class="n">key_base</span><span class="p">)</span>
+<a name="ln-80"></a><span class="cp">#ifdef CAF</span>
+<a name="ln-81"></a>        <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;image: &#39;</span><span class="p">,</span> <span class="nb">this_image</span><span class="p">(),</span> <span class="s1">&#39;key: &#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">%</span><span class="n">stringify</span><span class="p">(),</span> <span class="s1">&#39; content: &#39;</span><span class="p">,</span> <span class="n">content</span>
+<a name="ln-82"></a><span class="cp">#endif</span>
+<a name="ln-83"></a>      <span class="n">endselect</span>
+<a name="ln-84"></a>    <span class="n">endselect</span>
+<a name="ln-85"></a>  <span class="n">endif</span>
+<a name="ln-86"></a>  <span class="n">done</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
+<a name="ln-87"></a>  <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
+<a name="ln-88"></a>  <span class="n">endsubroutine</span> <span class="n">print_content_iterator</span>
+<a name="ln-89"></a><span class="n">endprogram</span> <span class="n">hasty_test_caf_basic</span>
 </pre></div>
 
     </section>
