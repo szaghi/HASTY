@@ -3,7 +3,7 @@ program hasty_test_caf_basic
 !-----------------------------------------------------------------------------------------------------------------------------------
 !< HASTY test hash table CAF basic.
 !-----------------------------------------------------------------------------------------------------------------------------------
-use, intrinsic :: iso_fortran_env, only : int32, int64
+use, intrinsic :: iso_fortran_env, only : int32, int64, error_unit
 use hasty
 use tester
 !-----------------------------------------------------------------------------------------------------------------------------------
@@ -33,6 +33,16 @@ call a_table%add_clone(key=40_int32, content=int(this_image(), int32))
 ! if (associated(a_content)) call test_assert_equal(content=a_content, reference=int(this_image(), int32))
 
 call a_table%traverse(iterator=print_content_iterator)
+
+sync all
+
+write(error_unit, *) 'image ', this_image(), ' ids = ', a_table%ids()
+
+call a_table%destroy
+
+sync all
+
+write(error_unit, *) 'table length ', len(a_table)
 #endif
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
