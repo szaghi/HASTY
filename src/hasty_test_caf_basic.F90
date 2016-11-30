@@ -21,6 +21,7 @@ call hasty_tester%init
 call a_table%initialize(buckets_number=4, use_prime=.true.)
 
 #ifdef CAF
+
 call a_table%add_clone(key=1_int32, content=int(this_image(), int32))
 call a_table%add_clone(key=3_int32, content=int(this_image(), int32))
 call a_table%add_clone(key=10_int32, content=int(this_image(), int32))
@@ -93,8 +94,8 @@ critical
 write(error_unit, *) '  image: ', this_image(), ' table length ', len(a_table)
 end critical
 sync all
-#endif
 
+#endif
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
   subroutine test_assert_equal(content, reference)
