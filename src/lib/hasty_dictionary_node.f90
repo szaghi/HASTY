@@ -20,7 +20,7 @@ type :: dictionary_node
   !< **Dictionary node** class to storage any contents by means of generic key/content pairs.
   !<
   !< @note The `next/previous` members of this class are public because they can be safely handled by the [[dictionary]] class.
-  class(key_base),       allocatable, public  :: key              !< The key.
+  type(key_base),        allocatable, public  :: key              !< The key.
   class(*),              pointer,     private :: content_=>null() !< The generic content.
   type(dictionary_node), pointer,     public  :: next=>null()     !< The next node in the dictionary.
   type(dictionary_node), pointer,     public  :: previous=>null() !< The previous node in the dictionary.
@@ -167,12 +167,7 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   if (allocated(self%key)) then
-    associate(key=>self%key)
-      select type(key)
-      class is(key_base)
-        call key%destroy
-      endselect
-    endassociate
+    call self%key%destroy
     deallocate(self%key)
   endif
   !---------------------------------------------------------------------------------------------------------------------------------

@@ -5,7 +5,7 @@ module hasty_hash_table
 !-----------------------------------------------------------------------------------------------------------------------------------
 use hasty_content_adt
 use hasty_key_base
-use hasty_dictionary
+use hasty_dictionary, dictionary_get_clone=>get_clone
 use penf, penf_is_initialized=>is_initialized
 !-----------------------------------------------------------------------------------------------------------------------------------
 
@@ -24,14 +24,16 @@ type :: hash_table
   private
 #ifdef CAF
   type(dictionary), allocatable :: bucket(:)[:]            !< Hash table buckets.
+  integer(I8P),     allocatable :: ids_(:,:)[:]            !< Minimum and maximum id values actually stored into each bucket.
+  integer(I4P),     allocatable :: nodes_number_[:]        !< Number of nodes actually stored, namely the hash table length.
 #else
   type(dictionary), allocatable :: bucket(:)               !< Hash table buckets.
+  integer(I8P),     allocatable :: ids_(:,:)               !< Minimum and maximum id values actually stored into each bucket.
+  integer(I4P)                  :: nodes_number_=0_I4P     !< Number of nodes actually stored, namely the hash table length.
 #endif
   integer(I4P)                  :: me=0                    !< Index of current CAF image.
   integer(I4P)                  :: images_number=0         !< Number of CAF images.
   integer(I4P)                  :: buckets_number=0_I4P    !< Number of buckets used.
-  integer(I4P)                  :: nodes_number=0_I4P      !< Number of nodes actually stored, namely the hash table length.
-  integer(I8P), allocatable     :: ids_(:,:)               !< Minimum and maximum id values actually stored into each bucket.
   logical                       :: is_homogeneous_=.false. !< Homogeneity status-guardian.
   logical                       :: is_initialized_=.false. !< Initialization status.
   class(*), allocatable         :: typeguard_key           !< Key type guard (mold) for homogeneous keys check.
@@ -71,16 +73,37 @@ endinterface
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
   ! public non TBP
-  elemental function hash_table_len(self) result(length)
+  elemental function hash_table_len(self, global) result(length)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return the number of (actually stored) nodes of the hash table, namely the hash table length.
   !---------------------------------------------------------------------------------------------------------------------------------
-  type(hash_table), intent(in) :: self   !< The hash table.
-  integer(I4P)                 :: length !< The hash table length.
+  type(hash_table), intent(in)           :: self   !< The hash table.
+  logical,          intent(in), optional :: global !< Check the global values on all CAF images rather only on the local image.
+  integer(I4P)                           :: length !< The hash table length.
+#ifdef CAF
+  integer(I4P)                           :: i      !< Counter.
+#endif
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  length = self%nodes_number
+#ifdef CAF
+  length = 0
+  if (self%is_initialized_) then
+    length = self%nodes_number_
+    if (present(global)) then
+      if (global.and.self%images_number>1) then
+        if (self%images_number>1) then
+          do i=1, self%images_number
+            if (self%me==i) cycle
+            length = length + self%nodes_number_[i] ! blocking "get"
+          enddo
+        endif
+      endif
+    endif
+  endif
+#else
+    length = self%nodes_number_
+#endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction hash_table_len
 
@@ -107,10 +130,10 @@ contains
   if (.not.self%is_initialized_) call self%initialize ! initialize the table with default options
   call self%check_type(key=key, content=content)
   call self%get_bucket_image_indexes(key=key, bucket=b, image=i)
-  if (i==self%me) then
+  if (b>0.and.i==self%me) then
     bucket_length = len(self%bucket(b))
     call self%bucket(b)%add_pointer(key=key, content=content)
-    self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
+    self%nodes_number_ = self%nodes_number_ + (len(self%bucket(b)) - bucket_length)
     self%ids_(1:2, b) = self%bucket(b)%ids()
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -138,10 +161,10 @@ contains
   if (.not.self%is_initialized_) call self%initialize ! initialize the table with default options
   call self%check_type(key=key, content=content)
   call self%get_bucket_image_indexes(key=key, bucket=b, image=i)
-  if (i==self%me) then
+  if (b>0.and.i==self%me) then
     bucket_length = len(self%bucket(b))
     call self%bucket(b)%add_clone(key=key, content=content)
-    self%nodes_number = self%nodes_number + (len(self%bucket(b)) - bucket_length)
+    self%nodes_number_ = self%nodes_number_ + (len(self%bucket(b)) - bucket_length)
     self%ids_(1:2, b) = self%bucket(b)%ids()
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -162,11 +185,15 @@ contains
     enddo
     deallocate(self%bucket)
   endif
+  if (allocated(self%ids_)) deallocate(self%ids_)
+#ifdef CAF
+  if (allocated(self%nodes_number_)) deallocate(self%nodes_number_)
+#else
+  self%nodes_number_ = 0_I4P
+#endif
   self%me = 0
   self%images_number = 0
   self%buckets_number = 0_I4P
-  self%nodes_number = 0_I4P
-  if (allocated(self%ids_)) deallocate(self%ids_)
   self%is_homogeneous_ = .false.
   self%is_initialized_ = .false.
   if (allocated(self%typeguard_key)) then
@@ -199,20 +226,18 @@ contains
   class(*), allocatable, intent(out) :: content !< Content of the queried node.
   integer(I4P)                       :: b       !< Bucket index.
   integer(I4P)                       :: i       !< Image index.
-#ifdef CAF
-  type(dictionary)                   :: bucket  !< Local copy of queried bucket.
-#endif
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   if (self%is_initialized_) then
     call self%get_bucket_image_indexes(key=key, bucket=b, image=i)
+    if (b>0) then
 #ifdef CAF
-    bucket = self%bucket(b)[i]
-    call bucket%get_clone(key=key, content=content)
+      call dictionary_get_clone(self%bucket(b)[i], key=key, content=content)
 #else
-    call self%bucket(b)%get_clone(key=key, content=content)
+      call self%bucket(b)%get_clone(key=key, content=content)
 #endif
+    endif
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine get_clone
@@ -235,7 +260,7 @@ contains
   content => null()
   if (self%is_initialized_) then
     call self%get_bucket_image_indexes(key=key, bucket=b, image=i)
-    if (i==self%me) then
+    if (b>0.and.i==self%me) then
       content => self%bucket(b)%get_pointer(key=key)
     endif
   endif
@@ -257,27 +282,47 @@ contains
   has_key = .false.
   if (self%is_initialized_) then
     call self%get_bucket_image_indexes(key=key, bucket=b, image=i)
-    if (i==self%me) then
+    if (b>0.and.i==self%me) then
       has_key = self%bucket(b)%has_key(key=key)
     endif
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction has_key
 
-  pure function ids(self)
+  pure function ids(self, global)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Return the minimum and maximum unique key id values actually stored.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(hash_table), intent(in)  :: self     !< The hash table.
-  integer(I8P)                   :: ids(1:2) !< Minimum and maximum id values actually stored.
-  integer(I4P)                   :: b        !< Bucket index, namely hashed key.
+  class(hash_table), intent(in)           :: self     !< The hash table.
+  logical,           intent(in), optional :: global   !< Check the global values on all CAF images rather only on the local image.
+  integer(I8P)                            :: ids(1:2) !< Minimum and maximum id values actually stored.
+  integer(I4P)                            :: b        !< Bucket index, namely hashed key.
+#ifdef CAF
+  integer(I4P)                            :: i        !< Counter.
+#else
+#endif
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   ids = [huge(1_I8P), -huge(1_I8P)]
-  do b=1, self%buckets_number
-    if (len(self%bucket(b))>0) ids = [min(ids(1), self%ids_(1,b)), max(ids(2), self%ids_(2,b))]
-  enddo
+  if (self%is_initialized_) then
+    if (present(global)) then
+      if (global.and.self%images_number>1) then
+#ifdef CAF
+        do i=1, self%images_number
+          do b=1, self%buckets_number
+            if (len(self%bucket(b)[i])>0) ids = [min(ids(1), self%ids_(1,b)[i]), max(ids(2), self%ids_(2,b)[i])]
+          enddo
+        enddo
+#endif
+      endif
+    else
+      do b=1, self%buckets_number
+        if (len(self%bucket(b))>0) ids = [min(ids(1), self%ids_(1,b)), max(ids(2), self%ids_(2,b))]
+      enddo
+    endif
+  endif
+  if (ids(1)>ids(2)) ids = 0 ! nullify IDs in case of empty buckets
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction ids
 
@@ -360,8 +405,9 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   if (self%is_initialized_) then
     call self%get_bucket_image_indexes(key=key, bucket=b, image=i)
-    if (i==self%me) then
+    if (b>0.and.i==self%me) then
       call self%bucket(b)%remove(key=key)
+      self%nodes_number_ = self%nodes_number_ - 1
       self%ids_(1:2, b) = self%bucket(b)%ids()
     endif
   endif
@@ -396,16 +442,22 @@ contains
   class(hash_table), intent(inout)        :: self              !< The hash table.
   class(*),          intent(in), optional :: typeguard_key     !< Key type guard (mold) for homogeneous keys check.
   class(*),          intent(in), optional :: typeguard_content !< content type guard (mold) for homogeneous contents check.
+  integer(I4P)                            :: b                 !< Bucket index, namely hashed key.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
 #ifdef CAF
   allocate(self%bucket(1:self%buckets_number)[*])
+  allocate(self%ids_(1:2,1:self%buckets_number)[*])
+  allocate(self%nodes_number_[*])
 #else
   allocate(self%bucket(1:self%buckets_number))
-#endif
   allocate(self%ids_(1:2,1:self%buckets_number))
-  self%ids_ = 0
+#endif
+  do b=1, self%buckets_number
+    self%ids_(1:2, b) = [huge(1_I8P), -huge(1_I8P)]
+  enddo
+  self%nodes_number_ = 0
   if (present(typeguard_key)) allocate(self%typeguard_key, mold=typeguard_key)
   if (present(typeguard_content)) allocate(self%typeguard_content, mold=typeguard_content)
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -442,20 +494,17 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Get the bucket and image indexes corresponding to the given key.
   !---------------------------------------------------------------------------------------------------------------------------------
-  class(hash_table), intent(in)  :: self   !< The hash table.
-  class(*),          intent(in)  :: key    !< The key.
-  integer(I4P),      intent(out) :: bucket !< Bucket index.
-  integer(I4P),      intent(out) :: image  !< Image index.
+  class(hash_table), intent(in)  :: self            !< The hash table.
+  class(*),          intent(in)  :: key             !< The key.
+  integer(I4P),      intent(out) :: bucket          !< Bucket index.
+  integer(I4P),      intent(out) :: image           !< Image index.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
   bucket = self%hash(key=key)
   image = 1
   if (self%images_number>1) then
-    if (bucket>self%buckets_number) then
-      image = (bucket - 1) / self%buckets_number + 1
-      bucket = bucket - self%buckets_number * (image - 1)
-    endif
+    image = mod(bucket, self%images_number) + 1
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine get_bucket_image_indexes
@@ -473,8 +522,8 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   bucket = 0
   if (self%is_initialized_) then
-    key_ = key_base(key=key, buckets_number=self%buckets_number*self%images_number)
-    bucket = key_%hash(buckets_number=self%buckets_number*self%images_number)
+    key_ = key_base(key=key, buckets_number=self%buckets_number)
+    bucket = key_%hash(buckets_number=self%buckets_number)
   endif
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction hash
