@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.1% of total for procedures.</p>Including implementation: 8 statements,  0.4% of total for procedures.">3 statements</a>
+	  title="<p> 0.1% of total for procedures.</p>Including implementation: 24 statements,  1.1% of total for procedures.">3 statements</a>
      </li> 
      
      
@@ -731,7 +731,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-hash_table_len"></span><h3>
-private elemental function <a href='../proc/hash_table_len.html'>hash_table_len</a>(self) result(length)
+private elemental function <a href='../proc/hash_table_len.html'>hash_table_len</a>(self, global) result(length)
     
     
 	 
@@ -773,6 +773,21 @@ private elemental function <a href='../proc/hash_table_len.html'>hash_table_len<
   
   <td></td><td>::</td>
   <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>global</strong></td><td><p>Check the global values on all CAF images rather only on the local image.</p></td>
   
 </tr>
 

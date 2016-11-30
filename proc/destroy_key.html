@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.6% of total for procedures.">12 statements</a>
+	  title=" 0.3% of total for procedures.">7 statements</a>
      </li> 
      
      
@@ -685,12 +685,7 @@ private subroutine destroy_key(self)
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">key</span><span class="p">))</span> <span class="k">then</span>
-<span class="k">    associate</span><span class="p">(</span><span class="n">key</span><span class="o">=&gt;</span><span class="n">self</span><span class="p">%</span><span class="n">key</span><span class="p">)</span>
-      <span class="k">select type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-      <span class="k">class is</span><span class="p">(</span><span class="n">key_base</span><span class="p">)</span>
-        <span class="k">call </span><span class="n">key</span><span class="p">%</span><span class="n">destroy</span>
-      <span class="n">endselect</span>
-    <span class="n">endassociate</span>
+<span class="k">    call </span><span class="n">self</span><span class="p">%</span><span class="n">key</span><span class="p">%</span><span class="n">destroy</span>
     <span class="k">deallocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">key</span><span class="p">)</span>
   <span class="n">endif</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>

@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.6% of total for procedures.">35 statements</a>
+	  title=" 1.6% of total for procedures.">36 statements</a>
      </li> 
      
      
@@ -691,11 +691,15 @@ private subroutine destroy(self)
     <span class="n">enddo</span>
     <span class="k">deallocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">bucket</span><span class="p">)</span>
   <span class="n">endif</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">ids_</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">ids_</span><span class="p">)</span>
+<span class="cp">#ifdef CAF</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">nodes_number_</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">nodes_number_</span><span class="p">)</span>
+<span class="cp">#else</span>
+  <span class="n">self</span><span class="p">%</span><span class="n">nodes_number_</span> <span class="o">=</span> <span class="mi">0_I4P</span>
+<span class="cp">#endif</span>
   <span class="n">self</span><span class="p">%</span><span class="n">me</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">self</span><span class="p">%</span><span class="n">images_number</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">self</span><span class="p">%</span><span class="n">buckets_number</span> <span class="o">=</span> <span class="mi">0_I4P</span>
-  <span class="n">self</span><span class="p">%</span><span class="n">nodes_number</span> <span class="o">=</span> <span class="mi">0_I4P</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">ids_</span><span class="p">))</span> <span class="k">deallocate</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">ids_</span><span class="p">)</span>
   <span class="n">self</span><span class="p">%</span><span class="n">is_homogeneous_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
   <span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span> <span class="o">=</span> <span class="p">.</span><span class="n">false</span><span class="p">.</span>
   <span class="k">if</span> <span class="p">(</span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">typeguard_key</span><span class="p">))</span> <span class="k">then</span>

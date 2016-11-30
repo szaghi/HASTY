@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.2% of total for procedures.">5 statements</a>
+	  title=" 1.0% of total for procedures.">21 statements</a>
      </li> 
      
      
@@ -574,7 +574,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private elemental function hash_table_len(self) result(length)
+private elemental function hash_table_len(self, global) result(length)
     
     
 	 
@@ -611,6 +611,21 @@ private elemental function hash_table_len(self) result(length)
   
   <td></td><td>::</td>
   <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-global"></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>global</strong></td><td><p>Check the global values on all CAF images rather only on the local image.</p></td>
   
 </tr>
 
@@ -786,16 +801,37 @@ private elemental function hash_table_len(self) result(length)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>  <span class="k">elemental function </span><span class="n">hash_table_len</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>  <span class="k">elemental function </span><span class="n">hash_table_len</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">global</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="c">!&lt; Return the number of (actually stored) nodes of the hash table, namely the hash table length.</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="k">type</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">self</span>   <span class="c">!&lt; The hash table.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                 <span class="kd">::</span> <span class="n">length</span> <span class="c">!&lt; The hash table length.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">hash_table</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span>           <span class="kd">::</span> <span class="n">self</span>   <span class="c">!&lt; The hash table.</span>
+  <span class="kt">logical</span><span class="p">,</span>          <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">global</span> <span class="c">!&lt; Check the global values on all CAF images rather only on the local image.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                           <span class="kd">::</span> <span class="n">length</span> <span class="c">!&lt; The hash table length.</span>
+<span class="cp">#ifdef CAF</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                           <span class="kd">::</span> <span class="n">i</span>      <span class="c">!&lt; Counter.</span>
+<span class="cp">#endif</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
 
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
-  <span class="n">length</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">nodes_number</span>
+<span class="cp">#ifdef CAF</span>
+  <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">is_initialized_</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">    </span><span class="n">length</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">nodes_number_</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">global</span><span class="p">))</span> <span class="k">then</span>
+<span class="k">      if</span> <span class="p">(</span><span class="n">global</span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="n">self</span><span class="p">%</span><span class="n">images_number</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">        if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">images_number</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">          do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">self</span><span class="p">%</span><span class="n">images_number</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">me</span><span class="o">==</span><span class="n">i</span><span class="p">)</span> <span class="k">cycle</span>
+<span class="k">            </span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span> <span class="o">+</span> <span class="n">self</span><span class="p">%</span><span class="n">nodes_number_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c">! blocking &quot;get&quot;</span>
+          <span class="n">enddo</span>
+        <span class="n">endif</span>
+      <span class="n">endif</span>
+    <span class="n">endif</span>
+  <span class="n">endif</span>
+<span class="cp">#else</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="n">self</span><span class="p">%</span><span class="n">nodes_number_</span>
+<span class="cp">#endif</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="n">endfunction</span> <span class="n">hash_table_len</span>
 </pre></div>

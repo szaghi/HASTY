@@ -722,7 +722,7 @@ subroutine print_content_iterator(key, content, done)
       <span class="k">select type</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
       <span class="k">type is</span><span class="p">(</span><span class="n">key_base</span><span class="p">)</span>
 <span class="cp">#ifdef CAF</span>
-        <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s1">&#39;image: &#39;</span><span class="p">,</span> <span class="nb">this_image</span><span class="p">(),</span> <span class="s1">&#39;key: &#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">%</span><span class="n">stringify</span><span class="p">(),</span> <span class="s1">&#39; content: &#39;</span><span class="p">,</span> <span class="n">content</span>
+        <span class="k">write</span><span class="p">(</span><span class="n">error_unit</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s1">&#39;  image: &#39;</span><span class="p">,</span> <span class="nb">this_image</span><span class="p">(),</span> <span class="s1">&#39;key: &#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">%</span><span class="n">stringify</span><span class="p">(),</span> <span class="s1">&#39; content: &#39;</span><span class="p">,</span> <span class="n">content</span>
 <span class="cp">#endif</span>
       <span class="n">endselect</span>
     <span class="n">endselect</span>

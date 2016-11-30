@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>24.2% of total for derived types.</p>Including implementation: 302 statements, 16.7% of total for derived types.">37 statements</a>
+	  title="<p>25.0% of total for derived types.</p>Including implementation: 318 statements, 17.5% of total for derived types.">39 statements</a>
      </li> 
      
      
@@ -160,17 +160,21 @@
       
       <a class="list-group-item" href="../type/hash_table.html#variable-bucket">bucket</a>
       
+      <a class="list-group-item" href="../type/hash_table.html#variable-ids_%7E2">ids_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number_">nodes_number_</a>
+      
       <a class="list-group-item" href="../type/hash_table.html#variable-bucket%7E2">bucket</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-ids_%7E3">ids_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number_%7E2">nodes_number_</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-me">me</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-images_number">images_number</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-buckets_number">buckets_number</a>
-      
-      <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number%7E2">nodes_number</a>
-      
-      <a class="list-group-item" href="../type/hash_table.html#variable-ids_%7E2">ids_</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-is_homogeneous_">is_homogeneous_</a>
       
@@ -435,17 +439,21 @@
       
       <a class="list-group-item" href="../type/hash_table.html#variable-bucket">bucket</a>
       
+      <a class="list-group-item" href="../type/hash_table.html#variable-ids_%7E2">ids_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number_">nodes_number_</a>
+      
       <a class="list-group-item" href="../type/hash_table.html#variable-bucket%7E2">bucket</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-ids_%7E3">ids_</a>
+      
+      <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number_%7E2">nodes_number_</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-me">me</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-images_number">images_number</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-buckets_number">buckets_number</a>
-      
-      <a class="list-group-item" href="../type/hash_table.html#variable-nodes_number%7E2">nodes_number</a>
-      
-      <a class="list-group-item" href="../type/hash_table.html#variable-ids_%7E2">ids_</a>
       
       <a class="list-group-item" href="../type/hash_table.html#variable-is_homogeneous_">is_homogeneous_</a>
       
@@ -583,11 +591,67 @@
   
 <tr>
   
+  <td><span class="anchor" id="variable-ids_%7E2"></span>integer(kind=I8P),</td>
+  
+  <td>private,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>ids_</strong>(:,:)[:]</td><td></td><td></td><td><p>Minimum and maximum id values actually stored into each bucket.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nodes_number_"></span>integer(kind=I4P),</td>
+  
+  <td>private,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>nodes_number_</strong>[:]</td><td></td><td></td><td><p>Number of nodes actually stored, namely the hash table length.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
   <td><span class="anchor" id="variable-bucket%7E2"></span>type(<a href='../type/dictionary.html'>dictionary</a>),</td>
   
   <td>private,</td>
   <td>allocatable</td><td>::</td>
   <td><strong>bucket</strong>(:)</td><td></td><td></td><td><p>Hash table buckets.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ids_%7E3"></span>integer(kind=I8P),</td>
+  
+  <td>private,</td>
+  <td>allocatable</td><td>::</td>
+  <td><strong>ids_</strong>(:,:)</td><td></td><td></td><td><p>Minimum and maximum id values actually stored into each bucket.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-nodes_number_%7E2"></span>integer(kind=I4P),</td>
+  
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>nodes_number_</strong></td><td> =</td><td>0_I4P</td><td><p>Number of nodes actually stored, namely the hash table length.</p></td>
   
 </tr>
 
@@ -630,34 +694,6 @@
   <td>private</td>
   <td></td><td>::</td>
   <td><strong>buckets_number</strong></td><td> =</td><td>0_I4P</td><td><p>Number of buckets used.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-nodes_number%7E2"></span>integer(kind=I4P),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>nodes_number</strong></td><td> =</td><td>0_I4P</td><td><p>Number of nodes actually stored, namely the hash table length.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-ids_%7E2"></span>integer(kind=I8P),</td>
-  
-  <td>private,</td>
-  <td>allocatable</td><td>::</td>
-  <td><strong>ids_</strong>(:,:)</td><td></td><td></td><td><p>Minimum and maximum id values actually stored into each bucket.</p></td>
   
 </tr>
 
@@ -1119,7 +1155,7 @@ private subroutine <a href='../proc/destroy%7E3.html'>destroy</a>(self)
          
     
     <h3>
-private subroutine <a href='../proc/get_clone%7E2.html'>get_clone</a>(self, key, content)
+public subroutine <a href='../proc/get_clone.html'>get_clone</a>(self, key, content)
     
     
 	 
@@ -1132,7 +1168,7 @@ private subroutine <a href='../proc/get_clone%7E2.html'>get_clone</a>(self, key,
 
 
 
-<p>Return a node's content in the hash table by cloning.</p>
+<p>Return a node's content by cloning.</p>
     
     <h4>Arguments</h4>
     
@@ -1153,12 +1189,12 @@ private subroutine <a href='../proc/get_clone%7E2.html'>get_clone</a>(self, key,
   
 <tr>
   
-  <td><span class="anchor" ></span>class(<a href='../type/hash_table.html'>hash_table</a>),</td>
+  <td><span class="anchor" ></span>class(<a href='../type/dictionary.html'>dictionary</a>),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  <td><strong>self</strong></td><td><p>The dictionary.</p></td>
   
 </tr>
 
@@ -1428,7 +1464,7 @@ private function <a href='../proc/has_key%7E3.html'>has_key</a>(self, key)
          
     
     <h3>
-private pure function <a href='../proc/ids%7E2.html'>ids</a>(self)
+private pure function <a href='../proc/ids%7E2.html'>ids</a>(self, global)
     
     
 	 
@@ -1468,6 +1504,21 @@ private pure function <a href='../proc/ids%7E2.html'>ids</a>(self)
   
   <td></td><td>::</td>
   <td><strong>self</strong></td><td><p>The hash table.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>global</strong></td><td><p>Check the global values on all CAF images rather only on the local image.</p></td>
   
 </tr>
 
@@ -2880,14 +2931,16 @@ private subroutine <a href='../proc/synchronize_images.html'>synchronize_images<
   <span class="k">private</span>
 <span class="cp">#ifdef CAF</span>
   <span class="k">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">bucket</span><span class="p">(:)[:]</span>            <span class="c">!&lt; Hash table buckets.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I8P</span><span class="p">),</span>     <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ids_</span><span class="p">(:,:)[:]</span>            <span class="c">!&lt; Minimum and maximum id values actually stored into each bucket.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">),</span>     <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">nodes_number_</span><span class="p">[:]</span>        <span class="c">!&lt; Number of nodes actually stored, namely the hash table length.</span>
 <span class="cp">#else</span>
   <span class="k">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">bucket</span><span class="p">(:)</span>               <span class="c">!&lt; Hash table buckets.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I8P</span><span class="p">),</span>     <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ids_</span><span class="p">(:,:)</span>               <span class="c">!&lt; Minimum and maximum id values actually stored into each bucket.</span>
+  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">nodes_number_</span><span class="o">=</span><span class="mi">0_I4P</span>     <span class="c">!&lt; Number of nodes actually stored, namely the hash table length.</span>
 <span class="cp">#endif</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">me</span><span class="o">=</span><span class="mi">0</span>                    <span class="c">!&lt; Index of current CAF image.</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">images_number</span><span class="o">=</span><span class="mi">0</span>         <span class="c">!&lt; Number of CAF images.</span>
   <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">buckets_number</span><span class="o">=</span><span class="mi">0_I4P</span>    <span class="c">!&lt; Number of buckets used.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I4P</span><span class="p">)</span>                  <span class="kd">::</span> <span class="n">nodes_number</span><span class="o">=</span><span class="mi">0_I4P</span>      <span class="c">!&lt; Number of nodes actually stored, namely the hash table length.</span>
-  <span class="kt">integer</span><span class="p">(</span><span class="n">I8P</span><span class="p">),</span> <span class="k">allocatable</span>     <span class="kd">::</span> <span class="n">ids_</span><span class="p">(:,:)</span>               <span class="c">!&lt; Minimum and maximum id values actually stored into each bucket.</span>
   <span class="kt">logical</span>                       <span class="kd">::</span> <span class="n">is_homogeneous_</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="c">!&lt; Homogeneity status-guardian.</span>
   <span class="kt">logical</span>                       <span class="kd">::</span> <span class="n">is_initialized_</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span> <span class="c">!&lt; Initialization status.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">allocatable</span>         <span class="kd">::</span> <span class="n">typeguard_key</span>           <span class="c">!&lt; Key type guard (mold) for homogeneous keys check.</span>

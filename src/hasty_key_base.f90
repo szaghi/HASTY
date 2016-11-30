@@ -18,6 +18,7 @@ type :: key_base
   !< **Key** class to identify a node.
   !<
   !< It can be extended by user.
+  private
   integer(I8P),     allocatable :: id_       !< Unique key id.
   character(len=:), allocatable :: char_key_ !< Store character key.
   contains
@@ -80,7 +81,7 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   bucket = 0
-  if (allocated(self%id_)) bucket = int(mod(self%id_, int(buckets_number, I8P)), I4P)
+  if (allocated(self%id_)) bucket = int(mod(self%id_, int(buckets_number, I8P)), I4P) + 1
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction hash
 

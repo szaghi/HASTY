@@ -120,7 +120,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>10.5% of total for derived types.</p>Including implementation: 94 statements,  5.2% of total for derived types.">16 statements</a>
+	  title="<p>10.3% of total for derived types.</p>Including implementation: 89 statements,  4.9% of total for derived types.">16 statements</a>
      </li> 
      
      
@@ -377,7 +377,7 @@
 <text text-anchor="middle" x="44" y="-10.55" font-family="Helvetica,sans-Serif" font-size="10.50">dictionary_node</text>
 </g>
 <!-- type~dictionary_node&#45;&gt;type~dictionary_node -->
-<g id="edge4" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary_node</title>
+<g id="edge6" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary_node</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M30.1265,-26.0602C25.9224,-35.0996 30.5469,-44 44,-44 52.198,-44 57.1176,-40.6949 58.7588,-36.0674"/>
 <polygon fill="#000000" stroke="#000000" points="62.2412,-35.7128 57.8735,-26.0602 55.2684,-36.3297 62.2412,-35.7128"/>
 <text text-anchor="middle" x="44" y="-48.45" font-family="Helvetica,sans-Serif" font-size="9.50">next, previous</text>
@@ -390,7 +390,7 @@
 </a>
 </g>
 <!-- type~dictionary_node&#45;&gt;type~dictionary -->
-<g id="edge6" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary</title>
+<g id="edge4" class="edge"><title>type~dictionary_node&#45;&gt;type~dictionary</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M88.3015,-13C109.048,-13 133.555,-13 153.641,-13"/>
 <polygon fill="#000000" stroke="#000000" points="153.699,-16.5001 163.699,-13 153.699,-9.5001 153.699,-16.5001"/>
 <text text-anchor="middle" x="126" y="-17.45" font-family="Helvetica,sans-Serif" font-size="9.50">head, tail</text>
@@ -565,7 +565,7 @@
   
 <tr>
   
-  <td><span class="anchor" id="variable-key"></span>class(<a href='../type/key_base.html'>key_base</a>),</td>
+  <td><span class="anchor" id="variable-key"></span>type(<a href='../type/key_base.html'>key_base</a>),</td>
   
   <td>public,</td>
   <td>allocatable</td><td>::</td>
@@ -1449,7 +1449,7 @@ private subroutine <a href='../proc/destroy_content.html'>destroy_content</a>(se
   <span class="c">!&lt; **Dictionary node** class to storage any contents by means of generic key/content pairs.</span>
   <span class="c">!&lt;</span>
   <span class="c">!&lt; @note The `next/previous` members of this class are public because they can be safely handled by the [[dictionary]] class.</span>
-  <span class="k">class</span><span class="p">(</span><span class="n">key_base</span><span class="p">),</span>       <span class="k">allocatable</span><span class="p">,</span> <span class="k">public</span>  <span class="kd">::</span> <span class="n">key</span>              <span class="c">!&lt; The key.</span>
+  <span class="k">type</span><span class="p">(</span><span class="n">key_base</span><span class="p">),</span>        <span class="k">allocatable</span><span class="p">,</span> <span class="k">public</span>  <span class="kd">::</span> <span class="n">key</span>              <span class="c">!&lt; The key.</span>
   <span class="k">class</span><span class="p">(</span><span class="o">*</span><span class="p">),</span>              <span class="k">pointer</span><span class="p">,</span>     <span class="k">private</span> <span class="kd">::</span> <span class="n">content_</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; The generic content.</span>
   <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span>     <span class="k">public</span>  <span class="kd">::</span> <span class="n">next</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span>     <span class="c">!&lt; The next node in the dictionary.</span>
   <span class="k">type</span><span class="p">(</span><span class="n">dictionary_node</span><span class="p">),</span> <span class="k">pointer</span><span class="p">,</span>     <span class="k">public</span>  <span class="kd">::</span> <span class="n">previous</span><span class="o">=&gt;</span><span class="nb">null</span><span class="p">()</span> <span class="c">!&lt; The previous node in the dictionary.</span>
