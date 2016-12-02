@@ -97,7 +97,6 @@ contains
   endfunction dictionary_len
 
   ! public methods
-
   subroutine add_pointer(self, key, content, buckets_number)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Add a node pointer to the dictionary.
@@ -176,7 +175,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine add_clone
 
-  subroutine destroy(self)
+  elemental subroutine destroy(self)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Destroy the dictionary.
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -529,7 +528,7 @@ contains
   endsubroutine traverse_iterator
 
   ! finalizer
-  subroutine finalize(self)
+  elemental subroutine finalize(self)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Finalize the dictionary.
   !<
