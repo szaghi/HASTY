@@ -17,12 +17,11 @@ call a_table%initialize(buckets_number=4, use_prime=.true.)
 
 #ifdef CAF
 
-call a_table%add_clone(key=3_int32, content=int(this_image(), int32))
-
-critical
-call a_table%get_clone(key=3_int32, content=a_new_content)
-end critical
 sync all
+call a_table%add_clone(key=3_int32, content=int(this_image(), int32))
+sync all
+
+if (this_image()==2) call a_table%get_clone(key=3_int32, content=a_new_content)
 
 #endif
 !-----------------------------------------------------------------------------------------------------------------------------------

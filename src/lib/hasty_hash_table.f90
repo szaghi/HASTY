@@ -234,6 +234,7 @@ contains
     if (b>0) then
 #ifdef CAF
       call dictionary_get_clone(self%bucket(b)[i], key=key, content=content)
+      ! call self%bucket(b)[i]%get_clone(key=key, content=content)
 #else
       call self%bucket(b)%get_clone(key=key, content=content)
 #endif
