@@ -170,7 +170,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine add_clone
 
-  subroutine destroy(self)
+  elemental subroutine destroy(self)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Destroy the hash table.
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -234,6 +234,7 @@ contains
     if (b>0) then
 #ifdef CAF
       call dictionary_get_clone(self%bucket(b)[i], key=key, content=content)
+      ! call self%bucket(b)[i]%get_clone(key=key, content=content)
 #else
       call self%bucket(b)%get_clone(key=key, content=content)
 #endif
@@ -594,7 +595,7 @@ contains
   endsubroutine synchronize_images
 
   ! finalizer
-  subroutine finalize(self)
+  elemental subroutine finalize(self)
   !---------------------------------------------------------------------------------------------------------------------------------
   !< Finalize the hash table.
   !<

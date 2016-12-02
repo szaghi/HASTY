@@ -124,12 +124,12 @@
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/hasty_hash_table.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/hasty_hash_table.F90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/hasty_hash_table.f90.html'>hasty_hash_table.f90</a></li>
+     <li><a href='../sourcefile/hasty_hash_table.f90.html'>hasty_hash_table.F90</a></li>
   
      <li><a href='../module/hasty_hash_table.html'>hasty_hash_table</a></li>
   
@@ -459,6 +459,8 @@
       
       <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
       
+      <a class="list-group-item" href="../proc/print_content_iterator%7E2.html">print_content_iterator</a>
+      
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
       <a class="list-group-item" href="../proc/print_keys%7E2.html">print_keys</a>
@@ -574,7 +576,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-private subroutine finalize(self)
+private elemental subroutine finalize(self)
     
     
 	 
@@ -677,7 +679,7 @@ private subroutine finalize(self)
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span>  <span class="k">subroutine </span><span class="n">finalize</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+    <div class="highlight"><pre><span></span>  <span class="k">elemental subroutine </span><span class="n">finalize</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
   <span class="c">!---------------------------------------------------------------------------------------------------------------------------------</span>
   <span class="c">!&lt; Finalize the hash table.</span>
   <span class="c">!&lt;</span>
@@ -979,6 +981,8 @@ private subroutine finalize(self)
       <a class="list-group-item" href="../proc/print.html">print</a>
       
       <a class="list-group-item" href="../proc/print_content_iterator.html">print_content_iterator</a>
+      
+      <a class="list-group-item" href="../proc/print_content_iterator%7E2.html">print_content_iterator</a>
       
       <a class="list-group-item" href="../proc/print_keys.html">print_keys</a>
       
