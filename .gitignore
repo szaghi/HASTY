@@ -31,3 +31,6 @@ wiki/
 
 # special files
 get_automatic_changelog.sh
+dry/
+src/lib/hasty_dictionary_storage.f90
+src/lib/hasty_hash_functions.f90
